@@ -1,93 +1,92 @@
-# AGENTS.md
+# AGENTS.md — Apex Podcast Co Website
 
-> This is a TEMPLATE. Each child repo (`<client>-website`) overrides the **Who this site is for** section with the client's specific brand archetype and ICP summary. The rest of the file stays consistent.
+> Child repo built from `brettkmoore-sites/nextjs-site-template`. The Apex-specific brand layer overrides the template's "Who this site is for" section. Most other conventions inherit from the template's AGENTS.md.
 
-You are a Claude agent contributing to a website built from `brettkmoore/site-template`.
+You are a Claude agent contributing to the Apex Podcast Co website.
+
+## Repo-org note (read this first)
+
+This repo lives under **`brettkmoore-sites/`** as of launch, even though Apex Podcast Co is a 50/50 joint venture between **Brett Moore** and **Randy Highsmith**. The repo is here for speed-of-launch reasons — Brett's existing site template, CI access, and Vercel project are all already wired up in this org.
+
+**Open question to revisit post-launch:** transfer this repo into a dedicated `apex-podcast-co` GitHub org so Randy has equal admin standing. Until then, treat this as Apex's repo, owned 50/50 by the partnership.
 
 ## Who this site is for
 
-> Replace this section in each child repo with the client's specifics:
-> - One-sentence brand archetype + customer summary
-> - Pointer to `/research/ICP.md` for the five customer personas
-> - Pointer to `/research/BRAND.md` for voice rules + the founder's three operating rules
-> - Pointer to `/content/brief/DESIGN-DIRECTION.md` for the visual system
+Apex Podcast Co's clients are **senior eXp Realty leaders and adjacent operator-coaches** who already have networks most agencies would kill for and need a production team that turns those relationships into pipeline.
+
+Anchor personas:
+- **Austin Cheviron** — eXp Instructor of the Year, author of *The Money Puzzle*, runs Cheviron Coaching
+- **Russ Laggan** — VP of Training at eXp Realty, author of *Be Followable*, runs two podcasts
+- **Randy Highsmith** — Apex co-founder, runs his own podcast through the same system
+
+Expansion ICPs (next 6–12 months):
+- eXp Luxury Division (high-trust, high-AOV)
+- eXp Professional Sports Division (Apex has structural sports network advantage)
 
 ## What this site is built on
 
-- Next.js 16 App Router · TypeScript · Tailwind v4 · shadcn/ui · framer-motion
-- Server Components by default; client components only where interactive
-- MDX blog posts with gray-matter frontmatter, rendered via remark
-- next/font/local for self-hosted brand fonts
-- Vercel hosting, preview deploys per PR
+- Next.js 16 App Router · TypeScript · Tailwind v4 (`@theme` in `src/app/globals.css`, no `tailwind.config.ts`)
+- `next/font/google` — Manrope (body), Antonio (display uppercase), Inter (UI)
+- Apex tokens: dark BG (`#131416`), off-white FG (`#eeeeee`), single orange accent (`#ff5a1c`)
+- Server Components by default; client components only where interactive (header nav, apply form)
+- All shared components in `src/components/`. Site config in `src/lib/site-config.ts`.
 
 ## Where to look first
 
 | Question                       | Look in                                     |
 |--------------------------------|---------------------------------------------|
-| Customer voice / who's reading | `/research/ICP.md`                          |
-| Brand voice rules / archetype  | `/research/BRAND.md`                        |
-| Visual system / design tokens  | `/content/brief/DESIGN-DIRECTION.md` + `/src/app/globals.css` |
-| Page copy                      | `/content/brief/<page>-COPY.md`             |
-| Blog patterns / examples       | `/content/blog/*.mdx` + the playbook        |
-| Local SEO / map pack           | `/research/MAP-PACK.md` + `/research/KEYWORDS.md` |
-| Methodology / framework        | `PLAYBOOK.md` (root)                        |
-| Operations / contributors      | `CLIENT-REPO-SYSTEM.md` (root)              |
+| Brand voice + ICP context      | `/Users/brett/Documents/Claude/Projects/Apex Podcast Co/` (Cowork project) |
+| PREPP framework definition     | Same Cowork project → `framework/PREPP.md`  |
+| Pricing rationale              | Same Cowork project → `pricing/`            |
+| Site blueprint (IA + copy)     | Same Cowork project → `website-rebuild/site-blueprint.md` |
+| Design tokens                  | `src/app/globals.css` (`@theme` block)      |
+| Site config (name, URL, etc.)  | `src/lib/site-config.ts`                    |
+| Shared components              | `src/components/`                           |
 
-## How to contribute
+The single source of truth for strategic copy decisions is the Apex Podcast Co Cowork project, not this repo's README. If a page needs new copy direction, read the relevant blueprint section first.
 
-1. **Branch naming** (see also `/CONTRIBUTING.md`):
-   - `research/<topic>` — research/market doc edits
-   - `content/blog/<slug>` — new blog posts
-   - `content/social/<slug>` — social-script PRs
-   - `content/locations/<city>` — new map-pack location pages
-   - `feat/<scope>` — new code features
-   - `fix/<scope>` — code fixes
-   - `chore/<scope>` — non-code maintenance
+## Voice rules (Apex-specific overrides)
 
-2. **Open a PR** using the template at `.github/pull_request_template.md`. Include:
-   - One-sentence WHAT
-   - One-sentence WHY
-   - Author archetype checkbox
-   - ICP / brand-rule check
+The Apex voice is **decisive, strategic, anti-commodity, and pipeline-focused.** Avoid:
 
-3. **CODEOWNERS auto-routes review** to the right person. Don't merge your own PRs.
+- "We help businesses with their podcasts!" generic-agency language
+- "Premium / white-glove / amplify your authority / legacy" — old positioning
+- Feature-lists in headlines (mics, video, transcripts as the lead)
 
-4. **Vercel posts a preview link** on every PR within ~90 seconds. Use it to verify visually before requesting review.
+Lean into:
 
-## What NOT to do
+- "Pipeline / relationship / system / network / conversation / deal flow"
+- Naming specific people (Austin, Russ, Randy) and platforms (eXp, Riverside)
+- The "operating system" framing — Apex sells an OS, not editing hours
+- "We activate YOUR network" — the client's relationships are the foundation; Apex's network is a multiplier, not the front door
 
-- Don't commit secrets — use Vercel env vars, never `.env` files in the repo
-- Don't push directly to `main` — branch protection will reject
-- Don't introduce new dependencies without justification in the PR description
-- Don't change the brand voice without first updating `/research/BRAND.md` and getting approval
-- Don't add tracking pixels or third-party scripts without a PR review
-- Don't touch `/research/ICP.md` or `/research/BRAND.md` without owner sign-off — they're the spine
-- Don't use placeholder copy (`Lorem ipsum`, "your brand here") in committed files — write real copy or skip the section
+When in doubt: re-read the manifesto page (`/podcast-content-os`). That page is the voice north star.
 
-## Voice rules (override per client)
+## Open TODOs for Brett + Randy
 
-Replace this block in each child repo with the client's specific voice rules from `/research/BRAND.md`. General rules that apply to every client:
+These are flagged inline in the code with `[NEEDS DATA: …]` / `[NEEDS HEADSHOT: …]` etc.:
 
-- **Specific > vague.** Real numbers, real names, real dates beat "trusted" / "leading" / "premier."
-- **Named > anonymous.** Cite specific clients, athletes, properties, events (with consent).
-- **One CTA per section.** Never compete with yourself in the same fold.
-- **Honor effort.** Earn boldness with receipts. Don't be confident without evidence.
-- **Mobile first.** 70%+ of traffic is mobile for owner-operator services. Design and copy mobile-first, not "responsive."
+- **Real case study metrics** — Austin + Russ + Randy outcomes (downloads, pipeline, attribution)
+- **Headshots** — Brett + Randy (square + landscape)
+- **Episode embeds + clips** on case study pages
+- **OG image** — currently auto-generated via `src/app/opengraph-image.tsx`; replace with branded version when ready
+- **Apps Script webhook** for the Apply form — wire `NEXT_PUBLIC_APPS_SCRIPT_WEBHOOK_URL` env var (same pattern as Burien Best Care Home site)
+- **Vercel project** — Brett to connect, set env vars, link `apexpodcast.co` domain
+- **DNS swap** — cut over from current WordPress site to Vercel deployment
+- **eXp brand permission** — confirm with Russ whether the eXp logo can appear on case study pages
+- **Skool community link** — verify URL in footer/site-config (currently `apex-podcast-network-4574`)
 
-## Performance + accessibility floors (locked, every site)
+## Performance + accessibility floors
+
+Inherited from the template — non-negotiable on every shipped page:
 
 - LCP < 2.0s · FCP < 1.2s · CLS < 0.1 · TBT < 200ms
 - First-load JS < 200KB
-- WCAG 2.2 AA throughout (contrast, keyboard nav, screen reader, reduced motion, semantic HTML, focus states)
-- All `<img>` via `next/image` with explicit width/height + alt text
-- All forms via react-hook-form + zod with accessible error messages
-- Phone numbers as `tel:` links
-- 44×44 minimum tap targets on mobile
-
-<!-- BEGIN:nextjs-agent-rules -->
-This Next.js may have breaking changes — APIs, conventions, and file structure may differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+- WCAG 2.2 AA throughout
+- All images via `next/image` with explicit dimensions + alt
+- All forms via accessible patterns (the Apply form uses native HTML5 + a11y labels)
+- `tel:` links for phone numbers; 44×44 minimum tap targets
 
 ---
 
-*Template. Customize per client. The structure stays. The brand voice changes.*
+*Apex Podcast Co. A 50/50 partnership between Brett Moore + Randy Highsmith. Built for the leaders who use conversations to build business.*

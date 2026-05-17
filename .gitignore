@@ -36,3 +36,6 @@ coverage/
 # IDE
 .idea/
 .vscode/
+
+# Claude Code local dev config
+.claude/

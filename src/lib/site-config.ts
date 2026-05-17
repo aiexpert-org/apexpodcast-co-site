@@ -1,53 +1,79 @@
 /**
- * Per-deployment site configuration.
+ * Per-deployment site configuration for Apex Podcast Co.
  *
- * Every site spun up from nextjs-site-template should edit this file to set its
- * own name, description, and social links. The production URL is set via the
- * NEXT_PUBLIC_SITE_URL environment variable in Vercel (or .env.local for dev).
- *
- * This single config is the source of truth for:
+ * Single source of truth for:
  *   - metadataBase (resolves absolute URLs for og:image, canonical, etc.)
- *   - openGraph and twitter card metadata (social sharing previews)
+ *   - openGraph and twitter card metadata
  *   - sitemap.xml generation
  *   - robots.txt generation
+ *   - structured data (JSON-LD)
  *
- * Don't sprinkle the site URL around the codebase. Reference siteConfig instead.
+ * Production URL is set via NEXT_PUBLIC_SITE_URL in Vercel.
  */
 
 export const siteConfig = {
-  /** The site's display name. Shown in browser tab, og:site_name, og:title fallback. */
-  name: "Site Template",
+  name: "Apex Podcast Co",
 
-  /** Tagline / meta description. Shown in search results and og:description fallback. */
   description:
-    "A modern, story-led website template for owner-operator service businesses.",
+    "Your podcast should pay for itself in pipeline, not just feel good. We build relationship-driven podcasts for leaders at eXp Realty and beyond.",
 
-  /**
-   * Production URL. Set NEXT_PUBLIC_SITE_URL in Vercel to override.
-   * Falls back to localhost for dev. Must NOT have a trailing slash.
-   */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
+  tagline: "Your podcast should pay for itself in pipeline, not just feel good.",
+
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://apexpodcast.co").replace(
     /\/$/,
     "",
   ),
 
-  /**
-   * Default Open Graph image, relative to /public.
-   * Should be 1200×630 PNG/JPG. Override per-page via per-page metadata.
-   */
   ogImage: "/og-default.png",
 
-  /** Author / brand owner name. Used in <meta name="author"> and structured data. */
-  author: "",
+  author: "Brett Moore & Randy Highsmith",
 
-  /** Optional social links — left blank by default. Fill in per site. */
+  contact: {
+    email: "brett@apexpodcast.co",
+  },
+
+  founders: [
+    { name: "Brett Moore", role: "Head of Business Development" },
+    { name: "Randy Highsmith", role: "Head of Production" },
+  ],
+
   links: {
     twitter: "",
     instagram: "",
     linkedin: "",
     youtube: "",
     tiktok: "",
+    skool: "https://www.skool.com/apex-podcast-network-4574",
   },
+
+  // PREPP framework — the spine of every page that mentions methodology.
+  prepp: [
+    {
+      letter: "P",
+      name: "Plan",
+      tagline: "We map your first 20 guests from your own network.",
+    },
+    {
+      letter: "R",
+      name: "Record",
+      tagline: "We run the conversation so you can run the room.",
+    },
+    {
+      letter: "E",
+      name: "Edit",
+      tagline: "We turn one hour into 30 pieces of distribution.",
+    },
+    {
+      letter: "P",
+      name: "Publish",
+      tagline: "We put your show everywhere it needs to be.",
+    },
+    {
+      letter: "P",
+      name: "Promote",
+      tagline: "We turn each episode into measurable reach and replies.",
+    },
+  ],
 } as const;
 
 export type SiteConfig = typeof siteConfig;
