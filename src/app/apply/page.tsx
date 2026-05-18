@@ -60,8 +60,9 @@ export default function ApplyPage() {
                       Scope + start
                     </strong>
                     <p className="mt-1">
-                      We propose the right tier (Pilot, Flagship, or a la
-                      carte) and we're in production within 2 weeks.
+                      We propose the right path (One Episode + Guest Map, Your
+                      Weekly Show, or a custom scope) and we're in production
+                      within 2 weeks.
                     </p>
                   </li>
                 </ol>
@@ -84,10 +85,10 @@ export default function ApplyPage() {
               <div className="rounded-sm border border-[color:var(--color-accent)] bg-[color:var(--color-background)] p-6">
                 <Eyebrow>Why limited spots</Eyebrow>
                 <p className="mt-3 text-sm text-[color:var(--color-foreground)]/85">
-                  We take 5 Pilot clients per month so Brett or Randy is
-                  personally on every Blueprint, Guest Strategy session, and
-                  recording. Flagship clients start within 2 weeks of
-                  contract.
+                  We take 5 One Episode + Guest Map clients per month so Brett
+                  or Randy is personally on every concept session, Guest
+                  Strategy session, and recording. Your Weekly Show clients
+                  start within 2 weeks of contract.
                 </p>
               </div>
             </aside>

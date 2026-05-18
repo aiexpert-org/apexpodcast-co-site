@@ -34,24 +34,26 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             <article className="rounded-sm border border-[color:var(--color-border)] bg-[color:var(--color-mid)] p-8">
-              <Eyebrow>Co-founder · Head of Business Development</Eyebrow>
+              <Eyebrow>Co-founder · 50/50 partner</Eyebrow>
               <h2 className="mt-3 font-display text-3xl uppercase leading-tight">
                 Brett Moore
               </h2>
               <p className="mt-5 text-[color:var(--color-foreground)]/85 leading-relaxed">
-                Brett runs business development for Apex and operates an
-                adjacent brand-and-website studio (The Brand Spine,
-                brettkmoore.com) that has shipped sites for founders, brokers,
-                and operator-leaders. His instinct for who Apex's right-fit
+                Brett co-founded Apex with Randy and operates an adjacent
+                brand-and-website studio (The Brand Spine, brettkmoore.com)
+                that has shipped sites for founders, brokers, and
+                operator-leaders. His instinct for who Apex's right-fit
                 clients are comes from a decade spent inside those decision
                 rooms — the ones where a brand decides whether the next
                 channel becomes pipeline or noise.
               </p>
               <p className="mt-4 text-[color:var(--color-foreground)]/85 leading-relaxed">
-                At Apex, Brett owns the conversations clients have before the
-                first invoice — Blueprint Sessions, Guest Strategy Sessions,
-                and the way each engagement is scoped so the work actually
-                creates pipeline.
+                Brett also owns <strong>PodcastNetwork.org</strong> separately
+                — a relationship-engine system company that's integrated with
+                Apex (every Apex Your Weekly Show client gets the system
+                installed free as a perk). The IP for the system stays with
+                PodcastNetwork.org; Apex's 50/50 partnership with Randy is
+                scoped to the production-service IP.
               </p>
               <p className="mt-6 text-xs text-[color:var(--color-muted)]">
                 [NEEDS HEADSHOT — square + landscape crops, Brett to provide.]
@@ -59,7 +61,7 @@ export default function AboutPage() {
             </article>
 
             <article className="rounded-sm border border-[color:var(--color-border)] bg-[color:var(--color-mid)] p-8">
-              <Eyebrow>Co-founder · Head of Production</Eyebrow>
+              <Eyebrow>Co-founder · 50/50 partner</Eyebrow>
               <h2 className="mt-3 font-display text-3xl uppercase leading-tight">
                 Randy Highsmith
               </h2>
@@ -68,8 +70,9 @@ export default function AboutPage() {
                 episode — the Riverside captures, the edit pipeline, the clip
                 rollouts, the analytics review. His personal podcast (related
                 to <em>Sweeter After Difficulty</em>) runs on the same Apex
-                system we sell to flagship clients. The PREPP framework was
-                born from Randy's experience shipping production work at scale.
+                production stack we deliver to Your Weekly Show clients. The
+                PREPP framework was born from Randy's experience shipping
+                production work at scale.
               </p>
               <p className="mt-4 text-[color:var(--color-foreground)]/85 leading-relaxed">
                 His relationships inside eXp — particularly through Russ Laggan
@@ -110,10 +113,11 @@ export default function AboutPage() {
                   production — are equally load-bearing.
                 </p>
                 <p>
-                  Apex sells the system, not the hours. That's the line we
-                  refuse to cross, even on the entry tier. If a Pilot doesn't
-                  show you the full system, it's not a Pilot — it's a sample.
-                  Samples don't earn flagship trust.
+                  Apex sells production. PodcastNetwork sells the relationship
+                  system. Bundled in one engagement, free for Apex clients.
+                  That's the line — even on the $997 One Episode + Guest Map
+                  wedge, you see both halves of the value. Samples don't earn
+                  recurring trust; full systems do.
                 </p>
               </div>
             </div>

@@ -136,14 +136,14 @@ export function ApplyForm() {
       />
 
       <FormSelect
-        label="Budget range"
+        label="Which SKU fits where you are?"
         name="budget"
         options={[
           { value: "", label: "Select one" },
-          { value: "pilot", label: "Pilot — $997" },
-          { value: "mid", label: "A la carte — $500–$2,500/mo" },
-          { value: "flagship", label: "Flagship — $4,800/mo" },
-          { value: "custom", label: "Custom / multi-show" },
+          { value: "one-episode", label: "One Episode + Guest Map — $997 one-time" },
+          { value: "weekly-show", label: "Your Weekly Show — $2,997 per 28-day cycle" },
+          { value: "custom", label: "Custom scope / multi-show — quote me" },
+          { value: "not-sure", label: "Not sure yet — help me figure it out" },
         ]}
       />
 

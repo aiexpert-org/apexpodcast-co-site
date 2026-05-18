@@ -16,26 +16,29 @@ export default function HomePage() {
       {/* HERO */}
       <Section className="pt-20 sm:pt-24 lg:pt-28 pb-16 sm:pb-20">
         <Container>
-          <Eyebrow>Apex Podcast Co · Built on PREPP</Eyebrow>
+          <Eyebrow>Apex Podcast Co · Production + PodcastNetwork integration</Eyebrow>
           <h1 className="mt-6 font-display text-[clamp(2.75rem,6.5vw,5.5rem)] leading-[0.95] uppercase tracking-tight text-[color:var(--color-foreground)]">
-            Your podcast should pay for itself in{" "}
-            <span className="text-[color:var(--color-accent)]">pipeline.</span>
+            Your podcast, produced.
             <br />
-            Not just feel good.
+            Your network,{" "}
+            <span className="text-[color:var(--color-accent)]">mapped.</span>
+            <br />
+            Every week.
           </h1>
           <p className="mt-8 max-w-2xl text-lg sm:text-xl text-[color:var(--color-foreground)]/80 leading-relaxed">
-            We turn one conversation into an entire content engine — and an
-            entire content engine into a flow of warm relationships. Apex
-            produces, distributes, and amplifies the podcasts of authors,
-            executives, and eXp leaders. The episodes are the surface output.
-            The relationships your show builds are the real product.
+            Apex Podcast Co produces podcasts end-to-end for authors,
+            executives, and eXp leaders. As an Apex client, you also get free
+            integrated access to <strong>PodcastNetwork.org</strong>'s
+            relationship-engine system — a separately-owned product that turns
+            each guest into a referral source and each episode into deal flow.
+            Two products. One engagement.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <ButtonLink href="/how-it-works" variant="primary" size="lg" withArrow>
-              See how PREPP works
+            <ButtonLink href="/pilot" variant="primary" size="lg" withArrow>
+              Start with One Episode + Guest Map ($997)
             </ButtonLink>
-            <ButtonLink href="/pilot" variant="outline" size="lg">
-              Start with a $997 Pilot
+            <ButtonLink href="/flagship" variant="outline" size="lg">
+              See Your Weekly Show ($2,997/cycle)
             </ButtonLink>
           </div>
         </Container>
@@ -48,15 +51,15 @@ export default function HomePage() {
             {[
               {
                 head: "Every guest is a referral source.",
-                body: "The right invite list turns your show into a deliberate map of the relationships you want next.",
+                body: "The PodcastNetwork system helps you map the right 10 names from your own contacts before episode one airs.",
               },
               {
                 head: "Every episode is a sales conversation.",
                 body: "Without the pressure. Each interview compounds trust and signals authority to the next prospect.",
               },
               {
-                head: "Every show is a relationship machine — if it's built right.",
-                body: "Not editing. Not hosting. A system. That's what Apex builds and runs for you.",
+                head: "Every show is a content engine — if it's built right.",
+                body: "Not editing. Not hosting. A production stack plus a relationship system. That's what Apex runs for you.",
               },
             ].map((panel) => (
               <div key={panel.head}>
@@ -82,8 +85,10 @@ export default function HomePage() {
                 PREPP in 30 seconds.
               </h2>
               <p className="mt-4 max-w-xl text-[color:var(--color-foreground)]/80">
-                Five stages. One system. Every Apex engagement runs all five —
-                or plugs into the stages you're missing.
+                Five stages. One production system. Our AI-leveraged stack
+                (Riverside, Descript, Opus Clip, Castmagic, Transistor,
+                Metricool, Claude, ChatGPT) delivers in 5–8 hours per episode
+                what legacy agencies bill 25–30 hours for.
               </p>
             </div>
             <Link
@@ -110,8 +115,9 @@ export default function HomePage() {
           <p className="mt-4 max-w-2xl text-[color:var(--color-foreground)]/80">
             Both Austin and Russ are senior eXp leaders running personal brands
             alongside their eXp work. They have networks most agencies would
-            kill for. What they don't have is a production team that turns
-            those relationships into pipeline.
+            kill for. Apex is the production team — and the PodcastNetwork
+            integration is the system — that turns those relationships into
+            pipeline.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -143,61 +149,52 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* TIER LADDER */}
+      {/* TWO SKUs */}
       <Section className="border-t border-[color:var(--color-border)] bg-[color:var(--color-mid)]/40">
         <Container>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <Eyebrow>Choose Your Door</Eyebrow>
+              <Eyebrow>Two SKUs · No tier sprawl</Eyebrow>
               <h2 className="mt-4 font-display text-[length:var(--text-h1)] uppercase leading-[1.02]">
-                Three ways to start.
+                Two ways to start.
               </h2>
               <p className="mt-4 max-w-2xl text-[color:var(--color-foreground)]/80">
-                A no-friction entry tier, an a la carte option, and the full
-                Podcast Content OS. Pick the door that fits where you are right
-                now.
+                Try us on one episode, or run your whole podcast through us
+                every week. Custom scopes (existing shows, multi-show configs)
+                quoted directly via the apply form.
               </p>
             </div>
             <Link
-              href="/services"
+              href="/pricing"
               className="self-start lg:self-end inline-flex items-center gap-2 font-display text-sm uppercase tracking-[0.18em] text-[color:var(--color-accent)] hover:underline"
             >
-              Compare all tiers <ArrowRight className="h-4 w-4" />
+              Compare both <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            <LinkCard href="/pilot" ariaLabel="The Pilot — $997">
-              <Eyebrow>Entry · $997</Eyebrow>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <LinkCard href="/pilot" ariaLabel="One Episode + Guest Map — $997 one-time">
+              <Eyebrow>The wedge · $997 one-time</Eyebrow>
               <h3 className="mt-4 font-display text-2xl uppercase leading-tight">
-                The Pilot.
+                One Episode + Guest Map.
               </h3>
               <p className="mt-4 text-[color:var(--color-foreground)]/80">
-                One episode produced end-to-end + a guest strategy session
-                where we help you map your first 10 ideal guests from your own
-                network.
+                One complete episode through the full PREPP stack, plus a
+                90-min Guest Strategy Session that maps your first 10 ideal
+                guests from your own network. $997 credits toward Your Weekly
+                Show if you continue.
               </p>
             </LinkCard>
 
-            <LinkCard href="/services" ariaLabel="A la carte single-stage">
-              <Eyebrow>Mid-tier · A la carte</Eyebrow>
+            <LinkCard href="/flagship" ariaLabel="Your Weekly Show — $2,997 per 28-day cycle">
+              <Eyebrow>The full production · $2,997/cycle</Eyebrow>
               <h3 className="mt-4 font-display text-2xl uppercase leading-tight">
-                Single-stage support.
+                Your Weekly Show.
               </h3>
               <p className="mt-4 text-[color:var(--color-foreground)]/80">
-                Already producing? Bolt on the PREPP stages that are slowing
-                you down — editing, clipping, publishing, or promote-only.
-              </p>
-            </LinkCard>
-
-            <LinkCard href="/flagship" ariaLabel="Flagship — Podcast Content OS">
-              <Eyebrow>Flagship · ~$4,800/mo</Eyebrow>
-              <h3 className="mt-4 font-display text-2xl uppercase leading-tight">
-                The Podcast Content OS.
-              </h3>
-              <p className="mt-4 text-[color:var(--color-foreground)]/80">
-                All five PREPP stages, weekly cadence, done. For leaders running
-                their podcast as a primary pipeline asset.
+                Full PREPP, weekly cadence, 22 deliverables per 28-day cycle.
+                PodcastNetwork system access included free. 13 billing cycles
+                per year. Annual prepay: $35,964 (13 for the price of 12).
               </p>
             </LinkCard>
           </div>
@@ -214,10 +211,12 @@ export default function HomePage() {
               it as a content operating system.
             </h2>
             <p className="mt-6 text-lg text-[color:var(--color-foreground)]/85 leading-relaxed">
-              Most "podcast services" sell editing by the hour. That's why most
-              podcasts don't grow a business. The real product is the
-              relationships your show builds. The OS is the only way to capture
-              that value at scale. Apex is the OS, run as a service.
+              Most podcast services sell editing by the hour. Apex sells
+              production + integration with PodcastNetwork.org's
+              relationship-engine system. Two products bundled in one
+              engagement — and the bundling is the differentiator no other
+              production agency can match, because no other production agency
+              owns a network business.
             </p>
             <div className="mt-8">
               <ButtonLink href="/podcast-content-os" variant="outline" size="lg" withArrow>
@@ -238,11 +237,12 @@ export default function HomePage() {
                 Brett Moore + Randy Highsmith. 50/50.
               </h2>
               <p className="mt-6 text-[color:var(--color-foreground)]/85 leading-relaxed">
-                Brett runs business development. Randy runs production. Both
-                have spent years inside the eXp ecosystem — the strategists,
-                instructors, and operators who anchor our case study roster
-                are also the people we have coffee with. Apex was built to be
-                the production company we wished existed when we started.
+                Co-founders, 50/50 split. Both have spent years inside the eXp
+                ecosystem — the strategists, instructors, and operators on our
+                case study roster are the people we have coffee with.
+                PodcastNetwork.org is Brett's separately-owned sister company —
+                the integration is what makes Apex's offer different from every
+                other production agency.
               </p>
               <div className="mt-8">
                 <ButtonLink href="/about" variant="ghost" size="md" withArrow>
@@ -257,8 +257,8 @@ export default function HomePage() {
               </h3>
               <p className="mt-4 text-[color:var(--color-foreground)]/80">
                 30 minutes with Brett or Randy. We'll map your show concept,
-                your first 10 ideal guests, and whether the Pilot or Flagship
-                is the right next step.
+                your first 10 ideal guests, and whether One Episode + Guest Map
+                or Your Weekly Show is the right next step.
               </p>
               <div className="mt-6">
                 <ButtonLink href="/apply" variant="primary" size="lg" withArrow className="w-full">
