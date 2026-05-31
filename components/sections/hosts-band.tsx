@@ -20,9 +20,13 @@ const producers = [
     initials: 'RH',
     name: 'Randy Highsmith',
     role: 'Producer and host. He runs the long-form interview and the questions only your sphere knows to ask.',
-    // Pending Randy's dossier.
-    pentatype: '[pentatype TBD]',
-    pentatypeNote: undefined as string | undefined,
+    // Pentatype source: core dimension Meaning (The Pinkie Finger), same core as
+    // Brett; signal tentatively Meaning / Connection (Connection and Discovery tied
+    // at 5.38, confirmed by Brett pending Randy's Signal screen); ranking Meaning
+    // 5.63 > Connection 5.38 > Discovery 5.38 > Conviction 5.00 > Structure 2.25.
+    // Shared Meaning core is intentional: the show's "Meaning + Connection" thesis.
+    pentatype: 'Meaning / Connection',
+    pentatypeNote: 'Listens for what matters underneath and helps the conversation arrive there.',
   },
 ]
 
