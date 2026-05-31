@@ -2,9 +2,8 @@ import CtaLink from '@/components/ui/cta-link'
 import { Reveal } from '@/components/motion/reveal'
 
 /**
- * Light teaser into /network/. Does not duplicate the network page.
- * NOTE: "12 shows" is Brett's stated count; the last verified Transistor crawl
- * (2026-05-19) was 11 (9 active). Confirm the current number.
+ * Network as a feature for the host, surfaced mid-scroll (not a headline flex).
+ * Framed around the host's benefit: their release does not go out alone.
  */
 export default function NetworkTeaser() {
   return (
@@ -15,12 +14,12 @@ export default function NetworkTeaser() {
             <div className="max-w-2xl">
               <p className="eyebrow-acid">The network.</p>
               <h2 className="h-section mt-4 text-bone">
-                12 shows on the Apex Podcast Network
+                Your release does not go out alone
                 <span className="text-acid">.</span>
               </h2>
               <p className="mt-5 text-bone/70">
-                The Apex Podcast is one show in a feed where every release carries the others. The
-                network is the multiplier on the work.
+                Your show joins the Apex Podcast Network, where the other hosts help carry it and
+                their spheres meet yours. A guest on one show is a warm introduction on the next.
               </p>
             </div>
             <CtaLink href="/network/" variant="ghost-dark" arrow className="shrink-0">

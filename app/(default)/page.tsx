@@ -7,9 +7,9 @@ import ServicesTeaser from '@/components/sections/services-teaser'
 import ListenSubscribeBand from '@/components/sections/listen-subscribe-band'
 
 export const metadata: Metadata = {
-  title: 'The Apex Podcast',
+  title: 'Done-for-you podcast production for hosts with a sphere',
   description:
-    'The Apex Podcast, hosted by Brett K Moore and Randy Highsmith. Inside the producer’s seat, the network behind a release, and the guests worth an hour. Listen on Spotify, Apple, or anywhere.',
+    'Apex Podcast Co produces done-for-you podcasts for owners, operators, and leaders who already have a sphere. Pentatype intake, question prep, recording, edits, publishing, and guest booking. Brett K Moore and Randy Highsmith are in every show.',
   alternates: { canonical: '/' },
 }
 
