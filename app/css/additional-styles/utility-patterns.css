@@ -1,0 +1,110 @@
+/* ---------------------------------------------------------------------------
+   Apex component utilities. Editorial record-label register: Archivo Black
+   display set lowercase and tight, Space Mono credit lines, acid as the only
+   accent against warm ink and bone.
+--------------------------------------------------------------------------- */
+
+/* Layout */
+.section {
+    @apply py-20 md:py-28 lg:py-32;
+}
+
+.container-apex {
+    @apply max-w-6xl mx-auto px-5 sm:px-6 lg:px-8;
+}
+
+/* Display type. Archivo Black, tight tracking, author casing preserved (the
+   lowercase signature belongs to the wordmark, not running headlines). */
+.display {
+    @apply font-display tracking-tighter leading-[1.0];
+    font-size: clamp(2.5rem, 5.5vw + 1rem, 5.25rem);
+}
+
+.h-section {
+    @apply font-display tracking-tight leading-[1.04];
+    font-size: clamp(1.875rem, 3vw + 1rem, 2.75rem);
+}
+
+.h-sub {
+    @apply font-display tracking-tight leading-[1.08];
+    font-size: clamp(1.375rem, 1.5vw + 1rem, 1.875rem);
+}
+
+.lead {
+    @apply text-ink/70;
+    font-size: clamp(1.125rem, 0.6vw + 1rem, 1.375rem);
+    line-height: 1.55;
+}
+
+/* Eyebrow / section label in Space Mono. /65 holds WCAG AA on bone. */
+.eyebrow {
+    @apply font-mono uppercase text-xs tracking-widest text-ink/65;
+}
+
+.eyebrow-acid {
+    @apply font-mono uppercase text-xs tracking-widest;
+    color: color-mix(in oklab, var(--color-acid) 80%, var(--color-ink));
+}
+
+/* Catalog number stamp */
+.catalog {
+    @apply font-mono uppercase tracking-wider text-sm;
+}
+
+/* Buttons */
+.btn,
+.btn-sm {
+    @apply font-mono uppercase text-xs tracking-widest inline-flex items-center justify-center rounded-full whitespace-nowrap transition duration-200 ease-out;
+}
+
+.btn {
+    @apply px-6 py-3.5;
+}
+
+.btn-sm {
+    @apply px-5 py-2.5;
+}
+
+.btn-primary {
+    @apply bg-acid text-ink hover:brightness-95 shadow-[0_1px_0_rgba(20,20,15,0.04)];
+}
+
+.btn-ghost-light {
+    @apply border border-ink/20 text-ink hover:border-ink/50;
+}
+
+.btn-ghost-dark {
+    @apply border border-bone/25 text-bone hover:border-acid hover:text-acid;
+}
+
+/* Hairline divider */
+.rule {
+    @apply border-t border-ink/10;
+}
+
+/* Forms */
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+.form-input,
+.form-textarea {
+    @apply w-full rounded-full border border-ink/15 bg-bone text-ink text-base px-4 py-3 placeholder-ink/40 focus:border-ink/40 focus:ring-0 focus:ring-offset-0;
+}
+
+.form-input-dark {
+    @apply w-full rounded-full border border-bone/20 bg-transparent text-bone text-base px-4 py-3 placeholder-bone/40 focus:border-acid focus:ring-0 focus:ring-offset-0;
+}
+
+/* Scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

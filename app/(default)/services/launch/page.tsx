@@ -1,0 +1,121 @@
+import type { Metadata } from 'next'
+import { Reveal } from '@/components/motion/reveal'
+import CtaLink from '@/components/ui/cta-link'
+import NumberedList from '@/components/ui/numbered-list'
+import ExclusionList from '@/components/ui/exclusion-list'
+import FaqAccordion from '@/components/ui/faq-accordion'
+import ClosingCta from '@/components/sections/closing-cta'
+import { siteConfig } from '@/lib/site-config'
+import { tiers, launchIncludes, launchTimeline, launchExclusions, launchFaq } from '@/lib/services'
+
+const tier = tiers.launch
+
+export const metadata: Metadata = {
+  title: 'Launch',
+  description: tier.subhead,
+  alternates: { canonical: '/services/launch/' },
+}
+
+export default function LaunchPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="bg-ink text-bone">
+        <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
+          <p className="eyebrow-acid">{tier.eyebrow}</p>
+          <h1 className="display mt-6 max-w-4xl text-bone">
+            {tier.headline.replace(/\.$/, '')}
+            <span className="text-acid">.</span>
+          </h1>
+          <p className="lead mt-7 max-w-3xl text-bone/70">{tier.subhead}</p>
+          <div className="mt-9">
+            <CtaLink href={siteConfig.discoveryUrl} variant="primary" arrow>
+              Book a discovery call
+            </CtaLink>
+          </div>
+          <p className="mt-6 font-mono text-xs uppercase tracking-widest text-bone/55">
+            Hot inbound and existing Brett K Moore network members can apply for direct-to-proposal.
+            Ask on the call.
+          </p>
+        </div>
+      </section>
+
+      {/* What Launch includes */}
+      <section className="section bg-bone">
+        <div className="container-apex">
+          <Reveal>
+            <h2 className="eyebrow">What Launch includes.</h2>
+          </Reveal>
+          <div className="mt-12">
+            <NumberedList items={launchIncludes} columns={2} />
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="section bg-ink text-bone">
+        <div className="container-apex">
+          <Reveal>
+            <h2 className="eyebrow-acid">From booking to first release.</h2>
+          </Reveal>
+          <ol className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-bone/10 bg-bone/10 md:grid-cols-5">
+            {launchTimeline.map((step, i) => (
+              <li key={step.title} className="bg-ink p-7">
+                <span className="catalog text-acid" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-4 font-display text-base text-bone">{step.title}</h3>
+                <p className="mt-2 text-sm text-bone/65">{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* What Launch does not include + upgrade path */}
+      <section className="section bg-bone">
+        <div className="container-apex grid gap-14 lg:grid-cols-2">
+          <Reveal>
+            <div>
+              <h2 className="eyebrow">What Launch does not include.</h2>
+              <div className="mt-8">
+                <ExclusionList
+                  items={launchExclusions}
+                  closingLine="Anything in that list routes to the right home inside Brett K Moore HQ when it comes up on the discovery call."
+                />
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <div className="rounded-3xl bg-ink p-8 text-bone md:p-10">
+              <h2 className="eyebrow-acid">If Launch leads to Managed.</h2>
+              <p className="mt-5 text-bone/75">
+                Launch buyers who move to Managed inside sixty days of the first episode delivery get
+                the full $997 credited against the first Managed cycle. Automatic inside the contract
+                flow. The bridge is built so that Launch can be exactly what it is: a real episode, a
+                real production, an honest taste of how Apex works.
+              </p>
+              <CtaLink href="/services/managed/" variant="ghost-dark" size="sm" className="mt-7">
+                See Managed
+              </CtaLink>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section bg-bone pt-0">
+        <div className="container-apex max-w-3xl">
+          <Reveal>
+            <h2 className="h-sub text-ink">Questions about Launch.</h2>
+          </Reveal>
+          <div className="mt-8">
+            <FaqAccordion items={launchFaq} />
+          </div>
+        </div>
+      </section>
+
+      <ClosingCta headline="Ready to record the first one?" />
+    </>
+  )
+}
