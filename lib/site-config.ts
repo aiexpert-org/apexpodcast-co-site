@@ -35,6 +35,14 @@ export const siteConfig = {
   transistorUrl: 'https://apexpodcast.co/listen', // TODO: swap to real Transistor Apex Podcast Network feed URL
   pentatypeUrl: 'https://pentatype.com',
   podcastNetworkUrl: 'https://podcastnetwork.org',
+
+  // "The Apex Podcast" listen targets. TODO: swap to real show URLs (Spotify,
+  // Apple Podcasts, Transistor all-platforms page). Placeholders per Phase 3 strategy.
+  listen: {
+    spotify: 'https://apexpodcast.co/listen', // TODO: real Spotify show URL
+    apple: 'https://apexpodcast.co/listen', // TODO: real Apple Podcasts URL
+    anywhere: 'https://apexpodcast.co/listen', // TODO: real all-platforms / RSS page
+  },
 } as const
 
 /**

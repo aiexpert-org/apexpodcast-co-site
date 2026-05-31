@@ -1,16 +1,15 @@
 import type { Metadata } from 'next'
 import HomeHero from '@/components/sections/home-hero'
-import ThreePillars from '@/components/sections/three-pillars'
-import NetworkProofBar from '@/components/sections/network-proof-bar'
-import FeaturedWork from '@/components/sections/featured-work'
-import TierTeaser from '@/components/sections/tier-teaser'
-import ProducerFrame from '@/components/sections/producer-frame'
-import ClosingCta from '@/components/sections/closing-cta'
+import HostsBand from '@/components/sections/hosts-band'
+import ShowInAction from '@/components/sections/show-in-action'
+import NetworkTeaser from '@/components/sections/network-teaser'
+import ServicesTeaser from '@/components/sections/services-teaser'
+import ListenSubscribeBand from '@/components/sections/listen-subscribe-band'
 
 export const metadata: Metadata = {
-  title: 'A producer in the room. A network around your show',
+  title: 'The Apex Podcast',
   description:
-    'Apex Podcast Co is a producer and a network. A producer in the room every session, the Apex Podcast Network around every release, and the Pentatype methodology tuning each show to its host.',
+    'The Apex Podcast, hosted by Brett K Moore and Randy Highsmith. Inside the producer’s seat, the network behind a release, and the guests worth an hour. Listen on Spotify, Apple, or anywhere.',
   alternates: { canonical: '/' },
 }
 
@@ -18,12 +17,11 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-      <ThreePillars />
-      <NetworkProofBar />
-      <FeaturedWork />
-      <TierTeaser />
-      <ProducerFrame />
-      <ClosingCta />
+      <HostsBand />
+      <ShowInAction />
+      <NetworkTeaser />
+      <ServicesTeaser />
+      <ListenSubscribeBand />
     </>
   )
 }
