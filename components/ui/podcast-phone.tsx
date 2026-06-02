@@ -1,7 +1,9 @@
+import TapMark from '@/components/ui/tap-mark'
+
 /**
  * Phone-in-frame hero visual (lifts the Cruip Podcast template's phone element),
- * showing The Apex Podcast cover art on screen with a now-playing UI. Pure CSS +
- * brand tokens, fully static (no JS, LCP-safe). Decorative, so aria-hidden.
+ * showing The Apex Podcast cover art on screen with a now-playing UI and the TAP
+ * motif. Pure CSS + brand tokens, fully static (no JS, LCP-safe). aria-hidden.
  */
 export default function PodcastPhone() {
   return (
@@ -19,7 +21,10 @@ export default function PodcastPhone() {
               <div
                 className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-acid/15 blur-2xl"
               />
-              <span className="font-display lowercase text-acid">apex.</span>
+              <div className="flex items-start justify-between">
+                <span className="font-display lowercase text-acid">apex.</span>
+                <TapMark className="h-7 w-7" />
+              </div>
               <div>
                 <p className="font-display leading-[0.95] text-bone text-[1.6rem]">
                   the apex
@@ -49,9 +54,7 @@ export default function PodcastPhone() {
               {/* controls */}
               <div className="mt-4 flex items-center justify-center gap-7">
                 <span className="text-bone/55 text-sm">&#9664;&#9664;</span>
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-acid text-ink">
-                  <span className="ml-0.5 text-base">&#9658;</span>
-                </span>
+                <TapMark className="h-11 w-11" />
                 <span className="text-bone/55 text-sm">&#9654;&#9654;</span>
               </div>
             </div>

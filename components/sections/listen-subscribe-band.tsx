@@ -1,11 +1,10 @@
-import CtaLink from '@/components/ui/cta-link'
-import ListenButtons from '@/components/ui/listen-buttons'
+import CTACluster from '@/components/ui/cta-cluster'
 import DebriefSignupForm from '@/components/forms/debrief-signup-form'
 import { Reveal } from '@/components/motion/reveal'
 
 /**
- * Closing conversion band. Primary action: tell us about your show (apply/fit).
- * Listen + subscribe sit secondary. Direct-response voice, sphere woven in.
+ * Closing band (STRATEGY-V2 §2 + §9.2). Podcast-first close: the full four-CTA
+ * cluster (Listen primary), plus The Debrief as the secondary footer capture.
  */
 export default function ListenSubscribeBand() {
   return (
@@ -20,26 +19,17 @@ export default function ListenSubscribeBand() {
             <div className="relative grid gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2 className="h-section text-bone">
-                  Tell us about your show
+                  Press play on The Apex Podcast
                   <span className="text-acid">.</span>
                 </h2>
                 <p className="mt-5 max-w-xl text-bone/70">
-                  If you already have an audience, you do not need our marketing. You need our
-                  production. We take on a few new shows at a time. Tell us about yours and we will
-                  tell you if it is a fit.
+                  New episodes every week. Listening is free, your pentatype is free, and coming on
+                  the show is free.
                 </p>
-                <div className="mt-8">
-                  <CtaLink href="/contact/" variant="primary" arrow>
-                    Tell us about your show
-                  </CtaLink>
-                </div>
+                <CTACluster tone="dark" className="mt-8" />
               </div>
               <div className="lg:col-span-5">
-                <p className="font-mono text-xs uppercase tracking-widest text-bone/55">
-                  Or sample the work and stay in the loop
-                </p>
-                <ListenButtons tone="dark" className="mt-4" />
-                <div className="mt-6 rounded-3xl border border-bone/15 p-6">
+                <div className="rounded-3xl border border-bone/15 p-6 md:p-7">
                   <p className="font-mono text-xs uppercase tracking-widest text-bone/55">
                     Subscribe to The Debrief
                   </p>
