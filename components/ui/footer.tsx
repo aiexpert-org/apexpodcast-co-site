@@ -63,8 +63,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/network/#greenroom" className="text-bone/75 hover:text-acid">
-                  Greenroom Experience
+                <Link href="/#the-apex-podcast" className="text-bone/75 hover:text-acid">
+                  The Apex Podcast
                 </Link>
               </li>
               <li>

@@ -18,15 +18,20 @@ export type Episode = {
   listenUrl: string
 }
 
+// Flip to `true` once the Transistor feed is approved under "The Apex Podcast"
+// and the per-episode listenUrl values point at real Transistor episode URLs.
+// Until then the EpisodeCard renders Episode 001 as a real row alongside two
+// pending scaffolds, which is more honest than three pending scaffolds.
 export const episodesPublished = false
 
 export const episodes: Episode[] = [
   {
     n: 1,
-    title: '[Episode 1 title pending]',
-    blurb: '[Episode summary pending feed]',
-    duration: '[--:--]',
-    date: '[Date]',
+    title: 'Pentatype Intro',
+    blurb:
+      'Solo episode. Brett walks through the Pentatype communication assessment, why it sits inside the producer-craft frame, and how it shapes the way we shape every Apex show.',
+    duration: '20 min',
+    date: '2026-06-02',
     listenUrl: siteConfig.listen.anywhere,
   },
   {
