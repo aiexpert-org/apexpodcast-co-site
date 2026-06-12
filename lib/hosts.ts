@@ -56,7 +56,7 @@ export const hosts: Host[] = [
     showPremise: PENDING,
     cadence: 'Weekly, recorded on Riverside with a producer in the room.',
     audience: 'Real estate professionals and eXp Realty leaders.',
-    notableGuests: ['Glenn Sanford'],
+    notableGuests: ['Glen Sanford'],
     dossier: '02-Network/Russ Laggan/PUBLIC-DOSSIER-2026-05-30.md',
   },
   {
