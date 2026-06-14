@@ -67,7 +67,7 @@ export default function AboutPage() {
               Realty inroad, the Big Agent Meeting background, and a decade of leadership conversation
               craft. The two of us decided to run Apex as one studio with two named producers rather
               than as a marketing brand wrapped around contractors. The capacity math holds at thirty
-              active Managed clients across both of us. That ceiling is what makes the
+              active Weekly Show clients across both of us. That ceiling is what makes the
               producer-in-the-room promise real.
             </p>
           </Reveal>
@@ -121,7 +121,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.16}>
               <p className="text-bone/75">
-                We hold the producer-in-the-room promise to thirty active Managed clients across both of
+                We hold the producer-in-the-room promise to thirty active Weekly Show clients across both of
                 us. When the client count crosses twenty-five active, we add an editor to take the export
                 and transcript work off the producer&rsquo;s plate so we stay producers.
               </p>

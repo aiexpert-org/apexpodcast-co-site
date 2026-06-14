@@ -15,11 +15,13 @@ export default function LatestEpisodes() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="eyebrow-acid">The show</p>
-              <h2 className="h-section mt-4 text-bone">Latest episodes.</h2>
+              <h2 className="h-section mt-4 text-bone">
+                Season 1: The Pentatype Communication Codes.
+              </h2>
             </div>
             {!episodesPublished && (
               <p className="font-mono text-xs uppercase tracking-widest text-bone/55 md:max-w-xs md:text-right">
-                The feed wires to Transistor next. Placeholder cards for now.
+                Coming summer 2026. The feed wires to Transistor next.
               </p>
             )}
           </div>

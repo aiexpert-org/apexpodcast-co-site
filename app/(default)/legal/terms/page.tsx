@@ -21,11 +21,12 @@ export default function TermsPage() {
         <div className="mt-10 space-y-5 text-ink/75">
           <p>
             This is a plain-language summary while the full terms are finalized. This site describes
-            Apex Podcast Co and its two services, Launch and Managed. The content here is for
-            information. It is not a contract and it is not an offer that binds either side.
+            Apex Podcast Co and its services: Your First Episode, Your Weekly Show, and the
+            Multi-Tenant Pipeline License. The content here is for information. It is not a contract
+            and it is not an offer that binds either side.
           </p>
           <p>
-            The actual terms of any engagement live in the signed Launch or Managed agreement. Where
+            The actual terms of any engagement live in the signed service or license agreement. Where
             this site and a signed agreement differ, the signed agreement governs. Prices and program
             details described here can change before you sign.
           </p>

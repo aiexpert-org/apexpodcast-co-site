@@ -14,6 +14,12 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm text-bone/65">
               A producer and a network behind every show.
             </p>
+            <a
+              href="mailto:brett@apexpodcast.co"
+              className="mt-4 inline-block text-sm text-bone/75 hover:text-acid"
+            >
+              brett@apexpodcast.co
+            </a>
             <p className="mt-3 font-mono text-xs uppercase tracking-widest text-bone/55">
               APX series, est. 2026.
             </p>
@@ -82,8 +88,21 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Affiliate row */}
+        <div className="mt-16 flex flex-col gap-3 rounded-2xl border border-bone/15 px-6 py-5 md:flex-row md:items-center md:justify-between">
+          <p className="text-sm text-bone/70">
+            Know someone who should have a show? Earn ten percent on Apex referrals.
+          </p>
+          <Link
+            href="/affiliate/"
+            className="font-mono text-xs uppercase tracking-widest text-acid hover:text-bone"
+          >
+            Become an Apex affiliate &rarr;
+          </Link>
+        </div>
+
         {/* Final row */}
-        <div className="mt-16 flex flex-col gap-4 border-t border-bone/15 pt-8 md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col gap-4 border-t border-bone/15 pt-8 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-bone/60">
             &copy; 2026 Apex Podcast Co. Brett K. Moore and Randy Highsmith.
           </p>

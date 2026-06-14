@@ -6,6 +6,7 @@ import HostsBand from '@/components/sections/hosts-band'
 import LatestEpisodes from '@/components/sections/latest-episodes'
 import NetworkTeaser from '@/components/sections/network-teaser'
 import ServicesTeaser from '@/components/sections/services-teaser'
+import IntakeBand from '@/components/sections/intake-band'
 import ListenSubscribeBand from '@/components/sections/listen-subscribe-band'
 
 export const metadata: Metadata = {
@@ -25,6 +26,12 @@ export default function Home() {
       <LatestEpisodes />
       <NetworkTeaser />
       <ServicesTeaser />
+      <IntakeBand
+        eyebrow="Start here"
+        heading="Tell us what you want to launch."
+        blurb="Two minutes. You tell us what you are building and which offer fits. A producer picks it up from there. No pitch deck, no obligation."
+        source="intake_home"
+      />
       <ListenSubscribeBand />
     </>
   )

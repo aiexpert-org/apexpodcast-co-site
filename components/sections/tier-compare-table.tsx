@@ -3,9 +3,9 @@ import { Reveal } from '@/components/motion/reveal'
 import { compareRows, tiers } from '@/lib/services'
 
 /**
- * Two-tier comparison (COPY-SPEC §4). Launch left, Managed right, all rows.
- * Desktop: a three-column grid (label, Launch, Managed). Mobile: each row stacks
- * with the two tier values labeled. Framed as a deliberate ladder, not a price war.
+ * Two-offer comparison. Your First Episode left, Your Weekly Show right, all rows.
+ * Desktop: a three-column grid (label, First Episode, Weekly Show). Mobile: each
+ * row stacks with the two values labeled. Framed as a deliberate ladder.
  */
 export default function TierCompareTable() {
   return (
@@ -21,8 +21,8 @@ export default function TierCompareTable() {
                 <p className="mt-1 font-mono text-xs uppercase tracking-widest text-ink/65">
                   {tiers.launch.price} {tiers.launch.cadence}
                 </p>
-                <CtaLink href={`/services/${tiers.launch.slug}/`} variant="ghost-light" size="sm" className="mt-4">
-                  See Launch
+                <CtaLink href={`/${tiers.launch.slug}/`} variant="ghost-light" size="sm" className="mt-4">
+                  See the offer
                 </CtaLink>
               </div>
               <div className="bg-ink p-6 text-bone">
@@ -30,8 +30,8 @@ export default function TierCompareTable() {
                 <p className="mt-1 font-mono text-xs uppercase tracking-widest text-bone/75">
                   {tiers.managed.price} {tiers.managed.cadence}
                 </p>
-                <CtaLink href={`/services/${tiers.managed.slug}/`} variant="ghost-dark" size="sm" className="mt-4">
-                  See Managed
+                <CtaLink href={`/${tiers.managed.slug}/`} variant="ghost-dark" size="sm" className="mt-4">
+                  See the offer
                 </CtaLink>
               </div>
             </div>

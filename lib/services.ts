@@ -1,15 +1,18 @@
 /**
- * Services content. Paste-ready copy from COPY-SPEC §4 (overview), §5 (Launch),
- * §6 (Managed), mapped to STRATEGY.md §3. Voice rules enforced: no em dashes, no
- * banned vocabulary, no "X, not Y", no emoji. Pricing is the locked 2026-05-18
- * SKU set ($997 one-time Launch, $2,997 per 28-day cycle Managed).
+ * Services content. Voice rules enforced: no em dashes, no banned vocabulary, no
+ * "X, not Y", no emoji. Pricing is the 2026-06-13 FULL LAUNCH lock, refined
+ * 2026-06-14: Your First Episode $997 one-time, Your Weekly Show $2,997 per
+ * 28-day cycle, Multi-Tenant Pipeline License $2,997 per month or $29,970 per year.
+ *
+ * Object keys (`launch`, `managed`, `license`) are stable code identifiers. The
+ * customer-facing names live in `.name` and were relocked on 2026-06-14.
  */
 
 export const tiers = {
   launch: {
-    slug: 'launch',
-    eyebrow: 'Tier one',
-    name: 'Launch',
+    slug: 'your-first-episode',
+    eyebrow: 'Offer one',
+    name: 'Your First Episode',
     price: '$997',
     cadence: 'one-time',
     headline: 'Your first episode, produced the Apex way.',
@@ -17,14 +20,26 @@ export const tiers = {
       'One produced episode, the Pentatype assessment that tunes the show to you, a 90-minute strategy session with a producer, branded cover art, and twelve months inside the Apex Podcast Network. $997, one-time. The honest entry point.',
   },
   managed: {
-    slug: 'managed',
-    eyebrow: 'Tier two',
-    name: 'Managed',
+    slug: 'your-weekly-show',
+    eyebrow: 'Offer two',
+    name: 'Your Weekly Show',
     price: '$2,997',
     cadence: 'per 28-day cycle',
     headline: 'A show, produced cycle by cycle. With the network around every release.',
     subhead:
       '$2,997 per 28-day cycle. One to four episodes per cycle, same price. A producer in the room every session. Full distribution under the Apex Podcast Network feed. A per-episode producer debrief. The block-analysis audit every eight episodes. Designed as the long-running engagement once you know you want a show in production.',
+  },
+  license: {
+    slug: 'multi-tenant-pipeline-license',
+    eyebrow: 'Offer three',
+    name: 'Multi-Tenant Pipeline License',
+    price: '$2,997',
+    cadence: 'per month',
+    priceAnnual: '$29,970',
+    cadenceAnnual: 'per year',
+    headline: 'Run the Apex pipeline under your own brand.',
+    subhead:
+      'A licensed Apex production and distribution pipeline, run inside your own brand and on your own roster. You keep the client relationship. Apex licenses the system that produces the shows. $2,997 per month, or $29,970 per year. The real-estate and eXp roster is excluded, and an NDA is required before terms.',
   },
 } as const
 
@@ -288,5 +303,94 @@ export const managedFaq: { q: string; a: string }[] = [
   {
     q: 'What about ad inventory rights?',
     a: 'You own your show, so you own the inventory. The Apex Podcast Network feed runs dynamic insertion as the sponsorship machine. Ninety percent of that revenue is yours.',
+  },
+]
+
+/* Multi-Tenant Pipeline License. The 2026-06-13 license offer, refined 2026-06-14.
+   A licensed Apex production and distribution pipeline an operator runs under their
+   own brand and on their own roster. Real-estate and eXp ICP excluded. NDA required. */
+
+export const licenseIncludes: { title: string; body: string }[] = [
+  {
+    title: 'The full Apex production pipeline, licensed to your brand.',
+    body: 'The producer-in-the-room method, the Green Room Experience flow, the editing and clip pipeline, and the publish path. Your clients see your name on it.',
+  },
+  {
+    title: 'The Pentatype assessment, licensed for your roster.',
+    body: 'The five-archetype communication mapping that tunes each show to its host, available to run on every client you bring through the pipeline.',
+  },
+  {
+    title: 'A multi-tenant control plane.',
+    body: 'One pipeline, many client tenants. Each show stays separated, tracked, and produced on its own cadence inside your own workspace.',
+  },
+  {
+    title: 'Distribution mechanics and templates.',
+    body: 'The cover-art kit, the clip templates, the episode and feed setup playbook, and the dynamic-ad-insertion approach, all under your brand.',
+  },
+  {
+    title: 'Onboarding and an operator runbook.',
+    body: 'The first-licensee onboarding pass, plus the written runbook your team uses to run the pipeline without a producer from Apex on every session.',
+  },
+  {
+    title: 'Quarterly system updates.',
+    body: 'When the Apex pipeline improves, your license stays current. New templates, new method notes, new automations as they ship.',
+  },
+]
+
+export const licenseTimeline: { title: string; body: string }[] = [
+  {
+    title: 'Apply and sign the NDA.',
+    body: 'A short application, then a mutual NDA through GHL Documents before any terms or system detail is shared.',
+  },
+  {
+    title: 'ICP screen.',
+    body: 'We confirm the roster fits. The real-estate and eXp ICP is carved out and stays with Apex. Everything else is open.',
+  },
+  {
+    title: 'License terms and payment.',
+    body: 'License agreement, then $2,997 per month or $29,970 per year through the GHL checkout link. Annual prepay carries the better rate.',
+  },
+  {
+    title: 'Pipeline standup and onboarding.',
+    body: 'We stand up your multi-tenant workspace, hand over the runbook, and walk your team through the first tenant.',
+  },
+  {
+    title: 'Run your roster.',
+    body: 'You produce shows under your own brand on your own cadence. Apex keeps the system current behind you.',
+  },
+]
+
+export const licenseExclusions: string[] = [
+  'The real-estate and eXp ICP. That roster stays with Apex.',
+  'Use of the Apex Podcast Co name or wordmark on your client-facing work.',
+  'Resale or sub-licensing of the pipeline to another operator.',
+  'A producer from Apex sitting in on your client sessions. You license the system and run it with your own team.',
+  'Book publishing, Wikipedia and Knowledge Graph work, or web design. Those route to the right home inside Brett K Moore HQ.',
+]
+
+export const licenseFaq: { q: string; a: string }[] = [
+  {
+    q: 'What exactly am I licensing?',
+    a: 'The Apex production and distribution pipeline: the method, the Pentatype assessment, the templates, the publish path, and the multi-tenant control plane. You run it under your own brand on your own roster.',
+  },
+  {
+    q: 'Why is there an NDA before terms?',
+    a: 'The pipeline is the product. We share the system detail and the full terms after a mutual NDA, so both sides are protected before the specifics.',
+  },
+  {
+    q: 'Why is real estate and eXp excluded?',
+    a: 'That ICP is served directly by Apex through Randy. The license carves it out so there is no conflict on the roster you build.',
+  },
+  {
+    q: 'Monthly or annual?',
+    a: '$2,997 per month, or $29,970 per year. Annual prepay is the better rate, a little under ten months of the monthly price for twelve months of license.',
+  },
+  {
+    q: 'Do I own the shows my clients produce?',
+    a: 'Your clients own their shows. You own the relationship with your clients. Apex owns the pipeline you license. Clean lines on all three.',
+  },
+  {
+    q: 'Can I customize the pipeline for my brand?',
+    a: 'Yes. The cover-art kit, the show templates, and the client-facing surfaces carry your brand. The underlying method stays intact so the quality holds.',
   },
 ]

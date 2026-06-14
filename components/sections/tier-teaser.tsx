@@ -4,20 +4,28 @@ import { cn } from '@/lib/utils'
 
 const tiers = [
   {
-    name: 'Launch',
+    name: 'Your First Episode',
     price: '$997 one-time',
     body: 'One produced episode, the Pentatype assessment, a 90-minute strategy session, branded cover art, distribution under the Apex Podcast Network feed, and twelve months of network membership.',
-    href: '/services/launch/',
-    cta: 'See the Launch scope',
+    href: '/your-first-episode/',
+    cta: 'See the scope',
     dark: false,
   },
   {
-    name: 'Managed',
+    name: 'Your Weekly Show',
     price: '$2,997 per 28-day cycle',
     body: 'Up to four produced episodes per cycle, recording sessions with a producer in the room, full distribution under the Apex Podcast Network feed, a per-episode producer debrief, network coordination, and the block-analysis audit every eight episodes.',
-    href: '/services/managed/',
-    cta: 'See the Managed scope',
+    href: '/your-weekly-show/',
+    cta: 'See the scope',
     dark: true,
+  },
+  {
+    name: 'Multi-Tenant Pipeline License',
+    price: '$2,997/mo or $29,970/yr',
+    body: 'Run the Apex production pipeline under your own brand, for your own roster. The method, the Pentatype assessment, the templates, and a multi-tenant control plane. NDA required. Real-estate and eXp roster excluded.',
+    href: '/multi-tenant-pipeline-license/',
+    cta: 'See the license',
+    dark: false,
   },
 ]
 
@@ -27,21 +35,24 @@ export default function TierTeaser() {
       <div className="container-apex">
         <div className="max-w-2xl">
           <Reveal>
-            <p className="eyebrow">Two ways in</p>
+            <p className="eyebrow">Three ways in</p>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h-section mt-5 text-ink">Launch a show, or run one as a body of work.</h2>
+            <h2 className="h-section mt-5 text-ink">
+              Launch a show, run one as a body of work, or license the pipeline.
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="lead mt-5">
-              The ladder is intentional. Launch is the gateway. Managed is the retention vehicle. Both
-              carry the same three things: a producer in the room, the network around the show, and the
-              Pentatype mapping that tunes the show to you.
+              The ladder is intentional. Your First Episode is the gateway. Your Weekly Show is the
+              retention vehicle. The Multi-Tenant Pipeline License is how the method travels past our
+              capped roster. The first two carry the same three things: a producer in the room, the
+              network around the show, and the Pentatype mapping that tunes the show to you.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {tiers.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 0.08}>
               <div
@@ -66,7 +77,7 @@ export default function TierTeaser() {
                 </p>
                 {tier.dark && (
                   <p className="mt-5 font-mono text-xs uppercase tracking-widest text-bone/55">
-                    First ten Managed clients lock at $2,997 for twenty-four months.
+                    First five Weekly Show clients lock at $2,997 for twenty-four months.
                   </p>
                 )}
                 <Link

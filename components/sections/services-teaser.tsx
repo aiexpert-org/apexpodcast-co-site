@@ -15,8 +15,9 @@ export default function ServicesTeaser() {
               <p className="eyebrow-acid">Want what they have?</p>
               <h2 className="h-sub mt-3 text-bone">We produce shows end to end.</h2>
               <p className="mt-4 text-bone/70">
-                Once you have heard how we make the show, the rest is simple. Launch one episode, or
-                run a managed show cycle by cycle. Same hosts in the room either way.
+                Once you have heard how we make the show, the rest is simple. Produce your first
+                episode, run a weekly show cycle by cycle, or license the whole pipeline for your own
+                roster. Same producers in the room either way.
               </p>
             </div>
             <CtaLink href="/services/" variant="ghost-dark" arrow className="shrink-0">
