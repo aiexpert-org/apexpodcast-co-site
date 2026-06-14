@@ -14,7 +14,7 @@ export default function DiscoveryCalendarEmbed() {
     <div className="rounded-3xl border border-dashed border-ink/20 bg-bone p-8 md:p-12">
       <p className="font-mono text-xs uppercase tracking-widest text-ink/55">Apex booking calendar</p>
       <p className="mt-4 max-w-xl text-ink/75">
-        Pick a 20-minute slot with Brett or Randy. The calendar handles the routing once you choose a
+        Pick a 20-minute slot with a producer. The calendar handles the routing once you choose a
         time. No pitch deck, no obligation on either side.
       </p>
       <div className="mt-7">

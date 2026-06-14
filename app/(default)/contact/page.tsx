@@ -7,22 +7,18 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'The front door is a 20-minute discovery call with Brett or Randy. Email is a secondary path. Press, partners, and case-study inquiries each have their own line.',
+    'The front door is a 20-minute discovery call with a producer. Email is a secondary path. Press, partners, and case-study inquiries each have their own line.',
   alternates: { canonical: '/contact/' },
 }
 
-// Brett + Randy confirm whether the case-study program is open at relaunch.
+// Confirm whether the case-study program is open at relaunch.
 // When closed, set to false and the section is omitted.
 const caseStudyProgramOpen = true
 
 const directLines = [
   {
     email: siteConfig.email.brett,
-    use: 'For voice, framing, executive narrative, authors, and coaching-adjacent shows.',
-  },
-  {
-    email: siteConfig.email.randy,
-    use: 'For real estate, eXp adjacent, and leadership-and-systems shaped shows.',
+    use: 'The fastest written path to a producer. Tell us what you are building and we route it.',
   },
 ]
 
@@ -50,7 +46,7 @@ export default function ContactPage() {
           <Reveal>
             <h2 className="eyebrow">Book a discovery call.</h2>
             <p className="mt-5 max-w-2xl text-ink/75">
-              20 minutes. With Brett or Randy. We ask what you are building. We tell you what an Apex
+              20 minutes. With a producer. We ask what you are building. We tell you what an Apex
               show would look like for you. We do not run a pitch deck. There is no obligation on
               either side at the end of the call.
             </p>
@@ -88,12 +84,11 @@ export default function ContactPage() {
         <div className="container-apex">
           <Reveal>
             <div className="max-w-3xl rounded-3xl border border-bone/12 p-8 md:p-10">
-              <h2 className="eyebrow-acid">Who you will be matched with.</h2>
+              <h2 className="eyebrow-acid">How we route the call.</h2>
               <p className="mt-5 text-bone/75">
-                eXp Realty leadership, high-producing agents, and real-estate-shaped conversations
-                route to Randy. Coaching, executive narrative, authors, and brand-voice-shaped
-                conversations route to Brett. Hybrid cases default to Brett with Randy looped in. The
-                calendar handles the routing once you pick a time.
+                Tell us what your show is about and we match you with the producer who fits it best.
+                Real estate and leadership, coaching and executive narrative, authors and brand voice.
+                The calendar handles the routing once you pick a time.
               </p>
             </div>
           </Reveal>

@@ -148,8 +148,8 @@ export default function PartnersPage() {
             <div className="rounded-3xl bg-ink p-8 text-bone md:p-10">
               <h2 className="eyebrow-acid">Honoring existing relationships.</h2>
               <p className="mt-5 text-bone/75">
-                Buddy Buck holds a grandfathered twenty percent commission on referrals he sends across
-                every Brett-owned business, including Apex. That arrangement is honored as it stands.
+                One founding partner holds a grandfathered twenty percent commission on referrals
+                across the sibling companies, including Apex. That arrangement is honored as it stands.
                 The ten percent partner program above is the open program for everyone else.
               </p>
             </div>
@@ -163,8 +163,8 @@ export default function PartnersPage() {
           <Reveal>
             <h2 className="eyebrow">Who can be a partner.</h2>
             <p className="mt-5 text-ink/75">
-              Active Apex clients (First Episode buyers, Weekly Show clients, and case-study clients). Brett K
-              Moore HQ alumni. Anyone with a working relationship inside Brett’s network. The full
+              Active Apex clients (First Episode buyers, Weekly Show clients, and case-study clients).
+              Network alumni. Anyone with a working relationship inside the Apex network. The full
               agreement is sent when you enroll. Read it, sign it, get a referral link.
             </p>
             <div className="mt-8 rounded-3xl bg-ink px-8 py-10 text-bone">

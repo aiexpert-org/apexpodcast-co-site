@@ -27,9 +27,8 @@ export default function HomeHero() {
               <span className="text-acid">.</span>
             </h1>
             <p className="lead mt-7 max-w-2xl text-bone/70">
-              Hear it happen on The Apex Podcast. Every week, Brett K Moore and Randy Highsmith sit
-              down with an owner, operator, or leader and find the show inside what they have already
-              built.
+              Hear it happen on The Apex Podcast. Every week, our producers sit down with an owner,
+              operator, or leader and find the show inside what they have already built.
             </p>
             <p className="mt-3 font-mono text-xs uppercase tracking-widest text-bone/55">
               Listening is free. So is coming on.

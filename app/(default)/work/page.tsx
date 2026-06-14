@@ -8,7 +8,7 @@ import { caseStudies } from '@/lib/case-studies'
 export const metadata: Metadata = {
   title: 'Work',
   description:
-    'The Apex catalog opened in 2026 with Austin Cheviron, Randy Highsmith, and Russ Laggan. Three hosts, three audiences, one production standard. A producer in the room on every show.',
+    'The Apex catalog opened in 2026 with Austin Cheviron and Russ Laggan. Two shows, two audiences, one production standard. A producer in the room on every show.',
   alternates: { canonical: '/work/' },
 }
 
@@ -20,13 +20,13 @@ export default function WorkPage() {
         <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
           <p className="eyebrow-acid">The catalog.</p>
           <h1 className="display mt-6 max-w-4xl text-bone">
-            Three shows. One producer in the room on every one
+            Two shows. One producer in the room on every one
             <span className="text-acid">.</span>
           </h1>
           <p className="lead mt-7 max-w-3xl text-bone/70">
-            The Apex catalog opened in 2026 with Austin, Randy, and Russ. Three different hosts, three
-            different audiences, one production standard. A producer at every session. A Pentatype
-            profile under every show. A place on the Apex Podcast Network feed for every release.
+            The Apex catalog opened in 2026 with Austin and Russ. Two different hosts, two different
+            audiences, one production standard. A producer at every session. A Pentatype profile under
+            every show. A place on the Apex Podcast Network feed for every release.
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function WorkPage() {
       {/* The three case studies */}
       <section className="section bg-bone">
         <div className="container-apex">
-          <RevealStagger className="grid gap-6 md:grid-cols-3">
+          <RevealStagger className="grid gap-6 md:grid-cols-2">
             {caseStudies.map((study) => (
               <RevealItem key={study.slug} className="flex">
                 <CaseStudyCard study={study} size="lg" headingAs="h2" className="w-full" />

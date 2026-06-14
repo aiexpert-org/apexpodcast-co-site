@@ -1,5 +1,8 @@
 /**
- * The three at-launch case-study clients (the Apex catalog, opened 2026).
+ * The at-launch case-study clients (the Apex catalog, opened 2026). Two named
+ * public case studies only: Austin Cheviron and Russ Laggan (cleared per the
+ * 2026-05-18 permission flags). All other production credentials travel as
+ * faceless company experience, never as a named third case study.
  *
  * VOICE + HONESTY RULE: facts are sourced from `case-studies/<slug>/profile.md`
  * and `production-notes.md`. Nothing is invented. Where the source marks a field
@@ -32,8 +35,8 @@ export type CaseStudy = {
   show?: string
   /** Short, true positioning used on the cards. */
   positioning: string
-  /** Producer in the room. Omitted until Brett assigns per client; renders "Apex". */
-  producer?: 'Brett' | 'Randy'
+  /** Producer in the room. Omitted by default; renders "Apex". Faceless rule: never a founder name. */
+  producer?: string
   /** Who the host is. Conversational, sourced from profile.md. */
   hostBio: string
   /** Pentatype assessment result. None captured yet for any client. */
@@ -63,20 +66,8 @@ export const caseStudies: CaseStudy[] = [
     auditShipped: false,
   },
   {
-    slug: 'randy-highsmith',
-    catalog: 'APX-002',
-    host: 'Randy Highsmith',
-    show: 'Sweeter After Difficulty',
-    positioning: 'Emotional, identity-driven storytelling. The founder eating his own cooking.',
-    hostBio:
-      'Randy Highsmith is Brett\'s partner at Apex and the host of Sweeter After Difficulty. It is the clearest proof we have: the show a founder produces for himself, running the Apex playbook in real time.',
-    showPremise:
-      'Survival into thriving, hard truths, emotional recognition, and wisdom carried through story. Conversations that name the things people feel but rarely say out loud.',
-    auditShipped: false,
-  },
-  {
     slug: 'russ-laggan',
-    catalog: 'APX-003',
+    catalog: 'APX-002',
     host: 'Russ Laggan',
     positioning: 'VP of Training at eXp Realty. A weekly real estate leadership show.',
     hostBio:

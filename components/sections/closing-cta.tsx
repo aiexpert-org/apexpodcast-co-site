@@ -32,7 +32,7 @@ export default function ClosingCta({
                 </CtaLink>
               </div>
               <p className="mt-5 font-mono text-xs uppercase tracking-widest text-bone/55">
-                You will be matched with Brett or Randy based on what you are working on.
+                You will be matched with a producer based on what you are working on.
               </p>
             </div>
           </div>

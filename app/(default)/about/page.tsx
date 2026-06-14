@@ -6,34 +6,8 @@ import ClosingCta from '@/components/sections/closing-cta'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Apex Podcast Co is a 50/50 partnership between Brett K. Moore and Randy Highsmith. Two producers, full time on Apex, a producer in the room every session.',
+    'Apex Podcast Co is a boutique podcast production company for founders, operators, and experts. A producer in the room every session, a capped roster, and the Pentatype method tuning each show to its host.',
   alternates: { canonical: '/about/' },
-}
-
-function ProducerCard({
-  initials,
-  name,
-  body,
-}: {
-  initials: string
-  name: string
-  body: string
-}) {
-  return (
-    <div className="flex flex-col gap-6 sm:flex-row">
-      {/* Headshot placeholder (blocker 1.4: real headshots TBD by Brett + Randy) */}
-      <div
-        className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-ink/15 bg-ink"
-        aria-hidden="true"
-      >
-        <span className="font-display text-2xl text-acid">{initials}</span>
-      </div>
-      <div>
-        <h2 className="font-display text-2xl text-ink">{name}</h2>
-        <p className="mt-4 max-w-2xl text-ink/70">{body}</p>
-      </div>
-    </div>
-  )
 }
 
 export default function AboutPage() {
@@ -44,56 +18,31 @@ export default function AboutPage() {
         <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
           <p className="eyebrow-acid">About</p>
           <h1 className="display mt-6 max-w-4xl text-bone">
-            Two producers. One studio. A real partnership
+            A boutique production company. A producer in the room
             <span className="text-acid">.</span>
           </h1>
           <p className="lead mt-7 max-w-3xl text-bone/70">
-            Apex Podcast Co is a 50/50 partnership between Brett K. Moore and Randy Highsmith. Two
-            producers, full time on Apex. No junior editor in the loop until the math says we need
-            one. The work and the network are both built around that decision.
+            Apex Podcast Co is a boutique podcast production company for founders, operators, and
+            experts who already have something to say. We cap the roster at five new clients a month.
+            That ceiling is the point. It is what keeps a real producer in the room on every session.
           </p>
         </div>
       </section>
 
-      {/* The partnership */}
+      {/* The company */}
       <section className="section bg-bone">
         <div className="container-apex max-w-3xl">
           <Reveal>
-            <p className="eyebrow">The partnership</p>
+            <p className="eyebrow">Why boutique</p>
           </Reveal>
           <Reveal delay={0.05}>
             <p className="mt-6 text-lg text-ink/80">
-              Brett brought the Pentatype methodology and the producer instinct. Randy brought the eXp
-              Realty inroad, the Big Agent Meeting background, and a decade of leadership conversation
-              craft. The two of us decided to run Apex as one studio with two named producers rather
-              than as a marketing brand wrapped around contractors. The capacity math holds at thirty
-              active Weekly Show clients across both of us. That ceiling is what makes the
-              producer-in-the-room promise real.
+              Most podcast services scale by handing the work to whoever is free. We built Apex the
+              other way. The roster is capped, the producer is on the session, and no junior editor
+              steps into the room until the math says we need one. The work and the network are both
+              built around that decision.
             </p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Brett + Randy */}
-      <section className="section bg-bone pt-0">
-        <div className="container-apex">
-          <div className="rule" />
-          <div className="space-y-14 pt-14">
-            <Reveal>
-              <ProducerCard
-                initials="b."
-                name="Brett K. Moore."
-                body="Producer. Author of the Pentatype communication-style methodology at pentatype.com. Operator inside Brett K Moore HQ, which runs Apex Podcast Co, PodcastNetwork.org, Legacy Publishing, Give Web Design, The Brand Spine, AI Expert, and the Brett K Moore personal brand. Takes the call when the conversation is about voice, framing, executive narrative, authors, and coaching-adjacent shows."
-              />
-            </Reveal>
-            <Reveal>
-              <ProducerCard
-                initials="r."
-                name="Randy Highsmith."
-                body="Producer. Host of Sweeter After Difficulty (APX-002). Runs the eXp Realty side of the Apex network: the inroad to eXp leadership, the high-producing agent conversations, the Big Agent Meeting alumni. Takes the call when the conversation is real estate, eXp adjacent, or leadership-and-systems shaped."
-              />
-            </Reveal>
-          </div>
         </div>
       </section>
 
@@ -121,9 +70,9 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.16}>
               <p className="text-bone/75">
-                We hold the producer-in-the-room promise to thirty active Weekly Show clients across both of
-                us. When the client count crosses twenty-five active, we add an editor to take the export
-                and transcript work off the producer&rsquo;s plate so we stay producers.
+                We hold the producer-in-the-room promise to a capped roster of active shows. When the
+                client count climbs, we add an editor to take the export and transcript work off the
+                producer&rsquo;s plate so we stay producers.
               </p>
             </Reveal>
           </div>
@@ -133,26 +82,25 @@ export default function AboutPage() {
       {/* Producer-as-artist frame (shared) */}
       <ProducerFrame />
 
-      {/* The wider Brett K Moore HQ */}
+      {/* The wider network */}
       <section className="section bg-bone pt-0">
         <div className="container-apex max-w-3xl">
           <Reveal>
-            <p className="eyebrow">Inside a real operating company</p>
+            <p className="eyebrow">Focused on production</p>
           </Reveal>
           <Reveal delay={0.05}>
             <p className="mt-6 text-lg text-ink/80">
-              Apex is one of seven businesses inside Brett K Moore HQ. The others are Brett&rsquo;s personal
-              brand, PodcastNetwork.org, Legacy Publishing, Give Web Design, The Brand Spine, and AI
-              Expert. The cross-business referral pact means an Apex client who wants a book gets a warm
-              introduction to Legacy Publishing, an Apex client who wants a Knowledge Graph buildout gets
-              a warm introduction to AI Expert, and so on. The benefit is that we can stay focused on
-              producing without trying to be every other thing.
+              Apex produces podcasts. That is the whole job. When a show conversation surfaces
+              something outside production, a book, a website, a Knowledge Graph buildout, or
+              one-on-one coaching, we make a warm introduction to a trusted partner and stay focused on
+              the show. The Apex Podcast Network and PodcastNetwork.org carry the distribution and the
+              relationship layer around every release.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <ClosingCta headline="Want to talk to one of us?" />
+      <ClosingCta headline="Want to talk to a producer?" />
     </>
   )
 }

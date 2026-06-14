@@ -111,26 +111,26 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
     managed: 'One 30-minute sync per cycle to plan the next cycle\'s content.',
   },
   {
-    label: 'Eligibility for Brett\'s other businesses',
-    launch: 'Not gated. Launch buyers are welcome to inquire.',
+    label: 'Eligibility for sibling-company engagements',
+    launch: 'Not gated. First Episode buyers are welcome to inquire.',
     managed:
-      'Eligible for Legacy Publishing book engagements and AI Expert Knowledge Graph engagements as separate fees.',
+      'Eligible for partner book engagements and Knowledge Graph engagements as separate fees.',
   },
   {
     label: 'Founding cohort',
     launch: 'Not applicable.',
-    managed: 'First ten Managed clients lock at $2,997 for twenty-four months.',
+    managed: 'First five Weekly Show clients lock at $2,997 for twenty-four months.',
   },
 ]
 
 export const launchIncludes: { title: string; body: string }[] = [
   {
     title: 'The Pentatype assessment.',
-    body: 'The five-archetype communication-style mapping that pre-qualifies your show into a content lane before recording. Brett\'s IP.',
+    body: 'The five-archetype communication-style mapping that pre-qualifies your show into a content lane before recording. Proprietary to Apex.',
   },
   {
     title: 'A 90-minute strategy and host-archetype session.',
-    body: 'With Brett or Randy. We walk the Pentatype result, decide the editorial premise, and build the episode outline.',
+    body: 'With your producer. We walk the Pentatype result, decide the editorial premise, and build the episode outline.',
   },
   {
     title: 'One recorded and fully produced episode.',
@@ -138,7 +138,7 @@ export const launchIncludes: { title: string; body: string }[] = [
   },
   {
     title: 'Cover art, intro and outro music, and an episode template.',
-    body: 'From the curated Apex brand kit. Distinct, but not bespoke. Bespoke design is a separate engagement through Give Web Design or quoted as a custom add-on.',
+    body: 'From the curated Apex brand kit. Distinct, but not bespoke. Bespoke design is a separate engagement through a trusted web studio or quoted as a custom add-on.',
   },
   {
     title: 'Distribution setup under the Apex Podcast Network feed on Transistor.',
@@ -154,7 +154,7 @@ export const launchIncludes: { title: string; body: string }[] = [
   },
   {
     title: 'Twelve months of PodcastNetwork.org access.',
-    body: 'Brett\'s relationship-engine and guest-mapping IP, bundled as a network perk.',
+    body: 'The relationship-engine and guest-mapping IP behind PodcastNetwork.org, bundled as a network perk.',
   },
   {
     title: 'A debrief call and a recommendation on the path to Managed.',
@@ -165,7 +165,7 @@ export const launchIncludes: { title: string; body: string }[] = [
 export const launchTimeline: { title: string; body: string }[] = [
   {
     title: 'Apply or book discovery.',
-    body: 'A 20-minute call with Brett or Randy. Match check, fit check, expectation check.',
+    body: 'A 20-minute call with a producer. Match check, fit check, expectation check.',
   },
   {
     title: 'Take the Pentatype assessment.',
@@ -192,7 +192,7 @@ export const launchExclusions: string[] = [
   'Email automation buildout.',
   'Coaching beyond the strategy session and the debrief call.',
   'Guest acquisition matchmaking.',
-  'Knowledge Graph, Wikipedia, or Legacy Publishing book work.',
+  'Knowledge Graph, Wikipedia, or book publishing work.',
 ]
 
 export const launchFaq: { q: string; a: string }[] = [
@@ -260,8 +260,8 @@ export const managedIncludes: { title: string; body: string }[] = [
     body: 'One thirty-minute sync per cycle to plan the next cycle\'s content. Not coaching. Planning.',
   },
   {
-    title: 'Eligibility for Brett\'s other businesses.',
-    body: 'Legacy Publishing for the book conversation when it comes up. AI Expert for the Knowledge Graph and the Wikipedia conversation. Both as separate engagements at separate fees.',
+    title: 'Eligibility for sibling-company engagements.',
+    body: 'A trusted publisher for the book conversation when it comes up. A trusted AI shop for the Knowledge Graph and the Wikipedia conversation. Both as separate engagements at separate fees.',
   },
   {
     title: 'GHL client sub-account.',
@@ -365,7 +365,7 @@ export const licenseExclusions: string[] = [
   'Use of the Apex Podcast Co name or wordmark on your client-facing work.',
   'Resale or sub-licensing of the pipeline to another operator.',
   'A producer from Apex sitting in on your client sessions. You license the system and run it with your own team.',
-  'Book publishing, Wikipedia and Knowledge Graph work, or web design. Those route to the right home inside Brett K Moore HQ.',
+  'Book publishing, Wikipedia and Knowledge Graph work, or web design. Those route to a trusted partner.',
 ]
 
 export const licenseFaq: { q: string; a: string }[] = [
@@ -379,7 +379,7 @@ export const licenseFaq: { q: string; a: string }[] = [
   },
   {
     q: 'Why is real estate and eXp excluded?',
-    a: 'That ICP is served directly by Apex through Randy. The license carves it out so there is no conflict on the roster you build.',
+    a: 'That ICP is served directly by Apex. The license carves it out so there is no conflict on the roster you build.',
   },
   {
     q: 'Monthly or annual?',

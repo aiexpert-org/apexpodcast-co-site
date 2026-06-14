@@ -18,8 +18,8 @@ export default function ProducerFrame() {
                 <h2 className="h-section mt-5 text-bone">Album art for the podcast era.</h2>
                 <div className="mt-6 space-y-5 text-bone/70">
                   <p>
-                    We talk about Apex the way a record label talks about its catalog. Brett and Randy
-                    are producers. The hosts are artists. A show is an album. An episode is a release.
+                    We talk about Apex the way a record label talks about its catalog. We are the
+                    producers. The hosts are the artists. A show is an album. An episode is a release.
                     The unit of time is a cycle. The unit of work is a release.
                   </p>
                   <p>

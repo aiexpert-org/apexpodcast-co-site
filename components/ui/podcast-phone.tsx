@@ -39,7 +39,7 @@ export default function PodcastPhone() {
             <div className="mt-5">
               <p className="font-display text-base text-bone">The Apex Podcast</p>
               <p className="mt-1 font-mono text-[0.6rem] uppercase tracking-widest text-bone/55">
-                Brett K Moore + Randy Highsmith
+                Season 1. The Pentatype Codes
               </p>
 
               {/* progress */}

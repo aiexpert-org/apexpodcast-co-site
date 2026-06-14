@@ -38,8 +38,8 @@ export default function YourFirstEpisodePage() {
             </CtaLink>
           </div>
           <p className="mt-6 font-mono text-xs uppercase tracking-widest text-bone/55">
-            {tier.price} {tier.cadence}. Hot inbound and existing Brett K Moore network members can
-            apply for direct-to-proposal. Ask on the call.
+            {tier.price} {tier.cadence}. Hot inbound and existing network members can apply for
+            direct-to-proposal. Ask on the call.
           </p>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default function YourFirstEpisodePage() {
               <div className="mt-8">
                 <ExclusionList
                   items={launchExclusions}
-                  closingLine="Anything in that list routes to the right home inside Brett K Moore HQ when it comes up on the discovery call."
+                  closingLine="Anything in that list routes to a trusted partner when it comes up on the discovery call."
                 />
               </div>
             </div>

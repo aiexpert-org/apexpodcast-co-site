@@ -206,7 +206,7 @@ export default function GhlIntakeForm({
       </button>
 
       {/*
-        GHL iframe alternative. When Brett has the live form, replace the <form>
+        GHL iframe alternative. When the live form is ready, replace the <form>
         above with:
 
         <iframe

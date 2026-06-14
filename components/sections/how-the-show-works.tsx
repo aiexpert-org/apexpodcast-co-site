@@ -25,7 +25,7 @@ const segments = [
   },
   {
     title: 'Best memory, worst memory.',
-    body: 'Randy’s exercise. Two questions, intentionally heavy. What surfaces is what you find meaningful, and that is the substrate of what your show is about.',
+    body: 'A producer-led exercise. Two questions, intentionally heavy. What surfaces is what you find meaningful, and that is the substrate of what your show is about.',
   },
 ]
 

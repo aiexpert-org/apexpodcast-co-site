@@ -153,7 +153,7 @@ export default function MultiTenantPipelineLicensePage() {
             <div className="max-w-3xl rounded-3xl border border-ink/12 p-8 md:p-10">
               <h2 className="eyebrow">The one carve-out.</h2>
               <p className="mt-5 text-ink/75">
-                The real-estate and eXp roster stays with Apex, served directly through Randy. The
+                The real-estate and eXp roster stays with Apex, served directly in house. The
                 license covers every other roster you want to build. We confirm the fit on the ICP
                 screen before terms, so there is no conflict on the clients you take on.
               </p>

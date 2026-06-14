@@ -43,9 +43,9 @@ export default function NetworkPage() {
           </h1>
           <p className="lead mt-7 max-w-3xl text-bone/70">
             Three names, used carefully. Apex Podcast Co is the production company. The Apex Podcast
-            Network is the feed and the brand every Apex show publishes under. PodcastNetwork.org is
-            Brett’s separate property that holds the relationship-engine IP, bundled into Apex as a
-            perk. The network compounds because the work compounds.
+            Network is the feed and the brand every Apex show publishes under. PodcastNetwork.org is a
+            sibling property that holds the relationship-engine IP, bundled into Apex as a perk. The
+            network compounds because the work compounds.
           </p>
         </div>
       </section>

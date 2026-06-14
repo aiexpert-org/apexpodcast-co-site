@@ -57,8 +57,8 @@ export default function YourWeeklyShowPage() {
                 cover. Eight releases make a block. A block is what the audit reads as a body of work.
               </p>
               <p>
-                A producer is in the room every session. Brett or Randy, on monitor, dropping markers,
-                intervening when the conversation goes flat, writing the debrief afterward. The
+                A producer is in the room every session. On monitor, dropping markers, intervening
+                when the conversation goes flat, writing the debrief afterward. The
                 network is around every release: collab tags across the cohort, a place in the Apex
                 Podcast Network feed, a candidate spot inside The Debrief.
               </p>
@@ -160,7 +160,7 @@ export default function YourWeeklyShowPage() {
               </p>
               <p className="mt-4 text-bone/75">
                 The audit is producer-authored. Transcripts run through an AI-assisted analysis pass.
-                Brett or Randy writes the narrative and the taste layer. The result is a real document
+                A producer writes the narrative and the taste layer. The result is a real document
                 with a producer&rsquo;s read on it.
               </p>
               <p className="mt-6 font-mono text-xs uppercase tracking-widest text-bone/55">
@@ -179,7 +179,7 @@ export default function YourWeeklyShowPage() {
             <div className="mt-8">
               <ExclusionList
                 items={managedExclusions}
-                closingLine="Anything in that list routes to the right home inside Brett K Moore HQ when it comes up on the cycle planning call."
+                closingLine="Anything in that list routes to a trusted partner when it comes up on the cycle planning call."
               />
             </div>
           </Reveal>

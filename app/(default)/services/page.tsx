@@ -104,9 +104,9 @@ export default function ServicesPage() {
                 Apex is a producer-and-network business. It is not a book publisher, a web design
                 shop, a Wikipedia and Knowledge Graph buildout team, or a one-on-one coaching
                 practice. When a show conversation surfaces one of those, we make a warm introduction
-                inside Brett K Moore HQ. Legacy Publishing for books. Give Web Design for the site
-                beyond the show page. AI Expert for the Knowledge Graph and AI implementation work.
-                Brett K Moore Sessions for the coaching engagement.
+                to a trusted partner: a publisher for the book, a web studio for the site beyond the
+                show page, an AI shop for the Knowledge Graph work, and a coach for the coaching
+                engagement.
               </p>
             </div>
           </Reveal>

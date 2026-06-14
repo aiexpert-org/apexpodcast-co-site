@@ -31,7 +31,7 @@ export type Host = {
 export const whyGuest: { title: string; body: string }[] = [
   {
     title: 'A producer in the room.',
-    body: 'Brett or Randy is on the session, dropping markers and steering the conversation. You show up and talk. We handle the rest.',
+    body: 'A producer is on the session, dropping markers and steering the conversation. You show up and talk. We handle the rest.',
   },
   {
     title: 'The network carries it.',
@@ -56,7 +56,7 @@ export const hosts: Host[] = [
     showPremise: PENDING,
     cadence: 'Weekly, recorded on Riverside with a producer in the room.',
     audience: 'Real estate professionals and eXp Realty leaders.',
-    notableGuests: ['Glen Sanford'],
+    notableGuests: [],
     dossier: '02-Network/Russ Laggan/PUBLIC-DOSSIER-2026-05-30.md',
   },
   {
@@ -67,19 +67,8 @@ export const hosts: Host[] = [
     bio: PENDING,
     showPremise: PENDING,
     audience: 'People who want to make better decisions with what they earn.',
-    notableGuests: ['Jerrick Robbins'],
+    notableGuests: ['Jairek Robbins'],
     dossier: '02-Network/Austin Cheviron/PUBLIC-DOSSIER-2026-05-30.md',
-  },
-  {
-    slug: 'randy-highsmith',
-    name: 'Randy Highsmith',
-    caseStudySlug: 'randy-highsmith',
-    show: 'Sweeter After Difficulty',
-    tagline: 'Survival into thriving, on tape.',
-    bio: PENDING,
-    showPremise: PENDING,
-    notableGuests: [],
-    dossier: '02-Network/Randy Highsmith/PUBLIC-DOSSIER-2026-05-30.md',
   },
 ]
 

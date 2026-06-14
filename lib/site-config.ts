@@ -72,7 +72,6 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   // Phase 2
   '/work/',
   '/work/austin-cheviron/',
-  '/work/randy-highsmith/',
   '/work/russ-laggan/',
   '/services/',
   '/your-first-episode/',
@@ -85,10 +84,9 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/contact/',
   '/legal/privacy/',
   '/legal/terms/',
-  // Phase 3.5 host press-kit pages
+  // Phase 3.5 host press-kit pages (cleared named clients only)
   '/russ-laggan/',
   '/austin-cheviron/',
-  '/randy-highsmith/',
 ])
 
 export function isLiveRoute(href: string): boolean {

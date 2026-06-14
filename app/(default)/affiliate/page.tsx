@@ -54,7 +54,7 @@ const faq = [
   },
   {
     q: 'Who can be an affiliate?',
-    a: 'Active Apex clients, Brett K Moore HQ alumni, and anyone with a working relationship inside the network. The full agreement is sent when you apply.',
+    a: 'Active Apex clients, network alumni, and anyone with a working relationship inside the Apex network. The full agreement is sent when you apply.',
   },
   {
     q: 'Is this the same as the Partners program?',

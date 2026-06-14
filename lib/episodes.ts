@@ -29,7 +29,7 @@ export const episodes: Episode[] = [
     n: 1,
     title: 'Pentatype Intro',
     blurb:
-      'Solo episode. Brett walks through the Pentatype communication assessment, why it sits inside the producer-craft frame, and how it shapes the way we shape every Apex show.',
+      'Solo episode. A walkthrough of the Pentatype communication assessment, why it sits inside the producer-craft frame, and how it shapes the way we shape every Apex show.',
     duration: '20 min',
     date: '2026-06-02',
     listenUrl: siteConfig.listen.anywhere,

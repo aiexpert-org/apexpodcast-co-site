@@ -104,7 +104,7 @@ export default function Footer() {
         {/* Final row */}
         <div className="mt-10 flex flex-col gap-4 border-t border-bone/15 pt-8 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-bone/60">
-            &copy; 2026 Apex Podcast Co. Brett K. Moore and Randy Highsmith.
+            &copy; 2026 Apex Podcast Co. A boutique podcast production company.
           </p>
           <div className="flex items-center gap-5 text-xs text-bone/60">
             <Link href="/legal/privacy/" className="hover:text-acid">

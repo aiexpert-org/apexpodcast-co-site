@@ -4,7 +4,7 @@ const pillars = [
   {
     n: '01',
     title: 'Producer instinct.',
-    body: 'Anyone can record. Almost nobody is producing while you record. Randy or Brett is in the room every session, monitoring, dropping markers, intervening when the conversation goes flat. That is the difference.',
+    body: 'Anyone can record. Almost nobody is producing while you record. A producer is in the room every session, monitoring, dropping markers, intervening when the conversation goes flat. That is the difference.',
   },
   {
     n: '02',

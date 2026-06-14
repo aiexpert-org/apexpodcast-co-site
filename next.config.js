@@ -11,6 +11,10 @@ const nextConfig = {
       // 2026-06-14. Old links and anything indexed under /services/* keep working.
       { source: '/services/launch', destination: '/your-first-episode', permanent: true },
       { source: '/services/managed', destination: '/your-weekly-show', permanent: true },
+      // Faceless rule (2026-05-18/19): the founder is not a public case study.
+      // Retire the host press-kit + case-study pages; send any inbound link to /work.
+      { source: '/randy-highsmith', destination: '/work', permanent: true },
+      { source: '/work/randy-highsmith', destination: '/work', permanent: true },
     ]
   },
 }
