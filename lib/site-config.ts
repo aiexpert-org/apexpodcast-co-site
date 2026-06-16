@@ -68,6 +68,16 @@ export const siteConfig = {
  */
 export const liveRoutes: ReadonlySet<string> = new Set([
   '/',
+  // CCM-mirrored page set (2026-06-16 redesign)
+  '/how-it-works/',
+  '/subscription/',
+  '/portfolio/',
+  '/case-studies/',
+  '/case-studies/the-apex-podcast/',
+  '/case-studies/sweeter-after-difficulty/',
+  '/case-studies/the-russ-laggan-podcast/',
+  '/case-studies/winning-twice/',
+  '/resources/',
   '/about/',
   // Phase 2
   '/work/',
@@ -93,30 +103,21 @@ export function isLiveRoute(href: string): boolean {
   return liveRoutes.has(href)
 }
 
-/** Primary navigation, left to right, per SITE-ARCHITECTURE §3. */
+/** Primary navigation. Mirrors the CCM page set (2026-06-16 redesign). */
 export const primaryNav: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
-  { label: 'Work', href: '/work/' },
-  {
-    label: 'Services',
-    href: '/services/',
-    children: [
-      { label: 'Your First Episode', href: '/your-first-episode/' },
-      { label: 'Your Weekly Show', href: '/your-weekly-show/' },
-      { label: 'Multi-Tenant Pipeline License', href: '/multi-tenant-pipeline-license/' },
-    ],
-  },
-  { label: 'Network', href: '/network/' },
-  { label: 'About', href: '/about/' },
-  { label: 'Partners', href: '/partners/' },
+  { label: 'How It Works', href: '/how-it-works/' },
+  { label: 'Subscription', href: '/subscription/' },
+  { label: 'Portfolio', href: '/portfolio/' },
+  { label: 'Case Studies', href: '/case-studies/' },
 ]
 
-/** Footer link columns, per SITE-ARCHITECTURE §4 / COPY-SPEC §0. */
+/** Footer link columns. */
 export const footerSiteLinks = [
-  { label: 'Work', href: '/work/' },
-  { label: 'Services', href: '/services/' },
+  { label: 'How It Works', href: '/how-it-works/' },
+  { label: 'Subscription', href: '/subscription/' },
+  { label: 'Portfolio', href: '/portfolio/' },
+  { label: 'Case Studies', href: '/case-studies/' },
+  { label: 'Liner Notes', href: '/resources/' },
   { label: 'Network', href: '/network/' },
   { label: 'About', href: '/about/' },
-  { label: 'Partners', href: '/partners/' },
-  { label: 'Affiliates', href: '/affiliate/' },
-  { label: 'Contact', href: '/contact/' },
 ]

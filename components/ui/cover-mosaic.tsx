@@ -1,22 +1,27 @@
-import Image from 'next/image'
+'use client'
+
+import { useEffect, useRef } from 'react'
 import { cn } from '@/lib/utils'
+import { SHOW_COVERS } from '@/lib/shows'
 
 /**
- * The Show Wall, ported from the CCM hero mosaic. A dense, edge-to-edge grid of
- * podcast cover art fills the hero. Tiles rest desaturated and dimmed; hovering
- * an individual tile lifts just that one to full color and zooms it slightly.
- * Per-column intensity keeps the left side (under the headline and CTAs) muted
- * and legible while the right side pops to full color. A right-to-left bone
- * gradient sits above the tiles so the copy stays clean.
+ * The Show Wall — the interactive "lights up" hero grid, ported from the CCM
+ * hero mosaic. A dense, edge-to-edge grid of podcast cover art fills the hero.
+ * Tiles rest desaturated and dimmed; a radius of tiles around the cursor warms
+ * to full color, brightens, and lifts (the effect Brett loves). A right-to-left
+ * gradient (bone or ink) keeps the copy clean on the left while the covers pop
+ * on the right. Cover art is the background-tile content — the catalog of Apex
+ * releases as the backdrop.
  *
- * This is the album-art-philosophy "producer discography" wall: the catalog of
- * Apex releases as the backdrop. Cover art replaces CCM's church-graphic tiles;
- * acid-era covers and the brand solids carry the record-label rhythm.
+ * Implementation: plain <img> tiles (pre-optimized webp) with their centers
+ * measured once, then a single pointer handler writes filter/opacity/transform
+ * directly to the nearby tiles inside a rAF — no React re-render per frame, so
+ * it stays smooth with ~50 tiles. Falls back to the CSS per-tile hover, and is
+ * inert under prefers-reduced-motion.
  */
 
-// The distinct cover tiles, in catalog order, plus brand solids for rhythm.
-const COVERS = [
-  '/covers/cover-01-apex.webp',
+// Brand label covers + solids round out the show covers for grid rhythm.
+const BRAND = [
   '/covers/cover-02-bold.webp',
   '/covers/cover-03-editorial.webp',
   '/covers/cover-04-pentatype.webp',
@@ -27,33 +32,26 @@ const COVERS = [
 ]
 const SOLIDS = ['/covers/solid-ink.webp', '/covers/solid-acid.webp', '/covers/solid-stone.webp']
 
-// Build a deterministic ~50-cell pool: cycle the covers and drop a brand solid
-// every seventh cell so the wall reads as a varied catalog, not a repeat loop.
-// Deterministic (no randomness) so server and client markup match.
+// Deterministic ~54-cell pool: real + network covers first, brand covers mixed
+// in, a brand solid every ninth cell. No randomness so SSR and client match.
+const POOL = [...SHOW_COVERS, ...BRAND]
 const BG_TILES: string[] = (() => {
   const out: string[] = []
-  let ci = 0
+  let pi = 0
   let si = 0
-  for (let i = 0; i < 50; i++) {
-    if (i > 0 && i % 7 === 3) {
+  for (let i = 0; i < 54; i++) {
+    if (i > 0 && i % 9 === 4) {
       out.push(SOLIDS[si % SOLIDS.length])
       si++
     } else {
-      out.push(COVERS[ci % COVERS.length])
-      ci++
+      out.push(POOL[pi % POOL.length])
+      pi++
     }
   }
   return out
 })()
 
-// Per-column hover saturation + brightness across the 10-col desktop grid.
-// Left columns sit under the copy and stay muted; right columns pop.
-function hoverIntensity(col: number): { saturation: number; brightness: number } {
-  if (col <= 3) return { saturation: 0.4, brightness: 0.96 }
-  if (col <= 5) return { saturation: 0.7, brightness: 1.0 }
-  if (col <= 7) return { saturation: 0.9, brightness: 1.04 }
-  return { saturation: 1.05, brightness: 1.08 }
-}
+const RADIUS = 230
 
 export function CoverMosaicBackground({
   className,
@@ -62,55 +60,100 @@ export function CoverMosaicBackground({
   className?: string
   tone?: 'light' | 'dark'
 }) {
-  // Gradient ground: bone for light heroes, ink for dark heroes. Same opaque
-  // left band keeps the copy legible; the right side fades to show the covers.
+  const gridRef = useRef<HTMLDivElement>(null)
+  const imgs = useRef<HTMLImageElement[]>([])
+  const centers = useRef<Array<{ x: number; y: number }>>([])
+
+  useEffect(() => {
+    const grid = gridRef.current
+    if (!grid) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const measure = () => {
+      const gr = grid.getBoundingClientRect()
+      centers.current = imgs.current.map((el) => {
+        const r = el.getBoundingClientRect()
+        return { x: r.left - gr.left + r.width / 2, y: r.top - gr.top + r.height / 2 }
+      })
+    }
+    measure()
+
+    // Paint directly from the pointer position. Writing inline styles to ~55
+    // tiles per move is cheap (no layout thrash, just compositor filters), and
+    // dropping rAF keeps the effect robust across browsers and headless checks.
+    const paint = (cx: number, cy: number) => {
+      const list = imgs.current
+      const cs = centers.current
+      for (let i = 0; i < list.length; i++) {
+        const c = cs[i]
+        const el = list[i]
+        if (!c || !el) continue
+        const dx = cx - c.x
+        const dy = cy - c.y
+        const k = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / RADIUS)
+        if (k <= 0.001) {
+          el.style.filter = ''
+          el.style.opacity = ''
+          el.style.transform = ''
+          el.style.zIndex = ''
+          continue
+        }
+        el.style.filter = `grayscale(${1 - k * 0.95}) brightness(${0.94 + k * 0.34}) saturate(${1 + k * 0.15})`
+        el.style.opacity = String(0.6 + k * 0.4)
+        el.style.transform = `scale(${1 + k * 0.05})`
+        el.style.zIndex = k > 0.5 ? '10' : ''
+      }
+    }
+
+    const onMove = (e: PointerEvent) => {
+      const gr = grid.getBoundingClientRect()
+      paint(e.clientX - gr.left, e.clientY - gr.top)
+    }
+    const onLeave = () => paint(-9999, -9999)
+    const onResize = () => measure()
+
+    grid.addEventListener('pointermove', onMove)
+    grid.addEventListener('pointerleave', onLeave)
+    window.addEventListener('resize', onResize)
+    window.addEventListener('scroll', onResize, { passive: true })
+    return () => {
+      grid.removeEventListener('pointermove', onMove)
+      grid.removeEventListener('pointerleave', onLeave)
+      window.removeEventListener('resize', onResize)
+      window.removeEventListener('scroll', onResize)
+    }
+  }, [])
+
   const g = tone === 'dark' ? '20,20,15' : '250,248,243'
+
   return (
-    <div
-      className={cn('absolute inset-0 -z-10 overflow-hidden', className)}
-      aria-hidden="true"
-    >
-      <div className="grid h-full w-full auto-rows-fr grid-cols-6 gap-1.5 sm:grid-cols-8 lg:grid-cols-10">
-        {BG_TILES.map((src, i) => {
-          const col = i % 10
-          const inTextColumns = col <= 3
-          const { saturation, brightness } = hoverIntensity(col)
-          return (
-            <div
-              key={`${src}-${i}`}
-              data-col={col}
-              tabIndex={-1}
-              className={cn(
-                'relative overflow-hidden rounded-sm',
-                inTextColumns
-                  ? 'pointer-events-none'
-                  : 'group pointer-events-auto cursor-pointer transition duration-[480ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-10 hover:shadow-[0_8px_24px_rgba(20,20,15,0.22)]',
-              )}
-              style={
-                inTextColumns
-                  ? undefined
-                  : ({
-                      '--hover-saturation': saturation,
-                      '--hover-brightness': brightness,
-                    } as React.CSSProperties)
-              }
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 10vw, (min-width: 640px) 12vw, 16vw"
-                className="mosaic-tile-img object-cover"
-                priority={i < 10}
-              />
-            </div>
-          )
-        })}
+    <div className={cn('absolute inset-0 -z-10 overflow-hidden', className)} aria-hidden="true">
+      <div
+        ref={gridRef}
+        className="grid h-full w-full auto-rows-fr grid-cols-6 gap-1.5 sm:grid-cols-8 lg:grid-cols-10"
+      >
+        {BG_TILES.map((src, i) => (
+          <div
+            key={`${src}-${i}`}
+            className="group relative overflow-hidden rounded-sm transition-shadow duration-[480ms] hover:z-10 hover:shadow-[0_8px_24px_rgba(20,20,15,0.22)]"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              ref={(el) => {
+                if (el) imgs.current[i] = el
+              }}
+              src={src}
+              alt=""
+              loading={i < 12 ? 'eager' : 'lazy'}
+              decoding="async"
+              className="mosaic-tile-img absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        ))}
       </div>
 
-      {/* Right-to-left bone gradient. Opaque across the left ~35% where the
-          headline and CTAs live, then fading so colorful covers show on the
-          right. pointer-events-none so it does not swallow tile hover. */}
+      {/* Right-to-left gradient: opaque across the left ~35% where the copy
+          lives, fading so covers pop on the right. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -129,19 +172,20 @@ export function CoverMosaicBackground({
 }
 
 /**
- * Mobile / stacked fallback: a curated 2-col grid of covers, lightly
- * desaturated, shown below the copy where the full-bleed wall is hidden.
+ * Mobile / stacked fallback: a curated grid of show covers, lightly
+ * desaturated, shown where the full-bleed wall is hidden.
  */
 export function CoverMosaicMobile({ className }: { className?: string }) {
   return (
     <div className={cn('grid grid-cols-3 gap-2.5', className)} aria-hidden="true">
-      {COVERS.slice(0, 6).map((src) => (
+      {SHOW_COVERS.slice(0, 6).map((src) => (
         <div
           key={src}
           className="relative aspect-square overflow-hidden rounded-lg ring-1 ring-ink/10"
-          style={{ filter: 'grayscale(0.35)', opacity: 0.96 }}
+          style={{ filter: 'grayscale(0.3)', opacity: 0.96 }}
         >
-          <Image src={src} alt="" fill sizes="33vw" className="object-cover" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
         </div>
       ))}
     </div>

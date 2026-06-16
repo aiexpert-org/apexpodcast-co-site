@@ -11,9 +11,9 @@ import {
 } from '@headlessui/react'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import Wordmark from '@/components/ui/wordmark'
-import CtaLink from '@/components/ui/cta-link'
 import AcidSwipe from '@/components/ui/acid-swipe'
-import { primaryNav, siteConfig } from '@/lib/site-config'
+import JoinWaitlistButton from '@/components/ui/join-waitlist'
+import { primaryNav } from '@/lib/site-config'
 import { cn } from '@/lib/utils'
 
 export default function Header() {
@@ -106,9 +106,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <CtaLink href={siteConfig.discoveryUrl} variant="primary" size="sm">
-              Book a discovery call
-            </CtaLink>
+            <JoinWaitlistButton source="header" size="sm" />
           </div>
 
           {/* Mobile toggle */}
@@ -168,9 +166,7 @@ export default function Header() {
           </nav>
 
           <div className="container-apex pb-10">
-            <CtaLink href={siteConfig.discoveryUrl} variant="primary" className="w-full" arrow>
-              Book a discovery call
-            </CtaLink>
+            <JoinWaitlistButton source="mobile-nav" className="w-full" />
           </div>
         </DialogPanel>
       </Dialog>
