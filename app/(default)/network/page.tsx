@@ -4,6 +4,7 @@ import CaseStudyCard from '@/components/ui/case-study-card'
 import CtaLink from '@/components/ui/cta-link'
 import DebriefSignupForm from '@/components/forms/debrief-signup-form'
 import ClosingCta from '@/components/sections/closing-cta'
+import PageHero from '@/components/ui/page-hero'
 import Link from '@/components/ui/smart-link'
 import { caseStudies } from '@/lib/case-studies'
 import { siteConfig } from '@/lib/site-config'
@@ -34,21 +35,20 @@ export default function NetworkPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-ink text-bone">
-        <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
-          <p className="eyebrow-acid">The network.</p>
-          <h1 className="display mt-6 max-w-4xl text-bone">
+      <PageHero
+        eyebrow="The network."
+        title={
+          <>
             The roster is the network
             <span className="text-acid">.</span>
-          </h1>
-          <p className="lead mt-7 max-w-3xl text-bone/70">
-            Three names, used carefully. Apex Podcast Co is the production company. The Apex Podcast
-            Network is the feed and the brand every Apex show publishes under. PodcastNetwork.org is a
-            sibling property that holds the relationship-engine IP, bundled into Apex as a perk. The
-            network compounds because the work compounds.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+      >
+        Three names, used carefully. Apex Podcast Co is the production company. The Apex Podcast
+        Network is the feed and the brand every Apex show publishes under. PodcastNetwork.org is a
+        sibling property that holds the relationship-engine IP, bundled into Apex as a perk. The
+        network compounds because the work compounds.
+      </PageHero>
 
       {/* The Debrief */}
       <section className="section bg-bone">

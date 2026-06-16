@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Reveal } from '@/components/motion/reveal'
 import ProducerFrame from '@/components/sections/producer-frame'
 import ClosingCta from '@/components/sections/closing-cta'
+import PageHero from '@/components/ui/page-hero'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -14,20 +15,19 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero. Rendered statically (above the fold) so it does not delay LCP. */}
-      <section className="bg-ink text-bone">
-        <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
-          <p className="eyebrow-acid">About</p>
-          <h1 className="display mt-6 max-w-4xl text-bone">
+      <PageHero
+        eyebrow="About"
+        title={
+          <>
             A boutique production company. A producer in the room
             <span className="text-acid">.</span>
-          </h1>
-          <p className="lead mt-7 max-w-3xl text-bone/70">
-            Apex Podcast Co is a boutique podcast production company for founders, operators, and
-            experts who already have something to say. We cap the roster at five new clients a month.
-            That ceiling is the point. It is what keeps a real producer in the room on every session.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+      >
+        Apex Podcast Co is a boutique podcast production company for founders, operators, and
+        experts who already have something to say. We cap the roster at five new clients a month.
+        That ceiling is the point. It is what keeps a real producer in the room on every session.
+      </PageHero>
 
       {/* The company */}
       <section className="section bg-bone">

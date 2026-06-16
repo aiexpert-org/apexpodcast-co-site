@@ -3,6 +3,7 @@ import { Reveal } from '@/components/motion/reveal'
 import CtaLink from '@/components/ui/cta-link'
 import TierCompareTable from '@/components/sections/tier-compare-table'
 import ClosingCta from '@/components/sections/closing-cta'
+import PageHero from '@/components/ui/page-hero'
 import { tiers } from '@/lib/services'
 
 export const metadata: Metadata = {
@@ -16,22 +17,21 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-ink text-bone">
-        <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
-          <p className="eyebrow-acid">Three ways in.</p>
-          <h1 className="display mt-6 max-w-4xl text-bone">
+      <PageHero
+        eyebrow="Three ways in."
+        title={
+          <>
             Launch a show, run one, or license the pipeline
             <span className="text-acid">.</span>
-          </h1>
-          <p className="lead mt-7 max-w-3xl text-bone/70">
-            Apex sells three things. The first two are vehicles for a producer in the room, the
-            network around the show, and the Pentatype mapping that tunes the show to you. The ladder
-            is intentional. Most start with Your First Episode and move to Your Weekly Show inside the
-            credit window. The Multi-Tenant Pipeline License is the third path, for operators who want
-            to run the Apex pipeline under their own brand.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+      >
+        Apex sells three things. The first two are vehicles for a producer in the room, the
+        network around the show, and the Pentatype mapping that tunes the show to you. The ladder
+        is intentional. Most start with Your First Episode and move to Your Weekly Show inside the
+        credit window. The Multi-Tenant Pipeline License is the third path, for operators who want
+        to run the Apex pipeline under their own brand.
+      </PageHero>
 
       <TierCompareTable />
 
