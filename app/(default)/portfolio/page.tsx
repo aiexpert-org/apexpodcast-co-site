@@ -3,12 +3,12 @@ import PageHero from '@/components/ui/page-hero'
 import ShowGrid from '@/components/sections/show-grid'
 import ContactBlock from '@/components/sections/contact-block'
 import { Reveal } from '@/components/motion/reveal'
-import { REAL_SHOWS, NETWORK_SHOWS } from '@/lib/shows'
+import { REAL_SHOWS, NETWORK_SHOWS, CATEGORIES } from '@/lib/shows'
 
 export const metadata: Metadata = {
   title: 'Portfolio',
   description:
-    'The Apex catalog. Human-hosted shows produced in the room and AI-voiced shows from the Apex Podcast Network. Cover art is the work.',
+    'The Apex catalog. Four human-hosted shows produced with a producer in the room, and twenty AI-narrated brand productions from the Apex Podcast Network across six categories.',
   alternates: { canonical: '/portfolio/' },
 }
 
@@ -24,26 +24,58 @@ export default function PortfolioPage() {
           </>
         }
       >
-        {REAL_SHOWS.length} human-hosted shows produced with a producer in the room, and{' '}
-        {NETWORK_SHOWS.length} AI-voiced shows from the Apex Podcast Network. The cover art is the
-        work. Move across the grid and watch it light up.
+        Four human-hosted shows produced with a producer in the room, and {NETWORK_SHOWS.length}{' '}
+        AI-narrated brand productions from the Apex Podcast Network. Six categories, one feed. Each
+        network show is inspired by a podcast that already proved the lane. Move across the grid and
+        watch it light up.
       </PageHero>
 
+      {/* Artist albums: the human-hosted anchors. */}
       <section className="section">
         <div className="container-apex">
           <Reveal className="mb-12 max-w-2xl">
-            <p className="eyebrow-acid">The grid</p>
+            <p className="eyebrow-acid">Artist albums</p>
             <h2 className="mt-4 h-section text-ink">
-              Twenty four shows and counting
+              The human-hosted shows
               <span className="text-acid">.</span>
             </h2>
             <p className="mt-5 text-ink/70">
-              The human-hosted shows link through to their case study. The network productions are
-              in production now, branded as Apex Podcast Network releases.
+              Four anchor shows, produced in the room, with a real host at the chair. They are the
+              face of the network. Click any one for the case study.
+            </p>
+          </Reveal>
+          <ShowGrid shows={REAL_SHOWS} />
+        </div>
+      </section>
+
+      {/* The Apex Podcast Network: 20 AI-narrated brand productions. */}
+      <section className="section pt-0">
+        <div className="container-apex">
+          <Reveal className="mb-8 max-w-2xl">
+            <p className="eyebrow-acid">The Apex Podcast Network</p>
+            <h2 className="mt-4 h-section text-ink">
+              Twenty brand productions, six categories
+              <span className="text-acid">.</span>
+            </h2>
+            <p className="mt-5 text-ink/70">
+              Narrated with AI voice production and disclosed on every release. Each one opens the
+              same way. From the Apex Podcast Network. This is the show.
             </p>
           </Reveal>
 
-          <ShowGrid />
+          {/* Category legend. */}
+          <Reveal className="mb-12 flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => (
+              <span
+                key={cat}
+                className="rounded-full border border-ink/15 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-widest text-ink/55"
+              >
+                {cat}
+              </span>
+            ))}
+          </Reveal>
+
+          <ShowGrid shows={NETWORK_SHOWS} />
         </div>
       </section>
 
