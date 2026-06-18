@@ -18,6 +18,8 @@ const nextConfig = {
       // 2026-06-18 redesign: old /how-it-works page is replaced by the shorter
       // /how-we-work page. Inbound traffic redirects so indexed links survive.
       { source: '/how-it-works', destination: '/how-we-work', permanent: true },
+      // /portfolio/ is replaced by the live Transistor-backed /network/ catalog.
+      { source: '/portfolio', destination: '/network', permanent: true },
     ]
   },
 }

@@ -50,6 +50,8 @@ export type Show = {
   listenUrl?: string
   /** Legacy v3 field, kept optional so old /portfolio/ and /work/ compile. */
   category?: 'Sports' | 'Music' | 'Business' | 'Communication' | 'Biohacking' | 'Relationships'
+  /** Legacy v4.1 field on the show-grid component (Provisional badge). */
+  provisional?: boolean
 }
 
 /** The three Selected Work shows on the home page. Human-hosted. */
