@@ -6,8 +6,9 @@ import { SHOWS, hostLine, type Show } from '@/lib/shows'
  * Show cards as cover-art tiles. Covers rest desaturated and warm to full color
  * on hover (the CCM gallery move, recast for podcasts). Human-hosted anchor
  * shows link to their case study and carry the host name; Apex Network shows
- * carry the category, the hit-comparable lane, and the AI-narration disclosure
- * with no fabricated host.
+ * carry the Pentatype Core and the AI-narration disclosure, with no fabricated
+ * host. The Core badge replaces the v3 six-category tag (slate locked v4.1,
+ * 2026-06-17).
  */
 function ShowCard({ show }: { show: Show }) {
   const inner = (
@@ -20,9 +21,14 @@ function ShowCard({ show }: { show: Show }) {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover opacity-95 grayscale-[0.5] transition duration-300 ease-out group-hover:scale-[1.03] group-hover:opacity-100 group-hover:grayscale-0 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
-        {show.network && show.category ? (
+        {show.network && show.core ? (
           <span className="absolute left-3 top-3 rounded-full bg-ink/85 px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-widest text-acid">
-            {show.category}
+            {show.core}
+          </span>
+        ) : null}
+        {show.provisional ? (
+          <span className="absolute right-3 top-3 rounded-full bg-acid/95 px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-widest text-ink">
+            Provisional
           </span>
         ) : null}
       </div>
@@ -35,12 +41,9 @@ function ShowCard({ show }: { show: Show }) {
         </h3>
         <p className="mt-0.5 text-sm text-ink/60">{hostLine(show)}</p>
         {show.network ? (
-          <>
-            <p className="mt-1.5 text-xs italic text-ink/55">{show.hitComparable}</p>
-            <p className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-widest text-ink/35">
-              Narrated with AI voice
-            </p>
-          </>
+          <p className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-widest text-ink/35">
+            Narrated with AI voice
+          </p>
         ) : null}
       </div>
     </>

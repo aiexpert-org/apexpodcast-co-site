@@ -2,27 +2,42 @@
  * The Apex catalog. Powers the Portfolio grid and the Show Wall mosaic. Cover
  * art is the background-tile content (the CCM design move, recast for podcasts).
  *
- * FOUR are real, human-hosted anchor shows already in Apex's Transistor stable.
- * TWENTY are AI-narrated brand productions for the Apex Podcast Network, mapped
- * to Brett's six categories (Sports, Music, Business, Communication, Biohacking,
- * Relationships) with a hit-comparable lane each. No fabricated host names: every
- * network show is narrated by the Apex brand voice and discloses it.
+ * FOUR human-hosted anchor shows still live front and center.
+ * SEVENTEEN Apex Podcast Network shows are AI-narrated brand productions
+ * organized by Pentatype Core (Connection, Structure, Conviction, Discovery,
+ * Meaning). No fabricated host names: every network show is narrated by the
+ * Apex brand voice and discloses it.
  *
- * Canonical sources: strategy/apex-stable-v3-inspired-by-2026-06-17.md (titles +
- * hit-comparables + premises), strategy/20-podcast-stable-2026-06-16-v2-categories.md
- * (categories), brand/2026-06-16-20-show-stable/COVER-ART-BRIEF-v2-categories.md
- * (cover art). Real cover art for the 4 human shows is pending a Transistor API
- * key; branded covers stand in. Live Transistor metadata flows in when the key
- * lands (see LIVING-NOTES).
+ * Canonical source: strategy/v4-concept-validation-2026-06-17.md (the v4.1
+ * slate locked 2026-06-17 evening; supersedes the v2/v3 20-show stable).
+ * Cover art for renamed and net-new shows is a typographic placeholder in
+ * the Acid brand until full art lands.
  */
 
-export type Category =
-  | 'Sports'
-  | 'Music'
-  | 'Business'
-  | 'Communication'
-  | 'Biohacking'
-  | 'Relationships'
+export type Core =
+  | 'Connection'
+  | 'Structure'
+  | 'Conviction'
+  | 'Discovery'
+  | 'Meaning'
+
+/** The Pentatype finger that maps to each Core, used in section headings. */
+export const CORE_FINGER: Record<Core, string> = {
+  Connection: 'Thumb',
+  Structure: 'Pointer',
+  Conviction: 'Middle',
+  Discovery: 'Ring',
+  Meaning: 'Pinkie',
+}
+
+/** Optional one-line gloss for each Core, used in section copy. */
+export const CORE_GLOSS: Record<Core, string> = {
+  Connection: 'Daily presence and ambient companionship.',
+  Structure: 'Frameworks, principles, and how things actually work.',
+  Conviction: 'Craft, character, and the harder questions.',
+  Discovery: 'Curiosity, wonder, and the world made vivid.',
+  Meaning: 'Love, legacy, and what outlasts the work.',
+}
 
 export type Show = {
   slug: string
@@ -36,14 +51,14 @@ export type Show = {
   cover: string
   status: 'live' | 'production'
   excerpt: string
-  /** Network shows: the six-category bucket. */
-  category?: Category
-  /** Network shows: the hit-podcast lane, e.g. "In the lane of Song Exploder". */
-  hitComparable?: string
+  /** Network shows: the Pentatype Core bucket. */
+  core?: Core
   /** Set when the show has a full case study page. */
   caseStudy?: boolean
   /** Flagship anchor show, pinned first. */
   flagship?: boolean
+  /** Provisional shows may move or get swapped before launch. */
+  provisional?: boolean
 }
 
 export const REAL_SHOWS: Show[] = [
@@ -102,34 +117,147 @@ export const REAL_SHOWS: Show[] = [
 type NetSeed = {
   slug: string
   title: string
-  category: Category
-  hitComparable: string
+  core: Core
   excerpt: string
+  /** Optional override for the cover path (when reusing an existing webp). */
+  cover?: string
+  provisional?: boolean
 }
 
-// The 20 Apex Podcast Network shows (canonical v3 + v2). Narrated with AI voice
-// production. No host names, by design.
+// The 17 Apex Podcast Network shows from the v4.1 slate (locked 2026-06-17).
+// Organized by Pentatype Core. Cover paths default to typographic SVG
+// placeholders; a handful reuse webp art where the concept survived a rename.
 const NETWORK_SEED: NetSeed[] = [
-  { slug: 'tracklist', title: 'Tracklist', category: 'Music', hitComparable: 'In the lane of Song Exploder', excerpt: 'The production story behind one iconic song, from first demo to final master, told as if you were in the studio the night it got made.' },
-  { slug: 'b-sides', title: 'B-Sides', category: 'Music', hitComparable: 'In the lane of Cocaine & Rhinestones', excerpt: 'The song on the back of the single, era by era. The forgotten tracks and the ones that flipped to become the hit.' },
-  { slug: 'album-one', title: 'Album One', category: 'Music', hitComparable: 'In the lane of Acquired', excerpt: 'The first album by a now-legendary artist, told the way Acquired tells a company’s first decade. The recording, the politics, the breakthrough.' },
-  { slug: 'producers-chair', title: 'Producer’s Chair', category: 'Music', hitComparable: 'In the lane of Tetragrammaton', excerpt: 'One record producer per episode, walked through their body of work and the three sonic moves that define them.' },
-  { slug: 'five-fingers', title: 'Five Fingers', category: 'Communication', hitComparable: 'In the lane of Hidden Brain', excerpt: 'How people actually communicate, profiled across the five Pentatype types, from politicians to founders to novelists.' },
-  { slug: 'word-for-word', title: 'Word for Word', category: 'Communication', hitComparable: 'In the lane of The Daily Stoic', excerpt: 'One word a day in five to seven minutes. Its etymology, its uses across history, and one phrasing you can use in your writing this week.' },
-  { slug: 'the-listener', title: 'The Listener', category: 'Communication', hitComparable: 'In the lane of On Being', excerpt: 'Listening as a discipline, one professional listener at a time, from hostage negotiators to jazz drummers, closing with one move to use this week.' },
-  { slug: 'one-note', title: 'One Note', category: 'Communication', hitComparable: 'In the lane of The Memory Palace', excerpt: 'One line per episode, read first and then explained. Speeches, ads, taglines, opening sentences, and why each one landed.' },
-  { slug: 'tool-talk', title: 'Tool Talk', category: 'Business', hitComparable: 'In the lane of 99% Invisible', excerpt: 'One tool per episode, told the way 99% Invisible tells a building. This week’s release, one listener question, and the object-history deep dive.' },
-  { slug: 'second-acts', title: 'Second Acts', category: 'Business', hitComparable: 'In the lane of How I Built This', excerpt: 'Career pivots that worked, from lawyer to baker to executive to farmer, closing with one question. Was it courage or was it luck?' },
-  { slug: 'the-anti-label', title: 'The Anti-Label', category: 'Business', hitComparable: 'In the lane of Acquired', excerpt: 'Creators chewed up by an extractive system who rebuilt as independent operators, naming what the old system took and what they built to take it back.' },
-  { slug: 'black-belt-at-40', title: 'Black Belt at 40', category: 'Sports', hitComparable: 'In the lane of Bear Grease', excerpt: 'Adult Brazilian Jiu-Jitsu and reinvention through training, landing on the move from the mat that the midlife operator can take to the desk.' },
-  { slug: 'the-comeback-mile', title: 'The Comeback Mile', category: 'Sports', hitComparable: 'In the lane of 30 for 30', excerpt: 'Returning to sport after the worst injury, each arc in four acts. Drew Brees and the shoulder, Serena and the embolism, Tiger and the back.' },
-  { slug: 'reps', title: 'Reps', category: 'Sports', hitComparable: 'In the lane of Bear Grease', excerpt: 'What ten thousand hours actually feels like in the body, one practitioner at a time.' },
-  { slug: 'the-protocol', title: 'The Protocol', category: 'Biohacking', hitComparable: 'In the lane of Huberman Lab', excerpt: 'One input per season (sleep, breath, fasting, cold, light), walking from the boldest claim to the mechanism to the protocol a sensible operator should run.' },
-  { slug: 'n-of-one', title: 'N of One', category: 'Biohacking', hitComparable: 'In the lane of Acquired', excerpt: 'The self-experimenter at the edge, from Bryan Johnson’s Blueprint to Wim Hof, and what the placebo question can and cannot rule out.' },
-  { slug: 'basics', title: 'Basics', category: 'Biohacking', hitComparable: 'In the lane of The Daily Stoic', excerpt: 'The boring thing that actually works in eight minutes, twice a week. Walking, sleep, protein, sun, and one move to try this week.' },
-  { slug: 'men-im-lucky-to-know', title: 'Men I’m Lucky to Know', category: 'Relationships', hitComparable: 'In the lane of We Can Do Hard Things', excerpt: 'The men in the room who change a life, one theme at a time, each carrying a named role. The storyteller, the heart, the grounder, the truth-teller.' },
-  { slug: 'the-long-marriage', title: 'The Long Marriage', category: 'Relationships', hitComparable: 'In the lane of You Must Remember This', excerpt: 'Marriages that lasted forty years or more, closing each season by naming what those marriages share.' },
-  { slug: 'the-long-friendship', title: 'The Long Friendship', category: 'Relationships', hitComparable: 'In the lane of Hidden Brain', excerpt: 'Friendships that survived four decades, set against the Surgeon General’s lonely-epidemic moment.' },
+  // Connection (Thumb)
+  {
+    slug: 'the-brief',
+    title: 'The Brief',
+    core: 'Connection',
+    excerpt:
+      'A daily ten-minute Apex operator briefing. One story from across the Apex network, one craft observation, one market signal, closing with the move for your day.',
+  },
+  {
+    slug: 'the-55-plus-operator',
+    title: 'The 55+ Operator',
+    core: 'Connection',
+    excerpt:
+      'Operator audio designed for the audience that already grew fastest. Late-career transitions, encore careers, multigenerational family, the dignity of a long arc.',
+  },
+  {
+    slug: 'pure-reading',
+    title: 'Pure Reading',
+    core: 'Connection',
+    excerpt:
+      'The Apex Sleep Series. Pre-1923 public-domain texts read slowly with a soft ambient bed. Yeats, Wharton, Emerson, Dickens across two-week arcs.',
+  },
+
+  // Structure (Pointer)
+  {
+    slug: 'ai-native',
+    title: 'AI Native',
+    core: 'Structure',
+    excerpt:
+      'Case studies of companies that could not have existed before 2023. The build choices, the model stack, the team shape, and the part the AI Use Case segment used to live in.',
+  },
+  {
+    slug: 'coaches',
+    title: 'Coaches',
+    core: 'Structure',
+    excerpt:
+      'Great coaches and the principles that travel beyond their sport. Wooden, Belichick, Auriemma, Popovich, Saban. Absorbs the Underdogs segment.',
+  },
+  {
+    slug: 'first-principles',
+    title: 'First Principles',
+    core: 'Structure',
+    excerpt:
+      'Socratic foundational thinking applied to one operator question per episode. Absorbs Mental Models, Big Decisions, and Cross-Training into one curriculum.',
+  },
+  {
+    slug: 'old-books',
+    title: 'Old Books',
+    core: 'Structure',
+    excerpt:
+      'One ancient or classical text per episode, walked for what it still gives an operator today. Absorbs Drafts, Sentences, Great Speeches, and Great Lines into one canon.',
+  },
+
+  // Conviction (Middle)
+  {
+    slug: 'hands-on',
+    title: 'Hands On',
+    core: 'Conviction',
+    excerpt:
+      'Trades and craft wisdom from the people who still make the thing. Carpenters, welders, watchmakers, farriers. Archival craft testimony with an Apex narrator stitching context.',
+  },
+  {
+    slug: 'hard-questions-for-the-faithful',
+    title: 'Hard Questions for the Faithful',
+    core: 'Conviction',
+    excerpt:
+      'Apologetics for honest doubters. One hard question per episode, walked through the best three historical answers and the best three modern objections.',
+  },
+  {
+    slug: 'the-liner-notes',
+    title: 'The Liner Notes',
+    core: 'Conviction',
+    excerpt:
+      'The album as literary artifact. Read the credits, walk the studio, the engineer, the hidden dedications, then back out to the record itself. No audio plays.',
+  },
+
+  // Discovery (Ring)
+  {
+    slug: 'etymon',
+    title: 'Etymon',
+    core: 'Discovery',
+    excerpt:
+      'A daily five-to-seven minute etymology. The root, the migration, and the one phrasing you can put to work in your writing this week.',
+  },
+  {
+    slug: 'same-stars',
+    title: 'Same Stars',
+    core: 'Discovery',
+    excerpt:
+      'One star or constellation per episode. The astronomy, the cross-cultural mythology, and the lines of poetry written under the same light, told together.',
+  },
+  {
+    slug: 'read-the-room',
+    title: 'Read the Room',
+    core: 'Discovery',
+    cover: '/covers/show-the-listener.webp',
+    excerpt:
+      'The Pentatype communication framework, applied to one historical figure per episode across the five archetypes. Absorbs the How to Listen segment.',
+  },
+
+  // Meaning (Pinkie)
+  {
+    slug: 'perfect-love',
+    title: 'Perfect Love',
+    core: 'Meaning',
+    excerpt:
+      'The Four Loves, serialized. Lewis, Chesterton, Bonhoeffer, Augustine read by the Reader voice, questioned by the Skeptic voice, framed by the host. Absorbs Vows, Still Friends, On Friendship, Spiritual Practices, and Heroes & Lovers.',
+  },
+  {
+    slug: 'master-of-two-worlds',
+    title: 'Master of Two Worlds',
+    core: 'Meaning',
+    excerpt:
+      'The Hero’s Journey as curriculum, applied to real historical figures. Absorbs the Letters to Sons and Pivot segments into a single arc.',
+  },
+  {
+    slug: 'legacy',
+    title: 'Legacy',
+    core: 'Meaning',
+    excerpt:
+      'Building what outlasts you. One operator, leader, or maker per episode, told through the work that is still standing. Absorbs The Long Game, Letters, and Last Lectures.',
+  },
+  {
+    slug: 'the-lyricists',
+    title: 'The Lyricists',
+    core: 'Meaning',
+    provisional: true,
+    excerpt:
+      'Great lyricists and their lyrics decoded under fair use. Dylan, Mitchell, Cohen, Hill, Stevens. Provisional pick, designed to swap cleanly if a different second music show takes the slot.',
+  },
 ]
 
 export const NETWORK_SHOWS: Show[] = NETWORK_SEED.map((s, i) => ({
@@ -138,21 +266,29 @@ export const NETWORK_SHOWS: Show[] = NETWORK_SEED.map((s, i) => ({
   host: null,
   network: true,
   catalog: `APX-NET-${String(i + 1).padStart(2, '0')}`,
-  cover: `/covers/show-${s.slug}.webp`,
+  cover: s.cover ?? `/covers/show-${s.slug}.svg`,
   status: 'production',
-  category: s.category,
-  hitComparable: s.hitComparable,
+  core: s.core,
   excerpt: s.excerpt,
+  provisional: s.provisional,
 }))
 
-export const CATEGORIES: Category[] = [
-  'Sports',
-  'Music',
-  'Business',
-  'Communication',
-  'Biohacking',
-  'Relationships',
+export const CORES: Core[] = [
+  'Connection',
+  'Structure',
+  'Conviction',
+  'Discovery',
+  'Meaning',
 ]
+
+/** Network shows grouped by Core, in the canonical Pentatype order. */
+export const NETWORK_BY_CORE: Record<Core, Show[]> = CORES.reduce(
+  (acc, core) => {
+    acc[core] = NETWORK_SHOWS.filter((s) => s.core === core)
+    return acc
+  },
+  {} as Record<Core, Show[]>,
+)
 
 export const SHOWS: Show[] = [...REAL_SHOWS, ...NETWORK_SHOWS]
 

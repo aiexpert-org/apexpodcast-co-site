@@ -4,7 +4,7 @@ import HomeHero from '@/components/sections/home-hero'
 import ContactBlock from '@/components/sections/contact-block'
 import { ShowCard } from '@/components/sections/show-grid'
 import { Reveal, RevealStagger, RevealItem } from '@/components/motion/reveal'
-import { CASE_STUDY_SHOWS, SHOWS } from '@/lib/shows'
+import { CASE_STUDY_SHOWS, SHOWS, NETWORK_SHOWS, CORES, CORE_FINGER } from '@/lib/shows'
 
 export const metadata: Metadata = {
   title: 'The Apex Podcast. Podcasting for owners, operators, and leaders',
@@ -65,6 +65,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pentatype callout: the network, organized by Core. */}
+      <section className="section pt-0">
+        <div className="container-apex">
+          <Reveal className="overflow-hidden rounded-2xl border border-ink/15 bg-ink text-bone">
+            <div className="grid gap-10 p-8 lg:grid-cols-[1.1fr,1fr] lg:p-12">
+              <div>
+                <p className="font-mono text-xs uppercase tracking-widest text-acid">
+                  The Apex Podcast Network
+                </p>
+                <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight text-bone sm:text-5xl">
+                  Find your Core, find your shows
+                  <span className="text-acid">.</span>
+                </h2>
+                <p className="mt-5 max-w-xl text-bone/75">
+                  The Network is {NETWORK_SHOWS.length} AI-narrated brand productions, organized by the five Pentatype Cores. Start by figuring out which Core you live in, then walk the shelf.
+                </p>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Link
+                    href="https://pentatype.com/"
+                    className="inline-flex items-center rounded-full bg-acid px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-ink hover:bg-acid/90"
+                  >
+                    Take the assessment
+                    <span className="ml-2" aria-hidden="true">&rarr;</span>
+                  </Link>
+                  <Link
+                    href="/portfolio/"
+                    className="inline-flex items-center rounded-full border border-bone/30 px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-bone hover:border-bone/60"
+                  >
+                    Walk the network
+                    <span className="ml-2" aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              </div>
+              <ul className="grid gap-3 self-center">
+                {CORES.map((core) => (
+                  <li
+                    key={core}
+                    className="flex items-baseline justify-between gap-4 border-b border-bone/15 pb-3 last:border-b-0"
+                  >
+                    <span className="font-display text-2xl tracking-tight text-bone">
+                      {core}
+                    </span>
+                    <span className="font-mono text-[0.7rem] uppercase tracking-widest text-bone/55">
+                      {CORE_FINGER[core]}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* The offer. */}
       <section className="section pt-0">
         <div className="container-apex">
@@ -75,8 +128,7 @@ export default function Home() {
               <span className="text-acid">.</span>
             </h2>
             <p className="mt-5 text-ink/70">
-              Apex is a producer and a network. The producer makes the show good. The network makes
-              it travel. See the three ways in on the{' '}
+              Apex is a producer and a network. The producer makes the show good. The network makes it travel. See the three ways in on the{' '}
               <Link href="/subscription/" className="text-ink underline decoration-acid underline-offset-4">
                 subscription page
               </Link>
@@ -99,8 +151,7 @@ export default function Home() {
 
       <ContactBlock source="home">
         <p>
-          Tell us what you want to launch. A producer will reach out by email when a spot opens. Apex
-          takes on a small number of new shows each cycle, so the cap is the point.
+          Tell us what you want to launch. A producer will reach out by email when a spot opens. Apex takes on a small number of new shows each cycle, so the cap is the point.
         </p>
       </ContactBlock>
     </>
