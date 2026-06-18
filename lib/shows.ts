@@ -1,81 +1,59 @@
 /**
- * The Apex catalog. Powers the Portfolio grid and the Show Wall mosaic. Cover
- * art is the background-tile content (the CCM design move, recast for podcasts).
+ * The Apex catalog. Powers the Network catalog page, the home page's dark
+ * Logo Scroller band, and the Selected Work section.
  *
- * FOUR human-hosted anchor shows still live front and center.
- * SEVENTEEN Apex Podcast Network shows are AI-narrated brand productions
- * organized by Pentatype Core (Connection, Structure, Conviction, Discovery,
- * Meaning). No fabricated host names: every network show is narrated by the
- * Apex brand voice and discloses it.
+ * Three tiers:
+ *  1. FLAGSHIP (3): the human-hosted Selected Work shown on the home page.
+ *     Sweeter After Difficulty, Winning Twice, The Russ Laggan Podcast.
+ *  2. ESTABLISHED (7): host-supplied artwork already on Transistor. The Apex
+ *     Podcast anchors. The Transistor API client fills in live metadata.
+ *  3. COMING SOON (17): the v4 strategy slate that ships through 2026 + 2027.
+ *     Each carries a wordmark SVG from `public/wordmarks/<slug>/` produced by
+ *     the parallel `2026-06-18-17-show-wordmarks/` brand task. The dark Logo
+ *     Scroller renders the wordmarks; the Network catalog cards render the
+ *     ink-on-bone variant with a Pentatype Core badge.
  *
- * Canonical source: strategy/v4-concept-validation-2026-06-17.md (the v4.1
- * slate locked 2026-06-17 evening; supersedes the v2/v3 20-show stable).
- * Cover art for renamed and net-new shows is a typographic placeholder in
- * the Acid brand until full art lands.
+ * Pentatype Core assignments for the 17 are locked in the INDEX.md of the
+ * wordmark folder (Brand task 2026-06-18). The legacy 10-show stable's Core
+ * assignments are inferred from the v4 producer-craft frame.
  */
 
-export type Core =
-  | 'Connection'
-  | 'Structure'
-  | 'Conviction'
-  | 'Discovery'
-  | 'Meaning'
-
-/** The Pentatype finger that maps to each Core, used in section headings. */
-export const CORE_FINGER: Record<Core, string> = {
-  Connection: 'Thumb',
-  Structure: 'Pointer',
-  Conviction: 'Middle',
-  Discovery: 'Ring',
-  Meaning: 'Pinkie',
-}
-
-/** Optional one-line gloss for each Core, used in section copy. */
-export const CORE_GLOSS: Record<Core, string> = {
-  Connection: 'Daily presence and ambient companionship.',
-  Structure: 'Frameworks, principles, and how things actually work.',
-  Conviction: 'Craft, character, and the harder questions.',
-  Discovery: 'Curiosity, wonder, and the world made vivid.',
-  Meaning: 'Love, legacy, and what outlasts the work.',
-}
+import type { Core } from '@/lib/pentatype'
 
 export type Show = {
   slug: string
   title: string
-  /** Human host name, or null for Apex Network (AI-narrated) productions. */
+  /** Human host name, or null for Apex Network productions. */
   host: string | null
   coHost?: string
-  /** Apex Podcast Network production (AI-narrated) vs human-hosted. */
+  /** Apex Podcast Network production vs human-hosted. */
   network: boolean
   catalog: string
+  /** Raster cover for FLAGSHIP + ESTABLISHED. Empty for COMING SOON (we render wordmarks instead). */
   cover: string
-  status: 'live' | 'production'
-  excerpt: string
-  /** Network shows: the Pentatype Core bucket. */
-  core?: Core
-  /** Set when the show has a full case study page. */
-  caseStudy?: boolean
-  /** Flagship anchor show, pinned first. */
+  /** Wordmark folder slug under /wordmarks/<slug>/. Set for COMING SOON shows. */
+  wordmark?: string
+  status: 'live' | 'coming-soon'
+  /** Selected Work pinned to the home page. */
   flagship?: boolean
-  /** Provisional shows may move or get swapped before launch. */
-  provisional?: boolean
+  /** Has a legacy /case-studies/[slug]/ page. */
+  caseStudy?: boolean
+  /** Brief artist statement (Selected Work) or show description (Network). */
+  excerpt: string
+  /** Pentatype Core that anchors the producer-craft frame for this show. */
+  core: Core
+  /** Network-page badge: the hit-comparable lane. */
+  hitComparable?: string
+  /** Transistor slug if the show is on Transistor. Otherwise we match by title. */
+  transistorSlug?: string
+  /** Direct Listen URL (Transistor public page). */
+  listenUrl?: string
+  /** Legacy v3 field, kept optional so old /portfolio/ and /work/ compile. */
+  category?: 'Sports' | 'Music' | 'Business' | 'Communication' | 'Biohacking' | 'Relationships'
 }
 
-export const REAL_SHOWS: Show[] = [
-  {
-    slug: 'the-apex-podcast',
-    title: 'The Apex Podcast',
-    host: 'Brett Moore',
-    coHost: 'Randy Highsmith',
-    network: false,
-    catalog: 'APX-001',
-    cover: '/covers/show-the-apex-podcast.webp',
-    status: 'live',
-    flagship: true,
-    caseStudy: true,
-    excerpt:
-      'The network’s anchor show. Brett Moore and Randy Highsmith sit down with owners, operators, and leaders and find the show inside what they have already built.',
-  },
+/** The three Selected Work shows on the home page. Human-hosted. */
+export const FLAGSHIP_SHOWS: Show[] = [
   {
     slug: 'sweeter-after-difficulty',
     title: 'Sweeter After Difficulty',
@@ -84,21 +62,12 @@ export const REAL_SHOWS: Show[] = [
     catalog: 'APX-002',
     cover: '/covers/show-sweeter-after-difficulty.webp',
     status: 'live',
+    flagship: true,
     caseStudy: true,
+    core: 'meaning',
     excerpt:
-      'Randy Highsmith on the hard seasons that make the good ones land. A producer in the room for every conversation.',
-  },
-  {
-    slug: 'the-russ-laggan-podcast',
-    title: 'The Russ Laggan Podcast',
-    host: 'Russ Laggan',
-    network: false,
-    catalog: 'APX-003',
-    cover: '/covers/show-the-russ-laggan-podcast.webp',
-    status: 'live',
-    caseStudy: true,
-    excerpt:
-      'Russ Laggan on training, leadership, and the long game, recorded weekly to the Apex production standard.',
+      'Randy Highsmith on the hard seasons that make the good ones land. Each episode finds the truth that survived the difficulty and the move that made the difference. Produced live in the room, every conversation, every week.',
+    listenUrl: 'https://sweeterafterdifficulty.transistor.fm',
   },
   {
     slug: 'winning-twice',
@@ -108,202 +77,402 @@ export const REAL_SHOWS: Show[] = [
     catalog: 'APX-004',
     cover: '/covers/show-winning-twice.webp',
     status: 'live',
+    flagship: true,
     caseStudy: true,
+    core: 'conviction',
     excerpt:
-      'Austin Cheviron on building, selling, and doing it again. The show inside the operator’s second act.',
+      'Austin Cheviron on building, selling, and doing it again. The operator\'s second act, told from the inside, with the specifics of what the first exit taught and what the next one is going to take.',
+    listenUrl: 'https://winningtwice.transistor.fm',
+  },
+  {
+    slug: 'the-russ-laggan-podcast',
+    title: 'The Russ Laggan Podcast',
+    host: 'Russ Laggan',
+    network: false,
+    catalog: 'APX-003',
+    cover: '/covers/show-the-russ-laggan-podcast.webp',
+    status: 'live',
+    flagship: true,
+    caseStudy: true,
+    core: 'structure',
+    excerpt:
+      'Russ Laggan on training, leadership, and the long game. Conversations recorded weekly to the Apex production standard, with guests from the brokerage floor to the boardroom.',
+    listenUrl: 'https://russlaggan.transistor.fm',
   },
 ]
 
-type NetSeed = {
-  slug: string
-  title: string
-  core: Core
-  excerpt: string
-  /** Optional override for the cover path (when reusing an existing webp). */
-  cover?: string
-  provisional?: boolean
-}
+/**
+ * The 7 Established shows on Transistor (besides the 3 Flagship). The Apex
+ * Podcast anchors; the others are host-supplied artwork on real Transistor
+ * shows per the 2026-06-18 wordmark brief.
+ */
+export const ESTABLISHED_SHOWS: Show[] = [
+  {
+    slug: 'the-apex-podcast',
+    title: 'The Apex Podcast',
+    host: 'Brett Moore',
+    coHost: 'Randy Highsmith',
+    network: false,
+    catalog: 'APX-001',
+    cover: '/covers/show-the-apex-podcast.webp',
+    status: 'live',
+    core: 'connection',
+    excerpt:
+      'The network anchor. Brett Moore and Randy Highsmith sit down with owners, operators, and leaders and find the show inside what they have already built.',
+    listenUrl: 'https://theapexpodcast.transistor.fm',
+  },
+  {
+    slug: 'buddy-buck',
+    title: 'Buddy Buck',
+    host: 'Buddy Buck',
+    network: false,
+    catalog: 'APX-005',
+    cover: '/covers/show-the-apex-podcast.webp',
+    status: 'live',
+    core: 'connection',
+    excerpt:
+      'Buddy Buck on real estate, AI, and the people who actually do the work. The show that turns a workshop floor into a microphone.',
+  },
+  {
+    slug: 'youre-allowed',
+    title: 'You\'re Allowed',
+    host: 'Jesse Rhodes Jr',
+    network: false,
+    catalog: 'APX-006',
+    cover: '/covers/show-the-apex-podcast.webp',
+    status: 'live',
+    core: 'meaning',
+    excerpt:
+      'Permission as a posture. Jesse Rhodes Jr on the work of giving yourself the green light, with guests who have already been there.',
+  },
+  {
+    slug: 'in-a-moment',
+    title: 'In a Moment',
+    host: 'Apex Studio',
+    network: false,
+    catalog: 'APX-007',
+    cover: '/covers/show-the-apex-podcast.webp',
+    status: 'live',
+    core: 'connection',
+    excerpt:
+      'Short-form. The moment a decision turned, told in the host\'s own voice, in under fifteen minutes per episode.',
+  },
+  {
+    slug: 'the-next-episode',
+    title: 'The Next Episode',
+    host: 'Apex Studio',
+    network: false,
+    catalog: 'APX-008',
+    cover: '/covers/show-the-apex-podcast.webp',
+    status: 'live',
+    core: 'discovery',
+    excerpt:
+      'The behind-the-scenes feed for Apex producers. A working show on the producer\'s craft.',
+  },
+  {
+    slug: 'martin-ruof',
+    title: 'Martin Ruof Podcast',
+    host: 'Martin Ruof',
+    network: false,
+    catalog: 'APX-009',
+    cover: '/covers/show-the-apex-podcast.webp',
+    status: 'live',
+    core: 'structure',
+    excerpt:
+      'Martin Ruof on operating in the trades the way the best operate in software. Systems, hires, and the small decisions that compound.',
+  },
+  {
+    slug: 'how-to-host-a-podcast',
+    title: 'How To Host a Podcast',
+    host: 'Brett Moore',
+    network: false,
+    catalog: 'APX-010',
+    cover: '/covers/show-the-apex-podcast.webp',
+    status: 'live',
+    core: 'structure',
+    excerpt:
+      'A producer-coached series for new hosts. Each episode covers one move that separates an okay host from one who can carry a long conversation.',
+  },
+]
 
-// The 17 Apex Podcast Network shows from the v4.1 slate (locked 2026-06-17).
-// Organized by Pentatype Core. Cover paths default to typographic SVG
-// placeholders; a handful reuse webp art where the concept survived a rename.
-const NETWORK_SEED: NetSeed[] = [
-  // Connection (Thumb)
+/**
+ * The 17 v4 slate shows from `brand/2026-06-18-17-show-wordmarks/INDEX.md`.
+ * Slug + Core assignment locked there. Wordmarks live at
+ * `public/wordmarks/<slug>/`.
+ */
+export const COMING_SOON_SHOWS: Show[] = [
   {
     slug: 'the-brief',
     title: 'The Brief',
-    core: 'Connection',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-01',
+    cover: '',
+    wordmark: 'the-brief',
+    status: 'coming-soon',
+    core: 'connection',
+    hitComparable: 'In the lane of Up First',
     excerpt:
-      'A daily ten-minute Apex operator briefing. One story from across the Apex network, one craft observation, one market signal, closing with the move for your day.',
+      'Apex\'s daily ten-minute operator briefing. One story from across the network, one craft observation, one market signal, one move for your day.',
   },
-  {
-    slug: 'the-55-plus-operator',
-    title: 'The 55+ Operator',
-    core: 'Connection',
-    excerpt:
-      'Operator audio designed for the audience that already grew fastest. Late-career transitions, encore careers, multigenerational family, the dignity of a long arc.',
-  },
-  {
-    slug: 'pure-reading',
-    title: 'Pure Reading',
-    core: 'Connection',
-    excerpt:
-      'The Apex Sleep Series. Pre-1923 public-domain texts read slowly with a soft ambient bed. Yeats, Wharton, Emerson, Dickens across two-week arcs.',
-  },
-
-  // Structure (Pointer)
-  {
-    slug: 'ai-native',
-    title: 'AI Native',
-    core: 'Structure',
-    excerpt:
-      'Case studies of companies that could not have existed before 2023. The build choices, the model stack, the team shape, and the part the AI Use Case segment used to live in.',
-  },
-  {
-    slug: 'coaches',
-    title: 'Coaches',
-    core: 'Structure',
-    excerpt:
-      'Great coaches and the principles that travel beyond their sport. Wooden, Belichick, Auriemma, Popovich, Saban. Absorbs the Underdogs segment.',
-  },
-  {
-    slug: 'first-principles',
-    title: 'First Principles',
-    core: 'Structure',
-    excerpt:
-      'Socratic foundational thinking applied to one operator question per episode. Absorbs Mental Models, Big Decisions, and Cross-Training into one curriculum.',
-  },
-  {
-    slug: 'old-books',
-    title: 'Old Books',
-    core: 'Structure',
-    excerpt:
-      'One ancient or classical text per episode, walked for what it still gives an operator today. Absorbs Drafts, Sentences, Great Speeches, and Great Lines into one canon.',
-  },
-
-  // Conviction (Middle)
-  {
-    slug: 'hands-on',
-    title: 'Hands On',
-    core: 'Conviction',
-    excerpt:
-      'Trades and craft wisdom from the people who still make the thing. Carpenters, welders, watchmakers, farriers. Archival craft testimony with an Apex narrator stitching context.',
-  },
-  {
-    slug: 'hard-questions-for-the-faithful',
-    title: 'Hard Questions for the Faithful',
-    core: 'Conviction',
-    excerpt:
-      'Apologetics for honest doubters. One hard question per episode, walked through the best three historical answers and the best three modern objections.',
-  },
-  {
-    slug: 'the-liner-notes',
-    title: 'The Liner Notes',
-    core: 'Conviction',
-    excerpt:
-      'The album as literary artifact. Read the credits, walk the studio, the engineer, the hidden dedications, then back out to the record itself. No audio plays.',
-  },
-
-  // Discovery (Ring)
   {
     slug: 'etymon',
     title: 'Etymon',
-    core: 'Discovery',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-02',
+    cover: '',
+    wordmark: 'etymon',
+    status: 'coming-soon',
+    core: 'discovery',
+    hitComparable: 'In the lane of Daily Stoic for vocabulary',
     excerpt:
-      'A daily five-to-seven minute etymology. The root, the migration, and the one phrasing you can put to work in your writing this week.',
-  },
-  {
-    slug: 'same-stars',
-    title: 'Same Stars',
-    core: 'Discovery',
-    excerpt:
-      'One star or constellation per episode. The astronomy, the cross-cultural mythology, and the lines of poetry written under the same light, told together.',
+      'A daily five-to-seven-minute etymology show framed as wisdom, not vocabulary. One word, its root, and how it changes when you hold the root in mind.',
   },
   {
     slug: 'read-the-room',
     title: 'Read the Room',
-    core: 'Discovery',
-    cover: '/covers/show-the-listener.webp',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-03',
+    cover: '',
+    wordmark: 'read-the-room',
+    status: 'coming-soon',
+    core: 'structure',
+    hitComparable: 'In the lane of Hidden Brain',
     excerpt:
-      'The Pentatype communication framework, applied to one historical figure per episode across the five archetypes. Absorbs the How to Listen segment.',
+      'The Pentatype applied to history. Five archetype voices profile one figure per episode, from Oprah to Aurelius to Joan Didion, on how they actually processed the world.',
   },
-
-  // Meaning (Pinkie)
+  {
+    slug: 'ai-native',
+    title: 'AI Native',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-04',
+    cover: '',
+    wordmark: 'ai-native',
+    status: 'coming-soon',
+    core: 'structure',
+    hitComparable: 'In the lane of Acquired for the AI age',
+    excerpt:
+      'Companies that could not have existed before 2023. The Acquired format, applied to the AI-native firm. What architecture choices unlocked them and what their next two years look like.',
+  },
+  {
+    slug: 'coaches',
+    title: 'Coaches',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-05',
+    cover: '',
+    wordmark: 'coaches',
+    status: 'coming-soon',
+    core: 'conviction',
+    hitComparable: 'In the lane of Founders for coaches',
+    excerpt:
+      'One great coach per episode, walked Senra-style. Belichick, Phil Jackson, Pat Summitt, Tex Winter. The principles, the rooms, and the moves that made the difference.',
+  },
   {
     slug: 'perfect-love',
     title: 'Perfect Love',
-    core: 'Meaning',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-06',
+    cover: '',
+    wordmark: 'perfect-love',
+    status: 'coming-soon',
+    core: 'meaning',
+    hitComparable: 'In the lane of On Being meets Tim Keller',
     excerpt:
-      'The Four Loves, serialized. Lewis, Chesterton, Bonhoeffer, Augustine read by the Reader voice, questioned by the Skeptic voice, framed by the host. Absorbs Vows, Still Friends, On Friendship, Spiritual Practices, and Heroes & Lovers.',
-  },
-  {
-    slug: 'master-of-two-worlds',
-    title: 'Master of Two Worlds',
-    core: 'Meaning',
-    excerpt:
-      'The Hero’s Journey as curriculum, applied to real historical figures. Absorbs the Letters to Sons and Pivot segments into a single arc.',
+      'The intellectually serious Christian lineage as a serialized show. Reader voice on Lewis, Chesterton, Bonhoeffer, Nouwen, Berry. A Skeptic voice asking the harder questions. Brett anchors.',
   },
   {
     slug: 'legacy',
     title: 'Legacy',
-    core: 'Meaning',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-07',
+    cover: '',
+    wordmark: 'legacy',
+    status: 'coming-soon',
+    core: 'meaning',
+    hitComparable: 'In the lane of The Long Now Foundation',
     excerpt:
-      'Building what outlasts you. One operator, leader, or maker per episode, told through the work that is still standing. Absorbs The Long Game, Letters, and Last Lectures.',
+      'What outlasts. Buildings, ideas, and bloodlines. One legacy per episode, walked from the act of building to the artifact that survived.',
+  },
+  {
+    slug: 'master-of-two-worlds',
+    title: 'Master of Two Worlds',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-08',
+    cover: '',
+    wordmark: 'master-of-two-worlds',
+    status: 'coming-soon',
+    core: 'meaning',
+    hitComparable: 'In the lane of Hardcore History',
+    excerpt:
+      'Joseph Campbell\'s Hero\'s Journey applied to real historical figures. Where the threshold was crossed, what was found, what got carried home.',
+  },
+  {
+    slug: 'first-principles',
+    title: 'First Principles',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-09',
+    cover: '',
+    wordmark: 'first-principles',
+    status: 'coming-soon',
+    core: 'discovery',
+    hitComparable: 'In the lane of The Socratic Method, modernized',
+    excerpt:
+      'One idea, down to the root. The Socratic Hour for builders. Why is this the way it is, and what would happen if we stopped pretending it had to be.',
+  },
+  {
+    slug: 'old-books',
+    title: 'Old Books',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-10',
+    cover: '',
+    wordmark: 'old-books',
+    status: 'coming-soon',
+    core: 'meaning',
+    hitComparable: 'In the lane of Philosophize This!',
+    excerpt:
+      'Classics in twenty minutes for operators. One ancient or pre-modern book per episode, walked for the move a busy operator can carry into a Tuesday meeting.',
+  },
+  {
+    slug: 'the-55-plus-operator',
+    title: 'The 55+ Operator',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-11',
+    cover: '',
+    wordmark: 'the-55-plus-operator',
+    status: 'coming-soon',
+    core: 'connection',
+    hitComparable: 'In the lane of How I Built This, encore-career edition',
+    excerpt:
+      'The largest demographic shift in the data is the 55+ surge. A weekly profile of the operator in the long arc, the encore career, the multigenerational family, and the dignity of a long line.',
+  },
+  {
+    slug: 'same-stars',
+    title: 'Same Stars',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-12',
+    cover: '',
+    wordmark: 'same-stars',
+    status: 'coming-soon',
+    core: 'discovery',
+    hitComparable: 'In the lane of StarTalk meets The Memory Palace',
+    excerpt:
+      'One star per episode. The science, the cross-cultural mythology, the literary canon, and the same star over the listener\'s head right now.',
+  },
+  {
+    slug: 'hands-on',
+    title: 'Hands On',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-13',
+    cover: '',
+    wordmark: 'hands-on',
+    status: 'coming-soon',
+    core: 'conviction',
+    hitComparable: 'In the lane of Bear Grease',
+    excerpt:
+      'Trades and craft, in the operator\'s own voice. The cabinetmaker, the welder, the mason, the heli-mechanic. One trade per arc, the work behind the work.',
+  },
+  {
+    slug: 'the-liner-notes',
+    title: 'The Liner Notes',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-14',
+    cover: '',
+    wordmark: 'the-liner-notes',
+    status: 'coming-soon',
+    core: 'conviction',
+    hitComparable: 'In the lane of Song Exploder for albums',
+    excerpt:
+      'The credits, walked. Personnel, studio, engineer, acknowledgements, hidden dedications, then back-out to the album from the liner notes outward.',
+  },
+  {
+    slug: 'pure-reading',
+    title: 'Pure Reading',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-15',
+    cover: '',
+    wordmark: 'pure-reading',
+    status: 'coming-soon',
+    core: 'connection',
+    hitComparable: 'In the lane of nothing else, which is the point',
+    excerpt:
+      'Public-domain classics read slowly, soft ambient bed underneath. Yeats, Wharton, Emerson, Dickens. Twice a week. Apex\'s sleep series.',
+  },
+  {
+    slug: 'hard-questions-for-the-faithful',
+    title: 'Hard Questions for the Faithful',
+    host: null,
+    network: true,
+    catalog: 'APX-NET-16',
+    cover: '',
+    wordmark: 'hard-questions-for-the-faithful',
+    status: 'coming-soon',
+    core: 'conviction',
+    hitComparable: 'In the lane of the BibleProject\'s sharpest mode',
+    excerpt:
+      'One hard question per episode, walked through the best three historical answers and the best three modern objections. Companion to Perfect Love, taking the Skeptic\'s side seriously.',
   },
   {
     slug: 'the-lyricists',
     title: 'The Lyricists',
-    core: 'Meaning',
-    provisional: true,
+    host: null,
+    network: true,
+    catalog: 'APX-NET-17',
+    cover: '',
+    wordmark: 'the-lyricists',
+    status: 'coming-soon',
+    core: 'meaning',
+    hitComparable: 'In the lane of Switched On Pop, lyric-only',
     excerpt:
-      'Great lyricists and their lyrics decoded under fair use. Dylan, Mitchell, Cohen, Hill, Stevens. Provisional pick, designed to swap cleanly if a different second music show takes the slot.',
+      'Great lyricists decoded one line at a time. Dylan, Joni Mitchell, Kendrick, Bowie, Cohen. The page in front of you, the song in your ear, the move on the staff.',
   },
 ]
 
-export const NETWORK_SHOWS: Show[] = NETWORK_SEED.map((s, i) => ({
-  slug: s.slug,
-  title: s.title,
-  host: null,
-  network: true,
-  catalog: `APX-NET-${String(i + 1).padStart(2, '0')}`,
-  cover: s.cover ?? `/covers/show-${s.slug}.svg`,
-  status: 'production',
-  core: s.core,
-  excerpt: s.excerpt,
-  provisional: s.provisional,
-}))
+export const SHOWS: Show[] = [...FLAGSHIP_SHOWS, ...ESTABLISHED_SHOWS, ...COMING_SOON_SHOWS]
 
-export const CORES: Core[] = [
-  'Connection',
-  'Structure',
-  'Conviction',
-  'Discovery',
-  'Meaning',
-]
+/** All shows for the dark Logo Scroller on the home page (27 total). */
+export const SCROLLER_SHOWS: Show[] = SHOWS
 
-/** Network shows grouped by Core, in the canonical Pentatype order. */
-export const NETWORK_BY_CORE: Record<Core, Show[]> = CORES.reduce(
-  (acc, core) => {
-    acc[core] = NETWORK_SHOWS.filter((s) => s.core === core)
-    return acc
-  },
-  {} as Record<Core, Show[]>,
-)
+/** Cover paths for legacy components that still scan SHOWS for raster art. */
+export const SHOW_COVERS: string[] = SHOWS.map((s) => s.cover).filter(Boolean)
 
-export const SHOWS: Show[] = [...REAL_SHOWS, ...NETWORK_SHOWS]
+/** The Selected Work picks, in display order. */
+export const CASE_STUDY_SHOWS: Show[] = FLAGSHIP_SHOWS
 
-/** Cover paths for the Show Wall mosaic (anchors first for the visible grid). */
-export const SHOW_COVERS: string[] = SHOWS.map((s) => s.cover)
+/** Network-page shows, in catalog order. */
+export const NETWORK_SHOWS: Show[] = [...ESTABLISHED_SHOWS, ...COMING_SOON_SHOWS]
 
 export function getShow(slug: string): Show | undefined {
   return SHOWS.find((s) => s.slug === slug)
 }
-
-/** Shows with full case study pages, in catalog order. */
-export const CASE_STUDY_SHOWS: Show[] = REAL_SHOWS.filter((s) => s.caseStudy)
 
 export function hostLine(show: Show): string {
   if (show.network) return 'From the Apex Podcast Network'
   if (show.coHost) return `${show.host} & ${show.coHost}`
   return show.host ?? 'From the Apex Podcast Network'
 }
+
+// Legacy aliases kept for components that still reference the older names.
+export const REAL_SHOWS: Show[] = FLAGSHIP_SHOWS
+export type Category = 'Sports' | 'Music' | 'Business' | 'Communication' | 'Biohacking' | 'Relationships'
+export const CATEGORIES: Category[] = [
+  'Sports',
+  'Music',
+  'Business',
+  'Communication',
+  'Biohacking',
+  'Relationships',
+]

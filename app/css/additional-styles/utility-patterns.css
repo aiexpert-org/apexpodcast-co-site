@@ -108,3 +108,40 @@ input[type='search']::-webkit-search-results-decoration {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* Logo Scroller marquee. CCM "Churches I've worked with" treatment.
+   Two rows of show wordmarks drift in opposing directions on an ink ground.
+   The track is doubled and translated -50% so the loop is seamless. The
+   .marquee-band hover pauses any nested marquee track so the operator can
+   read a logo before it scrolls past. */
+.marquee-track {
+    @apply flex w-max items-center gap-4;
+    will-change: transform;
+}
+
+@keyframes marquee-ltr {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rtl {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+
+.marquee-ltr {
+    animation: marquee-ltr 65s linear infinite;
+}
+.marquee-rtl {
+    animation: marquee-rtl 65s linear infinite;
+}
+
+.marquee-band:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-ltr, .marquee-rtl {
+        animation: none;
+    }
+}

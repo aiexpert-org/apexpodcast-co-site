@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 256" role="img" aria-label="THE LYRICISTS wordmark">
+<rect width="1024" height="256" fill="#14140F"/>
+<g class="glyph"><rect x="98" y="98" width="22" height="32" fill="#BFD93B" rx="6"/><polygon points="102,130 116,130 102,148" fill="#BFD93B"/><rect x="136" y="98" width="22" height="32" fill="#BFD93B" rx="6"/><polygon points="140,130 154,130 140,148" fill="#BFD93B"/></g>
+<g class="wordmark"><text x="240" y="125.0" font-family="Archivo Black, Impact, sans-serif" font-weight="900" font-size="92" letter-spacing="0" fill="#FAF8F3" text-anchor="start">THE</text>
+<text x="240" y="197.2" font-family="Archivo Black, Impact, sans-serif" font-weight="900" font-size="92" letter-spacing="0" fill="#FAF8F3" text-anchor="start">LYRICISTS</text></g>
+</svg>

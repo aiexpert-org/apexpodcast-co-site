@@ -1,17 +1,22 @@
 import { siteConfig } from '@/lib/site-config'
+import { NETWORK_SHOWS } from '@/lib/shows'
 
 /**
  * schema.org @graph for Apex Podcast Co.
  *
- * FACELESS RULE (locked 2026-05-18/19): no founder names, no personal identity
- * linkage. The graph carries the company and the website only. No Person nodes,
- * no founder array, no external identity (Wikidata) cross-links. Apex is a
- * company; its credentials travel as company experience, never as a résumé line.
+ * 2026-06-18 rebuild: the v3 faceless lock is superseded. Brett K Moore and
+ * Randy Highsmith are public as the company's co-founders and producers on
+ * the new /producers/ page. The graph carries the Organization + WebSite +
+ * Person nodes for both founders, plus PodcastSeries entries for each live
+ * Network show. Coming-soon productions are not listed under PodcastSeries
+ * because the feed does not exist yet.
  */
 
 const base = siteConfig.url
 const ORG = `${base}/#organization`
 const WEBSITE = `${base}/#website`
+const BRETT = `${base}/producers/#brett-k-moore`
+const RANDY = `${base}/producers/#randy-highsmith`
 
 export function buildGraph() {
   return {
@@ -22,19 +27,26 @@ export function buildGraph() {
         '@id': ORG,
         name: 'Apex Podcast Co',
         url: `${base}/`,
-        description:
-          'A boutique podcast production company. A producer in the room every session, the Apex Podcast Network around every release, and the Pentatype methodology tuning each show to its host.',
+        description: siteConfig.defaultDescription,
         logo: `${base}/opengraph-image`,
         image: `${base}/opengraph-image`,
-        slogan: 'A producer in the room. A network around your show.',
         foundingDate: '2026',
+        founder: [{ '@id': BRETT }, { '@id': RANDY }],
+        sameAs: [siteConfig.podcastNetworkUrl, siteConfig.pentatypeUrl],
         knowsAbout: [
           'Podcast production',
           'Podcast networks',
           'Audio production',
           'Communication methodology',
         ],
-        sameAs: [siteConfig.podcastNetworkUrl],
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            email: siteConfig.email.brett,
+            contactType: 'customer support',
+            availableLanguage: 'English',
+          },
+        ],
       },
       {
         '@type': 'WebSite',
@@ -45,6 +57,31 @@ export function buildGraph() {
         publisher: { '@id': ORG },
         about: { '@id': ORG },
       },
+      {
+        '@type': 'Person',
+        '@id': BRETT,
+        name: 'Brett K Moore',
+        jobTitle: 'Co-founder. Architect of the Pentatype.',
+        worksFor: { '@id': ORG },
+        url: `${base}/producers/#brett-k-moore`,
+      },
+      {
+        '@type': 'Person',
+        '@id': RANDY,
+        name: 'Randy Highsmith',
+        jobTitle:
+          'Co-founder. Former Director of Podcast Production at eXp Realty.',
+        worksFor: { '@id': ORG },
+        url: `${base}/producers/#randy-highsmith`,
+      },
+      ...NETWORK_SHOWS.filter((s) => s.status === 'live').map((show) => ({
+        '@type': 'PodcastSeries',
+        '@id': `${base}/network/#${show.slug}`,
+        name: show.title,
+        description: show.excerpt,
+        url: show.listenUrl ?? `${base}/network/`,
+        publisher: { '@id': ORG },
+      })),
     ],
   }
 }
