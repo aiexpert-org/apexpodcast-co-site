@@ -1,26 +1,29 @@
 'use client'
 
-import { useReducedMotion } from 'motion/react'
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { cn } from '@/lib/utils'
 import { SCROLLER_SHOWS, type Show } from '@/lib/shows'
 
 /**
- * Dark Logo Scroller — the CCM "Churches I've worked with" treatment, ported.
+ * Dark Logo Scroller. The CCM "Churches I've worked with" treatment, with
+ * Apex's wordmark swap and a scroll-tied parallax on the band so it floats
+ * against the page as you scroll past it.
  *
- * Two rows of show wordmarks on ink. Resting state is the white-on-ink
- * wordmark variant. Hover swaps to the acid-on-ink variant (graphic recolors
- * to acid, wordmark stays bone) per `brand/2026-06-18-17-show-wordmarks/
- * _SCROLLER-SPEC.md`. Coming Soon shows render a small subtle eyebrow under
- * the wordmark; live shows show their host line.
- *
- * Implementation: doubled track translated -50% so the loop is seamless.
- * Pauses on hover. Falls back to a static grid under prefers-reduced-motion.
+ * - Two rows of show wordmarks drift in opposing directions on ink.
+ * - The band has a real vertical parallax (60 -> -60 px across its scroll
+ *   range) so the slow horizontal drift reads as layered against page motion.
+ * - Resting state is white-on-ink; hover swaps to acid-on-ink (graphic
+ *   recolors to acid, wordmark stays bone) per the wordmark spec.
+ * - Coming Soon shows render a small subtle eyebrow.
+ * - Implementation: doubled track translated -50% for a seamless loop.
+ *   Pauses on hover. Falls back to a static grid under prefers-reduced-motion.
  */
 export default function LogoScroller({
   className,
   eyebrow = 'On the network',
   title = 'Shows in the Apex catalog',
-  blurb = 'Twenty-seven productions across the Apex Podcast Network. The first wave is live on Transistor. The next wave is in the studio.',
+  blurb = 'Twenty-six productions across the Apex Podcast Network. The first wave is live on Transistor. The next wave is in the studio.',
 }: {
   className?: string
   eyebrow?: string
@@ -28,6 +31,13 @@ export default function LogoScroller({
   blurb?: string
 }) {
   const reduce = useReducedMotion()
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+  const bandY = useTransform(scrollYProgress, [0, 1], [60, -60])
+
   const items = SCROLLER_SHOWS
   if (items.length === 0) return null
 
@@ -37,6 +47,7 @@ export default function LogoScroller({
 
   return (
     <section
+      ref={sectionRef}
       className={cn('bg-ink text-bone', className)}
       aria-label="Apex Podcast Network catalog"
     >
@@ -53,21 +64,27 @@ export default function LogoScroller({
         </div>
       </div>
 
-      <div
-        className={cn(
-          'marquee-band mt-14 flex flex-col gap-3 overflow-hidden pb-20 md:pb-28',
-          '[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]',
-        )}
-      >
-        {reduce ? (
+      {reduce ? (
+        <div
+          className={cn(
+            'marquee-band mt-14 flex flex-col gap-3 overflow-hidden pb-20 md:pb-28',
+            '[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]',
+          )}
+        >
           <StaticGrid items={items} />
-        ) : (
-          <>
-            <Marquee row={top} direction="ltr" />
-            <Marquee row={bottom.length ? bottom : top} direction="rtl" />
-          </>
-        )}
-      </div>
+        </div>
+      ) : (
+        <motion.div
+          style={{ y: bandY }}
+          className={cn(
+            'marquee-band mt-14 flex flex-col gap-3 overflow-hidden pb-20 md:pb-28 will-change-transform',
+            '[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]',
+          )}
+        >
+          <Marquee row={top} direction="ltr" />
+          <Marquee row={bottom.length ? bottom : top} direction="rtl" />
+        </motion.div>
+      )}
     </section>
   )
 }
@@ -111,7 +128,7 @@ function Tile({ show }: { show: Show }) {
       ) : (
         <span
           className={cn(
-            'font-display lowercase leading-none tracking-tighter text-bone/85 transition group-hover:text-acid',
+            'font-display font-extrabold lowercase leading-none tracking-tighter text-bone/85 transition group-hover:text-acid',
             'text-[clamp(1rem,1.4vw,1.35rem)]',
           )}
         >

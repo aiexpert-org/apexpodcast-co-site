@@ -11,11 +11,23 @@
 }
 
 @theme {
-  /* Apex typefaces. Names match the next/font variables set on <body>, so the
-     runtime self-hosted fonts win over these build-time fallbacks. */
-  --font-display: 'Archivo Black', sans-serif;
-  --font-sans: Inter, sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  /* Apex typefaces. Mona Sans variable handles sans + display the way CCM
+     does. Space Mono carries the credit-sleeve register (eyebrows, catalog
+     stamps, CTA labels). The `--font-mona-sans` and `--font-mono` variables
+     are injected on <html> by app/layout.tsx (next/font local + google). */
+  --font-sans:
+    var(--font-mona-sans), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display:
+    var(--font-mona-sans), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /* Drives the wider display register on `.display` headlines via
+     font-variation-settings, matching CCM. */
+  --font-display--font-variation-settings: 'wdth' 125;
+  --font-mono: var(--font-mono), 'Space Mono', monospace;
+
+  /* CCM dark-card radius. Used by ContactBlock / footer card. */
+  --radius-4xl: 2.5rem;
 
   /* Apex acid record-label palette (locked 2026-05-29). OKLCH is the source of
      truth; hex is the sRGB fallback. */

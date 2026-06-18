@@ -36,8 +36,7 @@ export default function HomeHero() {
 
             <p className="lead mt-7 max-w-xl text-ink/75">
               A boutique production company. A producer in the room on every
-              session. A network around your show. The sound you would expect
-              from a record label, applied to the long-form conversation.
+              session. A network around your show.
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

@@ -3,11 +3,10 @@
 import { motion, useReducedMotion, type Variants } from 'motion/react'
 import type { ReactNode } from 'react'
 
-const EASE = [0.22, 1, 0.36, 1] as const
-
 /**
- * Reveal-on-scroll. Fades + lifts content into view once. Collapses to a plain
- * (visible, no transform) render under prefers-reduced-motion.
+ * Reveal-on-scroll. CCM parity: 24px lift, 500ms duration, viewport margin
+ * `0px 0px -120px` so reveals trigger 120px before the bottom edge. Collapses
+ * to a plain render under prefers-reduced-motion.
  */
 export function Reveal({
   children,
@@ -31,10 +30,10 @@ export function Reveal({
   return (
     <MotionTag
       className={className}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.7, ease: EASE, delay }}
+      viewport={{ once: true, margin: '0px 0px -120px' }}
+      transition={{ duration: 0.5, delay }}
     >
       {children}
     </MotionTag>
@@ -43,21 +42,28 @@ export function Reveal({
 
 const groupVariants: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09 } },
+  show: { transition: { staggerChildren: 0.2 } },
+}
+
+const groupVariantsFaster: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
 }
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 }
 
 /** Staggered group wrapper. Pair with RevealItem children. */
 export function RevealStagger({
   children,
   className,
+  faster = false,
 }: {
   children: ReactNode
   className?: string
+  faster?: boolean
 }) {
   const reduce = useReducedMotion()
   if (reduce) return <div className={className}>{children}</div>
@@ -65,10 +71,10 @@ export function RevealStagger({
   return (
     <motion.div
       className={className}
-      variants={groupVariants}
+      variants={faster ? groupVariantsFaster : groupVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, margin: '0px 0px -120px' }}
     >
       {children}
     </motion.div>
