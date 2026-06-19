@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
-import PageHero from '@/components/ui/page-hero'
-import ContactBlock from '@/components/sections/contact-block'
-import { ShowCard } from '@/components/sections/show-grid'
-import { Reveal, RevealStagger, RevealItem } from '@/components/motion/reveal'
+import Link from 'next/link'
+
+import { Container } from '@/components/ccm/container'
+import { FadeIn } from '@/components/ccm/fade-in'
+import { PageIntro } from '@/components/ccm/page-intro'
+import { ContactBlock } from '@/components/ccm/contact-block'
 import { CASE_STUDY_SHOWS } from '@/lib/shows'
 
 export const metadata: Metadata = {
@@ -15,51 +17,55 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Case studies."
-        title={
-          <>
-            The shows we produce, and the people behind them
-            <span className="text-acid">.</span>
-          </>
-        }
+      <PageIntro
+        eyebrow="Case studies"
+        title="The shows we produce, and the people behind them."
       >
-        Four human-hosted shows, four different audiences, one production standard. A producer at
-        every session, a Pentatype profile under every show, and a place on the network for every
-        release.
-      </PageHero>
-
-      <section className="section">
-        <div className="container-apex">
-          <RevealStagger className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {CASE_STUDY_SHOWS.map((show) => (
-              <RevealItem key={show.slug}>
-                <ShowCard show={show} />
-              </RevealItem>
-            ))}
-          </RevealStagger>
-
-          <Reveal className="mt-16 max-w-2xl border-t border-ink/15 pt-10">
-            <h2 className="h-sub text-ink">
-              More of the catalog is in production
-              <span className="text-acid">.</span>
-            </h2>
-            <p className="mt-4 text-ink/70">
-              Twenty AI-voiced shows from the Apex Podcast Network are in production now. See them on
-              the{' '}
-              <a href="/portfolio/" className="text-ink underline decoration-acid underline-offset-4">
-                portfolio
-              </a>
-              .
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <ContactBlock source="case-studies-index">
         <p>
-          Want a show like these? Apex takes on a small number each cycle. Drop your name and what you
-          want to launch, and a producer will reach out when a spot opens.
+          Four human-hosted shows, four different audiences, one production
+          standard. A producer at every session, a Pentatype profile under every
+          show, and a place on the network for every release.
+        </p>
+      </PageIntro>
+
+      <Container className="mt-24 sm:mt-32 lg:mt-40">
+        <FadeIn>
+          <ul
+            role="list"
+            className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {CASE_STUDY_SHOWS.map((show) => (
+              <li key={show.slug}>
+                <Link
+                  href={`/case-studies/${show.slug}/`}
+                  className="group block rounded-3xl ring-1 ring-neutral-900/10 transition hover:shadow-xl hover:shadow-neutral-900/5 hover:ring-neutral-900/20"
+                >
+                  <div className="p-8">
+                    <p className="font-display text-sm font-semibold tracking-wider text-[var(--color-cta)] uppercase">
+                      {show.catalog} / {show.host ?? 'Host TBA'}
+                    </p>
+                    <h2 className="mt-6 font-display text-2xl font-medium tracking-tight text-neutral-950 group-hover:text-neutral-700">
+                      {show.title}
+                    </h2>
+                    <p className="mt-4 text-base leading-7 text-neutral-600">
+                      {show.tagline}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 group-hover:decoration-2">
+                      Read the story
+                      <span aria-hidden="true">&rarr;</span>
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </FadeIn>
+      </Container>
+
+      <ContactBlock heading="Want a show like these?" source="case-studies-index">
+        <p>
+          Apex takes on a small number each cycle. Drop your info and a producer
+          will reach out when a spot opens.
         </p>
       </ContactBlock>
     </>

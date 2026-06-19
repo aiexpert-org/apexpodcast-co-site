@@ -13,8 +13,7 @@
 @theme {
   /* Apex typefaces. Mona Sans variable handles sans + display the way CCM
      does. Space Mono carries the credit-sleeve register (eyebrows, catalog
-     stamps, CTA labels). The `--font-mona-sans` and `--font-mono` variables
-     are injected on <html> by app/layout.tsx (next/font local + google). */
+     stamps, CTA labels) — additive to CCM's chassis. */
   --font-sans:
     var(--font-mona-sans), ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -29,52 +28,53 @@
   /* CCM dark-card radius. Used by ContactBlock / footer card. */
   --radius-4xl: 2.5rem;
 
-  /* Apex acid record-label palette (locked 2026-05-29). OKLCH is the source of
-     truth; hex is the sRGB fallback. */
+  /* Type scale — forklifted byte-for-byte from CCM so headline mass and the
+     section rhythm match. */
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 2.75rem;
+  --text-5xl--line-height: 3.25rem;
+  --text-6xl: 3.5rem;
+  --text-6xl--line-height: 4rem;
+  --text-7xl: 4rem;
+  --text-7xl--line-height: 4.5rem;
+
+  /* Apex acid record-label palette (locked 2026-05-29). Mapped onto CCM's
+     `--color-cta*` token contract so every CCM component that calls
+     `var(--color-cta)` lights up acid without per-component rewrites. */
   --color-acid: oklch(0.86 0.18 117);
   --color-ink: #14140f;
   --color-bone: #faf8f3;
   --color-stone: #c4bdb1;
-
-  /* Type scale */
-  --text-eyebrow: 0.8125rem;
-  --text-eyebrow--line-height: 1.4;
-  --text-eyebrow--letter-spacing: 0.18em;
-
-  --text-xs: 0.75rem;
-  --text-xs--line-height: 1.5;
-  --text-sm: 0.875rem;
-  --text-sm--line-height: 1.6;
-  --text-base: 1rem;
-  --text-base--line-height: 1.65;
-  --text-lg: 1.125rem;
-  --text-lg--line-height: 1.6;
-  --text-xl: 1.25rem;
-  --text-xl--line-height: 1.5;
-  --text-2xl: 1.5rem;
-  --text-2xl--line-height: 1.3;
-  --text-3xl: 1.875rem;
-  --text-3xl--line-height: 1.2;
-  --text-4xl: 2.25rem;
-  --text-4xl--line-height: 1.1;
-  --text-5xl: 3rem;
-  --text-5xl--line-height: 1.05;
-  --text-6xl: 3.75rem;
-  --text-6xl--line-height: 1;
-
-  --tracking-tighter: -0.03em;
-  --tracking-tight: -0.02em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.04em;
-  --tracking-wider: 0.12em;
-  --tracking-widest: 0.18em;
+  --color-cta: oklch(0.86 0.18 117);
+  --color-cta-hover: oklch(0.76 0.18 117);
+  --color-cta-ink: #14140f;
+  /* CCM keeps these as aliases on the brand accent so any not-yet-renamed
+     references still pick up the splash. We mirror that here on acid. */
+  --color-brand-yellow: oklch(0.86 0.18 117);
+  --color-brand-teal: oklch(0.86 0.18 117);
 }
 
-/*
-  Tailwind v4 default border color is `currentColor`; pin it to a warm hairline
-  so chassis borders read intentionally against bone and ink.
-*/
 @layer base {
+  /*
+    Tailwind v4 default border color is `currentColor`; pin it to a warm hairline
+    so chassis borders read intentionally against bone and ink.
+  */
   *,
   ::after,
   ::before,
@@ -84,7 +84,14 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
   }
 
   ::selection {
@@ -92,12 +99,43 @@
     color: var(--color-ink);
   }
 
-  /* Visible keyboard focus on every interactive element. :where() keeps
-     specificity 0 so components can still opt into a custom ring. */
-  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-    outline: 2px solid var(--color-acid);
+  /* Focus indicators (WCAG 2.4.7) without the persistent ring after a mouse
+     click. A pointer click sets :focus but NOT :focus-visible, so we strip the
+     user-agent outline in that case; keyboard focus keeps :focus-visible and a
+     high-contrast brand outline. Form fields opt back in to their own :focus
+     ring below. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
     outline-offset: 2px;
     border-radius: 2px;
+  }
+  /* On dark surfaces the near-black ink outline disappears; use a white ring
+     instead so keyboard focus stays visible there. */
+  .bg-neutral-950 :focus-visible,
+  [data-surface='dark'] :focus-visible {
+    outline-color: #ffffff;
+  }
+  /* Inputs drive their own visible focus state (border + soft ring), which is
+     expected on click as well, so they keep the UA-free outline and are not
+     double-ringed by the rule above. */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -105,14 +143,89 @@
   direction: rtl;
 }
 
-/* Cover-art Show Wall tiles (components/ui/cover-mosaic.tsx). Ported from the
-   CCM hero mosaic. Tiles rest desaturated and dimmed so the wall recedes behind
-   the copy; on hover each tile lifts to a saturation + brightness scaled by its
-   column (set inline per tile from data-col). The 480ms ease-out runs on the
-   base element, so leaving a tile fades it back down with the same curve. */
+/* Marquee chassis (components/ccm/org-carousel.tsx + sections/logo-scroller.tsx).
+   The tile array is rendered twice inside each track, so translating the track
+   by -50% lands exactly on the start of the second copy for a seamless loop. */
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  /* Slow, elegant drift: ~135s per full cycle so each tile gets visual real
+     estate before scrolling off. Linear so the motion reads as a continuous,
+     mechanical conveyor rather than easing in and out. */
+  animation-duration: 135s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+.marquee-ltr {
+  animation-name: marquee-ltr;
+}
+.marquee-rtl {
+  animation-name: marquee-rtl;
+}
+/* Pause both rows when the user hovers anywhere in the band so tiles are
+   clickable, and pause the focused row for keyboard users. */
+.marquee-band:hover .marquee-track,
+.marquee-track:focus-within {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-ltr,
+  .marquee-rtl,
+  [class*='marquee'] {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Lenis inertial smooth scroll (components/providers/smooth-scroll.tsx).
+   Recommended base styles so Lenis owns the scroll and native sticky still
+   works for the hero parallax reveal. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Gradient-aware hero mosaic tiles (components/ccm/apex-hero.tsx and
+   components/ui/cover-mosaic.tsx). Tiles rest desaturated/dimmed; on hover each
+   tile lifts to a saturation + brightness scaled by its column so the leftmost
+   tiles (under the headline and CTAs) stay muted and text-legible, while the
+   rightmost tiles pop to full color. The 480ms ease-out runs on the base
+   element, so leaving a tile fades it back down with the same luxurious curve
+   (bidirectional, no snap). --hover-saturation / --hover-brightness are set per
+   tile inline from data-col. */
 .mosaic-tile-img {
-  opacity: 0.6;
-  filter: grayscale(0.82) brightness(0.94);
+  opacity: 0.55;
+  filter: grayscale(0.85) brightness(0.95);
   transition:
     transform 480ms cubic-bezier(0.16, 1, 0.3, 1),
     filter 480ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -132,21 +245,83 @@
   }
 }
 
-/* Lenis inertial smooth scroll (components/providers/smooth-scroll.tsx).
-   Base styles so Lenis owns the scroll and native sticky still works. */
-html.lenis,
-html.lenis body {
-  height: auto;
+/* Article body styling for /case-studies/[slug] and /resources/[slug] pages */
+.prose-blog {
+  color: #404040;
+  font-size: 1.0625rem;
+  line-height: 1.75;
 }
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+.prose-blog p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
 }
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+.prose-blog h2 {
+  margin-top: 2.25em;
+  margin-bottom: 0.75em;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+  line-height: 1.2;
 }
-.lenis.lenis-stopped {
-  overflow: hidden;
+.prose-blog h3 {
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #0a0a0a;
+  line-height: 1.3;
 }
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
+.prose-blog a {
+  color: #0a0a0a;
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-cta);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.prose-blog a:hover {
+  text-decoration-thickness: 2px;
+}
+.prose-blog strong {
+  color: #0a0a0a;
+  font-weight: 600;
+}
+.prose-blog em {
+  font-style: italic;
+}
+.prose-blog ul {
+  margin: 1.25em 0;
+  padding-left: 1.5em;
+  list-style: disc;
+}
+.prose-blog ol {
+  margin: 1.25em 0;
+  padding-left: 1.5em;
+  list-style: decimal;
+}
+.prose-blog li {
+  margin: 0.5em 0;
+}
+.prose-blog li > p {
+  margin: 0.25em 0;
+}
+.prose-blog blockquote {
+  margin: 1.5em 0;
+  padding-left: 1.25em;
+  border-left: 3px solid var(--color-cta);
+  font-style: italic;
+  color: #525252;
+}
+.prose-blog hr {
+  margin: 2.5em 0;
+  border-top: 1px solid #e5e5e5;
+}
+.prose-blog code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: #f5f5f5;
+  padding: 0.1em 0.3em;
+  border-radius: 0.25rem;
 }

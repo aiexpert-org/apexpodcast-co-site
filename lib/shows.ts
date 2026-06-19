@@ -82,7 +82,7 @@ export const FLAGSHIP_SHOWS: Show[] = [
     status: 'live',
     flagship: true,
     caseStudy: true,
-    core: 'conviction',
+    core: 'connection',
     excerpt:
       'Austin Cheviron walks through the conversations about money, family, and legacy that decide whether you build a career or build a life that lasts. You will learn what the most important conversations of your lifetime sound like, so you can start having them with the people who matter most.',
     listenUrl: 'https://winningtwice.transistor.fm',
@@ -98,9 +98,9 @@ export const FLAGSHIP_SHOWS: Show[] = [
     status: 'live',
     flagship: true,
     caseStudy: true,
-    core: 'structure',
+    core: 'conviction',
     excerpt:
-      'Russ Laggan shares the practical side of leadership built through craft, conversation, and team building. You will learn how strong leaders develop the human skills that make people want to follow them, and walk away with frameworks you can apply to whatever team you lead next.',
+      'Russ Laggan, author of Be Followable and VP of Training at eXp Realty, sits down with people he finds interesting to celebrate what makes them uniquely themselves. You will hear the stories and real passions that shaped how each of his guests sees the world, and discover what makes someone worth following.',
     listenUrl: 'https://russlaggan.transistor.fm',
   },
 ]
@@ -120,7 +120,7 @@ export const ESTABLISHED_SHOWS: Show[] = [
     catalog: 'APX-001',
     cover: '/covers/show-the-apex-podcast.webp',
     status: 'live',
-    core: 'connection',
+    core: 'structure',
     excerpt:
       'Brett K Moore and Randy Highsmith open the doors of Apex Podcast Co so you can hear what really happens when producers shape a show. You will learn how great conversations get built, why some episodes land and others do not, and what the operators we work with are actually thinking on the other side of the microphone. Season 1 walks you through the Pentatype communication framework one episode at a time.',
     listenUrl: 'https://theapexpodcast.transistor.fm',
@@ -136,7 +136,7 @@ export const ESTABLISHED_SHOWS: Show[] = [
     status: 'live',
     core: 'connection',
     excerpt:
-      'Buddy Buck sits down with community leaders, builders, and the people quietly shaping the world around them. You will hear how real community gets made one conversation at a time, and leave each episode with ideas you can use to strengthen the communities you belong to.',
+      'Buddy Buck sits down with community leaders, builders, and the people shaping the world around them. You will hear how real community gets made one conversation at a time, and leave each episode with ideas you can use to strengthen the communities you belong to.',
   },
   {
     slug: 'youre-allowed',
@@ -147,14 +147,14 @@ export const ESTABLISHED_SHOWS: Show[] = [
     catalog: 'APX-006',
     cover: '/covers/show-the-apex-podcast.webp',
     status: 'live',
-    core: 'meaning',
+    core: 'connection',
     excerpt:
       'Rachael Barclay invites women to reclaim the dreams they were told to set aside. You will hear conversations that uncomplicate access to the life you actually want, and leave each episode with a clearer picture of what you are already allowed to pursue.',
   },
   {
     slug: 'in-a-moment',
     title: 'In a Moment',
-    tagline: 'Find God’s love in moments that break us open.',
+    tagline: 'Discover God’s love in moments that break us open.',
     host: 'Michele Okimura',
     coHost: 'Brett K Moore',
     network: false,
@@ -181,20 +181,20 @@ export const ESTABLISHED_SHOWS: Show[] = [
   {
     slug: 'martin-ruof',
     title: 'The Martin Ruof Podcast',
-    tagline: 'You’re not broken; you’re buried.',
+    tagline: 'You’re not broken; you’re buried. Let’s set you free.',
     host: 'Martin Ruof',
     network: false,
     catalog: 'APX-009',
     cover: '/covers/show-the-apex-podcast.webp',
     status: 'live',
-    core: 'structure',
+    core: 'discovery',
     excerpt:
       'Martin Ruof guides listeners through what he calls the craftsmanship of self, the deliberate practice of building who you are meant to become. You will leave each episode with concrete ways to think about your own development, and the discipline it takes to keep growing.',
   },
   {
     slug: 'how-to-host-a-podcast',
     title: 'How To Host a Podcast',
-    tagline: 'Communication tips from the world’s best communicators.',
+    tagline: 'Explore the communication styles of the world’s best podcasters.',
     host: 'Brett K Moore',
     network: false,
     catalog: 'APX-010',
@@ -202,7 +202,7 @@ export const ESTABLISHED_SHOWS: Show[] = [
     status: 'live',
     core: 'structure',
     excerpt:
-      'Brett K Moore breaks down the practical insights drawn from studying the top podcasts in the world. You will learn the host and guest techniques that consistently produce great episodes, so you can apply them whether you are recording your first episode or your hundredth.',
+      'We explore the communication styles behind the world’s best podcasts. You will learn the host and guest techniques that consistently produce great episodes, so you can apply them whether you are recording your first episode or your hundredth.',
   },
 ]
 
@@ -225,12 +225,12 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'discovery',
     excerpt:
-      'Brett K Moore reveals the etymology and deeper meaning hiding inside common words. You will learn where everyday language actually comes from, so you can use words with more intention and discover the layers most people walk past.',
+      'We reveal the etymology and deeper meaning hiding inside common words. You will learn where everyday language actually comes from, so you can use words with more intention and discover the layers most people walk past.',
   },
   {
     slug: 'read-the-room',
     title: 'Read the Room',
-    tagline: 'Communication tips from the world’s most defining conversations.',
+    tagline: 'Communication tools that shape human connection.',
     host: 'Brett K Moore',
     network: true,
     catalog: 'APX-NET-02',
@@ -239,7 +239,7 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'structure',
     excerpt:
-      'Brett K Moore demonstrates the Pentatype communication framework using real public conversations as case studies. You will learn how to recognize the five communication archetypes in yourself and others, so you can connect with anyone in any context.',
+      'We explore the nature of communication through the lens of the assessment tools shaping how people understand each other. From Myers-Briggs to the Enneagram to the Big Five OCEAN model to the Pentatype framework, you will learn how to recognize the patterns in yourself and others, so you can connect with anyone in any context.',
   },
   {
     slug: 'ai-native',
@@ -253,20 +253,20 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'structure',
     excerpt:
-      'Brett K Moore studies organizations of every kind, including businesses, non-profits, and creative ventures, that treat AI as the substrate of their work rather than a feature added on top. You will hear case studies of the decisions these organizations made differently, so you can apply the same thinking to whatever you are building.',
+      'We study organizations of every kind, including businesses, non-profits, and creative ventures, that treat AI as the substrate of their work rather than a feature added on top. You will hear case studies of the decisions these organizations made differently, so you can apply the same thinking to whatever you are building.',
   },
   {
     slug: 'the-method',
     title: 'The Method',
-    tagline: 'Methods embodied by top guides.',
+    tagline: 'Methods top guides live by.',
     host: 'Brett K Moore',
     network: true,
     catalog: 'APX-NET-04',
     cover: '',
     status: 'coming-soon',
-    core: 'conviction',
+    core: 'structure',
     excerpt:
-      'Brett K Moore goes behind the scenes with the world’s top guides, from Tony Robbins to Sarah Thompson to John Wooden to Bill Walsh to Bill Belichick to Martin Ruof. You will discover the methods they teach and how they embody those methods in their own work. Future seasons will rotate through guest hosts interviewing guides in the spirit of Actors on Actors.',
+      'We go behind the scenes with the world’s top guides. You will discover the methods they teach and how they actually live them in their own work, so you can recognize the frameworks worth bringing into your own life.',
   },
   {
     slug: 'perfect-love',
@@ -280,12 +280,12 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'meaning',
     excerpt:
-      'Brett K Moore explores C.S. Lewis’s framework of the four loves, storge, philia, eros, and agape, through the writings of Lewis, Augustine, Aquinas, Kierkegaard, Marilynne Robinson, and Bonhoeffer. You will learn how to recognize these four loves in your own relationships, and understand why the deepest faith traditions have always pointed back to them.',
+      'We explore C.S. Lewis’s framework of the four loves, storge, philia, eros, and agape, through the writings of Lewis, Augustine, Aquinas, Kierkegaard, Marilynne Robinson, Bonhoeffer, and more. You will learn how to recognize these four loves in your own relationships, and understand why the deepest faith traditions have always pointed back to them.',
   },
   {
     slug: 'outlast',
     title: 'Outlast',
-    tagline: 'Build a legacy that outlasts you.',
+    tagline: 'Create a legacy that outlasts you.',
     host: 'Brett K Moore',
     network: true,
     catalog: 'APX-NET-06',
@@ -293,12 +293,12 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'meaning',
     excerpt:
-      'Brett K Moore profiles people who breathed life into the legacies they wanted to leave, and walks through the frameworks they used to do it. You will learn how to think about legacy as something you create deliberately, so the work of your hands continues to matter long after you are gone.',
+      'We profile people who breathed life into the legacies they wanted to leave, and walk through the frameworks they used to do it. You will learn how to think about legacy as something you create deliberately, so the work of your hands continues to matter long after you are gone.',
   },
   {
     slug: 'master-of-two-worlds',
     title: 'Master of Two Worlds',
-    tagline: 'People who walked the Hero’s Journey.',
+    tagline: 'Stories of people who brave the Hero’s Journey.',
     host: 'Brett K Moore',
     network: true,
     catalog: 'APX-NET-07',
@@ -307,7 +307,7 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'meaning',
     excerpt:
-      'Brett K Moore tells the stories of people both historical and literary whose lives followed Joseph Campbell’s monomyth, from Lincoln, MLK, and Bonhoeffer to Frodo Baggins, Luke Skywalker, and Atticus Finch. You will recognize the same stages of the journey in your own life, so you can navigate transition with the wisdom of those who walked the path before you.',
+      'We tell the stories of people both historical and literary whose lives followed Joseph Campbell’s monomyth, from Lincoln, MLK, and Bonhoeffer to Frodo Baggins, Luke Skywalker, and Atticus Finch. You will recognize the same stages of the journey in your own life, so you can navigate transition with the wisdom of those who walked the path before you.',
   },
   {
     slug: 'square-one',
@@ -320,7 +320,7 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'discovery',
     excerpt:
-      'Brett K Moore takes everyday concepts like money, trust, time, and a promise back to first principles using the kind of Socratic questioning operators use to break through stuck thinking. You will leave each episode able to solve problems from the ground up rather than from borrowed assumptions.',
+      'We take everyday concepts like money, trust, and time back to first principles using the kind of Socratic questioning people use to break through stuck thinking. You will leave each episode able to solve problems from the ground up rather than from borrowed assumptions.',
   },
   {
     slug: 'the-other-half',
@@ -333,25 +333,25 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'discovery',
     excerpt:
-      'Many famous quotes and proverbs are only a piece of the puzzle, and when you hear the full saying the meaning often changes completely. Brett K Moore restores the missing half of the sayings and passages you thought you knew, so you can use them the way they were actually meant.',
+      'Many famous quotes and proverbs are only a piece of the puzzle, and when you hear the full saying the meaning often changes completely. We restore the missing half of the sayings and passages you thought you knew, so you can use them the way they were actually meant.',
   },
   {
     slug: 'carried-over',
     title: 'Carried Over',
-    tagline: 'The moments when people made the decisions that changed everything.',
+    tagline: 'Stories of the brave decisions that transformed lives.',
     host: 'Brett K Moore',
     network: true,
     catalog: 'APX-NET-10',
     cover: '',
     status: 'coming-soon',
-    core: 'conviction',
+    core: 'connection',
     excerpt:
-      'Brett K Moore tells the stories of people who made the biggest decisions of their lives and would make them again. You will hear how identity, skill, and conviction translate across the chapters of a life, so you can think about your own biggest decisions with more confidence.',
+      'We tell the stories of people who made the biggest decisions of their lives and would make them again. You will hear how identity, skill, and conviction translate across the chapters of a life, so you can think about your own biggest decisions with more confidence.',
   },
   {
     slug: 'same-stars',
     title: 'Same Stars',
-    tagline: 'Stories behind the stars you see every night.',
+    tagline: 'Stories about the stars that guide you.',
     host: 'Brett K Moore',
     network: true,
     catalog: 'APX-NET-11',
@@ -360,7 +360,7 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'discovery',
     excerpt:
-      'Brett K Moore walks through the astronomy of one star or constellation and the multi-cultural mythology built around it. You will learn what the night sky has been telling humans for thousands of years, and discover the hidden meaning behind the constellations you have always known by name.',
+      'We walk through the astronomy of one star or constellation and the multi-cultural mythology built around it. You will learn what the night sky has been telling humans for thousands of years, and discover the hidden meaning behind the constellations you have always known by name.',
   },
   {
     slug: 'hands-on',
@@ -374,7 +374,7 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'conviction',
     excerpt:
-      'Brett K Moore profiles the master craftspeople who build the instruments musicians depend on, from luthiers to guitar company founders to woodworkers shaping the next generation of sound. You will hear how the people who make music possible think about their craft, and you will see music differently because of it.',
+      'We profile the master craftspeople who build the instruments musicians depend on, from luthiers to guitar company founders to woodworkers shaping the next generation of sound. You will hear how the people who make music possible think about their craft, and you will see music differently because of it.',
   },
   {
     slug: 'play-it-forward',
@@ -385,9 +385,9 @@ export const COMING_SOON_SHOWS: Show[] = [
     catalog: 'APX-NET-13',
     cover: '',
     status: 'coming-soon',
-    core: 'connection',
+    core: 'meaning',
     excerpt:
-      'Brett K Moore explores how music has shaped cultural movements throughout history, from the Hawaiian renaissance with Eddie Kamae to Civil Rights with Sam Cooke. Each episode pairs a movement with a curated Spotify playlist you can listen alongside, so you can feel how the songs themselves became part of the change.',
+      'We explore how music has shaped cultural movements throughout history, from the Hawaiian renaissance with Eddie Kamae to Civil Rights with Sam Cooke. Each episode pairs a movement with a curated Spotify playlist you can listen alongside, so you can feel how the songs themselves became part of the change.',
   },
   {
     slug: 'the-rest-of-the-classics',
@@ -398,9 +398,9 @@ export const COMING_SOON_SHOWS: Show[] = [
     catalog: 'APX-NET-14',
     cover: '',
     status: 'coming-soon',
-    core: 'meaning',
+    core: 'connection',
     excerpt:
-      'Brett K Moore reads excerpts from public-domain classic books in a calm, paced voice with ambient music underneath. You will sleep more deeply and absorb great literature at the same time, because your mind retains more when it relaxes into a story.',
+      'We read excerpts from public-domain classic books in a calm, paced voice with ambient music underneath. You will sleep more deeply and absorb great literature at the same time, because your mind retains more when it relaxes into a story.',
   },
   {
     slug: 'the-rest-of-scripture',
@@ -411,9 +411,9 @@ export const COMING_SOON_SHOWS: Show[] = [
     catalog: 'APX-NET-15',
     cover: '',
     status: 'coming-soon',
-    core: 'meaning',
+    core: 'connection',
     excerpt:
-      'Brett K Moore reads Psalms, Proverbs, Gospels, and Letters in a calm, paced voice with solfeggio frequencies underneath. You can fall asleep to it or leave it playing quietly all night, so the words that have steadied believers for two thousand years become the soundtrack of your rest.',
+      'We read Psalms, Proverbs, Gospels, and Letters in a calm, paced voice with solfeggio frequencies underneath. You can fall asleep to it or leave it playing quietly all night, so the words that have steadied believers for thousands of years become the soundtrack of your rest.',
   },
   {
     slug: 'within-reason',
@@ -426,7 +426,7 @@ export const COMING_SOON_SHOWS: Show[] = [
     status: 'coming-soon',
     core: 'conviction',
     excerpt:
-      'Brett K Moore teaches the classical forms of logical argument, from sentential logic to modus ponens to modus tollens to De Morgan’s laws, using Christian apologetics arguments as case studies. You will learn how to recognize sound and unsound reasoning, so you can think clearly through any question in life rather than rely on someone else’s answers.',
+      'We teach the classical forms of logical argument, from sentential logic to modus ponens to modus tollens to De Morgan’s laws, using real case studies drawn from history, philosophy, faith traditions, and the modern arguments shaping pop culture today. You will learn how to recognize sound and unsound reasoning, so you can think clearly through any question in life rather than rely on someone else’s answers.',
   },
 ]
 

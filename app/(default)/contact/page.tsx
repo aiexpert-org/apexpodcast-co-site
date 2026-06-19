@@ -1,157 +1,100 @@
 import type { Metadata } from 'next'
-import { Reveal } from '@/components/motion/reveal'
-import DiscoveryCalendarEmbed from '@/components/ui/discovery-calendar-embed'
-import ContactForm from '@/components/forms/contact-form'
+
+import { Container } from '@/components/ccm/container'
+import { FadeIn } from '@/components/ccm/fade-in'
+import { Border } from '@/components/ccm/border'
+import { PageIntro } from '@/components/ccm/page-intro'
+import { ApexPortrait } from '@/components/ccm/apex-portrait'
+import { JoinWaitListButton } from '@/components/ccm/join-waitlist-button'
 import { siteConfig } from '@/lib/site-config'
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'The front door is a 20-minute discovery call with a producer. Email is a secondary path. Press, partners, and case-study inquiries each have their own line.',
+    'Apex Podcast Co takes on a small number of new shows each quarter. Join the wait list and a producer will reach out personally when a spot opens.',
   alternates: { canonical: '/contact/' },
 }
-
-// Confirm whether the case-study program is open at relaunch.
-// When closed, set to false and the section is omitted.
-const caseStudyProgramOpen = true
-
-const directLines = [
-  {
-    email: siteConfig.email.brett,
-    use: 'The fastest written path to a producer. Tell us what you are building and we route it.',
-  },
-]
 
 export default function ContactPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-ink text-bone">
-        <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
-          <p className="eyebrow-acid">Contact.</p>
-          <h1 className="display mt-6 max-w-4xl text-bone">
-            The front door is a 20-minute call
-            <span className="text-acid">.</span>
-          </h1>
-          <p className="lead mt-7 max-w-3xl text-bone/70">
-            Discovery is the primary way in. Email is a secondary path. Press, partners, and
-            case-study inquiries each have their own line.
-          </p>
-        </div>
-      </section>
+      <PageIntro eyebrow="Join the wait list" title="Save your spot.">
+        <p>
+          Apex Podcast Co takes on a small number of new shows each quarter.
+          Drop your info and a producer will reach out personally when a spot
+          opens.
+        </p>
+      </PageIntro>
 
-      {/* The discovery call */}
-      <section className="section bg-bone">
-        <div className="container-apex">
-          <Reveal>
-            <h2 className="eyebrow">Book a discovery call.</h2>
-            <p className="mt-5 max-w-2xl text-ink/75">
-              20 minutes. With a producer. We ask what you are building. We tell you what an Apex
-              show would look like for you. We do not run a pitch deck. There is no obligation on
-              either side at the end of the call.
-            </p>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <div className="mt-8">
-              <DiscoveryCalendarEmbed />
+      <Container className="mt-16 sm:mt-20 lg:mt-24">
+        <FadeIn>
+          <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-[1fr_2fr] lg:gap-x-16">
+            <div className="rounded-3xl bg-neutral-50 p-8 ring-1 ring-neutral-900/10">
+              <h2 className="font-display text-xl font-semibold tracking-tight text-neutral-950">
+                Save your spot
+              </h2>
+              <p className="mt-3 text-base leading-7 text-neutral-600">
+                The fastest way to reach a producer at Apex. We&rsquo;ll email
+                you back personally.
+              </p>
+              <div className="mt-6">
+                <JoinWaitListButton source="contact-page" />
+              </div>
             </div>
-          </Reveal>
-        </div>
-      </section>
+            <div>
+              <ApexPortrait width={520} />
 
-      {/* Contact form (lead capture) */}
-      <section className="section bg-bone pt-0">
-        <div className="container-apex grid gap-10 lg:grid-cols-12 lg:items-start">
-          <div className="lg:col-span-4">
-            <Reveal>
-              <h2 className="eyebrow">Or tell us about your show.</h2>
-              <p className="mt-5 text-ink/75">
-                Prefer to write first? Send the details and one of the producers will pick it up. This
-                is the same lead capture the discovery call feeds into.
-              </p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-8">
-            <Reveal delay={0.05}>
-              <ContactForm />
-            </Reveal>
-          </div>
-        </div>
-      </section>
+              <div className="mt-12 max-w-xl">
+                <h2 className="font-display text-2xl font-semibold tracking-tight text-neutral-950">
+                  How it works.
+                </h2>
+                <p className="mt-4 text-base leading-7 text-neutral-600">
+                  You join the wait list. A producer reads your info and emails
+                  you within a few days. We schedule a 20-minute call. We ask
+                  what you are building, we tell you what an Apex show would
+                  look like for you, and we decide together whether the fit is
+                  right.
+                </p>
 
-      {/* The split rule */}
-      <section className="section bg-ink text-bone pt-0 md:pt-0">
-        <div className="container-apex">
-          <Reveal>
-            <div className="max-w-3xl rounded-3xl border border-bone/12 p-8 md:p-10">
-              <h2 className="eyebrow-acid">How we route the call.</h2>
-              <p className="mt-5 text-bone/75">
-                Tell us what your show is about and we match you with the producer who fits it best.
-                Real estate and leadership, coaching and executive narrative, authors and brand voice.
-                The calendar handles the routing once you pick a time.
-              </p>
+                <Border className="mt-10 pt-8">
+                  <h3 className="font-display text-sm font-semibold tracking-wider uppercase text-neutral-950">
+                    Prefer email?
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-neutral-600">
+                    Drop a line to{' '}
+                    <a
+                      href={`mailto:${siteConfig.email.brett}`}
+                      className="font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 hover:decoration-2"
+                    >
+                      {siteConfig.email.brett}
+                    </a>
+                    . For press, write{' '}
+                    <a
+                      href={`mailto:${siteConfig.email.press}`}
+                      className="font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 hover:decoration-2"
+                    >
+                      {siteConfig.email.press}
+                    </a>
+                    .
+                  </p>
+                </Border>
+
+                <Border className="mt-10 pt-8">
+                  <h3 className="font-display text-sm font-semibold tracking-wider uppercase text-neutral-950">
+                    What you&rsquo;re joining
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-neutral-600">
+                    A boutique production company with a capped roster. A
+                    producer in the room on every session. A network around your
+                    show. The sound you would expect from a record label,
+                    applied to the long-form conversation.
+                  </p>
+                </Border>
+              </div>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Direct contact */}
-      <section className="section bg-bone">
-        <div className="container-apex">
-          <Reveal>
-            <h2 className="eyebrow">Direct lines.</h2>
-          </Reveal>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {directLines.map((line) => (
-              <Reveal key={line.email}>
-                <a
-                  href={`mailto:${line.email}`}
-                  className="group block rounded-3xl border border-ink/12 p-8 transition-colors hover:border-ink/40"
-                >
-                  <span className="font-display text-xl text-ink group-hover:text-ink">
-                    {line.email}
-                  </span>
-                  <p className="mt-3 text-ink/70">{line.use}</p>
-                </a>
-              </Reveal>
-            ))}
           </div>
-        </div>
-      </section>
-
-      {/* Case-study seat (conditional) */}
-      {caseStudyProgramOpen && (
-        <section className="section bg-bone pt-0">
-          <div className="container-apex max-w-3xl">
-            <Reveal>
-              <h2 className="eyebrow">Case-study program.</h2>
-              <p className="mt-5 text-ink/75">
-                We open a small number of case-study seats. Zero-dollar consideration in exchange for
-                case-study usage rights. The application is the same discovery call.
-              </p>
-            </Reveal>
-          </div>
-        </section>
-      )}
-
-      {/* Press */}
-      <section className="section bg-bone pt-0">
-        <div className="container-apex max-w-3xl">
-          <Reveal>
-            <h2 className="eyebrow">Press.</h2>
-            <p className="mt-5 text-ink/75">
-              For press, podcast features, and editorial inquiries:{' '}
-              <a
-                href={`mailto:${siteConfig.email.press}`}
-                className="text-ink underline decoration-acid underline-offset-4 hover:text-ink/70"
-              >
-                {siteConfig.email.press}
-              </a>
-              .
-            </p>
-          </Reveal>
-        </div>
-      </section>
+        </FadeIn>
+      </Container>
     </>
   )
 }
