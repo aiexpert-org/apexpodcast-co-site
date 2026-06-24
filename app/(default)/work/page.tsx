@@ -31,7 +31,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* The three case studies */}
+      {/* The two case studies */}
       <section className="section bg-bone">
         <div className="container-apex">
           <RevealStagger className="grid gap-6 md:grid-cols-2">
@@ -46,7 +46,7 @@ export default function WorkPage() {
 
       <NetworkRollupStrip />
 
-      <ClosingCta headline="Want a fourth catalog entry?" />
+      <ClosingCta headline="Want a third catalog entry?" />
     </>
   )
 }

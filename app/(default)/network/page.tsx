@@ -11,7 +11,7 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Network',
   description:
-    'The Apex Podcast Network is the feed and the brand every Apex show publishes under. The Debrief newsletter, the Greenroom Experience show, the cohort, and the one-observation-three-deliverables pattern.',
+    'The Apex Podcast Network is the feed and the brand every Apex show publishes under. The Debrief newsletter, The Apex Podcast, the cohort, and the one-observation-three-deliverables pattern.',
   alternates: { canonical: '/network/' },
 }
 
@@ -79,20 +79,27 @@ export default function NetworkPage() {
         </div>
       </section>
 
-      {/* Greenroom Experience */}
+      {/* The Apex Podcast (the network’s own show) */}
       <section className="section bg-ink text-bone">
         <div className="container-apex">
           <Reveal>
             <div className="max-w-3xl">
               <p className="eyebrow-acid">The Apex Podcast Network’s own show.</p>
-              <h2 className="h-section mt-4 text-bone">Greenroom Experience.</h2>
+              <h2 className="h-section mt-4 text-bone">The Apex Podcast.</h2>
               <p className="mt-6 text-bone/75">
-                The public face of the Apex Podcast Network feed. Studio-diary format. Producer-craft
-                topics. Cross-promotes the cohort. Launches June 16, 2026.
+                The public face of the Apex Podcast Network feed. Every week, our producers sit down
+                with an owner, operator, or leader and find the show inside what they have already
+                built. Listening is free. Coming on is free. Episode 001, Pentatype Intro, shipped
+                2026-06-02.
               </p>
-              <CtaLink href={siteConfig.transistorUrl} variant="ghost-dark" className="mt-8">
-                Subscribe to the feed on Transistor
-              </CtaLink>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <CtaLink href="/" variant="primary" arrow>
+                  Hear it on The Apex Podcast
+                </CtaLink>
+                <CtaLink href={siteConfig.transistorUrl} variant="ghost-dark">
+                  Subscribe on Transistor
+                </CtaLink>
+              </div>
             </div>
           </Reveal>
         </div>

@@ -42,7 +42,7 @@ export default function ServicesPage() {
             <div className="rounded-3xl border border-ink/12 p-8 md:p-10">
               <p className="eyebrow">The credit window.</p>
               <p className="mt-5 text-ink/75">
-                Buyers who move from Your First Episode to Your Weekly Show within sixty days of the
+                Buyers who move from Your First Episode to Your Weekly Show within ninety days of the
                 first episode delivery get the full $997 credited against their first cycle. The credit
                 is automatic inside the contract flow. The point is honest: if the first episode led
                 you to want the weekly show, the $997 should not feel like double payment.

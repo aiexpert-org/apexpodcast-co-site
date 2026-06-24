@@ -94,7 +94,7 @@ export default function YourFirstEpisodePage() {
             <div className="rounded-3xl bg-ink p-8 text-bone md:p-10">
               <h2 className="eyebrow-acid">If it leads to Your Weekly Show.</h2>
               <p className="mt-5 text-bone/75">
-                Buyers who move to Your Weekly Show inside sixty days of the first episode delivery get
+                Buyers who move to Your Weekly Show inside ninety days of the first episode delivery get
                 the full $997 credited against the first cycle. Automatic inside the contract flow. The
                 bridge is built so Your First Episode can be exactly what it is: a real episode, a real
                 production, an honest taste of how Apex works.
