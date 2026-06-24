@@ -17,9 +17,12 @@ export const siteConfig = {
   defaultDescription:
     'Apex Podcast Co is a producer and a network. We tune a show to its host, produce live in every session, and publish into a feed where every Apex show carries the others.',
 
-  // Primary CTA target across the site. TODO: swap to GHL discovery calendar URL
-  // (master sub-account QRzW1cp8gNa31VJDILvJ). Placeholder per Phase 3 strategy.
-  discoveryUrl: 'https://apexpodcast.co/discovery-call',
+  // Primary CTA target across the site. Now resolves to the on-site
+  // /discovery-call/ landing page (which holds the GCal appointment-schedule
+  // embed slot). Replace this with the live Google Calendar scheduler URL
+  // (https://calendar.app.google/...) once Brett wires it, and the on-site
+  // page becomes redundant. Until then the page is the primary booking surface.
+  discoveryUrl: '/discovery-call/',
 
   // Partner program. TODO: swap to GHL affiliate signup / portal URLs.
   partnerEnrollUrl: 'https://apexpodcast.co/partner-portal',
@@ -82,6 +85,8 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/partners/',
   '/affiliate/',
   '/contact/',
+  '/discovery-call/',
+  '/listen/',
   '/legal/privacy/',
   '/legal/terms/',
   // Phase 3.5 host press-kit pages (cleared named clients only)

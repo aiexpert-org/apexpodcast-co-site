@@ -23,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/affiliate/`, lastModified: now, priority: 0.7 },
     { url: `${siteConfig.url}/about/`, lastModified: now, priority: 0.8 },
     { url: `${siteConfig.url}/contact/`, lastModified: now, priority: 0.7 },
+    { url: `${siteConfig.url}/discovery-call/`, lastModified: now, priority: 0.8 },
+    { url: `${siteConfig.url}/listen/`, lastModified: now, priority: 0.7 },
     ...hosts.map((h) => ({
       url: `${siteConfig.url}/${h.slug}/`,
       lastModified: now,
