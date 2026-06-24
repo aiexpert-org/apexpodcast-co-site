@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 }
 
 /**
- * /listen is the platform landing page. CTAs across the site (“Listen on Spotify”,
- * “Apple Podcasts”, “Listen anywhere”) point here. The buttons wire to
+ * /listen is the platform landing page. CTAs across the site ("Listen on Spotify",
+ * "Apple Podcasts", "Listen anywhere") point here. The buttons wire to
  * siteConfig.listen.* with a contact-form fallback for any link still set to the
  * /listen self-reference (so nothing dead-ends while the show is approved on the
  * podcast platforms). Replace the listen URLs in site-config when the real
@@ -24,7 +24,7 @@ const SELF = '/listen'
 
 function platformHref(url: string): string {
   // Treat a URL that still resolves to the /listen page itself (the Phase 3
-  // placeholder pattern) as “not yet wired” and fall back to the contact route
+  // placeholder pattern) as "not yet wired" and fall back to the contact route
   // so the link still does something useful.
   if (!url) return '/contact/'
   if (url === siteConfig.url + SELF || url === siteConfig.url + SELF + '/') {
@@ -118,7 +118,7 @@ export default function ListenPage() {
                 <CtaLink href="/" variant="primary" arrow>
                   See the show
                 </CtaLink>
-                <CtaLink href={siteConfig.pentatypeUrl} variant="ghost-light" external>
+                <CtaLink href={siteConfig.pentatypeUrl} variant="ghost-light">
                   Take the Pentatype
                 </CtaLink>
                 <CtaLink href="/contact/" variant="ghost-light">
