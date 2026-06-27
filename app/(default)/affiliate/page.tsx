@@ -9,7 +9,7 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Affiliates',
   description:
-    'The Apex affiliate program pays ten percent on Apex SKUs with a 60-day cookie window. Refer someone who should have a show, and earn on what they buy.',
+    'The Apex affiliate program pays twenty percent on Your Weekly Show and the Multi-Tenant Pipeline License, with a 60-day cookie window. Refer someone who should have a show, and earn for the life of the subscription.',
   alternates: { canonical: '/affiliate/' },
 }
 
@@ -20,11 +20,11 @@ const howItWorks = [
   },
   {
     title: 'Share your link.',
-    body: 'Your link carries a 60-day cookie. Anyone who clicks it and buys an Apex offer inside that window is credited to you.',
+    body: 'Your link carries a 60-day cookie. Anyone who clicks it and buys a qualifying Apex offer inside that window is credited to you.',
   },
   {
-    title: 'They buy an Apex offer.',
-    body: 'Your First Episode, Your Weekly Show, or the Multi-Tenant Pipeline License. Ten percent of the sale is yours.',
+    title: 'They buy a qualifying offer.',
+    body: 'Your Weekly Show or the Multi-Tenant Pipeline License. Twenty percent of the sale is yours for every cycle the subscription stays active.',
   },
   {
     title: 'Get paid.',
@@ -33,20 +33,24 @@ const howItWorks = [
 ]
 
 const terms = [
-  { label: 'Commission', value: 'Ten percent on Apex SKUs.' },
+  { label: 'Commission', value: 'Twenty percent on Your Weekly Show and the Multi-Tenant Pipeline License.' },
   { label: 'Cookie window', value: '60 days from the click.' },
-  { label: 'Eligible offers', value: 'Your First Episode, Your Weekly Show, Multi-Tenant Pipeline License.' },
+  { label: 'Qualifying offers', value: 'Your Weekly Show, Multi-Tenant Pipeline License. Your First Episode does not pay commission.' },
   { label: 'Payout cadence', value: 'Monthly, net fifteen, after the refund window.' },
 ]
 
 const faq = [
   {
     q: 'How much do I earn?',
-    a: 'Ten percent on Apex SKUs. On Your First Episode that is $99.70. On a Weekly Show cycle it is $299.70 per cycle the referred client stays. On the Multi-Tenant Pipeline License it is $299.70 per month.',
+    a: 'Twenty percent on the two recurring offers. On Your Weekly Show that is $599.40 per cycle, for every cycle the referred client stays in production. On the Multi-Tenant Pipeline License it is $599.40 per month, or $5,994 per year on the annual prepay. Your First Episode at $997 does not pay commission. The gateway product runs at thin margin, so the program rewards the recurring revenue it leads into.',
+  },
+  {
+    q: 'What if a $997 First Episode buyer converts into a Weekly Show?',
+    a: 'You earn on the Weekly Show cycles. The $997 itself does not pay, but if your referral upgrades to Your Weekly Show inside the 60-day cookie window, the recurring commission kicks in on the first cycle and stays on for the life of the subscription.',
   },
   {
     q: 'How long is the cookie?',
-    a: 'Sixty days. If someone clicks your link and buys within sixty days, the sale is credited to you, even if they did not buy on the first visit.',
+    a: 'Sixty days. If someone clicks your link and buys a qualifying offer within sixty days, the sale is credited to you, even if they did not buy on the first visit.',
   },
   {
     q: 'When do I get paid?',
@@ -58,7 +62,7 @@ const faq = [
   },
   {
     q: 'Is this the same as the Partners program?',
-    a: 'They overlap. The affiliate program is the standard ten-percent referral path with a tracked link. The Partners page covers the broader referral relationship, including managed-ad-spend arrangements.',
+    a: 'They overlap. The affiliate program is the standard twenty-percent referral path with a tracked link on the two recurring offers. The Partners page covers the broader referral relationship, including managed-ad-spend arrangements.',
   },
 ]
 
@@ -70,13 +74,13 @@ export default function AffiliatePage() {
         <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
           <p className="eyebrow-acid">Affiliates.</p>
           <h1 className="display mt-6 max-w-4xl text-bone">
-            Refer a show, earn ten percent
+            Refer a Weekly Show, earn twenty percent
             <span className="text-acid">.</span>
           </h1>
           <p className="lead mt-7 max-w-3xl text-bone/70">
-            You know people who should have a show. The Apex affiliate program pays you ten percent on
-            Apex offers, with a 60-day cookie window. Share your link, and earn on what your referrals
-            buy.
+            You know people who should have a show. The Apex affiliate program pays you twenty percent
+            on Your Weekly Show and the Multi-Tenant Pipeline License, with a 60-day cookie window.
+            Share your link, and earn for every cycle the subscription stays active.
           </p>
           <div className="mt-9">
             <CtaLink href={siteConfig.affiliateSignupUrl} variant="primary" arrow>
@@ -84,7 +88,7 @@ export default function AffiliatePage() {
             </CtaLink>
           </div>
           <p className="mt-6 font-mono text-xs uppercase tracking-widest text-bone/55">
-            Ten percent on Apex SKUs. 60-day cookie. Tracked inside the GHL Affiliate Manager.
+            Twenty percent on the two recurring offers. 60-day cookie. Tracked inside the GHL Affiliate Manager.
           </p>
         </div>
       </section>
@@ -142,16 +146,16 @@ export default function AffiliatePage() {
               columns={1}
               items={[
                 {
-                  title: 'Your First Episode, $997.',
-                  body: 'The honest entry point. Ten percent is $99.70 per referral.',
-                },
-                {
                   title: 'Your Weekly Show, $2,997 per cycle.',
-                  body: 'The retention offer. Ten percent is $299.70 for every cycle the referred client stays in production.',
+                  body: 'The retention offer. Twenty percent is $599.40 for every cycle the referred client stays in production.',
                 },
                 {
                   title: 'Multi-Tenant Pipeline License, $2,997 per month.',
-                  body: 'The license for operators. Ten percent is $299.70 per month for the life of the license.',
+                  body: 'The license for operators. Twenty percent is $599.40 per month, or $5,994 on the $29,970 annual prepay, for the life of the license.',
+                },
+                {
+                  title: 'Your First Episode, $997.',
+                  body: 'The honest entry point. No affiliate commission on the $997 itself. If the referral upgrades to Your Weekly Show inside the 60-day cookie window, the recurring commission applies to every cycle from then on.',
                 },
               ]}
             />
