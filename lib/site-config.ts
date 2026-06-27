@@ -1,9 +1,9 @@
 /**
  * Apex Podcast Co site configuration.
  *
- * Single source for navigation, footer, metadata, and CTA targets. Copy strings
- * live here or in COPY-SPEC-sourced section components, never hardcoded inline
- * beyond non-user-facing labels.
+ * Single source for navigation, footer, metadata, and CTA targets. Copy
+ * strings live here or in COPY-SPEC-sourced section components, never
+ * hardcoded inline beyond non-user-facing labels.
  *
  * PLACEHOLDER URLS (see PHASE3-PLACEHOLDERS.md). These are documented stand-ins
  * that the Phase 5 GHL sweep + Transistor approval pass swap for real endpoints.
@@ -14,7 +14,8 @@
 export const siteConfig = {
   name: 'Apex Podcast Co',
   url: 'https://apexpodcast.co',
-  defaultTitle: 'Apex Podcast Co. A producer in the room. A network around your show.',
+  defaultTitle:
+    'Apex Podcast Co. Producers for serious artists, founders, and operators.',
   defaultDescription:
     'Apex Podcast Co is a producer and a network. We tune a show to its host, produce live in every session, and publish into a feed where every Apex show carries the others.',
 
@@ -82,12 +83,15 @@ export const siteConfig = {
  * Routes that actually exist in the current build. Next.js prefetches in-viewport
  * links by default; prefetching a route that is not built yet returns a 404 and
  * shows up as a console error. SmartLink consults this set and only prefetches
- * live routes. As each phase lands, add its routes here (one place to maintain).
+ * live routes.
  */
 export const liveRoutes: ReadonlySet<string> = new Set([
   '/',
-  '/about/',
-  // Phase 2
+  // 2026-06-18 redesign
+  '/how-we-work/',
+  '/network/',
+  '/producers/',
+  // Legacy routes still in the tree (kept live so existing links resolve).
   '/work/',
   '/work/austin-cheviron/',
   '/work/russ-laggan/',
@@ -95,11 +99,18 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/your-first-episode/',
   '/your-weekly-show/',
   '/multi-tenant-pipeline-license/',
-  // Phase 3
-  '/network/',
+  '/subscription/',
+  '/portfolio/',
+  '/case-studies/',
+  '/case-studies/the-apex-podcast/',
+  '/case-studies/sweeter-after-difficulty/',
+  '/case-studies/the-russ-laggan-podcast/',
+  '/case-studies/winning-twice/',
+  '/resources/',
+  '/about/',
+  '/contact/',
   '/partners/',
   '/affiliate/',
-  '/contact/',
   '/discovery-call/',
   '/listen/',
   '/legal/privacy/',
@@ -113,30 +124,16 @@ export function isLiveRoute(href: string): boolean {
   return liveRoutes.has(href)
 }
 
-/** Primary navigation, left to right, per SITE-ARCHITECTURE §3. */
+/** Primary navigation. */
 export const primaryNav: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
-  { label: 'Work', href: '/work/' },
-  {
-    label: 'Services',
-    href: '/services/',
-    children: [
-      { label: 'Your First Episode', href: '/your-first-episode/' },
-      { label: 'Your Weekly Show', href: '/your-weekly-show/' },
-      { label: 'Multi-Tenant Pipeline License', href: '/multi-tenant-pipeline-license/' },
-    ],
-  },
+  { label: 'How We Work', href: '/how-we-work/' },
   { label: 'Network', href: '/network/' },
-  { label: 'About', href: '/about/' },
-  { label: 'Partners', href: '/partners/' },
+  { label: 'Producers', href: '/producers/' },
 ]
 
-/** Footer link columns, per SITE-ARCHITECTURE §4 / COPY-SPEC §0. */
+/** Footer link columns. */
 export const footerSiteLinks = [
-  { label: 'Work', href: '/work/' },
-  { label: 'Services', href: '/services/' },
+  { label: 'How We Work', href: '/how-we-work/' },
   { label: 'Network', href: '/network/' },
-  { label: 'About', href: '/about/' },
-  { label: 'Partners', href: '/partners/' },
-  { label: 'Affiliates', href: '/affiliate/' },
-  { label: 'Contact', href: '/contact/' },
+  { label: 'Producers', href: '/producers/' },
 ]

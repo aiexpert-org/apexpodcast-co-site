@@ -33,6 +33,7 @@ export default function CTACluster({
           variant={tone === 'dark' ? 'ghost-dark' : 'ghost-light'}
           size="sm"
           arrow
+          className="!whitespace-normal max-w-full text-center leading-tight"
         >
           Find your podcast voice in 4 minutes
         </CtaLink>

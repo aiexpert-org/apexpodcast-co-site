@@ -1,15 +1,15 @@
 import { siteConfig } from '@/lib/site-config'
+import { NETWORK_SHOWS } from '@/lib/shows'
 
 /**
  * schema.org @graph for Apex Podcast Co.
  *
- * FACELESS RULE (locked 2026-05-18/19): no founder names, no personal identity
- * linkage. The graph carries the company, the website, and the three locked
- * services. No Person nodes, no founder array, no external identity
- * (Wikidata) cross-links. Apex is a company; its credentials travel as
- * company experience, never as a résumé line.
- *
- * Pricing nodes (2026-06-13 FULL LAUNCH lock, refined 2026-06-14):
+ * 2026-06-26 reversal: the faceless rule that ran 2026-05-18 through 2026-06-25
+ * is superseded for Apex. Brett K Moore and Randy Highsmith are public as the
+ * company's co-founders and producers on the /producers/ page. The graph
+ * carries Person nodes for both founders, plus PodcastSeries entries for each
+ * live Network show, plus Service nodes for the three locked offers (locked
+ * 2026-06-13 FULL LAUNCH, refined 2026-06-14):
  *   - Your First Episode: $997 one-time (HOLD through 2026-09-30)
  *   - Your Weekly Show: $2,997 per 28-day cycle (HOLD through 2026-09-30)
  *   - Multi-Tenant Pipeline License: $2,997/mo or $29,970/yr
@@ -18,6 +18,8 @@ import { siteConfig } from '@/lib/site-config'
 const base = siteConfig.url
 const ORG = `${base}/#organization`
 const WEBSITE = `${base}/#website`
+const BRETT = `${base}/producers/#brett-k-moore`
+const RANDY = `${base}/producers/#randy-highsmith`
 const SVC_FIRST = `${base}/your-first-episode/#service`
 const SVC_WEEKLY = `${base}/your-weekly-show/#service`
 const SVC_LICENSE = `${base}/multi-tenant-pipeline-license/#service`
@@ -31,12 +33,12 @@ export function buildGraph() {
         '@id': ORG,
         name: 'Apex Podcast Co',
         url: `${base}/`,
-        description:
-          'A boutique podcast production company. A producer in the room every session, the Apex Podcast Network around every release, and the Pentatype methodology tuning each show to its host.',
+        description: siteConfig.defaultDescription,
         logo: `${base}/opengraph-image`,
         image: `${base}/opengraph-image`,
-        slogan: 'A producer in the room. A network around your show.',
         foundingDate: '2026',
+        founder: [{ '@id': BRETT }, { '@id': RANDY }],
+        sameAs: [siteConfig.podcastNetworkUrl, siteConfig.pentatypeUrl],
         knowsAbout: [
           'Podcast production',
           'Podcast networks',
@@ -61,7 +63,6 @@ export function buildGraph() {
             availableLanguage: ['English'],
           },
         ],
-        sameAs: [siteConfig.podcastNetworkUrl],
       },
       {
         '@type': 'WebSite',
@@ -71,6 +72,23 @@ export function buildGraph() {
         inLanguage: 'en',
         publisher: { '@id': ORG },
         about: { '@id': ORG },
+      },
+      {
+        '@type': 'Person',
+        '@id': BRETT,
+        name: 'Brett K Moore',
+        jobTitle: 'Co-founder. Architect of the Pentatype.',
+        worksFor: { '@id': ORG },
+        url: `${base}/producers/#brett-k-moore`,
+      },
+      {
+        '@type': 'Person',
+        '@id': RANDY,
+        name: 'Randy Highsmith',
+        jobTitle:
+          'Co-founder. Former Director of Podcast Production at eXp Realty.',
+        worksFor: { '@id': ORG },
+        url: `${base}/producers/#randy-highsmith`,
       },
       {
         '@type': 'Service',
@@ -139,6 +157,14 @@ export function buildGraph() {
           },
         ],
       },
+      ...NETWORK_SHOWS.filter((s) => s.status === 'live').map((show) => ({
+        '@type': 'PodcastSeries',
+        '@id': `${base}/network/#${show.slug}`,
+        name: show.title,
+        description: show.excerpt,
+        url: show.listenUrl ?? `${base}/network/`,
+        publisher: { '@id': ORG },
+      })),
     ],
   }
 }

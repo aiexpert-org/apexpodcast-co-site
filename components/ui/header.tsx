@@ -11,8 +11,9 @@ import {
 } from '@headlessui/react'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import Wordmark from '@/components/ui/wordmark'
-import CtaLink from '@/components/ui/cta-link'
-import { primaryNav, siteConfig } from '@/lib/site-config'
+import AcidSwipe from '@/components/ui/acid-swipe'
+import JoinWaitlistButton from '@/components/ui/join-waitlist'
+import { primaryNav } from '@/lib/site-config'
 import { cn } from '@/lib/utils'
 
 export default function Header() {
@@ -52,12 +53,15 @@ export default function Header() {
             {primaryNav.map((item) =>
               item.children ? (
                 <Popover key={item.label} className="relative">
-                  <PopoverButton className="group inline-flex items-center gap-1 font-mono uppercase text-xs tracking-widest text-ink/70 hover:text-ink data-open:text-ink">
-                    {item.label}
-                    <ChevronDown
-                      className="h-3.5 w-3.5 transition-transform duration-200 group-data-open:rotate-180"
-                      aria-hidden="true"
-                    />
+                  <PopoverButton className="group relative isolate inline-flex items-center gap-1 px-2 py-1 font-mono uppercase text-xs tracking-widest text-ink/70 hover:text-ink data-open:text-ink">
+                    <AcidSwipe className="scale-x-0 opacity-0 transition-[transform,opacity] duration-[280ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100 group-hover:opacity-80 group-data-open:scale-x-100 group-data-open:opacity-80" />
+                    <span className="relative z-10 inline-flex items-center gap-1">
+                      {item.label}
+                      <ChevronDown
+                        className="h-3.5 w-3.5 transition-transform duration-200 group-data-open:rotate-180"
+                        aria-hidden="true"
+                      />
+                    </span>
                   </PopoverButton>
                   <PopoverPanel
                     transition
@@ -91,9 +95,10 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="font-mono uppercase text-xs tracking-widest text-ink/70 hover:text-ink"
+                  className="group relative isolate inline-flex items-center px-2 py-1 font-mono uppercase text-xs tracking-widest text-ink/70 hover:text-ink"
                 >
-                  {item.label}
+                  <AcidSwipe className="scale-x-0 opacity-0 transition-[transform,opacity] duration-[280ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-x-100 group-hover:opacity-80" />
+                  <span className="relative z-10">{item.label}</span>
                 </Link>
               ),
             )}
@@ -101,9 +106,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <CtaLink href={siteConfig.discoveryUrl} variant="primary" size="sm">
-              Book a discovery call
-            </CtaLink>
+            <JoinWaitlistButton source="header" size="sm" />
           </div>
 
           {/* Mobile toggle */}
@@ -163,9 +166,7 @@ export default function Header() {
           </nav>
 
           <div className="container-apex pb-10">
-            <CtaLink href={siteConfig.discoveryUrl} variant="primary" className="w-full" arrow>
-              Book a discovery call
-            </CtaLink>
+            <JoinWaitlistButton source="mobile-nav" className="w-full" />
           </div>
         </DialogPanel>
       </Dialog>

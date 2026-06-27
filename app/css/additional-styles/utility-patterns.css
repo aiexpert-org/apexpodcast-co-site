@@ -6,27 +6,32 @@
 
 /* Layout */
 .section {
-    @apply py-20 md:py-28 lg:py-32;
+    /* CCM section rhythm: py-24/32/40 (96 / 128 / 160 px). Apex used py-20/28/32
+       before the 2026-06-18 parity pass, which read tighter and less editorial
+       on the dark/light alternation. */
+    @apply py-24 md:py-32 lg:py-40;
 }
 
 .container-apex {
     @apply max-w-6xl mx-auto px-5 sm:px-6 lg:px-8;
 }
 
-/* Display type. Archivo Black, tight tracking, author casing preserved (the
-   lowercase signature belongs to the wordmark, not running headlines). */
+/* Display type. Mona Sans variable on the CCM `wdth 125` axis (set in @theme),
+   pushed to weight 800 so the Apex record-label register stays bold against
+   bone. CCM runs lighter (500) for a softer editorial voice; Apex stays
+   heavier because the identity is louder. */
 .display {
-    @apply font-display tracking-tighter leading-[1.0];
+    @apply font-display font-extrabold tracking-tighter leading-[1.0];
     font-size: clamp(2.5rem, 5.5vw + 1rem, 5.25rem);
 }
 
 .h-section {
-    @apply font-display tracking-tight leading-[1.04];
+    @apply font-display font-extrabold tracking-tight leading-[1.04];
     font-size: clamp(1.875rem, 3vw + 1rem, 2.75rem);
 }
 
 .h-sub {
-    @apply font-display tracking-tight leading-[1.08];
+    @apply font-display font-bold tracking-tight leading-[1.08];
     font-size: clamp(1.375rem, 1.5vw + 1rem, 1.875rem);
 }
 
@@ -107,4 +112,44 @@ input[type='search']::-webkit-search-results-decoration {
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+/* Logo Scroller marquee. CCM "Churches I've worked with" treatment.
+   Two rows of show wordmarks drift in opposing directions on an ink ground.
+   The track is doubled and translated -50% so the loop is seamless. The
+   .marquee-band hover pauses any nested marquee track so the operator can
+   read a logo before it scrolls past. */
+.marquee-track {
+    @apply flex w-max items-center gap-4;
+    will-change: transform;
+}
+
+@keyframes marquee-ltr {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rtl {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+
+/* CCM uses 135s. The slower drift gives each wordmark visual real estate
+   before scrolling off and makes the band feel parallactic against Lenis
+   smooth scroll. */
+.marquee-ltr {
+    animation: marquee-ltr 135s linear infinite;
+}
+.marquee-rtl {
+    animation: marquee-rtl 135s linear infinite;
+}
+
+.marquee-band:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-ltr, .marquee-rtl {
+        animation: none;
+    }
 }

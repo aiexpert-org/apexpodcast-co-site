@@ -15,8 +15,11 @@ export default function SmoothScroll() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const lenis = new Lenis({
-      lerp: 0.1,
+      // CCM tuning: lerp 0.09 reads smooth-with-momentum without feeling laggy.
+      lerp: 0.09,
       smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
       syncTouch: false,
     })
     // Exposed for tooling / debugging (e.g. programmatic scroll in QA).

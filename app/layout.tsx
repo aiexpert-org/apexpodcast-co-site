@@ -1,22 +1,31 @@
 import './css/style.css'
 
 import type { Metadata } from 'next'
-import { Inter, Archivo_Black, Space_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
+import { Space_Mono } from 'next/font/google'
 import { siteConfig } from '@/lib/site-config'
+import { WaitListProvider } from '@/components/providers/wait-list-provider'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
+/**
+ * Mona Sans variable, loaded local. Forklifted direct from CCM
+ * (`createchurchmedia-site/src/fonts/Mona-Sans.var.woff2`). Variable axis
+ * `wdth 125` drives the wider display register on `.display` headlines via
+ * `font-variation-settings` in style.css. Replaces Inter (sans) and Archivo
+ * Black (display) with a single variable font, matching CCM's chassis.
+ */
+const monaSans = localFont({
+  src: '../public/fonts/Mona-Sans.var.woff2',
+  display: 'block',
+  variable: '--font-mona-sans',
+  weight: '200 900',
 })
 
-const archivoBlack = Archivo_Black({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
-})
-
+/**
+ * Space Mono carries the credit-sleeve / catalog-stamp register that the
+ * record-label identity depends on. CCM has no equivalent layer; Apex keeps
+ * it because the eyebrows, catalog numbers, and acid CTA labels all hang on
+ * the monospace voice.
+ */
 const spaceMono = Space_Mono({
   weight: ['400', '700'],
   subsets: ['latin'],
@@ -51,11 +60,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${archivoBlack.variable} ${spaceMono.variable} font-sans antialiased bg-bone text-ink`}
-      >
-        <div className="flex flex-col min-h-screen overflow-hidden">{children}</div>
+    <html
+      lang="en"
+      className={`${monaSans.variable} ${spaceMono.variable} h-full bg-bone text-base antialiased`}
+    >
+      <body className="flex min-h-full flex-col font-sans text-neutral-950 selection:bg-[var(--color-cta)] selection:text-[var(--color-cta-ink)]">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-neutral-950 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to content
+        </a>
+        <WaitListProvider>{children}</WaitListProvider>
       </body>
     </html>
   )
