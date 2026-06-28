@@ -114,7 +114,7 @@ export default function DiscoveryCallPage() {
               <p className="font-mono text-xs uppercase tracking-widest text-ink/55">03</p>
               <h2 className="mt-3 font-display text-lg text-ink">A clear recommendation.</h2>
               <p className="mt-3 text-ink/75">
-                Your First Episode, Your Weekly Show, the license, or none of the above. We tell you
+                The Prepisode, Your Weekly Show, Apex Podcast Network, the license, or none of the above. We tell you
                 which one fits, or that none of them does.
               </p>
             </div>

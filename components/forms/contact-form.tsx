@@ -5,8 +5,9 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const INTEREST_OPTIONS = [
-  'Your First Episode ($997)',
+  'The Prepisode ($997)',
   'Your Weekly Show ($2,997/cycle)',
+  'Apex Podcast Network ($997/cycle)',
   'Multi-Tenant Pipeline License ($2,997/mo)',
   'Booking my show on Apex',
   'Becoming an affiliate',

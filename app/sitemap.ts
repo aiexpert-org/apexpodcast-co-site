@@ -10,10 +10,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/how-we-work/`, lastModified: now, priority: 0.9 },
     { url: `${siteConfig.url}/network/`, lastModified: now, priority: 0.9 },
     { url: `${siteConfig.url}/producers/`, lastModified: now, priority: 0.9 },
-    // Locked offers
+    // Locked offers (PREP framework lock 2026-06-26)
     { url: `${siteConfig.url}/services/`, lastModified: now, priority: 0.9 },
-    { url: `${siteConfig.url}/your-first-episode/`, lastModified: now, priority: 0.8 },
+    { url: `${siteConfig.url}/the-prepisode/`, lastModified: now, priority: 0.8 },
     { url: `${siteConfig.url}/your-weekly-show/`, lastModified: now, priority: 0.8 },
+    { url: `${siteConfig.url}/apex-podcast-network/`, lastModified: now, priority: 0.8 },
     { url: `${siteConfig.url}/multi-tenant-pipeline-license/`, lastModified: now, priority: 0.8 },
     // Work / case studies
     { url: `${siteConfig.url}/work/`, lastModified: now, priority: 0.8 },

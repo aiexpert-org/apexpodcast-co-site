@@ -123,8 +123,8 @@ export function ApexHero() {
               </ButtonMarker>
             </div>
             <p className="mt-6 text-sm font-medium text-neutral-500">
-              The <span className="text-neutral-700">Apex Podcast Network</span>{' '}
-              &mdash; a producer in the room on every session.
+              The <span className="text-neutral-700">Apex Podcast Network</span>.
+              A producer in the room on every session.
             </p>
           </FadeIn>
 

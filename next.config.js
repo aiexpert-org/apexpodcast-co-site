@@ -9,8 +9,12 @@ const nextConfig = {
     return [
       // The two services were renamed to their locked customer-facing names on
       // 2026-06-14. Old links and anything indexed under /services/* keep working.
-      { source: '/services/launch', destination: '/your-first-episode', permanent: true },
+      { source: '/services/launch', destination: '/the-prepisode', permanent: true },
       { source: '/services/managed', destination: '/your-weekly-show', permanent: true },
+      // 2026-06-26 PREP framework rename: Your First Episode -> The Prepisode.
+      // Brett verbatim ("let's go ahead use that like a prepisode"). Same product,
+      // same $997 price, same 90-day credit conversion to Your Weekly Show.
+      { source: '/your-first-episode', destination: '/the-prepisode', permanent: true },
       // Faceless rule (2026-05-18/19): the founder is not a public case study.
       // Retire the host press-kit + case-study pages; send any inbound link to /work.
       { source: '/randy-highsmith', destination: '/work', permanent: true },

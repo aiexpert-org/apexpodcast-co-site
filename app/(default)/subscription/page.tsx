@@ -7,7 +7,7 @@ import { Reveal, RevealStagger, RevealItem } from '@/components/motion/reveal'
 export const metadata: Metadata = {
   title: 'Subscription',
   description:
-    'Three ways in. Your First Episode at $997, Your Weekly Show at $2,997 per 28-day cycle, and the Multi-Tenant Pipeline License at $2,997 a month. A producer in the room and the network around your show.',
+    'Four ways in. The Prepisode at $997, Your Weekly Show at $2,997 per 28-day cycle, Apex Podcast Network at $997 per cycle, and the Multi-Tenant Pipeline License at $2,997 a month. The PREP system, bundled or modular.',
   alternates: { canonical: '/subscription/' },
 }
 
@@ -21,26 +21,33 @@ type Plan = {
 
 const PLANS: Plan[] = [
   {
-    name: 'Your First Episode',
+    name: 'The Prepisode',
     price: '$997',
     period: 'one time',
     tagline:
-      'The gateway. One produced episode, end to end, so you feel the Apex standard before you commit to a cadence.',
+      'The gateway. One produced episode through the full PREP system, so you feel the Apex standard before you commit to a cadence.',
   },
   {
     name: 'Your Weekly Show',
     price: '$2,997',
     period: 'per 28-day cycle',
     tagline:
-      'The show, run for you. A producer in the room every session, the full deliverable bundle, and a place on the network.',
+      'The full PREP system run every cycle. A producer in the room every session, the bundle of deliverables, and a place on the network.',
     featured: true,
+  },
+  {
+    name: 'Apex Podcast Network',
+    price: '$997',
+    period: 'per 28-day cycle',
+    tagline:
+      'Promote only. For podcast owners who already produce their own show and want the network amplification on top.',
   },
   {
     name: 'Pipeline License',
     price: '$2,997',
     period: 'per month',
     tagline:
-      'Run the Apex pipeline under your own brand. Multi-tenant, for operators who want the production engine, not the seat.',
+      'Run the Apex pipeline under your own brand. Multi-tenant, for operators who want the production engine.',
   },
 ]
 
@@ -78,7 +85,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Is there a contract?',
-    a: 'Your Weekly Show runs per 28-day cycle. The first cohort of Weekly Show clients locks the rate for 24 months. Your First Episode is a one-time gateway with a credit toward Weekly Show.',
+    a: 'Your Weekly Show runs per 28-day cycle. The first cohort of Weekly Show clients locks the rate for 24 months. The Prepisode is a one-time gateway with a credit toward Weekly Show inside the ninety-day window.',
   },
   {
     q: 'How many shows do you take?',
@@ -136,19 +143,20 @@ export default function SubscriptionPage() {
         eyebrow="The offer."
         title={
           <>
-            A producer in the room, the network around your show
+            The PREP system, bundled, modular, or licensed
             <span className="text-acid">.</span>
           </>
         }
       >
-        Three ways in. Start with one produced episode, run a weekly show with a producer on every
-        session, or license the whole pipeline under your own brand.
+        Four ways in. Run one episode through the full PREP system, run a weekly show with the
+        bundle, take just the Promote phase as a standalone, or license the whole pipeline under
+        your own brand.
       </PageHero>
 
       {/* Plans */}
       <section className="section">
         <div className="container-apex">
-          <RevealStagger className="grid gap-6 lg:grid-cols-3">
+          <RevealStagger className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
             {PLANS.map((plan) => (
               <RevealItem key={plan.name} className="flex">
                 <div className="w-full">

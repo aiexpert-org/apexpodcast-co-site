@@ -4,20 +4,28 @@ import { cn } from '@/lib/utils'
 
 const tiers = [
   {
-    name: 'Your First Episode',
+    name: 'The Prepisode',
     price: '$997 one-time',
-    body: 'One produced episode, the Pentatype assessment, a 90-minute strategy session, branded cover art, distribution under the Apex Podcast Network feed, and twelve months of network membership.',
-    href: '/your-first-episode/',
+    body: 'One produced episode that runs through the full PREP system. The Pentatype assessment, a 90-minute strategy session, branded cover art, distribution under the Apex Podcast Network feed, and twelve months of network membership.',
+    href: '/the-prepisode/',
     cta: 'See the scope',
     dark: false,
   },
   {
     name: 'Your Weekly Show',
     price: '$2,997 per 28-day cycle',
-    body: 'Up to four produced episodes per cycle, recording sessions with a producer in the room, full distribution under the Apex Podcast Network feed, a per-episode producer debrief, network coordination, and the block-analysis audit every eight episodes.',
+    body: 'The full PREP system run every cycle. Up to four produced episodes per cycle, recording sessions with a producer in the room, full distribution under the Apex Podcast Network feed, a per-episode producer debrief, network coordination, and the block-analysis audit every eight episodes.',
     href: '/your-weekly-show/',
     cta: 'See the scope',
     dark: true,
+  },
+  {
+    name: 'Apex Podcast Network',
+    price: '$997 per 28-day cycle',
+    body: 'Promote only, for podcast owners who already handle their own production. Socials repurposing from your published episode, bidirectional guest booking, and a place inside the Apex Podcast Network feed.',
+    href: '/apex-podcast-network/',
+    cta: 'See the offer',
+    dark: false,
   },
   {
     name: 'Multi-Tenant Pipeline License',
@@ -39,20 +47,20 @@ export default function TierTeaser() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="h-section mt-5 text-ink">
-              Launch a show, run one as a body of work, or license the pipeline.
+              The PREP system, bundled, modular, or licensed.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="lead mt-5">
-              The ladder is intentional. Your First Episode is the gateway. Your Weekly Show is the
-              retention vehicle. The Multi-Tenant Pipeline License is how the method travels past our
-              capped roster. The first two carry the same three things: a producer in the room, the
-              network around the show, and the Pentatype mapping that tunes the show to you.
+              Every Apex offer runs the PREP system. Prepare, Record + Edit + Publish, Promote. The
+              Prepisode runs it once. Your Weekly Show runs it every cycle. Apex Podcast Network runs
+              the Promote phase as a standalone for owners who already produce. The Multi-Tenant
+              Pipeline License is how the system travels past our capped roster.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
           {tiers.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 0.08}>
               <div

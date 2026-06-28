@@ -163,7 +163,7 @@ export default function PartnersPage() {
           <Reveal>
             <h2 className="eyebrow">Who can be a partner.</h2>
             <p className="mt-5 text-ink/75">
-              Active Apex clients (First Episode buyers, Weekly Show clients, and case-study clients).
+              Active Apex clients (Prepisode buyers, Weekly Show clients, Apex Podcast Network clients, and case-study clients).
               Network alumni. Anyone with a working relationship inside the Apex network. The full
               agreement is sent when you enroll. Read it, sign it, get a referral link.
             </p>

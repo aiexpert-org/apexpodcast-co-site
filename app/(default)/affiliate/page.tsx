@@ -9,7 +9,7 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Affiliates',
   description:
-    'The Apex affiliate program pays twenty percent on Your Weekly Show and the Multi-Tenant Pipeline License, with a 60-day cookie window. Refer someone who should have a show, and earn for the life of the subscription.',
+    'The Apex affiliate program pays a flat ten percent across every Apex offer with a 60-day cookie window. Refer someone who should have a show, and earn for the life of the subscription.',
   alternates: { canonical: '/affiliate/' },
 }
 
@@ -24,29 +24,33 @@ const howItWorks = [
   },
   {
     title: 'They buy a qualifying offer.',
-    body: 'Your Weekly Show or the Multi-Tenant Pipeline License. Twenty percent of the sale is yours for every cycle the subscription stays active.',
+    body: 'Your Weekly Show, Apex Podcast Network, or the Multi-Tenant Pipeline License. Ten percent of the sale is yours for every cycle the subscription stays active.',
   },
   {
     title: 'Get paid.',
-    body: 'Commissions track inside the GHL Affiliate Manager. Payouts run monthly, net fifteen, after the refund window clears.',
+    body: 'Commissions track inside the GHL Affiliate Manager. Payouts run monthly, on or around the fifth, after the sixty-day refund window clears.',
   },
 ]
 
 const terms = [
-  { label: 'Commission', value: 'Twenty percent on Your Weekly Show and the Multi-Tenant Pipeline License.' },
+  { label: 'Commission', value: 'Ten percent flat across Apex (Your Weekly Show, Apex Podcast Network, Pipeline License, per-episode add-ons).' },
   { label: 'Cookie window', value: '60 days from the click.' },
-  { label: 'Qualifying offers', value: 'Your Weekly Show, Multi-Tenant Pipeline License. Your First Episode does not pay commission.' },
-  { label: 'Payout cadence', value: 'Monthly, net fifteen, after the refund window.' },
+  { label: 'Qualifying offers', value: 'Your Weekly Show, Apex Podcast Network, Multi-Tenant Pipeline License, per-episode add-ons. The Prepisode does not pay commission.' },
+  { label: 'Payout cadence', value: 'Monthly, on or around the fifth, after the sixty-day refund window.' },
 ]
 
 const faq = [
   {
     q: 'How much do I earn?',
-    a: 'Twenty percent on the two recurring offers. On Your Weekly Show that is $599.40 per cycle, for every cycle the referred client stays in production. On the Multi-Tenant Pipeline License it is $599.40 per month, or $5,994 per year on the annual prepay. Your First Episode at $997 does not pay commission. The gateway product runs at thin margin, so the program rewards the recurring revenue it leads into.',
+    a: 'Ten percent flat across Apex. Your Weekly Show at $2,997 per cycle pays $299.70 per cycle for the life of the subscription. Apex Podcast Network at $997 per cycle pays $99.70 per cycle. The Multi-Tenant Pipeline License pays $299.70 per month or $2,997 on the annual prepay. The Prepisode at $997 does not pay commission. Gateway-product margin protection.',
   },
   {
-    q: 'What if a $997 First Episode buyer converts into a Weekly Show?',
-    a: 'You earn on the Weekly Show cycles. The $997 itself does not pay, but if your referral upgrades to Your Weekly Show inside the 60-day cookie window, the recurring commission kicks in on the first cycle and stays on for the life of the subscription.',
+    q: 'What if a Prepisode buyer converts into Your Weekly Show?',
+    a: 'You earn on the Weekly Show cycles. The $997 Prepisode itself does not pay, but if your referral upgrades to Your Weekly Show inside the 60-day cookie window, the recurring commission kicks in on the first cycle and stays on for the life of the subscription.',
+  },
+  {
+    q: 'Why ten percent flat and not the old two-tier program?',
+    a: 'The 2026-06-11 program ran a two-tier 20% and 10% structure. With the PREP framework introducing modular SKUs at $997 per cycle, the program collapses to a single ten percent Apex standard across every offer. One rate, easier to explain, fair across the menu.',
   },
   {
     q: 'How long is the cookie?',
@@ -54,7 +58,7 @@ const faq = [
   },
   {
     q: 'When do I get paid?',
-    a: 'Monthly, net fifteen, once the refund window on the sale has cleared. Everything tracks inside the GoHighLevel Affiliate Manager so you can see your referrals and commissions.',
+    a: 'Monthly, on or around the fifth of each month, once the sixty-day refund window on the sale has cleared. Everything tracks inside the GoHighLevel Affiliate Manager so you can see your referrals and commissions.',
   },
   {
     q: 'Who can be an affiliate?',
@@ -62,7 +66,7 @@ const faq = [
   },
   {
     q: 'Is this the same as the Partners program?',
-    a: 'They overlap. The affiliate program is the standard twenty-percent referral path with a tracked link on the two recurring offers. The Partners page covers the broader referral relationship, including managed-ad-spend arrangements.',
+    a: 'They overlap. The affiliate program is the standard ten-percent referral path with a tracked link on the qualifying offers. The Partners page covers the broader referral relationship, including managed-ad-spend arrangements.',
   },
 ]
 
@@ -74,13 +78,13 @@ export default function AffiliatePage() {
         <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
           <p className="eyebrow-acid">Affiliates.</p>
           <h1 className="display mt-6 max-w-4xl text-bone">
-            Refer a Weekly Show, earn twenty percent
+            Refer an Apex show, earn ten percent
             <span className="text-acid">.</span>
           </h1>
           <p className="lead mt-7 max-w-3xl text-bone/70">
-            You know people who should have a show. The Apex affiliate program pays you twenty percent
-            on Your Weekly Show and the Multi-Tenant Pipeline License, with a 60-day cookie window.
-            Share your link, and earn for every cycle the subscription stays active.
+            You know people who should have a show. The Apex affiliate program pays a flat ten
+            percent across every Apex offer with a 60-day cookie window. Share your link, and earn
+            for every cycle the subscription stays active.
           </p>
           <div className="mt-9">
             <CtaLink href={siteConfig.affiliateSignupUrl} variant="primary" arrow>
@@ -88,7 +92,7 @@ export default function AffiliatePage() {
             </CtaLink>
           </div>
           <p className="mt-6 font-mono text-xs uppercase tracking-widest text-bone/55">
-            Twenty percent on the two recurring offers. 60-day cookie. Tracked inside the GHL Affiliate Manager.
+            Ten percent flat across Apex. 60-day cookie. Tracked inside the GHL Affiliate Manager.
           </p>
         </div>
       </section>
@@ -147,14 +151,22 @@ export default function AffiliatePage() {
               items={[
                 {
                   title: 'Your Weekly Show, $2,997 per cycle.',
-                  body: 'The retention offer. Twenty percent is $599.40 for every cycle the referred client stays in production.',
+                  body: 'The retention bundle. Ten percent is $299.70 for every cycle the referred client stays in production.',
+                },
+                {
+                  title: 'Apex Podcast Network, $997 per cycle.',
+                  body: 'Standalone Promote for podcast owners who handle their own production. Ten percent is $99.70 per cycle for the life of the subscription.',
                 },
                 {
                   title: 'Multi-Tenant Pipeline License, $2,997 per month.',
-                  body: 'The license for operators. Twenty percent is $599.40 per month, or $5,994 on the $29,970 annual prepay, for the life of the license.',
+                  body: 'The license for operators. Ten percent is $299.70 per month, or $2,997 on the $29,970 annual prepay, for the life of the license.',
                 },
                 {
-                  title: 'Your First Episode, $997.',
+                  title: 'Per-episode add-on, $747 per episode all in.',
+                  body: 'A per-episode line item inside an active Weekly Show cycle. Ten percent applies to qualifying add-on revenue.',
+                },
+                {
+                  title: 'The Prepisode, $997.',
                   body: 'The honest entry point. No affiliate commission on the $997 itself. If the referral upgrades to Your Weekly Show inside the 60-day cookie window, the recurring commission applies to every cycle from then on.',
                 },
               ]}
