@@ -8,9 +8,10 @@ import { NETWORK_SHOWS } from '@/lib/shows'
  * the explanatory architecture (Prepare, Record + Edit + Publish, Promote).
  * "Your First Episode" renamed to "The Prepisode". Apex Podcast Network added
  * as a productized standalone Promote-only SKU. SKU map below carries the four
- * locked offers as Service nodes:
- *   - The Prepisode: $997 one-time (HOLD through 2026-09-30)
- *   - Your Weekly Show: $2,997 per 28-day cycle (HOLD through 2026-09-30)
+ * locked offers as Service nodes (pricing is steady state, no conditional
+ * future raises surfaced on the public site per 2026-06-27 lock):
+ *   - The Prepisode: $997 one-time
+ *   - Your Weekly Show: $2,997 per 28-day cycle
  *   - Apex Podcast Network: $997 per 28-day cycle (standalone Promote)
  *   - Multi-Tenant Pipeline License: $2,997/mo or $29,970/yr
  *

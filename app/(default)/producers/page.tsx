@@ -48,7 +48,8 @@ export default function ProducersPage() {
               The work happens together on every session. The Pentatype on one
               side, decades of real-room production on the other, and a
               willingness to sit in the long pause when the conversation needs
-              it.
+              it. Apex stays two people on purpose. An AI-native production
+              stack carries everything that does not need a human in the room.
             </p>
           </Reveal>
 
