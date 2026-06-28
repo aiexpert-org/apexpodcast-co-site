@@ -46,7 +46,7 @@ export default async function CaseStudyPage({
           </>
         }
       >
-        Hosted by {hostLine(show)}. A producer in the room on every session.
+        Hosted by {hostLine(show)}. A producer in the room while it matters, a network around the show the whole way.
       </PageHero>
 
       <section className="section">

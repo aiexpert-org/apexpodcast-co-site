@@ -8,32 +8,32 @@ import { ContactBlock } from '@/components/ccm/contact-block'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Apex Podcast Co is a boutique podcast production company for founders, operators, and experts. A producer in the room every session, a capped roster, and the Pentatype method tuning each show to its host.',
+    'Apex Podcast Co is a boutique podcast production company for founders, operators, and experts. A producer in the room while you find your voice, a capped roster, an AI-native production stack, and the Pentatype method tuning each show to its host.',
   alternates: { canonical: '/about/' },
 }
 
 const COMMITMENTS = [
   {
-    title: 'Producer in the room.',
+    title: 'Producer in the room while it matters.',
     body:
-      'Every session. We are on monitor, we drop markers, we intervene when the conversation goes flat, and we write the debrief afterward. No junior editor steps into the room until the math says we need one.',
+      'Early sessions, every time. We are on monitor, we drop markers, we intervene when the conversation goes flat, we write the debrief afterward. As you find your voice, the producer steps back from real-time and forward into strategy. The job is to make you less dependent on us in real time.',
   },
   {
     title: 'Capped roster.',
     body:
-      'Five new clients a month. That ceiling is the point. It is the reason a real producer can stay in the room on every session. When the client count climbs, we add an editor to take export and transcript work off the producer.',
+      'Five new clients a month. That ceiling is the point. It is what protects the producer arc through early cycles. Two co-founder producers, a deep AI stack behind them, holding the line on quality without padding the bundle with a junior team.',
   },
   {
     title: 'Network compounding.',
     body:
-      'You ship into the Apex Podcast Network feed and the Debrief. Your show finds an audience because the audience already lives here. The block analysis audit every eight episodes keeps the body of work honest.',
+      'You ship into the Apex Podcast Network feed and the Debrief. The longer you are on the network, the more it does for you. The block analysis audit every eight episodes keeps the body of work honest.',
   },
 ]
 
 export default function AboutPage() {
   return (
     <>
-      <PageIntro eyebrow="About" title="A boutique production company. A producer in the room.">
+      <PageIntro eyebrow="About" title="A boutique production company. A producer in the room while you find your voice.">
         <p>
           Apex Podcast Co is what a record label looks like when it is built for
           long-form conversation. We cap the roster, we keep a producer in the
