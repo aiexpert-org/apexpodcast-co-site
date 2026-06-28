@@ -8,20 +8,20 @@ import { ContactBlock } from '@/components/ccm/contact-block'
 export const metadata: Metadata = {
   title: 'Tooling',
   description:
-    'The Apex tooling stack. Two co-founder producers, a deep AI stack behind them. Riverside, Descript, Zoom AI Companion, Wispr Flow, NotebookLM, ElevenLabs, Bannerbear, Claude, Suno, Transistor.',
+    'The Apex tooling stack. Two co-founder producers, a deep AI stack behind them. Riverside.fm consolidates recording, editing, and clipping. Zoom AI Companion, Wispr Flow, NotebookLM, ElevenLabs, Bannerbear, Claude, Suno, Transistor round out the production layer.',
   alternates: { canonical: '/tooling/' },
 }
 
 const STACK: { name: string; role: string; body: string }[] = [
   {
-    name: 'Riverside',
-    role: 'Recording',
-    body: 'Multi-track remote recording with a producer live on the session. Local recordings on every side so the audio is broadcast-grade before it ever leaves the room.',
+    name: 'Riverside.fm',
+    role: 'Recording, editing, clipping',
+    body: 'The consolidated production platform. Multi-track remote recording with a producer live on the early sessions, Magic Editor for the long-form cut, Magic Clips for short-form. One platform from raw take to delivered episode.',
   },
   {
     name: 'Descript',
-    role: 'Editing',
-    body: 'Transcript-driven editing for the long-form cut. The producer drives every taste decision; Descript carries the mechanical work that used to take an editor a day.',
+    role: 'Editing fallback',
+    body: 'Optional fallback for transcript-driven cuts when a session needs it. Riverside Magic Editor is the default; Descript sits behind it for the cases where the producer wants a second pass.',
   },
   {
     name: 'Zoom AI Companion',

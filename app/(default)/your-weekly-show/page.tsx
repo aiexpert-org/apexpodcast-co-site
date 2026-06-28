@@ -57,10 +57,12 @@ export default function YourWeeklyShowPage() {
                 cover. Eight releases make a block. A block is what the audit reads as a body of work.
               </p>
               <p>
-                A producer is in the room every session. On monitor, dropping markers, intervening
-                when the conversation goes flat, writing the debrief afterward. The
-                network is around every release: collab tags across the cohort, a place in the Apex
-                Podcast Network feed, a candidate spot inside The Debrief.
+                A producer is in the room while it matters. Early cycles, on monitor every session,
+                dropping markers, intervening when the conversation goes flat, writing the debrief
+                afterward. As you find your voice, the producer steps back from real-time and forward
+                into strategy. The network is around every release the whole way: collab tags across
+                the cohort, a place in the Apex Podcast Network feed, a candidate spot inside The
+                Debrief.
               </p>
             </div>
           </Reveal>
@@ -201,7 +203,7 @@ export default function YourWeeklyShowPage() {
       <IntakeBand
         eyebrow="Start here"
         heading="Start your weekly show."
-        blurb="Tell us what you want to launch and a producer picks it up. $2,997 per cycle, a producer in the room every session, and the network around every release."
+        blurb="Tell us what you want to launch and a producer picks it up. $2,997 per cycle, a producer in the room while you find your voice, and the network around every release."
         defaultService="Your Weekly Show ($2,997 per cycle)"
         source="intake_weekly_show"
       />

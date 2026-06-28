@@ -112,9 +112,10 @@ export function ApexHero() {
               Producers for serious artists, founders, and operators.
             </h1>
             <p className="mt-6 max-w-xl text-xl leading-8 text-neutral-600">
-              A boutique production company. A producer in the room on every
-              session. A network around your show. The sound you would expect
-              from a record label, applied to the long-form conversation.
+              A boutique production company. A producer in the room while you
+              find your voice, fading to strategy and network review as you
+              grow. The sound you would expect from a record label, applied to
+              the long-form conversation.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <JoinWaitListButton source="home-hero" />
@@ -124,7 +125,8 @@ export function ApexHero() {
             </div>
             <p className="mt-6 text-sm font-medium text-neutral-500">
               The <span className="text-neutral-700">Apex Podcast Network</span>.
-              A producer in the room on every session.
+              A producer in the room when you start, a network around the show
+              when you grow.
             </p>
           </FadeIn>
 

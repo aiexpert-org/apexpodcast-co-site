@@ -16,25 +16,25 @@ import { prepPhases } from '@/lib/services'
 export const metadata: Metadata = {
   title: 'Apex Podcast Co. Producers for serious artists, founders, and operators.',
   description:
-    'A boutique production company. A producer in the room on every session. A network around your show. The sound you would expect from a record label, applied to the long-form conversation.',
+    'A boutique production company. A producer in the room while you find your voice, fading to strategy and network review as you grow. The sound you would expect from a record label, applied to the long-form conversation.',
   alternates: { canonical: '/' },
 }
 
 const WHAT_WE_DO = [
   {
-    title: 'A producer in the room.',
+    title: 'A producer in the room while it matters.',
     body:
-      'Every session. Not a freelancer chasing notes after the fact. A producer who hears what you mean, names what the show is, and edits with you while it is still warm.',
+      'Every session at the start. The producer arc is the point. We sit in the room until you can run it, then we step back to strategy and the network as you grow.',
   },
   {
     title: 'A network around your show.',
     body:
-      'You ship into a catalog of twenty-six productions built on the Pentatype communication framework. Your show finds an audience because the audience already lives here.',
+      'You ship into a catalog of twenty-six productions built on the Pentatype communication framework. The network compounds the longer you stay in it.',
   },
   {
     title: 'An AI-native operating model.',
     body:
-      'Two co-founder producers, a deep AI stack behind them. Editing assists, transcription, show notes, guest research, social repurposing, cover variants. The output looks like a ten-person agency, the economics look like two co-founders with very good tools.',
+      'Two co-founder producers, a deep AI stack behind them. Riverside for record, edit, and clip. The work that has to be a human stays a human; the rest runs on tools. The output looks like a ten-person agency at two-co-founder economics.',
   },
 ]
 
