@@ -45,18 +45,11 @@ export default function ProducersPage() {
               <span className="text-acid">.</span>
             </h1>
             <p className="lead mt-6 max-w-2xl text-ink/75">
-              The work happens together. The Pentatype on one side, decades of
-              real-room production on the other, and a willingness to sit in
-              the long pause when the conversation needs it. Apex stays two
-              people on purpose. An AI-native production stack carries
-              everything that does not need a human in the room.
-            </p>
-            <p className="mt-5 max-w-2xl text-ink/75">
-              The job, plainly: we are the producers who teach the host to
-              outgrow needing us in real time. Early sessions, we sit in the
-              room every time. By the second year, you run the room and we run
-              the network and the audit beside it. The arc is the brand
-              promise.
+              The work happens together on every session. The Pentatype on one
+              side, decades of real-room production on the other, and a
+              willingness to sit in the long pause when the conversation needs
+              it. Apex stays two people on purpose. An AI-native production
+              stack carries everything that does not need a human in the room.
             </p>
           </Reveal>
 

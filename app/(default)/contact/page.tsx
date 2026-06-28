@@ -85,10 +85,9 @@ export default function ContactPage() {
                   </h3>
                   <p className="mt-3 text-base leading-7 text-neutral-600">
                     A boutique production company with a capped roster. A
-                    producer in the room while you find your voice, fading to
-                    strategy and network review as you grow. The sound you
-                    would expect from a record label, applied to the long-form
-                    conversation.
+                    producer in the room on every session. A network around your
+                    show. The sound you would expect from a record label,
+                    applied to the long-form conversation.
                   </p>
                 </Border>
               </div>
