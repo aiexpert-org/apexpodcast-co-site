@@ -141,6 +141,30 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Why the pricing works (AI-native rationale) */}
+      <section className="bg-bone pb-20 md:pb-28">
+        <div className="container-apex">
+          <Reveal>
+            <div className="max-w-3xl rounded-3xl border border-ink/12 bg-bone p-8 md:p-10">
+              <p className="eyebrow">Why the pricing math works.</p>
+              <p className="mt-5 text-ink/75">
+                Apex stays two people on purpose. Brett K Moore and Randy
+                Highsmith are the producers in every session. An AI-native
+                production stack carries the rest: editing assists,
+                transcription, show notes, guest research, social repurposing,
+                cover variants, outreach drafts. The work that has to be a
+                human stays a human. Everything else runs on tools.
+              </p>
+              <p className="mt-4 text-ink/75">
+                That is why the bundle costs what it does. You are not paying
+                for a junior team between you and the producer. You are paying
+                for a producer in the room and the network around your show.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Exclusion line */}
       <section className="bg-bone pb-20 md:pb-28">
         <div className="container-apex">

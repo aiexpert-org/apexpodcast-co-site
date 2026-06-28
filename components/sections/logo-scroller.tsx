@@ -1,29 +1,28 @@
 'use client'
 
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Container } from '@/components/ccm/container'
 import { FadeIn } from '@/components/ccm/fade-in'
 import { SCROLLER_SHOWS, type Show } from '@/lib/shows'
 
 /**
- * Dark Logo Scroller. Ported back to the CCM ChurchLogos treatment:
- * a self-contained rounded card on ink, centered intro, two-row marquee
- * underneath. Wordmarks remain the Apex catalog (white-on-ink resting,
- * acid-on-ink on hover) so the data layer stays Apex while the visual
- * shell matches the CCM source-of-truth.
+ * Dark Logo Scroller. CCM ChurchLogos treatment, ported to the Apex catalog.
  *
- * - Rounded-4xl dark card sits inside page rhythm (mt-24/32/40).
- * - Centered eyebrow + h2 + blurb above the band.
- * - Two rows of show wordmarks drift in opposing directions on ink.
- * - Resting state is white-on-ink; hover swaps to acid-on-ink.
- * - Coming Soon shows render a small subtle eyebrow.
- * - Doubled track translated -50% for a seamless loop. Pauses on hover.
+ * Visual contract (matches CCM):
+ * - Self-contained rounded-4xl dark card with mt-24/32/40 rhythm.
+ * - Centered eyebrow + h2 + intro above the band.
+ * - Two rows of large logo tiles drifting in opposing directions on ink.
+ * - Each tile carries the show logo + a short caption underneath.
+ * - Hover lights a yellow ring around the tile (acid token), tile becomes
+ *   clickable to its case study where one exists, otherwise to /network/#slug.
+ * - Doubled track translated -50% for a seamless marquee. Pauses on hover.
  */
 export default function LogoScroller({
   className,
   eyebrow = 'On the network',
   title = 'Shows in the Apex catalog',
-  blurb = 'Twenty-six productions across the Apex Podcast Network. The first wave is live on Transistor. The next wave is in the studio.',
+  blurb = 'Twenty-six productions across the Apex Podcast Network. Hover to pause, click any logo for the show.',
 }: {
   className?: string
   eyebrow?: string
@@ -62,7 +61,7 @@ export default function LogoScroller({
       <FadeIn>
         <div
           className={cn(
-            'marquee-band mt-14 flex flex-col gap-4 overflow-hidden',
+            'marquee-band mt-14 flex flex-col gap-6 overflow-hidden',
             '[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]',
           )}
           aria-label="Apex Podcast Network catalog"
@@ -99,39 +98,45 @@ function Marquee({
 
 function Tile({ show }: { show: Show }) {
   const isComing = show.status === 'coming-soon'
+  const href = show.caseStudy ? `/case-studies/${show.slug}/` : `/network/#${show.slug}`
   return (
-    <div
-      className="group relative flex w-40 shrink-0 flex-col items-center justify-center gap-2.5 rounded-2xl px-4 py-3 ring-1 ring-inset ring-transparent transition hover:bg-bone/[0.04] hover:ring-acid/40 sm:w-44"
-      aria-label={show.title}
+    <Link
+      href={href}
+      aria-label={
+        show.caseStudy ? `Read the ${show.title} case study` : `See ${show.title} in the network catalog`
+      }
+      className="group flex w-48 shrink-0 flex-col items-center gap-3 rounded-2xl px-5 py-5 ring-1 ring-inset ring-transparent transition hover:bg-bone/[0.04] hover:ring-acid sm:w-52 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-acid"
     >
-      {show.wordmark ? (
-        <WordmarkSwap slug={show.wordmark} title={show.title} />
-      ) : (
-        <span
-          className={cn(
-            'font-display font-extrabold lowercase leading-none tracking-tighter text-bone/85 transition group-hover:text-acid',
-            'text-[clamp(0.95rem,1.2vw,1.15rem)]',
-          )}
-        >
-          {show.title}
-        </span>
-      )}
-      <span className="text-center text-[0.7rem] font-medium leading-tight text-bone/55 group-hover:text-bone">
+      <span className="relative flex h-16 w-full items-center justify-center">
+        {show.wordmark ? (
+          <WordmarkSwap slug={show.wordmark} title={show.title} />
+        ) : (
+          <span
+            className={cn(
+              'font-display font-extrabold leading-none tracking-tight text-bone/90 transition group-hover:text-acid',
+              'text-center text-[clamp(1.05rem,1.6vw,1.5rem)]',
+            )}
+          >
+            {show.title}
+          </span>
+        )}
+      </span>
+      <span className="text-center text-[0.78rem] leading-tight font-medium text-bone/55 transition group-hover:text-bone">
         {show.title}
       </span>
       {isComing && (
-        <span className="font-mono text-[0.55rem] uppercase tracking-[0.22em] text-bone/40 group-hover:text-acid/80">
+        <span className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-bone/40 transition group-hover:text-acid/80">
           Coming Soon
         </span>
       )}
-    </div>
+    </Link>
   )
 }
 
 /** Stacks the white and acid variants; the acid layer fades in on hover. */
 function WordmarkSwap({ slug, title }: { slug: string; title: string }) {
   return (
-    <span className="relative block h-12 w-full">
+    <span className="relative block h-full w-full">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/wordmarks/${slug}/wordmark-white-on-ink.svg`}

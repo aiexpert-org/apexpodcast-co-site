@@ -6,10 +6,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   return [
     { url: `${siteConfig.url}/`, lastModified: now, priority: 1 },
-    // v4.3 redesign primary nav
+    // Primary nav
     { url: `${siteConfig.url}/how-we-work/`, lastModified: now, priority: 0.9 },
     { url: `${siteConfig.url}/network/`, lastModified: now, priority: 0.9 },
     { url: `${siteConfig.url}/producers/`, lastModified: now, priority: 0.9 },
+    { url: `${siteConfig.url}/tooling/`, lastModified: now, priority: 0.7 },
     // Locked offers (PREP framework lock 2026-06-26)
     { url: `${siteConfig.url}/services/`, lastModified: now, priority: 0.9 },
     { url: `${siteConfig.url}/the-prepisode/`, lastModified: now, priority: 0.8 },

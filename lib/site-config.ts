@@ -104,6 +104,7 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/your-weekly-show/',
   '/apex-podcast-network/',
   '/multi-tenant-pipeline-license/',
+  '/tooling/',
   '/subscription/',
   '/portfolio/',
   '/case-studies/',
@@ -135,6 +136,7 @@ export const primaryNav: { label: string; href: string; children?: { label: stri
   { label: 'Services', href: '/services/' },
   { label: 'Network', href: '/network/' },
   { label: 'Producers', href: '/producers/' },
+  { label: 'Tooling', href: '/tooling/' },
 ]
 
 /** Footer link columns. */
@@ -143,6 +145,7 @@ export const footerSiteLinks = [
   { label: 'Services', href: '/services/' },
   { label: 'Network', href: '/network/' },
   { label: 'Producers', href: '/producers/' },
+  { label: 'Tooling', href: '/tooling/' },
   { label: 'The Prepisode', href: '/the-prepisode/' },
   { label: 'Your Weekly Show', href: '/your-weekly-show/' },
   { label: 'Apex Podcast Network', href: '/apex-podcast-network/' },

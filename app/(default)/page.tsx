@@ -32,9 +32,9 @@ const WHAT_WE_DO = [
       'You ship into a catalog of twenty-six productions built on the Pentatype communication framework. Your show finds an audience because the audience already lives here.',
   },
   {
-    title: 'Record label sound.',
+    title: 'An AI-native operating model.',
     body:
-      'A consistent house aesthetic (covers, music, transitions, hosts) that signals craft the first three seconds in. The kind of taste people associate with a label, applied to the long-form conversation.',
+      'Two co-founder producers, a deep AI stack behind them. Editing assists, transcription, show notes, guest research, social repurposing, cover variants. The output looks like a ten-person agency, the economics look like two co-founders with very good tools.',
   },
 ]
 
