@@ -3,8 +3,8 @@ import { Reveal } from '@/components/motion/reveal'
 import { compareRows, tiers } from '@/lib/services'
 
 /**
- * Two-offer comparison. Your First Episode left, Your Weekly Show right, all rows.
- * Desktop: a three-column grid (label, First Episode, Weekly Show). Mobile: each
+ * Two-offer comparison. The Prepisode left, Your Weekly Show right, all rows.
+ * Desktop: a three-column grid (label, Prepisode, Weekly Show). Mobile: each
  * row stacks with the two values labeled. Framed as a deliberate ladder.
  */
 export default function TierCompareTable() {

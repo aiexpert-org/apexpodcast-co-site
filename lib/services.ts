@@ -1,23 +1,29 @@
 /**
  * Services content. Voice rules enforced: no em dashes, no banned vocabulary, no
- * "X, not Y", no emoji. Pricing is the 2026-06-13 FULL LAUNCH lock, refined
- * 2026-06-14: Your First Episode $997 one-time, Your Weekly Show $2,997 per
- * 28-day cycle, Multi-Tenant Pipeline License $2,997 per month or $29,970 per year.
+ * "X, not Y", no emoji. Service architecture is the PREP framework (locked
+ * 2026-06-26 evening per Brett + Randy partner call): Prepare, Record + Edit +
+ * Publish, Promote. The customer-facing umbrella stays Your Weekly Show; PREP
+ * is the architecture inside it. The SKU map below is the 2026-06-26 lock:
+ *   - Your Weekly Show: $2,997 per 28-day cycle (full PREP, bundled)
+ *   - The Prepisode: $997 one-time (full PREP for a single episode)
+ *   - Apex Podcast Network: $997 per cycle (Promote only, standalone)
+ *   - Multi-Tenant Pipeline License: $2,997/mo or $29,970/yr
+ *   - Per-episode add-on: $747 all-in (inside an active cycle)
  *
- * Object keys (`launch`, `managed`, `license`) are stable code identifiers. The
- * customer-facing names live in `.name` and were relocked on 2026-06-14.
+ * Object keys (`launch`, `managed`, `license`, `network`) are stable code
+ * identifiers. The customer-facing names live in `.name`.
  */
 
 export const tiers = {
   launch: {
-    slug: 'your-first-episode',
+    slug: 'the-prepisode',
     eyebrow: 'Offer one',
-    name: 'Your First Episode',
+    name: 'The Prepisode',
     price: '$997',
     cadence: 'one-time',
-    headline: 'Your first episode, produced the Apex way.',
+    headline: 'The Prepisode. The full PREP system, run once.',
     subhead:
-      'One produced episode, the Pentatype assessment that tunes the show to you, a 90-minute strategy session with a producer, branded cover art, and twelve months inside the Apex Podcast Network. $997, one-time. The honest entry point.',
+      'One produced episode that runs through all three PREP phases. Prepare, Record + Edit + Publish, Promote. The Pentatype assessment that tunes the show to you, a 90-minute strategy session with a producer, branded cover art, and twelve months inside the Apex Podcast Network. $997, one-time. The honest entry point.',
   },
   managed: {
     slug: 'your-weekly-show',
@@ -25,13 +31,23 @@ export const tiers = {
     name: 'Your Weekly Show',
     price: '$2,997',
     cadence: 'per 28-day cycle',
-    headline: 'A show, produced cycle by cycle. With the network around every release.',
+    headline: 'Your Weekly Show. The full PREP system, run every cycle.',
     subhead:
-      '$2,997 per 28-day cycle. One to four episodes per cycle, same price. A producer in the room every session. Full distribution under the Apex Podcast Network feed. A per-episode producer debrief. The block-analysis audit every eight episodes. Designed as the long-running engagement once you know you want a show in production.',
+      '$2,997 per 28-day cycle. The full PREP system inside one bundle. Prepare, Record + Edit + Publish, Promote. One to four episodes per cycle, same price. A producer in the room every session. Full distribution under the Apex Podcast Network feed. A per-episode producer debrief. The block-analysis audit every eight episodes. Designed as the long-running engagement once you know you want a show in production.',
+  },
+  network: {
+    slug: 'apex-podcast-network',
+    eyebrow: 'Offer three',
+    name: 'Apex Podcast Network',
+    price: '$997',
+    cadence: 'per 28-day cycle',
+    headline: 'Apex Podcast Network. Promote, on its own.',
+    subhead:
+      '$997 per 28-day cycle. The Promote phase of the PREP system as a standalone offer for podcast owners who already produce their own show. Socials repurposing from your published episode, bidirectional guest booking, and a place inside the Apex Podcast Network feed.',
   },
   license: {
     slug: 'multi-tenant-pipeline-license',
-    eyebrow: 'Offer three',
+    eyebrow: 'Offer four',
     name: 'Multi-Tenant Pipeline License',
     price: '$2,997',
     cadence: 'per month',
@@ -41,6 +57,34 @@ export const tiers = {
     subhead:
       'A licensed Apex production and distribution pipeline, run inside your own brand and on your own roster. You keep the client relationship. Apex licenses the system that produces the shows. $2,997 per month, or $29,970 per year. The real-estate and eXp roster is excluded, and an NDA is required before terms.',
   },
+} as const
+
+/** The PREP framework, the architecture under every Apex offer. */
+export const prepPhases: { letter: string; title: string; body: string }[] = [
+  {
+    letter: 'P',
+    title: 'Prepare.',
+    body: 'Pre-recording strategy with a producer, guest research one-pagers, host coaching, episode arc design. The work that decides whether the episode lands before anyone hits record.',
+  },
+  {
+    letter: 'REP',
+    title: 'Record, Edit, Publish.',
+    body: 'A producer on the Riverside session catching levels and intervening live, full editing and mix, long-form publish through Transistor. The phase Apex has had dialed in from day one.',
+  },
+  {
+    letter: 'P',
+    title: 'Promote.',
+    body: 'Socials cut from the long-form episode, bidirectional guest booking (your host onto other shows, qualified guests onto yours), and amplification inside the Apex Podcast Network feed.',
+  },
+]
+
+/** Per-episode add-on line. Surfaces on the pricing surface as a menu item, not a primary SKU. */
+export const perEpisodeAddOn = {
+  price: '$747',
+  cadence: 'per episode, all in',
+  modular: '$249 per episode, per modular service',
+  body:
+    'Inside an active Weekly Show cycle, drop in an extra episode without restarting the cadence. $747 per episode all in, or $249 per episode per modular PREP service if you only want one phase on the extra.',
 } as const
 
 /** Two-tier comparison rows (COPY-SPEC §4). A = Launch, B = Managed. */
@@ -112,7 +156,7 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
   },
   {
     label: 'Eligibility for sibling-company engagements',
-    launch: 'Not gated. First Episode buyers are welcome to inquire.',
+    launch: 'Not gated. Prepisode buyers are welcome to inquire.',
     managed:
       'Eligible for partner book engagements and Knowledge Graph engagements as separate fees.',
   },
@@ -125,28 +169,28 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
 
 export const launchIncludes: { title: string; body: string }[] = [
   {
-    title: 'The Pentatype assessment.',
+    title: 'Prepare: the Pentatype assessment.',
     body: 'The five-archetype communication-style mapping that pre-qualifies your show into a content lane before recording. Proprietary to Apex.',
   },
   {
-    title: 'A 90-minute strategy and host-archetype session.',
+    title: 'Prepare: a 90-minute strategy and host-archetype session.',
     body: 'With your producer. We walk the Pentatype result, decide the editorial premise, and build the episode outline.',
   },
   {
-    title: 'One recorded and fully produced episode.',
-    body: 'Green Room Experience with the producer in the room. Markers, interventions, a clean conversation.',
+    title: 'Record, Edit, Publish: one fully produced episode.',
+    body: 'A producer live on the Riverside session catching levels and intervening in real time. Markers, edits, mix, and a clean publish through Transistor.',
   },
   {
-    title: 'Cover art, intro and outro music, and an episode template.',
+    title: 'Record, Edit, Publish: cover art, intro and outro music, and an episode template.',
     body: 'From the curated Apex brand kit. Distinct, but not bespoke. Bespoke design is a separate engagement through a trusted web studio or quoted as a custom add-on.',
   },
   {
-    title: 'Distribution setup under the Apex Podcast Network feed on Transistor.',
-    body: 'Your show goes live in the network from day one.',
+    title: 'Promote: distribution under the Apex Podcast Network feed.',
+    body: 'Your episode goes live inside the network from day one.',
   },
   {
-    title: 'Five to seven short-form social clips from the recorded episode.',
-    body: 'Templated motion graphics built from the episode.',
+    title: 'Promote: short-form social clips from the recorded episode.',
+    body: 'Five to seven templated motion graphics built from the moments that worked.',
   },
   {
     title: 'Twelve months of Apex Podcast Network membership.',
@@ -157,8 +201,8 @@ export const launchIncludes: { title: string; body: string }[] = [
     body: 'The relationship-engine and guest-mapping IP behind PodcastNetwork.org, bundled as a network perk.',
   },
   {
-    title: 'A debrief call and a recommendation on the path to Managed.',
-    body: 'Honest read on whether Managed makes sense for you, with no obligation.',
+    title: 'A debrief call and a recommendation on Your Weekly Show.',
+    body: 'Honest read on whether the full Weekly Show cadence makes sense for you, with no obligation.',
   },
 ]
 
@@ -197,8 +241,12 @@ export const launchExclusions: string[] = [
 
 export const launchFaq: { q: string; a: string }[] = [
   {
+    q: 'Why is it called The Prepisode?',
+    a: 'PREP is the framework underneath every Apex offer (Prepare, Record + Edit + Publish, Promote). The Prepisode is one produced episode that runs through the full PREP system end to end. The name is a portmanteau of Prep and Episode. It is an inside joke that you are now in on.',
+  },
+  {
     q: 'How many episodes do I get?',
-    a: 'One produced episode. Anything beyond the first sits inside Managed or is quoted as a custom add-on.',
+    a: 'One produced episode. Anything beyond the first sits inside Your Weekly Show or is quoted as a per-episode add-on at $747 per episode all in.',
   },
   {
     q: 'Who owns the episode?',
@@ -213,16 +261,16 @@ export const launchFaq: { q: string; a: string }[] = [
     a: 'Setup under the Apex Podcast Network feed on Transistor at launch. You also get your own show RSS that publishes wherever you want to point it.',
   },
   {
-    q: 'How long does Launch take from booking to delivery?',
+    q: 'How long does The Prepisode take from booking to delivery?',
     a: 'Typical turnaround is two to three weeks from contract signing to delivered episode, depending on recording calendar fit.',
   },
   {
     q: 'What if I want to record more than one episode?',
-    a: 'The path is Managed. Launch is a single produced episode by design.',
+    a: 'The path is Your Weekly Show. The Prepisode is a single produced episode by design.',
   },
   {
     q: 'What happens if it does not work out?',
-    a: 'We make the call honest on the discovery and again on the debrief. If we do not think Launch is the right move for you, we say so before you sign.',
+    a: 'We make the call honest on the discovery and again on the debrief. If we do not think The Prepisode is the right move for you, we say so before you sign.',
   },
 ]
 

@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import { Reveal } from '@/components/motion/reveal'
 import CtaLink from '@/components/ui/cta-link'
-import TierCompareTable from '@/components/sections/tier-compare-table'
+import TierTeaser from '@/components/sections/tier-teaser'
 import ClosingCta from '@/components/sections/closing-cta'
 import PageHero from '@/components/ui/page-hero'
-import { tiers } from '@/lib/services'
+import { tiers, prepPhases, perEpisodeAddOn } from '@/lib/services'
 
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Apex sells three things: Your First Episode ($997 one-time), Your Weekly Show ($2,997 per 28-day cycle), and the Multi-Tenant Pipeline License ($2,997/mo or $29,970/yr). A producer in the room, the network around the show, and the Pentatype mapping that tunes the show to you.',
+    'Apex sells four things: The Prepisode ($997 one-time), Your Weekly Show ($2,997 per 28-day cycle), Apex Podcast Network ($997 per cycle, Promote only), and the Multi-Tenant Pipeline License ($2,997/mo or $29,970/yr). The PREP system, bundled or modular.',
   alternates: { canonical: '/services/' },
 }
 
@@ -18,22 +18,69 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <PageHero
-        eyebrow="Three ways in."
+        eyebrow="The PREP system, four ways in."
         title={
           <>
-            Launch a show, run one, or license the pipeline
+            Run one episode, run a show, take just the Promote phase, or license the pipeline
             <span className="text-acid">.</span>
           </>
         }
       >
-        Apex sells three things. The first two are vehicles for a producer in the room, the
-        network around the show, and the Pentatype mapping that tunes the show to you. The ladder
-        is intentional. Most start with Your First Episode and move to Your Weekly Show inside the
-        credit window. The Multi-Tenant Pipeline License is the third path, for operators who want
-        to run the Apex pipeline under their own brand.
+        Every Apex offer runs the same architecture. PREP: Prepare, Record + Edit + Publish, Promote.
+        The Prepisode runs it once. Your Weekly Show runs it every cycle. Apex Podcast Network is the
+        Promote phase as a standalone for owners who already produce. The Multi-Tenant Pipeline
+        License is how the system travels past our capped roster.
       </PageHero>
 
-      <TierCompareTable />
+      {/* The PREP architecture */}
+      <section className="section bg-bone pt-0">
+        <div className="container-apex">
+          <Reveal>
+            <p className="eyebrow">The architecture under every offer.</p>
+            <h2 className="h-section mt-5 max-w-3xl text-ink">
+              PREP. Prepare, Record + Edit + Publish, Promote
+              <span className="text-acid">.</span>
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {prepPhases.map((phase) => (
+              <Reveal key={phase.title}>
+                <div className="rounded-3xl border border-ink/12 p-7">
+                  <p className="font-mono text-2xl tracking-tighter text-acid">{phase.letter}</p>
+                  <h3 className="mt-4 font-display text-xl text-ink">{phase.title}</h3>
+                  <p className="mt-3 text-ink/70">{phase.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The four tiers */}
+      <TierTeaser />
+
+      {/* Per-episode add-on menu line */}
+      <section className="bg-bone pb-20 md:pb-28">
+        <div className="container-apex">
+          <Reveal>
+            <div className="rounded-3xl border border-ink/12 bg-bone p-8 md:p-10">
+              <p className="eyebrow">Per-episode add-on.</p>
+              <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
+                <p className="font-display text-3xl text-ink">
+                  {perEpisodeAddOn.price}
+                </p>
+                <p className="font-mono text-xs uppercase tracking-widest text-ink/60">
+                  {perEpisodeAddOn.cadence}
+                </p>
+                <p className="font-mono text-xs uppercase tracking-widest text-ink/60">
+                  or {perEpisodeAddOn.modular}
+                </p>
+              </div>
+              <p className="mt-5 max-w-3xl text-ink/75">{perEpisodeAddOn.body}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* The credit window + founding-cohort note */}
       <section className="bg-bone pb-20 md:pb-28">
@@ -42,10 +89,10 @@ export default function ServicesPage() {
             <div className="rounded-3xl border border-ink/12 p-8 md:p-10">
               <p className="eyebrow">The credit window.</p>
               <p className="mt-5 text-ink/75">
-                Buyers who move from Your First Episode to Your Weekly Show within ninety days of the
-                first episode delivery get the full $997 credited against their first cycle. The credit
-                is automatic inside the contract flow. The point is honest: if the first episode led
-                you to want the weekly show, the $997 should not feel like double payment.
+                Buyers who move from The Prepisode to Your Weekly Show within ninety days of
+                Prepisode delivery get the full $997 credited against their first cycle. The credit
+                is automatic inside the contract flow. The point is honest: if the Prepisode led you
+                to want the weekly show, the $997 should not feel like double payment.
               </p>
             </div>
           </Reveal>
@@ -61,7 +108,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* The third path: license */}
+      {/* The fourth path: license */}
       <section className="bg-bone pb-20 md:pb-28">
         <div className="container-apex">
           <Reveal>
@@ -113,7 +160,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <ClosingCta headline="Not sure which tier fits?" />
+      <ClosingCta headline="Not sure which way in fits?" />
     </>
   )
 }

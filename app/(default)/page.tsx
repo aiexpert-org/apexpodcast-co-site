@@ -10,6 +10,8 @@ import { ContactBlock } from '@/components/ccm/contact-block'
 import LogoScroller from '@/components/sections/logo-scroller'
 import SelectedWork from '@/components/sections/selected-work'
 import PentatypeAssessment from '@/components/sections/pentatype-assessment'
+import TierTeaser from '@/components/sections/tier-teaser'
+import { prepPhases } from '@/lib/services'
 
 export const metadata: Metadata = {
   title: 'Apex Podcast Co. Producers for serious artists, founders, and operators.',
@@ -32,7 +34,7 @@ const WHAT_WE_DO = [
   {
     title: 'Record label sound.',
     body:
-      'A consistent house aesthetic — covers, music, transitions, hosts — that signals craft the first three seconds in. The kind of taste people associate with a label, applied to the long-form conversation.',
+      'A consistent house aesthetic (covers, music, transitions, hosts) that signals craft the first three seconds in. The kind of taste people associate with a label, applied to the long-form conversation.',
   },
 ]
 
@@ -78,6 +80,56 @@ export default function Home() {
               ))}
             </ul>
           </FadeInStagger>
+        </Container>
+      </section>
+
+      {/* The PREP system — the architecture under every Apex offer. CCM "The
+          method" equivalent, framed as the operational spine. */}
+      <section aria-label="The PREP system">
+        <SectionIntro
+          eyebrow="The PREP system"
+          title="Prepare, Record + Edit + Publish, Promote. The architecture under every Apex offer."
+          className="mt-24 sm:mt-32 lg:mt-40"
+        >
+          <p>
+            PREP is what Apex actually does for a show. Three phases on either side of the recording.
+            Bundled inside Your Weekly Show, run once inside The Prepisode, or taken as standalone
+            Promote inside Apex Podcast Network.
+          </p>
+        </SectionIntro>
+
+        <Container className="mt-16">
+          <FadeInStagger faster>
+            <ul role="list" className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+              {prepPhases.map((phase) => (
+                <FadeIn as="li" key={phase.title}>
+                  <Border className="pt-8">
+                    <p className="font-mono text-2xl tracking-tighter text-[var(--color-cta)]">
+                      {phase.letter}
+                    </p>
+                    <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-neutral-950">
+                      {phase.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-7 text-neutral-600">
+                      {phase.body}
+                    </p>
+                  </Border>
+                </FadeIn>
+              ))}
+            </ul>
+          </FadeInStagger>
+        </Container>
+
+        <Container className="mt-10">
+          <FadeIn>
+            <Link
+              href="/services/"
+              className="inline-flex items-center gap-2 text-base font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 hover:decoration-2"
+            >
+              See the four ways in
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </FadeIn>
         </Container>
       </section>
 

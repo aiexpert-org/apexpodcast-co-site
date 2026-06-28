@@ -32,11 +32,14 @@ export const siteConfig = {
   // per CTO/CIO GHL setup task local_911dafd7.
   partnerEnrollUrl: 'https://apexpodcast.co/partner-portal',
 
-  // Affiliate program. 20% on the two recurring SKUs (Your Weekly Show, Multi-Tenant
-  // Pipeline License), 60-day cookie window. $997 Your First Episode carries no
-  // affiliate commission (Brett's 2026-06-26 lock; gateway-product margin protection).
+  // Affiliate program. 10% flat across all Apex SKUs (Your Weekly Show, Apex Podcast
+  // Network, the Multi-Tenant Pipeline License, per-episode add-ons). The Prepisode
+  // carries 0% to protect the gateway product margin. 60-day cookie window. Buddy
+  // Buck's 20% cross-business grandfather is carved out of Apex specifically;
+  // Buddy gets 10% on Apex like every other affiliate. (Locked 2026-06-26 evening,
+  // supersedes the 2026-06-11 two-tier 20%/10% structure for the Apex program.)
   // TODO(2026-06-26): swap to live GHL Affiliate Manager signup URL per CTO/CIO GHL
-  // setup task local_911dafd7 (campaigns affil_apex_weeklyshow / _mtl).
+  // setup task local_911dafd7 (campaigns affil_apex_weeklyshow / _network / _mtl).
   affiliateSignupUrl: 'https://apexpodcast.co/affiliate',
 
   // GHL checkout links (Stripe lives inside GHL Payments). These are documented
@@ -47,8 +50,9 @@ export const siteConfig = {
   // local_911dafd7 (runbook: operations/ghl-product-load-2026-06-13.md). License
   // checkout is tokenized per licensee after NDA signature.
   checkout: {
-    firstEpisode: 'https://apexpodcast.co/checkout/your-first-episode',
+    prepisode: 'https://apexpodcast.co/checkout/the-prepisode',
     weeklyShow: 'https://apexpodcast.co/checkout/your-weekly-show',
+    network: 'https://apexpodcast.co/checkout/apex-podcast-network',
     license: 'https://apexpodcast.co/checkout/multi-tenant-pipeline-license',
   },
 
@@ -96,8 +100,9 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/work/austin-cheviron/',
   '/work/russ-laggan/',
   '/services/',
-  '/your-first-episode/',
+  '/the-prepisode/',
   '/your-weekly-show/',
+  '/apex-podcast-network/',
   '/multi-tenant-pipeline-license/',
   '/subscription/',
   '/portfolio/',
@@ -127,6 +132,7 @@ export function isLiveRoute(href: string): boolean {
 /** Primary navigation. */
 export const primaryNav: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
   { label: 'How We Work', href: '/how-we-work/' },
+  { label: 'Services', href: '/services/' },
   { label: 'Network', href: '/network/' },
   { label: 'Producers', href: '/producers/' },
 ]
@@ -134,6 +140,11 @@ export const primaryNav: { label: string; href: string; children?: { label: stri
 /** Footer link columns. */
 export const footerSiteLinks = [
   { label: 'How We Work', href: '/how-we-work/' },
+  { label: 'Services', href: '/services/' },
   { label: 'Network', href: '/network/' },
   { label: 'Producers', href: '/producers/' },
+  { label: 'The Prepisode', href: '/the-prepisode/' },
+  { label: 'Your Weekly Show', href: '/your-weekly-show/' },
+  { label: 'Apex Podcast Network', href: '/apex-podcast-network/' },
+  { label: 'Multi-Tenant Pipeline License', href: '/multi-tenant-pipeline-license/' },
 ]
