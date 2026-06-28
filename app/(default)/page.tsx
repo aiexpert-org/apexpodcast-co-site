@@ -16,20 +16,20 @@ import { prepPhases } from '@/lib/services'
 export const metadata: Metadata = {
   title: 'Apex Podcast Co. Producers for serious artists, founders, and operators.',
   description:
-    'A boutique production company. A producer in the room while you find your voice, fading to strategy and network review as you grow. The sound you would expect from a record label, applied to the long-form conversation.',
+    'A boutique production company. Producers in the room on every session, an AI-native production stack behind them, a network around your show. The sound you would expect from a record label, applied to the long-form conversation.',
   alternates: { canonical: '/' },
 }
 
 const WHAT_WE_DO = [
   {
-    title: 'A producer in the room while it matters.',
+    title: 'A producer in the room.',
     body:
-      'Every session at the start. The producer arc is the point. We sit in the room until you can run it, then we step back to strategy and the network as you grow.',
+      'Brett and Randy on every session. Markers, redirects, the kindness to let a long pause breathe. Boutique attention from the producers who own the company. Same standard, every cycle.',
   },
   {
     title: 'A network around your show.',
     body:
-      'You ship into a catalog of twenty-six productions built on the Pentatype communication framework. The network compounds the longer you stay in it.',
+      'You ship into a catalog of twenty-six productions built on the Pentatype communication framework. Your show finds an audience because the audience already lives here.',
   },
   {
     title: 'An AI-native operating model.',

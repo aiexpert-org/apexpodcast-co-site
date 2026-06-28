@@ -16,7 +16,7 @@ const STACK: { name: string; role: string; body: string }[] = [
   {
     name: 'Riverside.fm',
     role: 'Recording, editing, clipping',
-    body: 'The consolidated production platform. Multi-track remote recording with a producer live on the early sessions, Magic Editor for the long-form cut, Magic Clips for short-form. One platform from raw take to delivered episode.',
+    body: 'The consolidated production platform. Multi-track remote recording with a producer live on every session, Magic Editor for the long-form cut, Magic Clips for short-form. One platform from raw take to delivered episode.',
   },
   {
     name: 'Descript',

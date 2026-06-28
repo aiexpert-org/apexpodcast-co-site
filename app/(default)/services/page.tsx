@@ -149,43 +149,17 @@ export default function ServicesPage() {
               <p className="eyebrow">Why the pricing math works.</p>
               <p className="mt-5 text-ink/75">
                 Apex stays two people on purpose. Brett K Moore and Randy
-                Highsmith are the producers. An AI-native production stack
-                carries the rest. Riverside for record, edit, and clip. Claude
-                + NotebookLM for research and drafting. The work that has to be
-                a human stays a human; everything else runs on tools.
+                Highsmith are the producers in every session. An AI-native
+                production stack carries the rest. Riverside for record, edit,
+                and clip. Claude + NotebookLM for research and drafting. The
+                work that has to be a human stays a human; everything else runs
+                on tools.
               </p>
               <p className="mt-4 text-ink/75">
                 That is why $2,997 per cycle holds at boutique quality. You are
-                not paying for a junior team between you and the producer.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* The value arc — same price, shifting value as you mature */}
-      <section className="bg-bone pb-20 md:pb-28">
-        <div className="container-apex">
-          <Reveal>
-            <div className="max-w-3xl">
-              <p className="eyebrow">Same price every cycle. The value shifts as you grow.</p>
-              <p className="mt-5 text-ink/75">
-                Early on, $2,997 buys a producer in the room every session, the
-                Pentatype work, the cover art, the publish path, and a place on
-                the network. As you find your voice, the producer steps back
-                from real-time and forward into strategy. By the second year,
-                the same $2,997 buys network leverage, the block-analysis
-                audit, the strategy reviews, and an AI-native production stack
-                running the per-episode mechanics. We are honest about that.
-                The point is to make you less dependent on us in real time and
-                more dependent on the network around the show.
-              </p>
-              <p className="mt-4 text-ink/75">
-                The full arc is laid out on{' '}
-                <a href="/how-we-work/" className="text-ink underline decoration-acid underline-offset-4 hover:text-ink/70">
-                  How We Work
-                </a>
-                .
+                not paying for a junior team between you and the producer. You
+                are paying for a producer in the room and the network around
+                your show.
               </p>
             </div>
           </Reveal>
