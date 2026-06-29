@@ -1,16 +1,22 @@
 /**
  * Services content. Voice rules enforced: no em dashes, no banned vocabulary, no
- * "X, not Y", no emoji. Service architecture is the PREP framework (locked
- * 2026-06-26 evening per Brett + Randy partner call): Prepare, Record + Edit +
- * Publish, Promote. The customer-facing umbrella stays Your Weekly Show; PREP
- * is the architecture inside it. The SKU map below is the 2026-06-26 lock:
- *   - Your Weekly Show: $2,997 per 28-day cycle (full PREP, bundled)
- *   - The Prepisode: $997 one-time (full PREP for a single episode)
- *   - Apex Podcast Network: $997 per cycle (Promote only, standalone)
+ * "X, not Y", no emoji.
+ *
+ * PREPP scope correction (2026-06-29): Apex Podcast Co owns the first four
+ * phases of the PREPP methodology (Prepare, Record, Edit, Publish).
+ * PodcastNetwork.org owns the fifth (Promote). The "Apex Podcast Network" SKU
+ * was retired in this pass because the name now overlaps with the partner
+ * brand. Customers who want promotion go to PodcastNetwork.org.
+ *
+ * SKU map (post-correction):
+ *   - The Prepisode: $997 one-time (single produced episode, all four Apex phases)
+ *   - Your Weekly Show: $2,997 per 28-day cycle (Prepare + Record + Edit + Publish, bundled)
+ *   - REP service: $997 per cycle modular (Record + Edit + Publish, no Prepare)
+ *   - Prepare service: $997 per cycle modular (Prepare only)
  *   - Multi-Tenant Pipeline License: $2,997/mo or $29,970/yr
  *   - Per-episode add-on: $747 all-in (inside an active cycle)
  *
- * Object keys (`launch`, `managed`, `license`, `network`) are stable code
+ * Object keys (`launch`, `managed`, `license`, `prepare`, `rep`) are stable code
  * identifiers. The customer-facing names live in `.name`.
  */
 
@@ -23,7 +29,7 @@ export const tiers = {
     cadence: 'one-time',
     headline: 'One episode. See what your show could become.',
     subhead:
-      'A produced first episode in your feed within two weeks. We map your voice, run a strategy session, sit on the recording, ship the edit, and put the network behind it. If you keep going, the $997 credits in full toward your first cycle.',
+      'A produced first episode in your feed within two weeks. We map your voice with the Pentatype assessment, run a strategy session, sit on the recording, ship the edit, and publish it inside the Apex catalog. If you keep going, the $997 credits in full toward your first cycle.',
   },
   managed: {
     slug: 'your-weekly-show',
@@ -35,15 +41,25 @@ export const tiers = {
     subhead:
       'An hour of recording becomes a published episode, a feed of cut-downs, and a place inside the Apex catalog. Up to four episodes a cycle for the same $2,997. Every step before and after the recording is on us.',
   },
-  network: {
-    slug: 'apex-podcast-network',
-    eyebrow: 'Amplify what you already publish',
-    name: 'Apex Podcast Network',
+  prepare: {
+    slug: 'prepare',
+    eyebrow: 'Prepare only',
+    name: 'Prepare',
     price: '$997',
     cadence: 'per 28-day cycle',
-    headline: 'Already publishing? Put a network behind it.',
+    headline: 'Voice, strategy, and the run of show. Modular.',
     subhead:
-      'You produce. We promote. Social cut-downs, guest swaps with the Apex catalog, and a place in the Apex Podcast Network feed. $997 per cycle.',
+      'The Prepare phase as a standalone engagement. The Pentatype Communication Assessment, the voice map, the strategy session, and the run-of-show plan for every recording. You record and publish on your own.',
+  },
+  rep: {
+    slug: 'rep',
+    eyebrow: 'Record, Edit, Publish',
+    name: 'REP',
+    price: '$997',
+    cadence: 'per 28-day cycle',
+    headline: 'You bring the strategy. We run REP.',
+    subhead:
+      'The Record, Edit, and Publish phases as a standalone engagement. Producer on the recording, full edit and mix, cover art, and publish into the Apex catalog. Prepare is on you.',
   },
   license: {
     slug: 'multi-tenant-pipeline-license',
@@ -59,23 +75,51 @@ export const tiers = {
   },
 } as const
 
-export const prepPhases: { letter: string; title: string; body: string }[] = [
+/**
+ * PREPP methodology phases. Apex owns the first four (Prepare, Record, Edit,
+ * Publish). PodcastNetwork.org owns the fifth (Promote). The partnership
+ * architecture is surfaced as a methodology fact, not a SKU.
+ */
+export const preppPhases: {
+  letter: string
+  title: string
+  body: string
+  partner?: { name: string; href: string; note: string }
+}[] = [
   {
-    letter: '01',
-    title: 'Before you record.',
-    body: 'We map your voice, build the guest brief, and plan the arc. You walk in knowing the conversation will land.',
+    letter: 'P',
+    title: 'Prepare.',
+    body: 'The best conversations are not improvised. They are produced. Every show starts with the Pentatype Communication Assessment so we know how you communicate before we design how you record. Five cores. Twenty signals. One blueprint we hand back to you before the first session, and a Hot Ones-style read on every guest you book from there.',
   },
   {
-    letter: '02',
-    title: 'During the recording.',
-    body: 'A producer is on the call. Markers, redirects, the kindness to let a pause breathe. You focus on the conversation.',
+    letter: 'R',
+    title: 'Record.',
+    body: 'A producer is on the call. Markers, redirects, the kindness to let a pause breathe. Levels caught, moments saved, the questions you forgot to ask brought back into the room.',
   },
   {
-    letter: '03',
-    title: 'After the recording.',
-    body: 'Edit, publish, cut for social, swap guests with the network. Your hour goes everywhere your audience already is.',
+    letter: 'E',
+    title: 'Edit.',
+    body: 'Full edit and mix in our hands. Pacing, breath, music, the cut that lets your best moments land. You hear it back as the show you wanted to make.',
+  },
+  {
+    letter: 'P',
+    title: 'Publish.',
+    body: 'Cover art, show notes, distribution, and a place inside the Apex catalog. Episode in the feed, ready for the audience you already have.',
+  },
+  {
+    letter: 'P',
+    title: 'Promote.',
+    body: 'Social cut-downs, guest swaps, audience growth, and Knowledge Panel work. The fifth phase of the PREPP methodology, delivered by PodcastNetwork.org as Apex\'s partner. You can run it with us, with them, or both.',
+    partner: {
+      name: 'PodcastNetwork.org',
+      href: 'https://podcastnetwork.org',
+      note: 'Delivered by our partner network.',
+    },
   },
 ]
+
+/** Backwards-compatible alias for older imports referencing prepPhases. */
+export const prepPhases = preppPhases.slice(0, 3)
 
 /** Per-episode add-on line. Surfaces on the pricing surface as a menu item, not a primary SKU. */
 export const perEpisodeAddOn = {
@@ -91,7 +135,7 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
   {
     label: 'What it is',
     launch:
-      'Your first produced episode, with the Pentatype assessment, a 90-minute strategy session, branded cover art, distribution under the Apex Podcast Network feed, and twelve months of network membership.',
+      'Your first produced episode, with the Pentatype assessment, a 90-minute strategy session, branded cover art, distribution under the Apex catalog feed, and twelve months of network membership.',
     managed:
       'An ongoing show, produced cycle by cycle, with a producer in the room every session and the network around every release.',
   },
@@ -117,9 +161,9 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
   },
   {
     label: 'Distribution',
-    launch: 'Setup under the Apex Podcast Network feed on Transistor.',
+    launch: 'Setup under the Apex catalog feed on Transistor.',
     managed:
-      'Full distribution under the Apex Podcast Network feed, including dynamic ad insertion when a sponsor fits.',
+      'Full distribution under the Apex catalog feed, including dynamic ad insertion when a sponsor fits.',
   },
   {
     label: 'Cover art and intro / outro music',
@@ -139,7 +183,7 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
   {
     label: 'Network coordination',
     launch:
-      'Twelve-month membership in the Apex Podcast Network feed. PodcastNetwork.org access for twelve months.',
+      'Twelve-month membership in the Apex catalog feed. PodcastNetwork.org access for twelve months.',
     managed:
       'Continuous collab tagging across the roster. Guest intros where there is fit. Cross-promotion inside the network.',
   },
@@ -172,7 +216,7 @@ export const launchIncludes: { title: string; body: string }[] = [
   },
   {
     title: 'A network around your launch.',
-    body: 'Your episode ships inside the Apex Podcast Network feed and gets a feature in The Debrief. You start with reach.',
+    body: 'Your episode ships inside the Apex catalog feed and gets a feature in The Debrief. You start with reach.',
   },
   {
     title: 'Five to seven short clips ready to post.',
@@ -249,7 +293,7 @@ export const managedIncludes: { title: string; body: string }[] = [
   },
   {
     title: 'Distribution and ad revenue, ninety percent to you.',
-    body: 'Your show ships through the Apex Podcast Network feed. When sponsors fit, you keep ninety percent of the ad revenue.',
+    body: 'Your show ships through the Apex catalog feed. When sponsors fit, you keep ninety percent of the ad revenue.',
   },
   {
     title: 'A producer debrief after every episode.',

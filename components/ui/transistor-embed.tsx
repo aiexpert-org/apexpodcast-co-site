@@ -18,7 +18,7 @@ export default function TransistorEmbed({
           Representative release
         </p>
         <p className="mt-3 max-w-xl text-ink/70">
-          A representative episode of {show} lands here from the Apex Podcast Network feed. We point
+          A representative episode of {show} lands here from the Apex catalog feed. We point
           to one release per show on launch and add more as the catalog fills in.
         </p>
       </div>
@@ -27,7 +27,7 @@ export default function TransistorEmbed({
 
   return (
     <iframe
-      title={`${show} on the Apex Podcast Network`}
+      title={`${show} on the Apex Catalog`}
       src={embedUrl}
       loading="lazy"
       width="100%"

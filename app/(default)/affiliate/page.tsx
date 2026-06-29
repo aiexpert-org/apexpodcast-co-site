@@ -24,7 +24,7 @@ const howItWorks = [
   },
   {
     title: 'They buy a qualifying offer.',
-    body: 'Your Weekly Show, Apex Podcast Network, or the Multi-Tenant Pipeline License. Ten percent of the sale is yours for every cycle the subscription stays active.',
+    body: 'Your Weekly Show or the Multi-Tenant Pipeline License. Ten percent of the sale is yours for every cycle the subscription stays active.',
   },
   {
     title: 'Get paid.',
@@ -33,16 +33,16 @@ const howItWorks = [
 ]
 
 const terms = [
-  { label: 'Commission', value: 'Ten percent flat across Apex (Your Weekly Show, Apex Podcast Network, Pipeline License, per-episode add-ons).' },
+  { label: 'Commission', value: 'Ten percent flat across Apex (Your Weekly Show, Pipeline License, per-episode add-ons).' },
   { label: 'Cookie window', value: '60 days from the click.' },
-  { label: 'Qualifying offers', value: 'Your Weekly Show, Apex Podcast Network, Multi-Tenant Pipeline License, per-episode add-ons. The Prepisode does not pay commission.' },
+  { label: 'Qualifying offers', value: 'Your Weekly Show, Multi-Tenant Pipeline License, per-episode add-ons. The Prepisode does not pay commission.' },
   { label: 'Payout cadence', value: 'Monthly, on or around the fifth, after the sixty-day refund window.' },
 ]
 
 const faq = [
   {
     q: 'How much do I earn?',
-    a: 'Ten percent flat across Apex. Your Weekly Show at $2,997 per cycle pays $299.70 per cycle for the life of the subscription. Apex Podcast Network at $997 per cycle pays $99.70 per cycle. The Multi-Tenant Pipeline License pays $299.70 per month or $2,997 on the annual prepay. The Prepisode at $997 does not pay commission. Gateway-product margin protection.',
+    a: 'Ten percent flat across Apex. Your Weekly Show at $2,997 per cycle pays $299.70 per cycle for the life of the subscription. The Multi-Tenant Pipeline License pays $299.70 per month or $2,997 on the annual prepay. The Prepisode at $997 does not pay commission. Gateway-product margin protection.',
   },
   {
     q: 'What if a Prepisode buyer converts into Your Weekly Show?',
@@ -152,10 +152,6 @@ export default function AffiliatePage() {
                 {
                   title: 'Your Weekly Show, $2,997 per cycle.',
                   body: 'The retention bundle. Ten percent is $299.70 for every cycle the referred client stays in production.',
-                },
-                {
-                  title: 'Apex Podcast Network, $997 per cycle.',
-                  body: 'Standalone Promote for podcast owners who handle their own production. Ten percent is $99.70 per cycle for the life of the subscription.',
                 },
                 {
                   title: 'Multi-Tenant Pipeline License, $2,997 per month.',

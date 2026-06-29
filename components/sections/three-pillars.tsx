@@ -9,12 +9,12 @@ const pillars = [
   {
     n: '02',
     title: 'Network access.',
-    body: 'Every Apex show publishes under the Apex Podcast Network feed and gets collab-tagged across the cohort. You arrive with an audience you did not have to build alone.',
+    body: 'Every Apex show publishes inside the Apex catalog and gets collab-tagged across the cohort. You arrive with an audience you did not have to build alone.',
   },
   {
     n: '03',
     title: 'Pentatype methodology.',
-    body: 'Before the first episode, your host takes the Pentatype assessment. We map your natural communication frequency to one of five archetypes and tune the show to it. The show sounds like you because we mapped what "you" actually sounds like.',
+    body: 'Before the first episode, your host takes the Pentatype Communication Assessment. Five cores: Connection, Structure, Conviction, Discovery, Meaning. Twenty signals. One blueprint we hand back to you before the first session, plus a Hot Ones-style read on every guest you book from there. The show sounds like you because we mapped what "you" actually sounds like.',
   },
 ]
 

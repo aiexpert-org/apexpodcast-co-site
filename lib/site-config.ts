@@ -68,7 +68,7 @@ export const siteConfig = {
 
   // External properties. The Apex Podcast show exists at
   // dashboard.transistor.fm/shows/the-apex-podcast (Transistor admin).
-  // TODO(2026-06-26): swap to the real Transistor Apex Podcast Network feed URL
+  // TODO(2026-06-26): swap to the real Transistor Apex catalog feed URL
   // per the Transistor setup task once the public feed slug is confirmed.
   transistorUrl: 'https://apexpodcast.co/listen',
   pentatypeUrl: 'https://pentatype.com',
@@ -105,7 +105,6 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/services/',
   '/the-prepisode/',
   '/your-weekly-show/',
-  '/apex-podcast-network/',
   '/multi-tenant-pipeline-license/',
   '/subscription/',
   '/portfolio/',
@@ -147,5 +146,4 @@ export const footerSiteLinks = [
   { label: 'Producers', href: '/producers/' },
   { label: 'The Prepisode', href: '/the-prepisode/' },
   { label: 'Your Weekly Show', href: '/your-weekly-show/' },
-  { label: 'Apex Podcast Network', href: '/apex-podcast-network/' },
 ]

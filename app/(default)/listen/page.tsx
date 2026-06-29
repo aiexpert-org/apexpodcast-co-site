@@ -55,7 +55,7 @@ export default function ListenPage() {
               <PlatformCard name="Apple Podcasts" blurb="New episodes drop weekly." href={apple} external />
             </Reveal>
             <Reveal delay={0.1}>
-              <PlatformCard name="RSS" blurb="The Apex Podcast Network feed." href={transistor} external />
+              <PlatformCard name="RSS" blurb="The Apex catalog feed." href={transistor} external />
             </Reveal>
             <Reveal delay={0.15}>
               <PlatformCard name="Anywhere else" blurb="Pick the app you use." href={anywhere} external />

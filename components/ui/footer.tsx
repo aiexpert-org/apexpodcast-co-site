@@ -65,7 +65,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Apex Podcast Network on Transistor
+                  Apex Catalog on Transistor
                 </a>
               </li>
               <li>

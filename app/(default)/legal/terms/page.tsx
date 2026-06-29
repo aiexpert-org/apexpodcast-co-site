@@ -34,8 +34,8 @@ export default function TermsPage() {
             What the Site is
           </h2>
           <p>
-            The Site describes Apex Podcast Co and the productions on the
-            Apex Podcast Network. It is informational. It is not a contract
+            The Site describes Apex Podcast Co and the productions in the
+            Apex Catalog. It is informational. It is not a contract
             and it is not an offer that binds either side. The actual terms
             of any engagement live in the signed service or license agreement
             we share with you separately. Where the Site and a signed

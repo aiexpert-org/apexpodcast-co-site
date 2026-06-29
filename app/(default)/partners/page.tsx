@@ -136,7 +136,7 @@ export default function PartnersPage() {
             <div className="rounded-3xl border border-ink/12 p-8 md:p-10">
               <h2 className="eyebrow">The math, said honestly.</h2>
               <p className="mt-5 text-ink/75">
-                When Apex runs dynamic ad insertion on the Apex Podcast Network feed, ninety percent of
+                When Apex runs dynamic ad insertion on the Apex catalog feed, ninety percent of
                 the ad revenue goes to the show. The remaining ten percent stays with Apex and funds
                 this program. The same ten percent is what you earn when you refer a new client. The
                 number is consistent on purpose. The economics are the same shape on both sides of the
@@ -163,7 +163,7 @@ export default function PartnersPage() {
           <Reveal>
             <h2 className="eyebrow">Who can be a partner.</h2>
             <p className="mt-5 text-ink/75">
-              Active Apex clients (Prepisode buyers, Weekly Show clients, Apex Podcast Network clients, and case-study clients).
+              Active Apex clients (Prepisode buyers, Weekly Show clients, and case-study clients).
               Network alumni. Anyone with a working relationship inside the Apex network. The full
               agreement is sent when you enroll. Read it, sign it, get a referral link.
             </p>

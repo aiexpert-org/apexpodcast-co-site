@@ -28,7 +28,7 @@ export default function WorkPage() {
       >
         The Apex catalog opened in 2026 with Austin and Russ. Two different hosts, two different
         audiences, one production standard. A producer at every session. A Pentatype profile under
-        every show. A place on the Apex Podcast Network feed for every release.
+        every show. A place inside the Apex catalog feed for every release.
       </PageHero>
 
       {/* The two case studies */}

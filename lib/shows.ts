@@ -21,7 +21,7 @@ export type Show = {
   /** Human host name, or null for Apex Network productions. */
   host: string | null
   coHost?: string
-  /** Apex Podcast Network production vs human-hosted. */
+  /** Apex Catalog production vs human-hosted. */
   network: boolean
   catalog: string
   /** Raster cover for FLAGSHIP + ESTABLISHED. Empty for COMING SOON. */
@@ -449,9 +449,9 @@ export function getShow(slug: string): Show | undefined {
 }
 
 export function hostLine(show: Show): string {
-  if (show.network) return 'From the Apex Podcast Network'
+  if (show.network) return 'From the Apex Catalog'
   if (show.coHost) return `${show.host} & ${show.coHost}`
-  return show.host ?? 'From the Apex Podcast Network'
+  return show.host ?? 'From the Apex Catalog'
 }
 
 // Legacy aliases kept for components that still reference the older names.
