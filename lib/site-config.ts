@@ -104,7 +104,6 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/your-weekly-show/',
   '/apex-podcast-network/',
   '/multi-tenant-pipeline-license/',
-  '/tooling/',
   '/subscription/',
   '/portfolio/',
   '/case-studies/',
@@ -132,22 +131,19 @@ export function isLiveRoute(href: string): boolean {
 
 /** Primary navigation. */
 export const primaryNav: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
-  { label: 'How We Work', href: '/how-we-work/' },
-  { label: 'Services', href: '/services/' },
+  { label: 'How It Works', href: '/how-we-work/' },
+  { label: 'Pricing', href: '/services/' },
   { label: 'Network', href: '/network/' },
   { label: 'Producers', href: '/producers/' },
-  { label: 'Tooling', href: '/tooling/' },
 ]
 
 /** Footer link columns. */
 export const footerSiteLinks = [
-  { label: 'How We Work', href: '/how-we-work/' },
-  { label: 'Services', href: '/services/' },
+  { label: 'How It Works', href: '/how-we-work/' },
+  { label: 'Pricing', href: '/services/' },
   { label: 'Network', href: '/network/' },
   { label: 'Producers', href: '/producers/' },
-  { label: 'Tooling', href: '/tooling/' },
   { label: 'The Prepisode', href: '/the-prepisode/' },
   { label: 'Your Weekly Show', href: '/your-weekly-show/' },
   { label: 'Apex Podcast Network', href: '/apex-podcast-network/' },
-  { label: 'Multi-Tenant Pipeline License', href: '/multi-tenant-pipeline-license/' },
 ]

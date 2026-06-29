@@ -7,12 +7,10 @@ import { fetchTransistorShows, matchTransistorShow, type TransistorShow } from '
 export const metadata: Metadata = {
   title: 'The Apex Podcast Network',
   description:
-    'The catalog. Live shows, coming-soon productions, and the Pentatype Core badge each one carries. Pulled from Transistor.',
+    'Every show Apex produces. Your show launches into this catalog and rides every release the others ship.',
   alternates: { canonical: '/network/' },
 }
 
-// Refresh the catalog hourly so Transistor metadata stays current without
-// hammering the API on every visit.
 export const revalidate = 3600
 
 export default async function NetworkPage() {
@@ -31,13 +29,11 @@ export default async function NetworkPage() {
               The Apex Podcast Network
             </p>
             <h1 className="display mt-5 text-ink">
-              The catalog
+              The audience that already lives here
               <span className="text-acid">.</span>
             </h1>
             <p className="lead mt-6 max-w-2xl text-ink/75">
-              Every Apex production, in one grid. Each show carries a Pentatype
-              Core badge for the producer-craft frame it sits inside. Filter by
-              Core to find the lane that matches how you process the world.
+              Twenty-six shows that promote each other. When yours ships, every release carries it.
             </p>
           </div>
 

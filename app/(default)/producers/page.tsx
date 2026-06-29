@@ -5,28 +5,23 @@ import FooterCta from '@/components/sections/footer-cta'
 export const metadata: Metadata = {
   title: 'Producers',
   description:
-    'Brett K Moore and Randy Highsmith. The producers behind every Apex show. Two seats, one room, the work happens together.',
+    'Brett K Moore and Randy Highsmith run every Apex session together. The producers in the room when you record.',
   alternates: { canonical: '/producers/' },
 }
 
-/**
- * Producers page. Brett K Moore + Randy Highsmith long-form bios, verbatim
- * from the 2026-06-18 spec. Photos are placeholders for now (existing brand
- * assets in repo); the layout follows the CCM Producer/Founder pattern.
- */
 const PRODUCERS = [
   {
     slug: 'brett-k-moore',
     name: 'Brett K Moore',
-    role: 'Co-founder. Architect of the Pentatype.',
-    bio: 'Architect of the Pentatype. Built the communication assessment that shows hosts, guests, and audiences how they actually process the world. The Pentatype is how Apex thinks about voice, audience, and show fit before a single episode gets recorded.',
+    role: 'Co-founder. Built the Pentatype.',
+    bio: 'Brett built the Pentatype: the framework that maps how you actually communicate so your show fits your voice instead of asking your voice to fit a format. He sits in on strategy, hosts the producer call, and reads the audit at the end of every block.',
     image: '/covers/cover-04-pentatype.webp',
   },
   {
     slug: 'randy-highsmith',
     name: 'Randy Highsmith',
     role: 'Co-founder. Former Director of Podcast Production at eXp Realty.',
-    bio: 'Former Director of Podcast Production at eXp Realty. Worked directly with Glenn Sanford (founder) and Leo Pareja (CEO). Produced Big Agent Meeting alongside Russ Laggan. Built and ran podcast roster operations for one of the largest real estate networks in the world before co-founding Apex.',
+    bio: 'Randy ran podcast production for one of the largest real estate networks in the world, working directly with Glenn Sanford and Leo Pareja. He produced Big Agent Meeting with Russ Laggan. The chair he sat in there is the chair he sits in for you here.',
     image: '/covers/cover-05-label.webp',
   },
 ]
@@ -41,15 +36,11 @@ export default function ProducersPage() {
               The producers
             </p>
             <h1 className="display mt-5 text-ink">
-              Two producers. One room
+              The people in the room when you record
               <span className="text-acid">.</span>
             </h1>
             <p className="lead mt-6 max-w-2xl text-ink/75">
-              The work happens together on every session. The Pentatype on one
-              side, decades of real-room production on the other, and a
-              willingness to sit in the long pause when the conversation needs
-              it. Apex stays two people on purpose. An AI-native production
-              stack carries everything that does not need a human in the room.
+              The work is done by the founders. Every session, every show.
             </p>
           </Reveal>
 

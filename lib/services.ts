@@ -17,37 +17,37 @@
 export const tiers = {
   launch: {
     slug: 'the-prepisode',
-    eyebrow: 'Offer one',
+    eyebrow: 'Try one episode',
     name: 'The Prepisode',
     price: '$997',
     cadence: 'one-time',
-    headline: 'The Prepisode. The full PREP system, run once.',
+    headline: 'One episode. See what your show could become.',
     subhead:
-      'One produced episode that runs through all three PREP phases. Prepare, Record + Edit + Publish, Promote. The Pentatype assessment that tunes the show to you, a 90-minute strategy session with a producer, branded cover art, and twelve months inside the Apex Podcast Network. $997, one-time. The honest entry point.',
+      'A produced first episode in your feed within two weeks. We map your voice, run a strategy session, sit on the recording, ship the edit, and put the network behind it. If you keep going, the $997 credits in full toward your first cycle.',
   },
   managed: {
     slug: 'your-weekly-show',
-    eyebrow: 'Offer two',
+    eyebrow: 'Run the show',
     name: 'Your Weekly Show',
     price: '$2,997',
     cadence: 'per 28-day cycle',
-    headline: 'Your Weekly Show. The full PREP system, run every cycle.',
+    headline: 'A show that compounds. You only show up to record.',
     subhead:
-      '$2,997 per 28-day cycle. The full PREP system inside one bundle. Prepare, Record + Edit + Publish, Promote. One to four episodes per cycle, same price. A producer in the room every session. Full distribution under the Apex Podcast Network feed. A per-episode producer debrief. The block-analysis audit every eight episodes. Designed as the long-running engagement once you know you want a show in production.',
+      'One hour of recording becomes a published episode, a feed of cut-downs, and a network feature. Up to four episodes a cycle for the same $2,997. We handle every step before and after the recording.',
   },
   network: {
     slug: 'apex-podcast-network',
-    eyebrow: 'Offer three',
+    eyebrow: 'Amplify what you already publish',
     name: 'Apex Podcast Network',
     price: '$997',
     cadence: 'per 28-day cycle',
-    headline: 'Apex Podcast Network. Promote, on its own.',
+    headline: 'Already publishing? Put a network behind it.',
     subhead:
-      '$997 per 28-day cycle. The Promote phase of the PREP system as a standalone offer for podcast owners who already produce their own show. Socials repurposing from your published episode, bidirectional guest booking, and a place inside the Apex Podcast Network feed.',
+      'You produce. We promote. Social cut-downs, guest swaps with twenty-six other shows, and a place in the Apex Podcast Network feed. $997 per cycle.',
   },
   license: {
     slug: 'multi-tenant-pipeline-license',
-    eyebrow: 'Offer four',
+    eyebrow: 'License the pipeline',
     name: 'Multi-Tenant Pipeline License',
     price: '$2,997',
     cadence: 'per month',
@@ -55,36 +55,35 @@ export const tiers = {
     cadenceAnnual: 'per year',
     headline: 'Run the Apex pipeline under your own brand.',
     subhead:
-      'A licensed Apex production and distribution pipeline, run inside your own brand and on your own roster. You keep the client relationship. Apex licenses the system that produces the shows. $2,997 per month, or $29,970 per year. The real-estate and eXp roster is excluded, and an NDA is required before terms.',
+      'For operators producing podcasts for a roster of clients. You keep the relationship and the brand. We license the system. Real-estate and eXp roster excluded. NDA required before terms.',
   },
 } as const
 
-/** The PREP framework, the architecture under every Apex offer. */
 export const prepPhases: { letter: string; title: string; body: string }[] = [
   {
-    letter: 'P',
-    title: 'Prepare.',
-    body: 'Pre-recording strategy with a producer, guest research one-pagers, host coaching, episode arc design. The work that decides whether the episode lands before anyone hits record.',
+    letter: '01',
+    title: 'Before you record.',
+    body: 'We map your voice, build the guest brief, and plan the arc. You walk in knowing the conversation will land.',
   },
   {
-    letter: 'REP',
-    title: 'Record, Edit, Publish.',
-    body: 'A producer on the Riverside session catching levels and intervening live, full editing and mix, long-form publish through Transistor. The phase Apex has had dialed in from day one.',
+    letter: '02',
+    title: 'During the recording.',
+    body: 'A producer is on the call. Markers, redirects, the kindness to let a pause breathe. You focus on the conversation.',
   },
   {
-    letter: 'P',
-    title: 'Promote.',
-    body: 'Socials cut from the long-form episode, bidirectional guest booking (your host onto other shows, qualified guests onto yours), and amplification inside the Apex Podcast Network feed.',
+    letter: '03',
+    title: 'After the recording.',
+    body: 'Edit, publish, cut for social, swap guests with the network. Your hour goes everywhere your audience already is.',
   },
 ]
 
 /** Per-episode add-on line. Surfaces on the pricing surface as a menu item, not a primary SKU. */
 export const perEpisodeAddOn = {
   price: '$747',
-  cadence: 'per episode, all in',
-  modular: '$249 per episode, per modular service',
+  cadence: 'per extra episode',
+  modular: '$249 per episode for a single phase',
   body:
-    'Inside an active Weekly Show cycle, drop in an extra episode without restarting the cadence. $747 per episode all in, or $249 per episode per modular PREP service if you only want one phase on the extra.',
+    'Need one more episode this cycle? Drop it in for $747 fully produced, or $249 for a single phase.',
 } as const
 
 /** Two-tier comparison rows (COPY-SPEC §4). A = Launch, B = Managed. */
@@ -169,188 +168,140 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
 
 export const launchIncludes: { title: string; body: string }[] = [
   {
-    title: 'Prepare: the Pentatype assessment.',
-    body: 'The five-archetype communication-style mapping that pre-qualifies your show into a content lane before recording. Proprietary to Apex.',
+    title: 'A voice map of how you actually communicate.',
+    body: 'The Pentatype assessment, then a 90-minute session with your producer to shape the show around what you do best.',
   },
   {
-    title: 'Prepare: a 90-minute strategy and host-archetype session.',
-    body: 'With your producer. We walk the Pentatype result, decide the editorial premise, and build the episode outline.',
+    title: 'One fully produced episode in your feed.',
+    body: 'A producer in the recording, full edit and mix, cover art, intro and outro music. Live within two weeks of booking.',
   },
   {
-    title: 'Record, Edit, Publish: one fully produced episode.',
-    body: 'A producer live on the Riverside session catching levels and intervening in real time. Markers, edits, mix, and a clean publish through Transistor.',
+    title: 'A network around your launch.',
+    body: 'Your episode ships inside the Apex Podcast Network feed and gets a feature in The Debrief. You start with reach.',
   },
   {
-    title: 'Record, Edit, Publish: cover art, intro and outro music, and an episode template.',
-    body: 'From the curated Apex brand kit. Distinct, but not bespoke. Bespoke design is a separate engagement through a trusted web studio or quoted as a custom add-on.',
+    title: 'Five to seven short clips ready to post.',
+    body: 'The moments worth surfacing, cut for social.',
   },
   {
-    title: 'Promote: distribution under the Apex Podcast Network feed.',
-    body: 'Your episode goes live inside the network from day one.',
+    title: 'An honest read at the end.',
+    body: 'A debrief call with a clear recommendation. Keep going with Your Weekly Show or stop here.',
   },
   {
-    title: 'Promote: short-form social clips from the recorded episode.',
-    body: 'Five to seven templated motion graphics built from the moments that worked.',
-  },
-  {
-    title: 'Twelve months of Apex Podcast Network membership.',
-    body: 'Featured at least once in The Debrief during the membership window.',
-  },
-  {
-    title: 'Twelve months of PodcastNetwork.org access.',
-    body: 'The relationship-engine and guest-mapping IP behind PodcastNetwork.org, bundled as a network perk.',
-  },
-  {
-    title: 'A debrief call and a recommendation on Your Weekly Show.',
-    body: 'Honest read on whether the full Weekly Show cadence makes sense for you, with no obligation.',
+    title: 'The full $997 credited if you continue.',
+    body: 'Move to Your Weekly Show within ninety days and the credit lands on your first cycle automatically.',
   },
 ]
 
 export const launchTimeline: { title: string; body: string }[] = [
   {
-    title: 'Apply or book discovery.',
-    body: 'A 20-minute call with a producer. Match check, fit check, expectation check.',
+    title: 'Day 1: Book a call.',
+    body: 'Twenty minutes with a producer to confirm fit.',
   },
   {
-    title: 'Take the Pentatype assessment.',
-    body: 'About fifteen minutes. The result lands in your inbox and in the producer\'s notes.',
+    title: 'Day 2: Map your voice.',
+    body: 'Fifteen-minute Pentatype assessment.',
   },
   {
-    title: 'Sign and pay.',
-    body: 'GHL Documents contract. Stripe payment link inside the contract. One flow.',
+    title: 'Day 3: Sign and start.',
+    body: 'One contract, one payment link.',
   },
   {
-    title: 'Strategy and record.',
-    body: 'The 90-minute strategy session, then the recording session. Producer in the room.',
+    title: 'Day 7: Strategy and record.',
+    body: 'Ninety-minute strategy session, then the recording.',
   },
   {
-    title: 'Receive your first release.',
-    body: 'Produced episode, cover art lockup, social clip set, distribution live under the Apex Podcast Network feed, debrief call on the calendar.',
+    title: 'Day 14: Live in your feed.',
+    body: 'Produced episode, cover art, social clips, distribution, debrief.',
   },
 ]
 
 export const launchExclusions: string[] = [
-  'Any episode beyond the first.',
-  'Custom (non-templated) graphic design.',
-  'Ongoing social posting beyond the initial clip set.',
-  'Email automation buildout.',
-  'Coaching beyond the strategy session and the debrief call.',
-  'Guest acquisition matchmaking.',
-  'Knowledge Graph, Wikipedia, or book publishing work.',
+  'Episodes beyond the first.',
+  'Custom (non-templated) design.',
+  'Ongoing social posting.',
+  'Coaching beyond the strategy session and the debrief.',
+  'Book publishing, Knowledge Graph, or Wikipedia work.',
 ]
 
 export const launchFaq: { q: string; a: string }[] = [
   {
-    q: 'Why is it called The Prepisode?',
-    a: 'PREP is the framework underneath every Apex offer (Prepare, Record + Edit + Publish, Promote). The Prepisode is one produced episode that runs through the full PREP system end to end. The name is a portmanteau of Prep and Episode. It is an inside joke that you are now in on.',
-  },
-  {
-    q: 'How many episodes do I get?',
-    a: 'One produced episode. Anything beyond the first sits inside Your Weekly Show or is quoted as a per-episode add-on at $747 per episode all in.',
+    q: 'How fast can I have an episode in my feed?',
+    a: 'Two weeks from booking. Sometimes faster.',
   },
   {
     q: 'Who owns the episode?',
-    a: 'You own the recording, the episode, the cover art used on your show, and the clips. Apex retains a non-exclusive right to feature the episode and a notable quote inside the Apex Podcast Network feed and The Debrief.',
+    a: 'You. Recording, edit, cover art, clips. Apex keeps the right to feature it inside the network feed and The Debrief.',
   },
   {
-    q: 'What recording platform do you use?',
-    a: 'Riverside, with the producer in the session. Local recordings on both sides. We send you the link before the session.',
+    q: 'What if I want a whole show, not one episode?',
+    a: 'Your Weekly Show is the path. If you upgrade within ninety days, the $997 credits in full toward your first cycle.',
   },
   {
-    q: 'Where is my show distributed?',
-    a: 'Setup under the Apex Podcast Network feed on Transistor at launch. You also get your own show RSS that publishes wherever you want to point it.',
-  },
-  {
-    q: 'How long does The Prepisode take from booking to delivery?',
-    a: 'Typical turnaround is two to three weeks from contract signing to delivered episode, depending on recording calendar fit.',
-  },
-  {
-    q: 'What if I want to record more than one episode?',
-    a: 'The path is Your Weekly Show. The Prepisode is a single produced episode by design.',
-  },
-  {
-    q: 'What happens if it does not work out?',
-    a: 'We make the call honest on the discovery and again on the debrief. If we do not think The Prepisode is the right move for you, we say so before you sign.',
+    q: 'What if it does not work out?',
+    a: 'We tell you on the discovery call. If we do not think a show is right for you, we say so before you sign.',
   },
 ]
 
 export const managedIncludes: { title: string; body: string }[] = [
   {
-    title: 'Up to four produced episodes per cycle.',
-    body: 'One to four costs the same. No penalty for slowing the cadence, no extra fee for picking it up.',
+    title: 'Up to four episodes a cycle for the same price.',
+    body: 'Slow down or speed up without renegotiating.',
   },
   {
-    title: 'Recording sessions with a producer in the room.',
-    body: 'Up to four hours per session day. Green Room Experience. Riverside-based.',
+    title: 'A producer on every recording.',
+    body: 'You record. We catch levels, mark moments, save the questions you forgot to ask.',
   },
   {
-    title: 'Distribution under the Apex Podcast Network feed.',
-    body: 'Including dynamic ad insertion campaigns when a sponsor fits. Ninety percent of the ad revenue goes to you. Ten percent stays with Apex and funds the affiliate program.',
+    title: 'Distribution and ad revenue, ninety percent to you.',
+    body: 'Your show ships through the Apex Podcast Network feed. When sponsors fit, you keep ninety percent of the ad revenue.',
   },
   {
-    title: 'The Pentatype profile, kept current.',
-    body: 'Revisited if the show direction shifts. The frequency mapping stays accurate as the show evolves.',
+    title: 'A producer debrief after every episode.',
+    body: 'What worked, what to lean into, and the one moment we turn into a clip and a network feature.',
   },
   {
-    title: 'A written producer debrief on every episode.',
-    body: 'One observation per episode, surfaced into the debrief, the social clip, and a candidate seat inside The Debrief newsletter.',
+    title: 'Guest swaps across twenty-six other shows.',
+    body: 'Your host on their feeds. Their guests on yours. Compound reach starts cycle one.',
   },
   {
-    title: 'Network coordination.',
-    body: 'Continuous collab tagging across the roster. Guest intros where there is fit. Cross-promotion inside the cohort.',
+    title: 'A written audit of your show every eight episodes.',
+    body: 'Theme distribution, guest patterns, the episode your audience is primed for that you have not recorded yet.',
   },
   {
-    title: 'The block-analysis audit every eight episodes.',
-    body: 'A four to six page written editorial read on the show as a body of work. Themes, host-to-guest ratio, sentiment arc, the audience signal you are missing.',
-  },
-  {
-    title: 'A monthly producer office hour.',
-    body: 'One thirty-minute sync per cycle to plan the next cycle\'s content. Not coaching. Planning.',
-  },
-  {
-    title: 'Eligibility for sibling-company engagements.',
-    body: 'A trusted publisher for the book conversation when it comes up. A trusted AI shop for the Knowledge Graph and the Wikipedia conversation. Both as separate engagements at separate fees.',
-  },
-  {
-    title: 'GHL client sub-account.',
-    body: 'Per-client portal at portal.apexpodcast.co. Episodes, debriefs, schedule, billing, all in one place.',
+    title: 'A planning call each cycle.',
+    body: 'Thirty minutes with your producer to map the next eight weeks.',
   },
 ]
 
 export const managedExclusions: string[] = [
-  'Custom social media content beyond per-episode templated clips.',
+  'Custom social content beyond the per-episode clips.',
   'Ongoing graphic design overhauls.',
   'Book ghost-writing or publication.',
   'Wikipedia and Knowledge Graph buildout.',
-  'Ad-hoc producer time beyond the monthly office hour. Quoted at the published hourly rate when it comes up.',
-  'In-person physical studio sessions.',
+  'In-person studio sessions.',
 ]
 
 export const managedFaq: { q: string; a: string }[] = [
-  { q: 'What is a cycle?', a: 'Twenty-eight days. Thirteen cycles in a year.' },
   {
-    q: 'How many episodes per cycle?',
-    a: 'One to four. Same price either way. We plan cadence with you on the monthly office hour.',
+    q: 'How much do I actually have to do?',
+    a: 'Show up and record. Up to four hours of recording a cycle. Everything before and after is on us.',
   },
   {
-    q: 'How does cancellation work?',
-    a: 'Cancel before the next cycle begins and you do not get billed for the next cycle. We do not refund the cycle in progress.',
+    q: 'What is a cycle?',
+    a: 'Twenty-eight days. Thirteen cycles in a year.',
+  },
+  {
+    q: 'How do I cancel?',
+    a: 'Cancel before the next cycle starts and you are not billed again. The current cycle finishes.',
   },
   {
     q: 'What happens to the show if I leave?',
-    a: 'You own your show, your episodes, your cover art, your clips, your RSS. We hand them off cleanly. The producer note on each episode goes with you.',
+    a: 'You keep everything. Episodes, cover art, clips, RSS. Clean handoff.',
   },
   {
-    q: 'Are the founding-cohort terms transferable?',
-    a: 'No. Founding cohort status is tied to the specific show and the specific entity that signed the contract.',
-  },
-  {
-    q: 'How often does the audit ship?',
-    a: 'Every eight episodes. At cycle pace of four episodes, that is one audit every two cycles.',
-  },
-  {
-    q: 'What about ad inventory rights?',
-    a: 'You own your show, so you own the inventory. The Apex Podcast Network feed runs dynamic insertion as the sponsorship machine. Ninety percent of that revenue is yours.',
+    q: 'How do ads work?',
+    a: 'You own the show, you own the inventory. When sponsors fit, ninety percent of ad revenue is yours.',
   },
 ]
 

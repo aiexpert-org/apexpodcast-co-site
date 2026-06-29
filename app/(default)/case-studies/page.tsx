@@ -10,7 +10,7 @@ import { CASE_STUDY_SHOWS } from '@/lib/shows'
 export const metadata: Metadata = {
   title: 'Case Studies',
   description:
-    'The human-hosted shows in the Apex stable. The Apex Podcast, Sweeter After Difficulty, The Russ Laggan Podcast, and Winning Twice. A producer in the room on every one.',
+    'The shows we produce, and the founders behind them.',
   alternates: { canonical: '/case-studies/' },
 }
 
@@ -18,13 +18,11 @@ export default function CaseStudiesPage() {
   return (
     <>
       <PageIntro
-        eyebrow="Case studies"
-        title="The shows we produce, and the people behind them."
+        eyebrow="The work"
+        title="Shows that earn their hour."
       >
         <p>
-          Four human-hosted shows, four different audiences, one production
-          standard. A producer at every session, a Pentatype profile under every
-          show, and a place on the network for every release.
+          Four hosts. Four audiences. One standard.
         </p>
       </PageIntro>
 
@@ -64,8 +62,7 @@ export default function CaseStudiesPage() {
 
       <ContactBlock heading="Want a show like these?" source="case-studies-index">
         <p>
-          Apex takes on a small number each cycle. Drop your info and a producer
-          will reach out when a spot opens.
+          Five new shows a quarter. A producer will reach out when a spot opens.
         </p>
       </ContactBlock>
     </>

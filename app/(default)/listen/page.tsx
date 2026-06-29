@@ -7,25 +7,13 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Listen',
   description:
-    'The Apex Podcast on Spotify, Apple Podcasts, and every other listening surface. Listening is free, your pentatype is free, and coming on the show is free.',
+    'The Apex Podcast on Spotify, Apple Podcasts, and everywhere else. Listening is free. So is coming on the show.',
   alternates: { canonical: '/listen/' },
 }
-
-/**
- * /listen is the platform landing page. CTAs across the site ("Listen on Spotify",
- * "Apple Podcasts", "Listen anywhere") point here. The buttons wire to
- * siteConfig.listen.* with a contact-form fallback for any link still set to the
- * /listen self-reference (so nothing dead-ends while the show is approved on the
- * podcast platforms). Replace the listen URLs in site-config when the real
- * Spotify, Apple Podcasts, and Transistor all-platforms URLs are issued.
- */
 
 const SELF = '/listen'
 
 function platformHref(url: string): string {
-  // Treat a URL that still resolves to the /listen page itself (the Phase 3
-  // placeholder pattern) as "not yet wired" and fall back to the contact route
-  // so the link still does something useful.
   if (!url) return '/contact/'
   if (url === siteConfig.url + SELF || url === siteConfig.url + SELF + '/') {
     return '/contact/'
@@ -41,7 +29,6 @@ export default function ListenPage() {
 
   return (
     <>
-      {/* Hero */}
       <section className="bg-ink text-bone">
         <div className="container-apex pb-20 pt-36 md:pb-24 md:pt-44">
           <p className="eyebrow-acid">The Apex Podcast</p>
@@ -50,79 +37,47 @@ export default function ListenPage() {
             <span className="text-acid">.</span>
           </h1>
           <p className="lead mt-7 max-w-3xl text-bone/70">
-            The Apex Podcast on Spotify, Apple Podcasts, and every other listening surface. Listening
-            is free, your pentatype is free, and coming on the show is free.
-          </p>
-          <p className="mt-6 font-mono text-xs uppercase tracking-widest text-bone/55">
-            Season 1: The Pentatype Communication Codes. Episode 001, Pentatype Intro, shipped 2026-06-02.
+            Conversations with founders, operators, and the people who hire them. Listening is free. So is coming on the show.
           </p>
         </div>
       </section>
 
-      {/* Platform buttons */}
       <section className="section bg-bone">
         <div className="container-apex">
           <Reveal>
-            <p className="eyebrow">Pick your platform.</p>
+            <p className="eyebrow">Pick a platform</p>
           </Reveal>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Reveal>
-              <PlatformCard
-                name="Spotify"
-                blurb="Subscribe on Spotify. New episodes drop weekly."
-                href={spotify}
-                external
-              />
+              <PlatformCard name="Spotify" blurb="New episodes drop weekly." href={spotify} external />
             </Reveal>
             <Reveal delay={0.05}>
-              <PlatformCard
-                name="Apple Podcasts"
-                blurb="Subscribe on Apple Podcasts. New episodes drop weekly."
-                href={apple}
-                external
-              />
+              <PlatformCard name="Apple Podcasts" blurb="New episodes drop weekly." href={apple} external />
             </Reveal>
             <Reveal delay={0.1}>
-              <PlatformCard
-                name="Transistor RSS"
-                blurb="The Apex Podcast Network feed direct from Transistor."
-                href={transistor}
-                external
-              />
+              <PlatformCard name="RSS" blurb="The Apex Podcast Network feed." href={transistor} external />
             </Reveal>
             <Reveal delay={0.15}>
-              <PlatformCard
-                name="Listen anywhere"
-                blurb="The all-platforms page. Pick the app you use."
-                href={anywhere}
-                external
-              />
+              <PlatformCard name="Anywhere else" blurb="Pick the app you use." href={anywhere} external />
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* About the show */}
       <section className="section bg-bone pt-0">
         <div className="container-apex">
           <Reveal>
             <div className="max-w-3xl">
-              <p className="eyebrow">About the show.</p>
+              <p className="eyebrow">Want to come on?</p>
               <p className="mt-5 text-ink/75">
-                The Apex Podcast is the show where our producers sit down with an owner, operator, or
-                leader and find the show inside what they have already built. Two on-air segments
-                anchor every episode: your Pentatype, read live, and a producer-led best-memory and
-                worst-memory exercise. The recording is the conversation.
+                We record with founders, operators, and the leaders our audience is trying to hire. Coming on is free.
               </p>
               <div className="mt-7 flex flex-wrap gap-4">
-                <CtaLink href="/" variant="primary" arrow>
-                  See the show
+                <CtaLink href="/contact/" variant="primary" arrow>
+                  Apply to be on the show
                 </CtaLink>
                 <CtaLink href={siteConfig.pentatypeUrl} variant="ghost-light">
                   Take the Pentatype
-                </CtaLink>
-                <CtaLink href="/contact/" variant="ghost-light">
-                  Apply to be on the show
                 </CtaLink>
               </div>
             </div>
