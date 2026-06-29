@@ -33,7 +33,7 @@ export const tiers = {
     cadence: 'per 28-day cycle',
     headline: 'The show, ongoing. You only show up to record.',
     subhead:
-      'An hour of recording becomes a published episode, a feed of cut-downs, and a place inside a network of Apex shows. Up to four episodes a cycle for the same $2,997. We hold every step before and after the recording.',
+      'An hour of recording becomes a published episode, a feed of cut-downs, and a place inside the Apex catalog. Up to four episodes a cycle for the same $2,997. Every step before and after the recording is on us.',
   },
   network: {
     slug: 'apex-podcast-network',
@@ -43,7 +43,7 @@ export const tiers = {
     cadence: 'per 28-day cycle',
     headline: 'Already publishing? Put a network behind it.',
     subhead:
-      'You produce. We promote. Social cut-downs, guest swaps with twenty-six other shows, and a place in the Apex Podcast Network feed. $997 per cycle.',
+      'You produce. We promote. Social cut-downs, guest swaps with the Apex catalog, and a place in the Apex Podcast Network feed. $997 per cycle.',
   },
   license: {
     slug: 'multi-tenant-pipeline-license',
@@ -256,7 +256,7 @@ export const managedIncludes: { title: string; body: string }[] = [
     body: 'What worked, what to lean into, and the one moment we turn into a clip and a network feature.',
   },
   {
-    title: 'Guest swaps across twenty-six other shows.',
+    title: 'Guest swaps across the Apex catalog.',
     body: 'Your host on their feeds. Their guests on yours. Compound reach starts cycle one.',
   },
   {

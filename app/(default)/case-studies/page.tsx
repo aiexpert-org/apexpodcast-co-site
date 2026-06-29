@@ -11,7 +11,7 @@ import { CASE_STUDY_SHOWS } from '@/lib/shows'
 export const metadata: Metadata = {
   title: 'Case Studies',
   description:
-    'The shows we produce. The hosts behind them. The conversations we hold the craft for.',
+    'The shows we produce. The hosts behind them. Real conversations, on the record.',
   alternates: { canonical: '/case-studies/' },
 }
 
@@ -74,7 +74,7 @@ export default function CaseStudiesPage() {
 
       <ContactBlock heading="Want a show like these?" source="case-studies-index">
         <p>
-          A small number of new shows each quarter. A producer will reach out when a spot opens.
+          A producer will reach out personally.
         </p>
       </ContactBlock>
     </>

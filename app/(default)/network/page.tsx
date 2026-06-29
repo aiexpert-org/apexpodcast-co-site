@@ -29,11 +29,11 @@ export default async function NetworkPage() {
               The Apex Podcast Network
             </p>
             <h1 className="display mt-5 text-ink">
-              The audience that already lives here
+              The catalog
               <span className="text-acid">.</span>
             </h1>
             <p className="lead mt-6 max-w-2xl text-ink/75">
-              Twenty-six shows that promote each other. When yours ships, every release carries it.
+              Three shows in production. Real conversations, on the record.
             </p>
           </div>
 

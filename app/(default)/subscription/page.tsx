@@ -85,11 +85,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Is there a contract?',
-    a: 'Your Weekly Show runs per 28-day cycle. The first cohort of Weekly Show clients locks the rate for 24 months. The Prepisode is a one-time gateway with a credit toward Weekly Show inside the ninety-day window.',
-  },
-  {
-    q: 'How many shows do you take?',
-    a: 'A small number each cycle. The cap is the point. It is what keeps a producer in the room on every session.',
+    a: 'Your Weekly Show runs per 28-day cycle, cancel anytime before the next cycle. The Prepisode is a one-time gateway with a credit toward Weekly Show inside the ninety-day window.',
   },
   {
     q: 'Who owns the show?',

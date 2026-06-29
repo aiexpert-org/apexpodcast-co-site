@@ -1,17 +1,14 @@
 /**
- * The Apex catalog. Powers the Network catalog page, the home page's dark
- * Logo Scroller band, and the Selected Work section.
+ * The Apex catalog.
  *
- * v4.3 locked slate (2026-06-18). 26 shows total:
- *   1. FLAGSHIP (3): the human-hosted Selected Work shown on the home page.
- *      Sweeter After Difficulty, Winning Twice With Austin Cheviron,
- *      The Russ Laggan Podcast.
- *   2. ESTABLISHED (7): the rest of the 10 shows already on Transistor.
- *   3. COMING SOON (16): the new AI-narrated slate.
+ * Public-facing posture (2026-06-28 honesty pass): the catalog IS the three
+ * Flagship shows. ESTABLISHED + COMING SOON entries are retained in source
+ * for internal/admin use but the public derived exports (SCROLLER_SHOWS,
+ * NETWORK_SHOWS, CASE_STUDY_SHOWS) all resolve to the three real shows so
+ * the site never overstates the catalog.
  *
- * Wordmark SVG availability follows the brand-task naming. Shows that were
- * renamed at v4.3 fall back to a typeset wordmark in the LogoScroller until
- * brand cuts new SVGs.
+ * The three real shows: The Russ Laggan Podcast, Winning Twice with Austin
+ * Cheviron, Sweeter After Difficulty.
  */
 
 import type { Core } from '@/lib/pentatype'
@@ -432,8 +429,11 @@ export const COMING_SOON_SHOWS: Show[] = [
 
 export const SHOWS: Show[] = [...FLAGSHIP_SHOWS, ...ESTABLISHED_SHOWS, ...COMING_SOON_SHOWS]
 
+/** Public-facing catalog: only the three real shows. */
+export const PUBLIC_SHOWS: Show[] = FLAGSHIP_SHOWS
+
 /** All shows for the dark Logo Scroller on the home page (26 total). */
-export const SCROLLER_SHOWS: Show[] = SHOWS
+export const SCROLLER_SHOWS: Show[] = PUBLIC_SHOWS
 
 /** Cover paths for legacy components that still scan SHOWS for raster art. */
 export const SHOW_COVERS: string[] = SHOWS.map((s) => s.cover).filter(Boolean)
@@ -442,7 +442,7 @@ export const SHOW_COVERS: string[] = SHOWS.map((s) => s.cover).filter(Boolean)
 export const CASE_STUDY_SHOWS: Show[] = FLAGSHIP_SHOWS
 
 /** Network-page shows, in catalog order. */
-export const NETWORK_SHOWS: Show[] = [...ESTABLISHED_SHOWS, ...COMING_SOON_SHOWS]
+export const NETWORK_SHOWS: Show[] = PUBLIC_SHOWS
 
 export function getShow(slug: string): Show | undefined {
   return SHOWS.find((s) => s.slug === slug)

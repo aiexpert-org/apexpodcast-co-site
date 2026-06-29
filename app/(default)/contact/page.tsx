@@ -10,16 +10,16 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Save your spot. A small number of new shows each quarter. A producer reaches out personally when one opens.',
+    'Save your spot. A producer reaches out personally.',
   alternates: { canonical: '/contact/' },
 }
 
 export default function ContactPage() {
   return (
     <>
-      <PageIntro eyebrow="Save your spot" title="A small number of new shows each quarter.">
+      <PageIntro eyebrow="Save your spot" title="Talk to a producer.">
         <p>
-          Drop your info and a producer will reach out personally when a spot opens.
+          Drop your info and a producer will reach out personally.
         </p>
       </PageIntro>
 
