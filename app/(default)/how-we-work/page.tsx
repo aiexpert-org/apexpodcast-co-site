@@ -8,34 +8,34 @@ import { ContactBlock } from '@/components/ccm/contact-block'
 export const metadata: Metadata = {
   title: 'How We Work',
   description:
-    'You show up to record. We do the rest. Three steps from first call to live in your feed in fourteen days.',
+    'You show up for the conversation. We hold the craft. Three steps from first call to live in your feed in fourteen days.',
   alternates: { canonical: '/how-we-work/' },
 }
 
 const STEPS = [
   {
-    title: 'Tell us what you want to build.',
+    title: 'Tell us what you want to make.',
     body:
-      'A twenty-minute call with a producer. We listen, ask what your audience needs to hear, and tell you what an Apex show would look like for you.',
+      'A twenty-minute call with a producer. We listen for the show that is actually trying to come out of you, and we tell you what that show would sound like in our hands.',
   },
   {
     title: 'Show up and record.',
     body:
-      'Sixty minutes a week. A producer is on the line catching levels, marking moments, saving the questions you forgot to ask.',
+      'An hour a week. A producer is on the line catching levels, marking the moments worth keeping, saving the questions you forgot to ask.',
   },
   {
-    title: 'Watch it compound.',
+    title: 'We hold the rest.',
     body:
-      'We edit, publish, cut for social, and swap guests with the rest of the Apex Podcast Network. Your hour becomes a feed, a clip set, and a stream of inbound.',
+      'Edit, publish, cut for social, place the episode inside a network of Apex shows. The conversation you had once goes everywhere your audience already is.',
   },
 ]
 
 export default function HowWeWorkPage() {
   return (
     <>
-      <PageIntro eyebrow="How it works" title="You show up. We do the rest.">
+      <PageIntro eyebrow="How it works" title="Show up. We hold the craft.">
         <p>
-          Three steps from the first call to a published episode that earns its keep.
+          Three steps from the first call to a published episode you are proud of.
         </p>
       </PageIntro>
 
@@ -60,7 +60,7 @@ export default function HowWeWorkPage() {
 
       <ContactBlock heading="Ready to record the first one?">
         <p>
-          Five new shows a quarter. Save your spot and a producer will reach out.
+          A small number of new shows each quarter. Save your spot and a producer will reach out.
         </p>
       </ContactBlock>
     </>

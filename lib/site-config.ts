@@ -63,6 +63,9 @@ export const siteConfig = {
     press: 'press@apexpodcast.co',
   },
 
+  city: 'Indianapolis',
+  state: 'IN',
+
   // External properties. The Apex Podcast show exists at
   // dashboard.transistor.fm/shows/the-apex-podcast (Transistor admin).
   // TODO(2026-06-26): swap to the real Transistor Apex Podcast Network feed URL
@@ -111,7 +114,6 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/case-studies/sweeter-after-difficulty/',
   '/case-studies/the-russ-laggan-podcast/',
   '/case-studies/winning-twice/',
-  '/resources/',
   '/about/',
   '/contact/',
   '/partners/',

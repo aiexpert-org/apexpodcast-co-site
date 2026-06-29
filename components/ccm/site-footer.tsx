@@ -65,7 +65,7 @@ export function SiteFooter() {
                 </a>
               </li>
               <li className="text-neutral-500">
-                Indianapolis, IN
+                {siteConfig.city}, {siteConfig.state}
               </li>
             </ul>
           </div>
@@ -73,13 +73,13 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 border-t border-neutral-200 pt-8 pb-12">
           <p className="flex flex-wrap items-center gap-x-1.5 text-sm text-neutral-500">
-            &copy; {siteConfig.name} 2026.
+            &copy; {siteConfig.name} {new Date().getFullYear()}.
             <ApexAvatar size={32} />
-            <span className="font-medium text-neutral-600">Apex Podcast Co</span>
+            <span className="font-medium text-neutral-600">{siteConfig.name}</span>
           </p>
 
           <p className="text-sm text-neutral-500">
-            Indianapolis, IN.
+            {siteConfig.city}, {siteConfig.state}.
           </p>
         </div>
       </FadeIn>

@@ -76,19 +76,6 @@ export default function YourWeeklyShowPage() {
         </div>
       </section>
 
-      <section className="section bg-bone">
-        <div className="container-apex">
-          <Reveal>
-            <div className="max-w-3xl rounded-3xl bg-ink p-8 text-bone md:p-10">
-              <p className="eyebrow-acid">The first five</p>
-              <p className="mt-5 text-bone/75">
-                The first five Weekly Show clients lock at $2,997 per cycle for twenty-four months, even when list price moves.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <section className="section bg-bone pt-0">
         <div className="container-apex max-w-3xl">
           <Reveal>
@@ -108,7 +95,7 @@ export default function YourWeeklyShowPage() {
         source="intake_weekly_show"
       />
 
-      <ClosingCta headline="Ready to become the founder people listen to?" />
+      <ClosingCta headline="Ready to make the show you’ve been meaning to make?" />
     </>
   )
 }

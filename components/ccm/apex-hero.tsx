@@ -104,12 +104,12 @@ export function ApexHero() {
             <span className="mb-5 block font-display text-sm font-semibold tracking-wider text-[var(--color-cta)] uppercase">
               Apex Podcast Co
             </span>
-            <h1 className="font-display text-[2.75rem] leading-[1.05] font-medium tracking-tight text-balance text-neutral-950 sm:text-6xl lg:text-[3.75rem] lg:leading-[1.08]">
-              Become the founder people listen to.
+            <h1 className="font-display text-[2.75rem] leading-[1.05] font-medium tracking-tight text-balance text-neutral-950 sm:text-6xl lg:text-[4rem] lg:leading-[1.08]">
+              The podcast you&rsquo;ve been meaning to make.
             </h1>
             <p className="mt-6 max-w-xl text-xl leading-8 text-neutral-600">
-              Apex turns one hour of conversation a week into deals, hires,
-              and partners. You record. We do the rest. Episode one in
+              Creative producers for people with something real to say.
+              Show up for the conversation. We hold the craft. Episode one in
               fourteen days.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-6">

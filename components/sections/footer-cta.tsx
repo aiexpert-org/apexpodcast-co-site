@@ -3,7 +3,7 @@ import { Reveal } from '@/components/motion/reveal'
 
 export default function FooterCta({
   source = 'footer-cta',
-  heading = 'Become the founder people listen to',
+  heading = 'Make the show you’ve been meaning to make',
   body = 'Save your spot. A producer reaches out when one opens.',
   punctuation = '.',
 }: {

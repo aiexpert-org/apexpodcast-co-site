@@ -31,9 +31,9 @@ export const tiers = {
     name: 'Your Weekly Show',
     price: '$2,997',
     cadence: 'per 28-day cycle',
-    headline: 'A show that compounds. You only show up to record.',
+    headline: 'The show, ongoing. You only show up to record.',
     subhead:
-      'One hour of recording becomes a published episode, a feed of cut-downs, and a network feature. Up to four episodes a cycle for the same $2,997. We handle every step before and after the recording.',
+      'An hour of recording becomes a published episode, a feed of cut-downs, and a place inside a network of Apex shows. Up to four episodes a cycle for the same $2,997. We hold every step before and after the recording.',
   },
   network: {
     slug: 'apex-podcast-network',
@@ -158,11 +158,6 @@ export const compareRows: { label: string; launch: string; managed: string }[] =
     launch: 'Not gated. Prepisode buyers are welcome to inquire.',
     managed:
       'Eligible for partner book engagements and Knowledge Graph engagements as separate fees.',
-  },
-  {
-    label: 'Founding cohort',
-    launch: 'Not applicable.',
-    managed: 'First five Weekly Show clients lock at $2,997 for twenty-four months.',
   },
 ]
 
