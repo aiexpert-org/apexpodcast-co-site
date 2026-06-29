@@ -5,17 +5,6 @@ import { FadeIn } from '@/components/ccm/fade-in'
 import { JoinWaitListButton } from '@/components/ccm/join-waitlist-button'
 import { ButtonMarker } from '@/components/ccm/button-marker'
 
-/**
- * ApexHero. CCM hero pattern, ported to Apex.
- *
- * Right side is a dense cover-art mosaic. Twenty tiles in a 5-column, 4-row
- * grid, edge-to-edge with a soft top fade. Each tile rests at low saturation;
- * hovering lights it to full color. Mobile drops to a 3-column, 3-row subset.
- *
- * No overlay card. The headline and strapline in the left column carry the
- * brand statement; the tiles are the product surface.
- */
-
 const HERO_TILES: string[] = [
   '/covers/show-sweeter-after-difficulty.webp',
   '/covers/show-the-russ-laggan-podcast.webp',
@@ -69,7 +58,6 @@ function HeroMosaic() {
           <CoverTile key={`${src}-${i}`} src={src} priority={i < 5} />
         ))}
       </div>
-      {/* Soft fade at the top edge so the mosaic settles into the page. */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-16"
         style={{
@@ -77,7 +65,6 @@ function HeroMosaic() {
             'linear-gradient(to bottom, var(--color-bone) 0%, rgba(250,248,243,0) 100%)',
         }}
       />
-      {/* Soft fade at the bottom edge into the page below. */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-10"
         style={{
@@ -113,33 +100,26 @@ export function ApexHero() {
     <section aria-label="Introduction" className="overflow-hidden">
       <Container className="pb-12 sm:pb-16 lg:pb-20">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
-          {/* Copy column */}
           <FadeIn className="max-w-2xl">
             <span className="mb-5 block font-display text-sm font-semibold tracking-wider text-[var(--color-cta)] uppercase">
               Apex Podcast Co
             </span>
             <h1 className="font-display text-[2.75rem] leading-[1.05] font-medium tracking-tight text-balance text-neutral-950 sm:text-6xl lg:text-[3.75rem] lg:leading-[1.08]">
-              Producers for serious artists, founders, and operators.
+              Become the founder people listen to.
             </h1>
             <p className="mt-6 max-w-xl text-xl leading-8 text-neutral-600">
-              A boutique production company. Producers in the room on every
-              session, an AI-native production stack behind them, a network
-              around your show. The sound you would expect from a record label,
-              applied to the long-form conversation.
+              Apex turns one hour of conversation a week into deals, hires,
+              and partners. You record. We do the rest. Episode one in
+              fourteen days.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <JoinWaitListButton source="home-hero" />
-              <ButtonMarker href="/network/" variant="ghost">
-                See the catalog
+              <ButtonMarker href="/discovery-call/" variant="ghost">
+                Book a discovery call
               </ButtonMarker>
             </div>
-            <p className="mt-6 text-sm font-medium text-neutral-500">
-              The <span className="text-neutral-700">Apex Podcast Network</span>.
-              Producers in the room on every session.
-            </p>
           </FadeIn>
 
-          {/* Mosaic column */}
           <FadeIn>
             <div className="hidden md:block">
               <HeroMosaic />

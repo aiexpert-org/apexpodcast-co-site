@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 
 import { Container } from '@/components/ccm/container'
 import { FadeIn } from '@/components/ccm/fade-in'
-import { Border } from '@/components/ccm/border'
 import { PageIntro } from '@/components/ccm/page-intro'
 import { ApexPortrait } from '@/components/ccm/apex-portrait'
 import { JoinWaitListButton } from '@/components/ccm/join-waitlist-button'
@@ -11,18 +10,16 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Apex Podcast Co takes on a small number of new shows each quarter. Join the wait list and a producer will reach out personally when a spot opens.',
+    'Save your spot. Five new shows a quarter. A producer reaches out personally when one opens.',
   alternates: { canonical: '/contact/' },
 }
 
 export default function ContactPage() {
   return (
     <>
-      <PageIntro eyebrow="Join the wait list" title="Save your spot.">
+      <PageIntro eyebrow="Save your spot" title="Five new shows a quarter.">
         <p>
-          Apex Podcast Co takes on a small number of new shows each quarter.
-          Drop your info and a producer will reach out personally when a spot
-          opens.
+          Drop your info and a producer will reach out personally when a spot opens.
         </p>
       </PageIntro>
 
@@ -34,8 +31,7 @@ export default function ContactPage() {
                 Save your spot
               </h2>
               <p className="mt-3 text-base leading-7 text-neutral-600">
-                The fastest way to reach a producer at Apex. We&rsquo;ll email
-                you back personally.
+                The fastest way to reach a producer at Apex.
               </p>
               <div className="mt-6">
                 <JoinWaitListButton source="contact-page" />
@@ -46,50 +42,25 @@ export default function ContactPage() {
 
               <div className="mt-12 max-w-xl">
                 <h2 className="font-display text-2xl font-semibold tracking-tight text-neutral-950">
-                  How it works.
+                  Prefer to write first?
                 </h2>
                 <p className="mt-4 text-base leading-7 text-neutral-600">
-                  You join the wait list. A producer reads your info and emails
-                  you within a few days. We schedule a 20-minute call. We ask
-                  what you are building, we tell you what an Apex show would
-                  look like for you, and we decide together whether the fit is
-                  right.
+                  Email{' '}
+                  <a
+                    href={`mailto:${siteConfig.email.brett}`}
+                    className="font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 hover:decoration-2"
+                  >
+                    {siteConfig.email.brett}
+                  </a>
+                  . For press,{' '}
+                  <a
+                    href={`mailto:${siteConfig.email.press}`}
+                    className="font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 hover:decoration-2"
+                  >
+                    {siteConfig.email.press}
+                  </a>
+                  .
                 </p>
-
-                <Border className="mt-10 pt-8">
-                  <h3 className="font-display text-sm font-semibold tracking-wider uppercase text-neutral-950">
-                    Prefer email?
-                  </h3>
-                  <p className="mt-3 text-base leading-7 text-neutral-600">
-                    Drop a line to{' '}
-                    <a
-                      href={`mailto:${siteConfig.email.brett}`}
-                      className="font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 hover:decoration-2"
-                    >
-                      {siteConfig.email.brett}
-                    </a>
-                    . For press, write{' '}
-                    <a
-                      href={`mailto:${siteConfig.email.press}`}
-                      className="font-semibold text-neutral-950 underline decoration-[var(--color-cta)] underline-offset-4 hover:decoration-2"
-                    >
-                      {siteConfig.email.press}
-                    </a>
-                    .
-                  </p>
-                </Border>
-
-                <Border className="mt-10 pt-8">
-                  <h3 className="font-display text-sm font-semibold tracking-wider uppercase text-neutral-950">
-                    What you&rsquo;re joining
-                  </h3>
-                  <p className="mt-3 text-base leading-7 text-neutral-600">
-                    A boutique production company with a capped roster. A
-                    producer in the room on every session. A network around your
-                    show. The sound you would expect from a record label,
-                    applied to the long-form conversation.
-                  </p>
-                </Border>
               </div>
             </div>
           </div>

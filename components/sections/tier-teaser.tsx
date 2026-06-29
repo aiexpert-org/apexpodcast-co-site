@@ -6,33 +6,25 @@ const tiers = [
   {
     name: 'The Prepisode',
     price: '$997 one-time',
-    body: 'One produced episode that runs through the full PREP system. The Pentatype assessment, a 90-minute strategy session, branded cover art, distribution under the Apex Podcast Network feed, and twelve months of network membership.',
+    body: 'One produced episode in your feed within two weeks. Credited in full if you continue.',
     href: '/the-prepisode/',
-    cta: 'See the scope',
+    cta: 'Try one episode',
     dark: false,
   },
   {
     name: 'Your Weekly Show',
-    price: '$2,997 per 28-day cycle',
-    body: 'The full PREP system run every cycle. Up to four produced episodes per cycle, recording sessions with a producer in the room, full distribution under the Apex Podcast Network feed, a per-episode producer debrief, network coordination, and the block-analysis audit every eight episodes.',
+    price: '$2,997 per cycle',
+    body: 'A weekly show that compounds. You show up to record. We do every other step. Up to four episodes a cycle for the same price.',
     href: '/your-weekly-show/',
-    cta: 'See the scope',
+    cta: 'Run the show',
     dark: true,
   },
   {
     name: 'Apex Podcast Network',
-    price: '$997 per 28-day cycle',
-    body: 'Promote only, for podcast owners who already handle their own production. Socials repurposing from your published episode, bidirectional guest booking, and a place inside the Apex Podcast Network feed.',
+    price: '$997 per cycle',
+    body: 'Already publishing? Get a network behind your show. Social cut-downs, guest swaps, network feature.',
     href: '/apex-podcast-network/',
-    cta: 'See the offer',
-    dark: false,
-  },
-  {
-    name: 'Multi-Tenant Pipeline License',
-    price: '$2,997/mo or $29,970/yr',
-    body: 'Run the Apex production pipeline under your own brand, for your own roster. The method, the Pentatype assessment, the templates, and a multi-tenant control plane. NDA required. Real-estate and eXp roster excluded.',
-    href: '/multi-tenant-pipeline-license/',
-    cta: 'See the license',
+    cta: 'Amplify what you publish',
     dark: false,
   },
 ]
@@ -47,20 +39,12 @@ export default function TierTeaser() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="h-section mt-5 text-ink">
-              The PREP system, bundled, modular, or licensed.
+              Try one. Run a show. Or amplify what you already publish.
             </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="lead mt-5">
-              Every Apex offer runs the PREP system. Prepare, Record + Edit + Publish, Promote. The
-              Prepisode runs it once. Your Weekly Show runs it every cycle. Apex Podcast Network runs
-              the Promote phase as a standalone for owners who already produce. The Multi-Tenant
-              Pipeline License is how the system travels past our capped roster.
-            </p>
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {tiers.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 0.08}>
               <div
@@ -85,7 +69,7 @@ export default function TierTeaser() {
                 </p>
                 {tier.dark && (
                   <p className="mt-5 font-mono text-xs uppercase tracking-widest text-bone/55">
-                    First five Weekly Show clients lock at $2,997 for twenty-four months.
+                    First five clients lock $2,997 for twenty-four months.
                   </p>
                 )}
                 <Link

@@ -46,7 +46,7 @@ export default async function CaseStudyPage({
           </>
         }
       >
-        Hosted by {hostLine(show)}. A producer in the room on every session.
+        Hosted by {hostLine(show)}.
       </PageHero>
 
       <section className="section">
@@ -66,19 +66,13 @@ export default async function CaseStudyPage({
             <Reveal className="lg:pt-6">
               <p className="eyebrow-acid">The show</p>
               <p className="lead mt-5 text-ink/80">{show.excerpt}</p>
-              <p className="mt-6 text-ink/70">
-                Every episode runs through the Apex standard: the Pentatype assessment tunes the show
-                to how {show.host ?? 'the host'} communicates, a producer is in the room for every
-                recording, and the finished bundle goes out on its own feed and onto the Apex Podcast
-                Network.
-              </p>
 
               <div className="mt-9 flex flex-wrap items-center gap-4">
                 <CtaLink href={siteConfig.listen.anywhere} variant="primary">
-                  Listen to the show
+                  Listen
                 </CtaLink>
-                <CtaLink href="/portfolio/" variant="ghost-light" arrow>
-                  See the full catalog
+                <CtaLink href="/network/" variant="ghost-light" arrow>
+                  See the catalog
                 </CtaLink>
               </div>
             </Reveal>
@@ -88,8 +82,7 @@ export default async function CaseStudyPage({
 
       <ContactBlock source={`case-study-${show.slug}`}>
         <p>
-          Want a show produced like {show.title}? Apex takes on a small number each cycle. Drop your
-          name and a producer will reach out when a spot opens.
+          Want a show like {show.title}? Save your spot and a producer will reach out.
         </p>
       </ContactBlock>
     </>
