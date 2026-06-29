@@ -18,7 +18,7 @@ export default function NetworkTeaser() {
                 <span className="text-acid">.</span>
               </h2>
               <p className="mt-5 text-ink/70">
-                We produce twelve shows on the Apex Podcast Network. Every release helps carry the
+                We produce twelve shows inside the Apex Catalog. Every release helps carry the
                 others, and every sphere meets the next.
               </p>
             </div>

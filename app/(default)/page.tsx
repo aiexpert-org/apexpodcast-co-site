@@ -6,6 +6,7 @@ import { Border } from '@/components/ccm/border'
 import { SectionIntro } from '@/components/ccm/section-intro'
 import { ApexHero } from '@/components/ccm/apex-hero'
 import { CatalogPanel } from '@/components/sections/catalog-panel'
+import { PreppMethodology } from '@/components/sections/prepp-methodology'
 import { ContactBlock } from '@/components/ccm/contact-block'
 
 export const metadata: Metadata = {
@@ -39,6 +40,8 @@ export default function Home() {
       <ApexHero />
 
       <CatalogPanel />
+
+      <PreppMethodology />
 
       <section aria-label="What changes when a producer cares about the craft">
         <SectionIntro

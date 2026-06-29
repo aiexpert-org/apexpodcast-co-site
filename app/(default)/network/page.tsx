@@ -5,7 +5,7 @@ import { NETWORK_SHOWS } from '@/lib/shows'
 import { fetchTransistorShows, matchTransistorShow, type TransistorShow } from '@/lib/transistor'
 
 export const metadata: Metadata = {
-  title: 'The Apex Podcast Network',
+  title: 'The Apex Catalog',
   description:
     'Every show Apex produces. Your show launches into this catalog and rides every release the others ship.',
   alternates: { canonical: '/network/' },
@@ -26,7 +26,7 @@ export default async function NetworkPage() {
         <div className="container-apex">
           <div className="max-w-3xl">
             <p className="font-mono text-xs uppercase tracking-widest text-acid">
-              The Apex Podcast Network
+              The Apex Catalog
             </p>
             <h1 className="display mt-5 text-ink">
               The catalog

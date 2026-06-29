@@ -35,7 +35,7 @@ export const whyGuest: { title: string; body: string }[] = [
   },
   {
     title: 'The network carries it.',
-    body: 'Your episode publishes into the Apex Podcast Network feed, gets collab-tagged across the cohort, and is a candidate for The Debrief newsletter.',
+    body: 'Your episode publishes into the Apex catalog feed, gets collab-tagged across the cohort, and is a candidate for The Debrief newsletter.',
   },
   {
     title: 'You leave with assets.',

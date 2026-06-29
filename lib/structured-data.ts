@@ -4,15 +4,13 @@ import { NETWORK_SHOWS } from '@/lib/shows'
 /**
  * schema.org @graph for Apex Podcast Co.
  *
- * 2026-06-26 PREP framework lock: PREP layers underneath Your Weekly Show as
- * the explanatory architecture (Prepare, Record + Edit + Publish, Promote).
- * "Your First Episode" renamed to "The Prepisode". Apex Podcast Network added
- * as a productized standalone Promote-only SKU. SKU map below carries the four
- * locked offers as Service nodes (pricing is steady state, no conditional
- * future raises surfaced on the public site per 2026-06-27 lock):
+ * 2026-06-29 PREPP scope correction: Apex owns the first four phases of the
+ * PREPP methodology (Prepare, Record, Edit, Publish). The fifth phase (Promote)
+ * is delivered by partner PodcastNetwork.org. The "Apex Podcast Network" SKU
+ * was retired in this pass because the name now overlaps with the partner brand.
+ * SKU map carries the remaining locked offers as Service nodes:
  *   - The Prepisode: $997 one-time
  *   - Your Weekly Show: $2,997 per 28-day cycle
- *   - Apex Podcast Network: $997 per 28-day cycle (standalone Promote)
  *   - Multi-Tenant Pipeline License: $2,997/mo or $29,970/yr
  *
  * 2026-06-26 faceless reversal: Brett K Moore and Randy Highsmith are public
@@ -28,7 +26,6 @@ const BRETT = `${base}/producers/#brett-k-moore`
 const RANDY = `${base}/producers/#randy-highsmith`
 const SVC_PREPISODE = `${base}/the-prepisode/#service`
 const SVC_WEEKLY = `${base}/your-weekly-show/#service`
-const SVC_NETWORK = `${base}/apex-podcast-network/#service`
 const SVC_LICENSE = `${base}/multi-tenant-pipeline-license/#service`
 
 export function buildGraph() {
@@ -106,7 +103,7 @@ export function buildGraph() {
         provider: { '@id': ORG },
         areaServed: 'Worldwide',
         description:
-          'One produced episode that runs through the full PREP system (Prepare, Record + Edit + Publish, Promote) with the Pentatype assessment, a 90-minute strategy session, branded cover art, distribution under the Apex Podcast Network feed, and twelve months of network membership. The honest entry point.',
+          'One produced episode that runs through the first four phases of the PREPP methodology (Prepare, Record, Edit, Publish) with the Pentatype Communication Assessment, a 90-minute strategy session, branded cover art, and distribution inside the Apex catalog. The honest entry point. Promote is delivered by PodcastNetwork.org as a separate engagement.',
         offers: {
           '@type': 'Offer',
           price: '997',
@@ -125,32 +122,13 @@ export function buildGraph() {
         provider: { '@id': ORG },
         areaServed: 'Worldwide',
         description:
-          'The full PREP system (Prepare, Record + Edit + Publish, Promote) run every cycle. A producer in the room every session, full distribution under the Apex Podcast Network feed, a per-episode producer debrief, and the block-analysis audit every eight episodes. One to four episodes per 28-day cycle, same price.',
+          'The first four phases of the PREPP methodology (Prepare, Record, Edit, Publish) run every cycle. A producer in the room every session, full distribution inside the Apex catalog, a per-episode producer debrief, and the block-analysis audit every eight episodes. One to four episodes per 28-day cycle, same price. Promote sits with our partner PodcastNetwork.org.',
         offers: {
           '@type': 'Offer',
           price: '2997',
           priceCurrency: 'USD',
           category: '28-day cycle',
           url: `${base}/your-weekly-show/`,
-          availability: 'https://schema.org/InStock',
-        },
-      },
-      {
-        '@type': 'Service',
-        '@id': SVC_NETWORK,
-        name: 'Apex Podcast Network',
-        url: `${base}/apex-podcast-network/`,
-        serviceType: 'Podcast promotion and network distribution',
-        provider: { '@id': ORG },
-        areaServed: 'Worldwide',
-        description:
-          'The Promote phase of the PREP system as a standalone offer for podcast owners who already handle their own production. Socials repurposing from your published episode, bidirectional guest booking, and a place inside the Apex Podcast Network feed.',
-        offers: {
-          '@type': 'Offer',
-          price: '997',
-          priceCurrency: 'USD',
-          category: '28-day cycle',
-          url: `${base}/apex-podcast-network/`,
           availability: 'https://schema.org/InStock',
         },
       },

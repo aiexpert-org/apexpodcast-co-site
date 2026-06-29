@@ -190,7 +190,7 @@ function CatalogCard({
           {show.title}
         </h3>
         <p className="mt-1 font-mono text-xs uppercase tracking-widest text-ink/55">
-          {show.host ?? 'Apex Podcast Network'}
+          {show.host ?? 'Apex Catalog'}
         </p>
         {show.hitComparable && (
           <p className="mt-1 text-xs italic text-ink/50">{show.hitComparable}</p>

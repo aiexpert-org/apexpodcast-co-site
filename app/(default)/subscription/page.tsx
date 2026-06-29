@@ -7,7 +7,7 @@ import { Reveal, RevealStagger, RevealItem } from '@/components/motion/reveal'
 export const metadata: Metadata = {
   title: 'Subscription',
   description:
-    'Four ways in. The Prepisode at $997, Your Weekly Show at $2,997 per 28-day cycle, Apex Podcast Network at $997 per cycle, and the Multi-Tenant Pipeline License at $2,997 a month. The PREP system, bundled or modular.',
+    'Three ways in. The Prepisode at $997, Your Weekly Show at $2,997 per 28-day cycle, and the Multi-Tenant Pipeline License at $2,997 a month. The first four phases of the PREPP methodology, bundled or licensed. Promote sits with our partner PodcastNetwork.org.',
   alternates: { canonical: '/subscription/' },
 }
 
@@ -25,22 +25,15 @@ const PLANS: Plan[] = [
     price: '$997',
     period: 'one time',
     tagline:
-      'The gateway. One produced episode through the full PREP system, so you feel the Apex standard before you commit to a cadence.',
+      'The gateway. One produced episode through the first four phases of the PREPP methodology, so you feel the Apex standard before you commit to a cadence.',
   },
   {
     name: 'Your Weekly Show',
     price: '$2,997',
     period: 'per 28-day cycle',
     tagline:
-      'The full PREP system run every cycle. A producer in the room every session, the bundle of deliverables, and a place on the network.',
+      'The first four phases of the PREPP methodology run every cycle. A producer in the room every session, the bundle of deliverables, and a place inside the Apex catalog.',
     featured: true,
-  },
-  {
-    name: 'Apex Podcast Network',
-    price: '$997',
-    period: 'per 28-day cycle',
-    tagline:
-      'Promote only. For podcast owners who already produce their own show and want the network amplification on top.',
   },
   {
     name: 'Pipeline License',
@@ -70,7 +63,7 @@ const INCLUDED: { title: string; body: string }[] = [
   },
   {
     title: 'Network distribution',
-    body: 'A place on the Apex Podcast Network feed, where every Apex show carries the others.',
+    body: 'A place inside the Apex catalog, where every Apex show carries the others.',
   },
   {
     title: 'Pentatype mapping',
@@ -139,14 +132,14 @@ export default function SubscriptionPage() {
         eyebrow="The offer."
         title={
           <>
-            The PREP system, bundled, modular, or licensed
+            The PREPP methodology, bundled or licensed
             <span className="text-acid">.</span>
           </>
         }
       >
-        Four ways in. Run one episode through the full PREP system, run a weekly show with the
-        bundle, take just the Promote phase as a standalone, or license the whole pipeline under
-        your own brand.
+        Three ways in. Run one episode through the first four PREPP phases, run a weekly show with
+        the bundle, or license the whole pipeline under your own brand. Promote sits with our
+        partner PodcastNetwork.org.
       </PageHero>
 
       {/* Plans */}

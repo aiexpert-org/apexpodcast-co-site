@@ -2,7 +2,7 @@ import { Reveal, RevealStagger, RevealItem } from '@/components/motion/reveal'
 
 const cards = [
   {
-    title: 'The Apex Podcast Network feed.',
+    title: 'The Apex catalog feed.',
     body: 'Every show rolls up under one parent feed. Aggregate downloads compound across the cohort.',
   },
   {

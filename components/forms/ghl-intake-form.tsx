@@ -28,7 +28,6 @@ import { cn } from '@/lib/utils'
 const SERVICE_OPTIONS = [
   'The Prepisode ($997)',
   'Your Weekly Show ($2,997 per cycle)',
-  'Apex Podcast Network ($997 per cycle)',
   'Multi-Tenant Pipeline License ($2,997/mo)',
   'Not sure yet',
 ] as const

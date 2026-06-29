@@ -64,7 +64,7 @@ export default function LogoScroller({
             'marquee-band mt-14 flex flex-col gap-6 overflow-hidden',
             '[mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]',
           )}
-          aria-label="Apex Podcast Network catalog"
+          aria-label="Apex catalog"
         >
           <Marquee row={top} direction="ltr" />
           <Marquee row={bottom.length ? bottom : top} direction="rtl" />

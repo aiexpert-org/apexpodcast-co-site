@@ -7,7 +7,7 @@ import PageHero from '@/components/ui/page-hero'
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    'The work, three ways. Try one episode for $997. Run the show for $2,997 a cycle. Or put a network behind a show you already publish for $997 a cycle.',
+    'The work, two ways. Try one episode for $997. Run the show for $2,997 a cycle. Promotion sits with our partner network at PodcastNetwork.org.',
   alternates: { canonical: '/services/' },
 }
 
@@ -23,7 +23,7 @@ export default function ServicesPage() {
           </>
         }
       >
-        Try one episode. Run the show, ongoing. Or put a network around what you already publish.
+        Try one episode. Run the show, ongoing. Promotion is handled by our partner network at PodcastNetwork.org.
       </PageHero>
 
       <TierTeaser />

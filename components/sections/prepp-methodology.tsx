@@ -1,31 +1,33 @@
-import type { Metadata } from 'next'
 import { Container } from '@/components/ccm/container'
 import { FadeIn, FadeInStagger } from '@/components/ccm/fade-in'
 import { Border } from '@/components/ccm/border'
-import { PageIntro } from '@/components/ccm/page-intro'
-import { ContactBlock } from '@/components/ccm/contact-block'
+import { SectionIntro } from '@/components/ccm/section-intro'
 import { preppPhases } from '@/lib/services'
-import { siteConfig } from '@/lib/site-config'
 
-export const metadata: Metadata = {
-  title: 'How We Work',
-  description:
-    'The PREPP methodology in plain terms. Apex owns Prepare, Record, Edit, and Publish. PodcastNetwork.org owns Promote. Two specialist teams, one method, one show.',
-  alternates: { canonical: '/how-we-work/' },
-}
-
-export default function HowWeWorkPage() {
+/**
+ * PREPP methodology section. Five phases (Prepare, Record, Edit, Publish,
+ * Promote). Apex Podcast Co owns the first four. PodcastNetwork.org owns the
+ * fifth. Partnership architecture surfaced as a methodology fact, not a SKU.
+ *
+ * Voice rules: no em dashes, no "X, not Y", no banned vocab, no emoji.
+ */
+export function PreppMethodology() {
   return (
-    <>
-      <PageIntro eyebrow="How it works" title="The PREPP methodology. Plain terms.">
-        <p>
-          Five phases from a blank schedule to a published show. Apex owns the
-          first four (Prepare, Record, Edit, Publish). PodcastNetwork.org owns
-          the fifth (Promote). One method, two specialist teams.
+    <section aria-labelledby="prepp-methodology-heading">
+      <SectionIntro
+        eyebrow="The PREPP methodology"
+        title="Five phases. A clean partnership behind every show."
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p id="prepp-methodology-heading">
+          Apex owns the first four phases: Prepare, Record, Edit, Publish.
+          PodcastNetwork.org owns the fifth: Promote. Customer journey is
+          handled end-to-end across two specialist teams that run the same
+          methodology. You can engage either or both.
         </p>
-      </PageIntro>
+      </SectionIntro>
 
-      <Container className="mt-24 sm:mt-32 lg:mt-40">
+      <Container className="mt-16">
         <FadeInStagger faster>
           <ol
             role="list"
@@ -66,34 +68,7 @@ export default function HowWeWorkPage() {
             ))}
           </ol>
         </FadeInStagger>
-
-        <FadeIn className="mt-16 max-w-3xl">
-          <p className="text-base leading-7 text-neutral-600">
-            Most clients start with the four-phase Apex bundle and add promotion
-            with PodcastNetwork.org when the audience is ready to compound. You
-            can also engage either side modular. The method is the same on both
-            sides of the partnership.
-          </p>
-          <p className="mt-4 text-base leading-7 text-neutral-600">
-            See{' '}
-            <a
-              href={siteConfig.podcastNetworkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold underline decoration-[var(--color-cta)] underline-offset-4 transition hover:text-neutral-950"
-            >
-              PodcastNetwork.org
-            </a>{' '}
-            for the Promote-phase scope.
-          </p>
-        </FadeIn>
       </Container>
-
-      <ContactBlock heading="Ready to record the first one?">
-        <p>
-          Save your spot and a producer will reach out.
-        </p>
-      </ContactBlock>
-    </>
+    </section>
   )
 }
