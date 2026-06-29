@@ -165,10 +165,13 @@
 .marquee-track {
   display: flex;
   width: max-content;
-  /* Slow, elegant drift: ~135s per full cycle so each tile gets visual real
-     estate before scrolling off. Linear so the motion reads as a continuous,
-     mechanical conveyor rather than easing in and out. */
-  animation-duration: 135s;
+  align-items: center;
+  gap: 1rem;
+  /* CCM uses 135s for a slow, elegant drift. Apex shortens to 90s so the
+     motion is obviously alive on first paint while still giving each tile
+     visual real estate before scrolling off. Linear so the motion reads as a
+     continuous, mechanical conveyor rather than easing in and out. */
+  animation-duration: 90s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   will-change: transform;
