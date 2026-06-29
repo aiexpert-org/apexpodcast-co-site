@@ -114,42 +114,7 @@ input[type='search']::-webkit-search-results-decoration {
     scrollbar-width: none;
 }
 
-/* Logo Scroller marquee. CCM "Churches I've worked with" treatment.
-   Two rows of show wordmarks drift in opposing directions on an ink ground.
-   The track is doubled and translated -50% so the loop is seamless. The
-   .marquee-band hover pauses any nested marquee track so the operator can
-   read a logo before it scrolls past. */
-.marquee-track {
-    @apply flex w-max items-center gap-4;
-    will-change: transform;
-}
-
-@keyframes marquee-ltr {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-}
-
-@keyframes marquee-rtl {
-    from { transform: translateX(-50%); }
-    to   { transform: translateX(0); }
-}
-
-/* CCM uses 135s. The slower drift gives each wordmark visual real estate
-   before scrolling off and makes the band feel parallactic against Lenis
-   smooth scroll. */
-.marquee-ltr {
-    animation: marquee-ltr 135s linear infinite;
-}
-.marquee-rtl {
-    animation: marquee-rtl 135s linear infinite;
-}
-
-.marquee-band:hover .marquee-track {
-    animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .marquee-ltr, .marquee-rtl {
-        animation: none;
-    }
-}
+/* Logo Scroller marquee styles live in app/css/style.css (non-layered) so the
+   keyframes and .marquee-track shorthand cascade over component-layer rules
+   without fighting them. Duplicating them here used to flip the direction
+   keyframes and stall the band. */

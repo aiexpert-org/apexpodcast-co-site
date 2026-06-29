@@ -1,99 +1,109 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { Container } from '@/components/ccm/container'
 import { FadeIn } from '@/components/ccm/fade-in'
 import { JoinWaitListButton } from '@/components/ccm/join-waitlist-button'
 import { ButtonMarker } from '@/components/ccm/button-marker'
-import { FLAGSHIP_SHOWS, ESTABLISHED_SHOWS, type Show } from '@/lib/shows'
 
 /**
- * ApexHero — CCM hero pattern (MicheleHero), one-for-one. The CCM hero
- * overlays a portrait on a 3x3 grid of organization logo panels. Apex
- * substitutes a 3x3 grid of show cover tiles + a central catalog identity card
- * (faceless rule: no founder portrait). Same structural composition: copy
- * column left, photo-over-grid right; mobile stacks the card on top with a
- * 3x2 grid below.
+ * ApexHero. CCM hero pattern, ported to Apex.
  *
- * Tile hover: muted grayscale at rest, full color on hover, with the tile
- * linking into the show's case study (when available).
+ * Right side is a dense cover-art mosaic. Twenty tiles in a 5-column, 4-row
+ * grid, edge-to-edge with a soft top fade. Each tile rests at low saturation;
+ * hovering lights it to full color. Mobile drops to a 3-column, 3-row subset.
+ *
+ * No overlay card. The headline and strapline in the left column carry the
+ * brand statement; the tiles are the product surface.
  */
-function CoverPanel({ show }: { show: Show }) {
-  const Inner = (
-    <div className="group flex h-full items-center justify-center rounded-xl border border-neutral-200/80 bg-bone/70 p-2 transition duration-300 hover:border-[var(--color-cta)] hover:bg-bone hover:shadow-md hover:shadow-[var(--color-cta)]/10">
-      {show.cover ? (
-        <span className="relative block aspect-square w-full overflow-hidden rounded-md">
-          <Image
-            src={show.cover}
-            alt={show.title}
-            fill
-            sizes="160px"
-            className="object-cover opacity-60 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-          />
-        </span>
-      ) : (
-        <span className="text-center font-display text-[0.72rem] leading-tight font-semibold tracking-tight text-neutral-300 transition duration-300 group-hover:text-[var(--color-cta)]">
-          {show.title}
-        </span>
-      )}
+
+const HERO_TILES: string[] = [
+  '/covers/show-sweeter-after-difficulty.webp',
+  '/covers/show-the-russ-laggan-podcast.webp',
+  '/covers/show-winning-twice.webp',
+  '/covers/show-the-apex-podcast.webp',
+  '/covers/show-the-listener.webp',
+
+  '/covers/show-producers-chair.webp',
+  '/covers/show-album-one.webp',
+  '/covers/show-the-anti-label.webp',
+  '/covers/show-b-sides.webp',
+  '/covers/show-one-note.webp',
+
+  '/covers/show-reps.webp',
+  '/covers/show-second-acts.webp',
+  '/covers/show-the-comeback-mile.webp',
+  '/covers/show-five-fingers.webp',
+  '/covers/show-the-long-friendship.webp',
+
+  '/covers/show-men-im-lucky-to-know.webp',
+  '/covers/show-n-of-one.webp',
+  '/covers/show-black-belt-at-40.webp',
+  '/covers/show-basics.webp',
+  '/covers/cover-04-pentatype.webp',
+]
+
+const MOBILE_TILES = HERO_TILES.slice(0, 9)
+
+function CoverTile({ src, priority }: { src: string; priority?: boolean }) {
+  return (
+    <div className="group relative overflow-hidden rounded-md ring-1 ring-ink/5">
+      <div className="relative aspect-square w-full">
+        <Image
+          src={src}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 10vw, (min-width: 640px) 12vw, 22vw"
+          className="object-cover opacity-65 grayscale-[0.55] transition duration-500 ease-out group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.03]"
+          priority={priority}
+        />
+      </div>
     </div>
   )
-
-  if (show.caseStudy) {
-    return (
-      <Link
-        href={`/case-studies/${show.slug}/`}
-        aria-label={`Open the ${show.title} case study`}
-        className="block h-full"
-      >
-        {Inner}
-      </Link>
-    )
-  }
-  return Inner
 }
 
-const HERO_SHOWS: Show[] = [
-  // Anchor with the flagship trio in the corners, fill the rest with
-  // established Transistor shows. 3x3 = 9 panels.
-  FLAGSHIP_SHOWS[0],
-  ESTABLISHED_SHOWS[0],
-  FLAGSHIP_SHOWS[1],
-  ESTABLISHED_SHOWS[1],
-  // Center tile is hidden by the catalog card overlay; placeholder anyway so
-  // the grid keeps its rhythm and screen readers see it.
-  ESTABLISHED_SHOWS[2],
-  ESTABLISHED_SHOWS[3],
-  FLAGSHIP_SHOWS[2],
-  ESTABLISHED_SHOWS[4],
-  ESTABLISHED_SHOWS[5],
-]
-
-const MOBILE_SHOWS: Show[] = [
-  FLAGSHIP_SHOWS[0],
-  FLAGSHIP_SHOWS[1],
-  FLAGSHIP_SHOWS[2],
-  ESTABLISHED_SHOWS[0],
-  ESTABLISHED_SHOWS[1],
-  ESTABLISHED_SHOWS[2],
-]
-
-function CatalogCard() {
+function HeroMosaic() {
   return (
-    <div className="relative aspect-[5/7] overflow-hidden rounded-3xl bg-[var(--color-acid)] shadow-2xl ring-1 ring-neutral-900/10">
-      <div className="absolute inset-0 flex flex-col justify-between p-6 text-[var(--color-ink)]">
-        <div className="font-mono text-xs tracking-widest uppercase">
-          Apex Podcast Co
-        </div>
-        <div>
-          <div className="font-display text-3xl leading-[1.05] font-semibold tracking-tight">
-            Producers in the room.
-          </div>
-          <div className="mt-3 font-mono text-[0.6875rem] tracking-widest uppercase">
-            Est. 2026 · Indianapolis
-          </div>
-        </div>
+    <div className="relative isolate w-full" aria-hidden="true">
+      <div className="grid grid-cols-5 grid-rows-4 gap-1.5 sm:gap-2">
+        {HERO_TILES.map((src, i) => (
+          <CoverTile key={`${src}-${i}`} src={src} priority={i < 5} />
+        ))}
       </div>
+      {/* Soft fade at the top edge so the mosaic settles into the page. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-16"
+        style={{
+          background:
+            'linear-gradient(to bottom, var(--color-bone) 0%, rgba(250,248,243,0) 100%)',
+        }}
+      />
+      {/* Soft fade at the bottom edge into the page below. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-10"
+        style={{
+          background:
+            'linear-gradient(to top, var(--color-bone) 0%, rgba(250,248,243,0) 100%)',
+        }}
+      />
+    </div>
+  )
+}
+
+function HeroMosaicMobile() {
+  return (
+    <div className="relative w-full" aria-hidden="true">
+      <div className="grid grid-cols-3 grid-rows-3 gap-1.5">
+        {MOBILE_TILES.map((src, i) => (
+          <CoverTile key={`m-${src}-${i}`} src={src} priority={i < 3} />
+        ))}
+      </div>
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-10"
+        style={{
+          background:
+            'linear-gradient(to bottom, var(--color-bone) 0%, rgba(250,248,243,0) 100%)',
+        }}
+      />
     </div>
   )
 }
@@ -129,30 +139,13 @@ export function ApexHero() {
             </p>
           </FadeIn>
 
-          {/* Catalog card overlaid over the show cover grid */}
+          {/* Mosaic column */}
           <FadeIn>
-            {/* Desktop / tablet: card floats over a 3x3 cover wall */}
-            <div className="relative mx-auto hidden aspect-[4/5] w-full max-w-md md:block lg:mr-0 lg:ml-auto">
-              <div className="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-3" aria-hidden="true">
-                {HERO_SHOWS.map((show, i) => (
-                  <CoverPanel key={`${show.slug}-${i}`} show={show} />
-                ))}
-              </div>
-              <div className="absolute top-1/2 left-1/2 z-20 w-[62%] -translate-x-1/2 -translate-y-1/2">
-                <CatalogCard />
-              </div>
+            <div className="hidden md:block">
+              <HeroMosaic />
             </div>
-
-            {/* Mobile: catalog card on top, cover grid below */}
             <div className="md:hidden">
-              <div className="mx-auto w-full max-w-[15rem]">
-                <CatalogCard />
-              </div>
-              <div className="mt-5 grid grid-cols-3 gap-2.5" aria-hidden="true">
-                {MOBILE_SHOWS.map((show, i) => (
-                  <CoverPanel key={`m-${show.slug}-${i}`} show={show} />
-                ))}
-              </div>
+              <HeroMosaicMobile />
             </div>
           </FadeIn>
         </div>
