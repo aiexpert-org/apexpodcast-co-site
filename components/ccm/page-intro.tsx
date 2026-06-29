@@ -18,7 +18,7 @@ export function PageIntro({
   centered?: boolean
 }) {
   return (
-    <Container className={cn('mt-8 pb-4 sm:mt-12 lg:mt-16', centered && 'text-center')}>
+    <Container className={cn('mt-8 pb-12 sm:mt-12 sm:pb-20 lg:mt-16 lg:pb-28', centered && 'text-center')}>
       <FadeIn>
         <h1>
           {eyebrow && (

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import PageHero from '@/components/ui/page-hero'
 import ContactBlock from '@/components/sections/contact-block'
@@ -54,11 +55,13 @@ export default async function CaseStudyPage({
           <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <div className="relative aspect-square overflow-hidden rounded-3xl ring-1 ring-ink/10">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={show.cover}
                   alt={`${show.title} cover art`}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 45vw, 92vw"
+                  className="object-cover"
                 />
               </div>
             </Reveal>

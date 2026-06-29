@@ -5,9 +5,9 @@ import ClosingCta from '@/components/sections/closing-cta'
 import PageHero from '@/components/ui/page-hero'
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Pricing',
   description:
-    'Three ways to work with Apex. Try one episode for $997. Run a weekly show for $2,997 a cycle. Or amplify a show you already publish for $997 a cycle.',
+    'The work, three ways. Try one episode for $997. Run the show for $2,997 a cycle. Or put a network behind a show you already publish for $997 a cycle.',
   alternates: { canonical: '/services/' },
 }
 
@@ -15,15 +15,15 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Pick the way in"
+        eyebrow="Pricing"
         title={
           <>
-            Three ways to work with Apex
+            Producers who care about the craft
             <span className="text-acid">.</span>
           </>
         }
       >
-        Try one episode. Run a weekly show. Or amplify what you already publish. Every path ends with an audience listening.
+        Try one episode. Run the show, ongoing. Or put a network around what you already publish.
       </PageHero>
 
       <TierTeaser />
@@ -32,16 +32,16 @@ export default function ServicesPage() {
         <div className="container-apex">
           <Reveal>
             <div className="max-w-3xl rounded-3xl border border-ink/12 bg-bone p-8 md:p-10">
-              <p className="eyebrow">The math</p>
+              <p className="eyebrow">The Prepisode credit</p>
               <p className="mt-5 text-ink/75">
-                The first five Weekly Show clients lock at $2,997 per cycle for twenty-four months. Try The Prepisode first? The $997 credits in full toward your first cycle if you continue inside ninety days.
+                Try The Prepisode first and the $997 credits in full toward your first Weekly Show cycle if you continue inside ninety days. No commitment up front.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <ClosingCta headline="Not sure which one fits? Ask us." />
+      <ClosingCta headline="Not sure which one fits? We will tell you." />
     </>
   )
 }

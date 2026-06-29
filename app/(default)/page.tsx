@@ -8,30 +8,29 @@ import { ApexHero } from '@/components/ccm/apex-hero'
 import { ContactBlock } from '@/components/ccm/contact-block'
 import LogoScroller from '@/components/sections/logo-scroller'
 import SelectedWork from '@/components/sections/selected-work'
-import TierTeaser from '@/components/sections/tier-teaser'
 
 export const metadata: Metadata = {
-  title: 'Apex Podcast Co. Become the founder people listen to.',
+  title: 'Apex Podcast Co. The podcast you’ve been meaning to make.',
   description:
-    'Apex turns one hour of conversation a week into deals, hires, and partners. You record. We do the rest. Episode one in fourteen days.',
+    'Creative producers for people with something real to say. Show up for the conversation. We hold the craft. Episode one in fourteen days.',
   alternates: { canonical: '/' },
 }
 
 const OUTCOMES = [
   {
-    title: 'One hour a week. Compounding forever.',
+    title: 'The show sounds like you.',
     body:
-      'Sixty minutes of recording becomes a published episode, a feed of cut-downs, and a network feature. The work you put in once keeps paying you back.',
+      'We tune the show to your voice before we run a single tape. What you say on the record reads as you, in the form your audience needs to hear it.',
   },
   {
-    title: 'An audience that already lives here.',
+    title: 'You ship into company, not silence.',
     body:
-      'Your show ships into a catalog of twenty-six productions that promote each other. You launch with reach, not into silence.',
+      'Your show enters a catalog of Apex productions that promote each other. You launch with a room of listeners already in the seats.',
   },
   {
-    title: 'Producers who have done this before.',
+    title: 'The producers in the room give a damn.',
     body:
-      'Brett built the Pentatype. Randy ran podcast production at eXp Realty. The people in the room know what makes a conversation land.',
+      'Brett and Randy run every session. The same two people who shape the show are the ones with you when you record. No assistant tier. No handoff.',
   },
 ]
 
@@ -42,14 +41,15 @@ export default function Home() {
 
       <LogoScroller />
 
-      <section aria-label="What an Apex show does for you">
+      <section aria-label="What changes when a producer cares about the craft">
         <SectionIntro
           eyebrow="What changes"
-          title="An hour of recording. A year of compounding."
+          title="An hour. Made to matter."
           className="mt-24 sm:mt-32 lg:mt-40"
         >
           <p>
-            The conversation is the asset. We make sure the asset earns.
+            Three things shift the moment a producer who gives a damn sits in
+            the chair with you.
           </p>
         </SectionIntro>
 
@@ -77,14 +77,10 @@ export default function Home() {
         <SelectedWork />
       </div>
 
-      <div className="mt-24 sm:mt-32 lg:mt-40">
-        <TierTeaser />
-      </div>
-
-      <ContactBlock heading="Become the founder people listen to.">
+      <ContactBlock heading="Make the show you’ve been meaning to make.">
         <p>
-          Five new shows a quarter. Save your spot and a producer will reach
-          out personally.
+          A small number of new shows each quarter. Save your spot and a
+          producer will reach out personally.
         </p>
       </ContactBlock>
     </>

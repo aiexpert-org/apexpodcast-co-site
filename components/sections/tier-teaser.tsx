@@ -6,7 +6,7 @@ const tiers = [
   {
     name: 'The Prepisode',
     price: '$997 one-time',
-    body: 'One produced episode in your feed within two weeks. Credited in full if you continue.',
+    body: 'One produced episode in your feed within two weeks. The whole craft, just for one. Credited in full if you keep going.',
     href: '/the-prepisode/',
     cta: 'Try one episode',
     dark: false,
@@ -14,7 +14,7 @@ const tiers = [
   {
     name: 'Your Weekly Show',
     price: '$2,997 per cycle',
-    body: 'A weekly show that compounds. You show up to record. We do every other step. Up to four episodes a cycle for the same price.',
+    body: 'The show, ongoing. Show up to record. We hold every step before and after. Up to four episodes a cycle, same price.',
     href: '/your-weekly-show/',
     cta: 'Run the show',
     dark: true,
@@ -22,7 +22,7 @@ const tiers = [
   {
     name: 'Apex Podcast Network',
     price: '$997 per cycle',
-    body: 'Already publishing? Get a network behind your show. Social cut-downs, guest swaps, network feature.',
+    body: 'You already publish. We put a network around it. Social cut-downs, guest swaps, a place inside the Apex feed.',
     href: '/apex-podcast-network/',
     cta: 'Amplify what you publish',
     dark: false,
@@ -35,11 +35,11 @@ export default function TierTeaser() {
       <div className="container-apex">
         <div className="max-w-2xl">
           <Reveal>
-            <p className="eyebrow">Three ways in</p>
+            <p className="eyebrow">The work, three ways</p>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="h-section mt-5 text-ink">
-              Try one. Run a show. Or amplify what you already publish.
+              Try one episode. Run the show. Or put a network behind one you already publish.
             </h2>
           </Reveal>
         </div>
@@ -67,11 +67,6 @@ export default function TierTeaser() {
                 <p className={cn('mt-5 grow', tier.dark ? 'text-bone/70' : 'text-ink/70')}>
                   {tier.body}
                 </p>
-                {tier.dark && (
-                  <p className="mt-5 font-mono text-xs uppercase tracking-widest text-bone/55">
-                    First five clients lock $2,997 for twenty-four months.
-                  </p>
-                )}
                 <Link
                   href={tier.href}
                   className={cn(

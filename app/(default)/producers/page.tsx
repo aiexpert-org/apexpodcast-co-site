@@ -13,14 +13,14 @@ const PRODUCERS = [
   {
     slug: 'brett-k-moore',
     name: 'Brett K Moore',
-    role: 'Co-founder. Built the Pentatype.',
-    bio: 'Brett built the Pentatype: the framework that maps how you actually communicate so your show fits your voice instead of asking your voice to fit a format. He sits in on strategy, hosts the producer call, and reads the audit at the end of every block.',
+    role: 'Co-founder. Producer.',
+    bio: 'Brett shapes the show around the host. He listens for the conversation that is actually trying to come out of you, then builds a format that lets it. He sits on strategy, joins the recordings he produces, and reads the audit at the end of every block of episodes.',
     image: '/covers/cover-04-pentatype.webp',
   },
   {
     slug: 'randy-highsmith',
     name: 'Randy Highsmith',
-    role: 'Co-founder. Former Director of Podcast Production at eXp Realty.',
+    role: 'Co-founder. Producer.',
     bio: 'Randy ran podcast production for one of the largest real estate networks in the world, working directly with Glenn Sanford and Leo Pareja. He produced Big Agent Meeting with Russ Laggan. The chair he sat in there is the chair he sits in for you here.',
     image: '/covers/cover-05-label.webp',
   },
@@ -40,7 +40,7 @@ export default function ProducersPage() {
               <span className="text-acid">.</span>
             </h1>
             <p className="lead mt-6 max-w-2xl text-ink/75">
-              The work is done by the founders. Every session, every show.
+              Apex stays two people on purpose. The producers in the room are the same two people who shape every show.
             </p>
           </Reveal>
 

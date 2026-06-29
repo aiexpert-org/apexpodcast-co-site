@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata: Metadata = {
   title: 'Listen',
   description:
-    'The Apex Podcast on Spotify, Apple Podcasts, and everywhere else. Listening is free. So is coming on the show.',
+    'The Apex Podcast on Spotify, Apple Podcasts, and everywhere else. Real conversations with people who have something to say.',
   alternates: { canonical: '/listen/' },
 }
 
@@ -37,7 +37,7 @@ export default function ListenPage() {
             <span className="text-acid">.</span>
           </h1>
           <p className="lead mt-7 max-w-3xl text-bone/70">
-            Conversations with founders, operators, and the people who hire them. Listening is free. So is coming on the show.
+            Real conversations with people who have something to say. Listening is free. So is coming on the show.
           </p>
         </div>
       </section>
@@ -70,7 +70,7 @@ export default function ListenPage() {
             <div className="max-w-3xl">
               <p className="eyebrow">Want to come on?</p>
               <p className="mt-5 text-ink/75">
-                We record with founders, operators, and the leaders our audience is trying to hire. Coming on is free.
+                We record with people who have something real to say. If that is you, coming on is free.
               </p>
               <div className="mt-7 flex flex-wrap gap-4">
                 <CtaLink href="/contact/" variant="primary" arrow>
