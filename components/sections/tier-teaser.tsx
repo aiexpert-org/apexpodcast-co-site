@@ -14,7 +14,7 @@ const tiers = [
   {
     name: 'Your Weekly Show',
     price: '$2,997 per cycle',
-    body: 'The show, ongoing. Show up to record. We hold every step before and after. Up to four episodes a cycle, same price.',
+    body: 'The show, ongoing. Show up to record. Every step before and after is on us. Up to four episodes a cycle, same price.',
     href: '/your-weekly-show/',
     cta: 'Run the show',
     dark: true,

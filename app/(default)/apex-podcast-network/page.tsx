@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 const networkIncludes: { title: string; body: string }[] = [
   {
-    title: 'A place inside a feed that compounds.',
-    body: 'Your published episode runs alongside twenty-six other shows. Every release carries the others.',
+    title: 'A place inside the Apex catalog.',
+    body: 'Your published episode runs alongside the rest of the Apex catalog. Every release carries the others.',
   },
   {
     title: 'Social cut-downs from every episode.',

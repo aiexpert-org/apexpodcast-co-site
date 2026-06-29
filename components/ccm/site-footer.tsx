@@ -48,8 +48,7 @@ export function SiteFooter() {
             </h2>
 
             <p className="mt-6 max-w-xs text-sm leading-6 text-neutral-600">
-              Apex takes on a small number of new shows each quarter. Drop your
-              info and we&rsquo;ll reach out personally when a spot opens.
+              Drop your info and a producer will reach out personally.
             </p>
             <div className="mt-5">
               <JoinWaitListButton source="footer" />

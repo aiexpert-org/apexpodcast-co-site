@@ -8,7 +8,7 @@ import { ContactBlock } from '@/components/ccm/contact-block'
 export const metadata: Metadata = {
   title: 'How We Work',
   description:
-    'You show up for the conversation. We hold the craft. Three steps from first call to live in your feed in fourteen days.',
+    'Three steps from the first call to a published episode you are proud of.',
   alternates: { canonical: '/how-we-work/' },
 }
 
@@ -24,18 +24,18 @@ const STEPS = [
       'An hour a week. A producer is on the line catching levels, marking the moments worth keeping, saving the questions you forgot to ask.',
   },
   {
-    title: 'We hold the rest.',
+    title: 'Publish and amplify.',
     body:
-      'Edit, publish, cut for social, place the episode inside a network of Apex shows. The conversation you had once goes everywhere your audience already is.',
+      'We edit, publish, cut for social, and place the episode inside the Apex catalog. The conversation you had once goes everywhere your audience already is.',
   },
 ]
 
 export default function HowWeWorkPage() {
   return (
     <>
-      <PageIntro eyebrow="How it works" title="Show up. We hold the craft.">
+      <PageIntro eyebrow="How it works" title="Three steps. One producer in the room.">
         <p>
-          Three steps from the first call to a published episode you are proud of.
+          From the first call to a published episode you are proud of.
         </p>
       </PageIntro>
 
@@ -60,7 +60,7 @@ export default function HowWeWorkPage() {
 
       <ContactBlock heading="Ready to record the first one?">
         <p>
-          A small number of new shows each quarter. Save your spot and a producer will reach out.
+          Save your spot and a producer will reach out.
         </p>
       </ContactBlock>
     </>

@@ -23,10 +23,10 @@ export default function AboutPage() {
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <FadeIn className="max-w-3xl">
           <h2 className="font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
-            A small number of shows. On purpose.
+            The producers in the room are the producers.
           </h2>
           <p className="mt-6 text-xl text-neutral-600">
-            The cap is the point. It protects the standard. The producers in the room are the producers because we are the producers, and we are not chasing scale. The network grows because every show on it earned its place.
+            Brett and Randy run every session. There is no assistant tier, no handoff, no chasing scale. The catalog grows because every show on it earned its place.
           </p>
         </FadeIn>
       </Container>

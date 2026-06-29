@@ -6,13 +6,12 @@ import { Border } from '@/components/ccm/border'
 import { SectionIntro } from '@/components/ccm/section-intro'
 import { ApexHero } from '@/components/ccm/apex-hero'
 import { ContactBlock } from '@/components/ccm/contact-block'
-import LogoScroller from '@/components/sections/logo-scroller'
 import SelectedWork from '@/components/sections/selected-work'
 
 export const metadata: Metadata = {
-  title: 'Apex Podcast Co. The podcast you’ve been meaning to make.',
+  title: 'Apex Podcast Co. One conversation can change everything.',
   description:
-    'Creative producers for people with something real to say. Show up for the conversation. We hold the craft. Episode one in fourteen days.',
+    'Apex produces podcasts for people with something real to say. Two co-founder producers. Three shows in the catalog. The work speaks for itself.',
   alternates: { canonical: '/' },
 }
 
@@ -23,14 +22,14 @@ const OUTCOMES = [
       'We tune the show to your voice before we run a single tape. What you say on the record reads as you, in the form your audience needs to hear it.',
   },
   {
-    title: 'You ship into company, not silence.',
-    body:
-      'Your show enters a catalog of Apex productions that promote each other. You launch with a room of listeners already in the seats.',
-  },
-  {
-    title: 'The producers in the room give a damn.',
+    title: 'Real producers. Real conversations.',
     body:
       'Brett and Randy run every session. The same two people who shape the show are the ones with you when you record. No assistant tier. No handoff.',
+  },
+  {
+    title: 'A catalog you can point at.',
+    body:
+      'The Russ Laggan Podcast. Winning Twice with Austin Cheviron. Sweeter After Difficulty. Real conversations, in the feed, on the record.',
   },
 ]
 
@@ -39,7 +38,9 @@ export default function Home() {
     <>
       <ApexHero />
 
-      <LogoScroller />
+      <div className="mt-24 sm:mt-32 lg:mt-40">
+        <SelectedWork />
+      </div>
 
       <section aria-label="What changes when a producer cares about the craft">
         <SectionIntro
@@ -48,8 +49,8 @@ export default function Home() {
           className="mt-24 sm:mt-32 lg:mt-40"
         >
           <p>
-            Three things shift the moment a producer who gives a damn sits in
-            the chair with you.
+            Three things shift the moment a producer who cares about the craft
+            sits in the chair with you.
           </p>
         </SectionIntro>
 
@@ -73,14 +74,9 @@ export default function Home() {
         </Container>
       </section>
 
-      <div className="mt-24 sm:mt-32 lg:mt-40">
-        <SelectedWork />
-      </div>
-
-      <ContactBlock heading="Make the show you’ve been meaning to make.">
+      <ContactBlock heading="One conversation can change everything.">
         <p>
-          A small number of new shows each quarter. Save your spot and a
-          producer will reach out personally.
+          Save your spot and a producer will reach out personally.
         </p>
       </ContactBlock>
     </>

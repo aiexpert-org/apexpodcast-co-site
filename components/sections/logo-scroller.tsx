@@ -22,7 +22,7 @@ export default function LogoScroller({
   className,
   eyebrow = 'On the network',
   title = 'Shows in the Apex catalog',
-  blurb = 'Twenty-six productions across the Apex Podcast Network. Hover to pause, click any logo for the show.',
+  blurb = 'The Apex catalog. Click any cover for the show.',
 }: {
   className?: string
   eyebrow?: string

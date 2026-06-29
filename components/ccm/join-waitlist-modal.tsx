@@ -231,9 +231,7 @@ export function JoinWaitListModal({
               Join the wait list
             </h2>
             <p className="mt-3 text-base leading-7 text-neutral-600">
-              Apex Podcast Co takes on a small number of new shows each quarter.
-              Drop your info and we&rsquo;ll reach out personally when a spot
-              opens.
+              Drop your info and a producer will reach out personally.
             </p>
 
             <form onSubmit={onSubmit} noValidate className="mt-6">
