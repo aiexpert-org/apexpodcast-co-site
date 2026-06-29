@@ -5,8 +5,8 @@ import { FadeIn, FadeInStagger } from '@/components/ccm/fade-in'
 import { Border } from '@/components/ccm/border'
 import { SectionIntro } from '@/components/ccm/section-intro'
 import { ApexHero } from '@/components/ccm/apex-hero'
+import { CatalogPanel } from '@/components/sections/catalog-panel'
 import { ContactBlock } from '@/components/ccm/contact-block'
-import SelectedWork from '@/components/sections/selected-work'
 
 export const metadata: Metadata = {
   title: 'Apex Podcast Co. One conversation can change everything.',
@@ -38,9 +38,7 @@ export default function Home() {
     <>
       <ApexHero />
 
-      <div className="mt-24 sm:mt-32 lg:mt-40">
-        <SelectedWork />
-      </div>
+      <CatalogPanel />
 
       <section aria-label="What changes when a producer cares about the craft">
         <SectionIntro
