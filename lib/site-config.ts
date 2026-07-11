@@ -106,6 +106,9 @@ export const liveRoutes: ReadonlySet<string> = new Set([
   '/the-prepisode/',
   '/your-weekly-show/',
   '/multi-tenant-pipeline-license/',
+  // Modular PREPP offers shipped 2026-07-09
+  '/prepare/',
+  '/rep/',
   '/subscription/',
   '/portfolio/',
   '/case-studies/',
