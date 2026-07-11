@@ -24,6 +24,10 @@ const nextConfig = {
       { source: '/how-it-works', destination: '/how-we-work', permanent: true },
       // /portfolio/ is replaced by the live Transistor-backed /network/ catalog.
       { source: '/portfolio', destination: '/network', permanent: true },
+      // PREPP scope correction (PR #12, 2026-06-29): the Apex Podcast Network SKU
+      // was retired because the name overlapped with partner brand PodcastNetwork.org.
+      // Route old backlinks + email-footer links to the current SKU menu at /services.
+      { source: '/apex-podcast-network', destination: '/services', permanent: true },
     ]
   },
 }

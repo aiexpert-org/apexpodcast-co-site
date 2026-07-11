@@ -16,6 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/the-prepisode/`, lastModified: now, priority: 0.8 },
     { url: `${siteConfig.url}/your-weekly-show/`, lastModified: now, priority: 0.8 },
     { url: `${siteConfig.url}/multi-tenant-pipeline-license/`, lastModified: now, priority: 0.8 },
+    // Modular PREPP offers shipped 2026-07-09
+    { url: `${siteConfig.url}/prepare/`, lastModified: now, priority: 0.7 },
+    { url: `${siteConfig.url}/rep/`, lastModified: now, priority: 0.7 },
     // Work / case studies
     { url: `${siteConfig.url}/work/`, lastModified: now, priority: 0.8 },
     { url: `${siteConfig.url}/work/austin-cheviron/`, lastModified: now, priority: 0.7 },
@@ -28,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/listen/`, lastModified: now, priority: 0.7 },
     { url: `${siteConfig.url}/partners/`, lastModified: now, priority: 0.6 },
     { url: `${siteConfig.url}/affiliate/`, lastModified: now, priority: 0.6 },
-    { url: `${siteConfig.url}/resources/`, lastModified: now, priority: 0.5 },
     { url: `${siteConfig.url}/subscription/`, lastModified: now, priority: 0.5 },
     // Host press-kit pages (named producers, faceless rule reversed)
     { url: `${siteConfig.url}/austin-cheviron/`, lastModified: now, priority: 0.5 },

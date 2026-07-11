@@ -8,6 +8,8 @@
  * was retired in this pass because the name now overlaps with the partner
  * brand. Customers who want promotion go to PodcastNetwork.org.
  *
+ * Modular offerings shipped 2026-07-09 as their own pages: /prepare/ and /rep/.
+ *
  * SKU map (post-correction):
  *   - The Prepisode: $997 one-time (single produced episode, all four Apex phases)
  *   - Your Weekly Show: $2,997 per 28-day cycle (Prepare + Record + Edit + Publish, bundled)
@@ -341,6 +343,109 @@ export const managedFaq: { q: string; a: string }[] = [
   {
     q: 'How do ads work?',
     a: 'You own the show, you own the inventory. When sponsors fit, ninety percent of ad revenue is yours.',
+  },
+]
+
+/* Modular offerings shipped 2026-07-09.
+   Prepare and REP are standalone lines drawn from the four Apex-owned phases of
+   PREPP. Both priced at $997 per 28-day cycle. Together they equal Your Weekly
+   Show at $2,997; the bundle discount stays inside Your Weekly Show. */
+
+export const prepareIncludes: { title: string; body: string }[] = [
+  {
+    title: 'The Pentatype Communication Assessment.',
+    body: 'Fifteen minutes on your part. A five-core, twenty-signal map of how you actually communicate. Included on intake and revisited when the show direction shifts.',
+  },
+  {
+    title: 'A ninety-minute strategy session with your producer.',
+    body: 'We sit with the assessment, name the show around your voice, and lock the format for the cycle ahead.',
+  },
+  {
+    title: 'The voice map, written back to you.',
+    body: 'A short document your producer hands you before you record. In your hands, in your team\'s hands, so the show reads as you from day one.',
+  },
+  {
+    title: 'A run-of-show plan for every recording in the cycle.',
+    body: 'Guest brief, question arcs, the intentional pauses. A Hot Ones-style read on each guest you book.',
+  },
+  {
+    title: 'A monthly check-in.',
+    body: 'Thirty minutes with your producer to keep the map aligned as the show finds its shape.',
+  },
+]
+
+export const prepareExclusions: string[] = [
+  'Recording, editing, or publishing. Those live in REP or Your Weekly Show.',
+  'Cover art, social clips, or newsletter cadence.',
+  'A producer in the room during your recording session.',
+  'Distribution inside the Apex catalog feed. That is a Weekly Show benefit.',
+]
+
+export const prepareFaq: { q: string; a: string }[] = [
+  {
+    q: 'Who is Prepare for?',
+    a: 'Hosts who already own their recording and publishing stack but want the Apex Prepare craft on top of it. Producers, agencies, and hosts with an in-house team who want the Pentatype and the strategy without swapping vendors on the rest.',
+  },
+  {
+    q: 'Can I add episodes to Prepare?',
+    a: 'No. Prepare is Prepare only. When you want the recording, the edit, and the publish, take REP alongside it or move to Your Weekly Show for the bundle.',
+  },
+  {
+    q: 'How does Prepare stack with REP?',
+    a: 'Prepare and REP at $997 each equals Your Weekly Show at $2,997 with no discount on the pair. If you want the whole bundle, Your Weekly Show is the path. Prepare and REP as separate lines are for hosts who already own part of the stack.',
+  },
+  {
+    q: 'What happens after the first cycle?',
+    a: 'You stay in Prepare month over month, or you graduate to Your Weekly Show. The Prepare fee credits nothing forward; each cycle stands alone.',
+  },
+]
+
+export const repIncludes: { title: string; body: string }[] = [
+  {
+    title: 'A producer on every recording.',
+    body: 'Markers, redirects, the kindness to let a pause breathe. Levels caught, moments saved. The Apex standard on your session.',
+  },
+  {
+    title: 'Full edit and mix in our hands.',
+    body: 'Pacing, breath, music, the cut that lets your best moments land. You hear it back as the show you wanted to make.',
+  },
+  {
+    title: 'Cover art from the Apex brand kit.',
+    body: 'Consistent, catalog-ready art on every episode. Custom design quoted separately.',
+  },
+  {
+    title: 'Publish into the Apex catalog.',
+    body: 'Distribution set up, feed live, place in the catalog secured. Show notes and episode metadata included.',
+  },
+  {
+    title: 'A producer debrief after every episode.',
+    body: 'One observation, three deliverables. What worked, what to lean into, and the one moment we turn into a clip and a network feature.',
+  },
+]
+
+export const repExclusions: string[] = [
+  'The Pentatype assessment, voice map, or strategy session. Those live in Prepare or Your Weekly Show.',
+  'Ongoing social posting or newsletter cadence.',
+  'Guest booking or guest prep beyond the recording day.',
+  'The block-analysis audit. That is a Weekly Show benefit.',
+]
+
+export const repFaq: { q: string; a: string }[] = [
+  {
+    q: 'Who is REP for?',
+    a: 'Hosts who already have the strategy handled, through their team or their own prep or the Prepare service, and want the recording, the edit, and the publish on Apex hands.',
+  },
+  {
+    q: 'How many episodes per cycle in REP?',
+    a: 'Up to four episodes in twenty-eight days, same cadence as Your Weekly Show. If you produce one, you still pay the $997 fee for the cycle.',
+  },
+  {
+    q: 'Can I combine REP with Prepare?',
+    a: 'Yes. Prepare and REP at $997 each equals Your Weekly Show at $2,997 with no discount on the pair. The bundle discount lives inside Your Weekly Show; REP alone is for hosts who own their own Prepare stack.',
+  },
+  {
+    q: 'Does REP include social clips or newsletter blurbs?',
+    a: 'Cover art and publish are included. Social clips and newsletter cadence live in Your Weekly Show. REP is the middle of the funnel, not the promotion side.',
   },
 ]
 
